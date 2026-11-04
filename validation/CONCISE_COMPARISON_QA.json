@@ -587,118 +587,118 @@
   "figure_pairs": [
     {
       "paper_figure": "5",
-      "original_report_page": 4,
-      "computed_report_page": 5
-    },
-    {
-      "paper_figure": "6",
       "original_report_page": 6,
       "computed_report_page": 7
     },
     {
-      "paper_figure": "7",
+      "paper_figure": "6",
       "original_report_page": 8,
       "computed_report_page": 9
     },
     {
-      "paper_figure": "8",
+      "paper_figure": "7",
       "original_report_page": 10,
       "computed_report_page": 11
     },
     {
-      "paper_figure": "9",
+      "paper_figure": "8",
       "original_report_page": 12,
       "computed_report_page": 13
     },
     {
-      "paper_figure": "10",
+      "paper_figure": "9",
       "original_report_page": 14,
       "computed_report_page": 15
     },
     {
-      "paper_figure": "11",
+      "paper_figure": "10",
       "original_report_page": 16,
       "computed_report_page": 17
     },
     {
-      "paper_figure": "12",
+      "paper_figure": "11",
       "original_report_page": 18,
       "computed_report_page": 19
     },
     {
-      "paper_figure": "13",
+      "paper_figure": "12",
       "original_report_page": 20,
       "computed_report_page": 21
     },
     {
-      "paper_figure": "14",
+      "paper_figure": "13",
       "original_report_page": 22,
       "computed_report_page": 23
     },
     {
-      "paper_figure": "15",
+      "paper_figure": "14",
       "original_report_page": 24,
       "computed_report_page": 25
     },
     {
-      "paper_figure": "16",
+      "paper_figure": "15",
       "original_report_page": 26,
       "computed_report_page": 27
     },
     {
-      "paper_figure": "17",
+      "paper_figure": "16",
       "original_report_page": 28,
       "computed_report_page": 29
     },
     {
-      "paper_figure": "18",
+      "paper_figure": "17",
       "original_report_page": 30,
       "computed_report_page": 31
     },
     {
-      "paper_figure": "19",
+      "paper_figure": "18",
       "original_report_page": 32,
       "computed_report_page": 33
     },
     {
-      "paper_figure": "20",
+      "paper_figure": "19",
       "original_report_page": 34,
       "computed_report_page": 35
     },
     {
-      "paper_figure": "21",
+      "paper_figure": "20",
       "original_report_page": 36,
       "computed_report_page": 37
     },
     {
-      "paper_figure": "23",
+      "paper_figure": "21",
       "original_report_page": 38,
       "computed_report_page": 39
     },
     {
-      "paper_figure": "24",
+      "paper_figure": "23",
       "original_report_page": 40,
       "computed_report_page": 41
     },
     {
-      "paper_figure": "25",
+      "paper_figure": "24",
       "original_report_page": 42,
       "computed_report_page": 43
     },
     {
-      "paper_figure": "A1",
+      "paper_figure": "25",
       "original_report_page": 44,
       "computed_report_page": 45
     },
     {
-      "paper_figure": "B1",
+      "paper_figure": "A1",
       "original_report_page": 46,
       "computed_report_page": 47
     },
     {
-      "paper_figure": "B2",
+      "paper_figure": "B1",
       "original_report_page": 48,
       "computed_report_page": 49
+    },
+    {
+      "paper_figure": "B2",
+      "original_report_page": 50,
+      "computed_report_page": 51
     }
   ],
   "metrics_verified": [
@@ -869,16 +869,219 @@
   "source_data_cutoff_kst": "2026-11-05 03:13 KST",
   "comparison_reference": "FEM50; mesh convergence uses FEM200",
   "prediction_representation": "constitutive stress and Fourier flux derived from u,T",
-  "docx_sha256": "5346b958a1eb15f2e2bef99097b53af073bd6d60d18703c883ea783e1f8ad500",
+  "condition_audit": {
+    "source_files": [
+      {
+        "path": "harandi/fem.py",
+        "sha256": "138a6606bc602d0251cf36dc7a984364a1e602e64b92f5a6705f53f9d889e08f"
+      },
+      {
+        "path": "harandi/physics.py",
+        "sha256": "2a44f1286ba06e9b3b12354520788f3059c4a0af0cae80f52ba8a1c9a6911ed2"
+      },
+      {
+        "path": "harandi/pinn.py",
+        "sha256": "1f77f5d2d70bd0e25b0d6d66d7bbb58dcf833c5f0c947711a2528e4c234ff4bb"
+      },
+      {
+        "path": "harandi/train.py",
+        "sha256": "65bdc23c24f1c404c5cc90616a9561025af0c1caac193c3f7d16ba64a472db4f"
+      },
+      {
+        "path": "harandi/baselines.py",
+        "sha256": "9e69d66eda4dff39120afe45fa529a13e798420b5e6460b5cd831808f8ebc7e9"
+      },
+      {
+        "path": "harandi/transfer.py",
+        "sha256": "34c48bf942b7e089b96043956db927245f524a0cb1472311dca355588104ebb3"
+      },
+      {
+        "path": "harandi/full_study.py",
+        "sha256": "a737e881cabfe07d082ca55760b6aa0eb3571f34558d6f4329ddcbbc7e7c5134"
+      },
+      {
+        "path": "results/fem_report_verification.json",
+        "sha256": "d9ce6c8cbfb80bba80a15e8c744ceb42779a86ed888765d50ab541faf248741c"
+      },
+      {
+        "path": "docs/SOURCE_PROVENANCE.json",
+        "sha256": "95f90793c380b5b95e8a920c3eca80a35147704f9d5b4cef438112d80bbe76ee"
+      }
+    ],
+    "saved_configs": [
+      {
+        "job": "mixed_rectangles_coupled",
+        "path": "results/full_study/mixed_rectangles_coupled/config.json",
+        "sha256": "7d8c1a91bdfadfcda1cd2bb75231966fc878abfd6c2a4de6911c76405ea7666a"
+      },
+      {
+        "job": "mixed_rectangles_sequential",
+        "path": "results/full_study/mixed_rectangles_sequential/config.json",
+        "sha256": "c66eadf2dd3f465afc880ecf336ce56405b1de3c22a253d17326182db4e061fa"
+      },
+      {
+        "job": "mixed_circle_coupled",
+        "path": "results/full_study/mixed_circle_coupled/config.json",
+        "sha256": "b4c570d0da568efce9e5b2865e4e0c2935e5b8aca2d52ac996ab82ee9bdadf39"
+      },
+      {
+        "job": "mixed_circle_sequential",
+        "path": "results/full_study/mixed_circle_sequential/config.json",
+        "sha256": "291a6e2a9a290b05dd2864163e5df98f5650e2506b13118b2fc51877c024c0fa"
+      },
+      {
+        "job": "baseline_circle_standard_coupled",
+        "path": "results/full_study/baseline_circle_standard_coupled/config.json",
+        "sha256": "2cc87953068b966b2e1af3cc627a13153f3394166af0cc56edc11fd4ee2806a8"
+      },
+      {
+        "job": "baseline_circle_standard_sequential",
+        "path": "results/full_study/baseline_circle_standard_sequential/config.json",
+        "sha256": "d524294e48b4cfba3fe927184fa257e9a1035d39898102e1c2c7af5906de06de"
+      },
+      {
+        "job": "baseline_circle_dem_coupled",
+        "path": "results/full_study/baseline_circle_dem_coupled/config.json",
+        "sha256": "8f8f543a8930745f7e9ca8769c94b9f2224ad9437b66c65e18ac9fc7445ce16e"
+      },
+      {
+        "job": "baseline_circle_dem_sequential",
+        "path": "results/full_study/baseline_circle_dem_sequential/config.json",
+        "sha256": "e2908680ec5ab537a9935554dbcd648b1ca941a16733f86e1273641803d752eb"
+      },
+      {
+        "job": "sensitivity_circle_dem_hard_coupled",
+        "path": "results/full_study/sensitivity_circle_dem_hard_coupled/config.json",
+        "sha256": "cd1264dd8d9d553ec938286ae91a29c9b23bc7cecae74093b017dad89227c522"
+      },
+      {
+        "job": "sensitivity_circle_dem_hard_sequential",
+        "path": "results/full_study/sensitivity_circle_dem_hard_sequential/config.json",
+        "sha256": "082b1086d7ebf917e1608b6352cd6f1be08b02cab165fcd1864f293fceda5ed1"
+      },
+      {
+        "job": "refine_rectangles_left1000",
+        "path": "results/full_study/refine_rectangles_left1000/config.json",
+        "sha256": "0a77fac3544b947db00229b026eed2433489694374010acdf8a42da4fe89dc79"
+      },
+      {
+        "job": "ablation_circle_noenergy",
+        "path": "results/full_study/ablation_circle_noenergy/config.json",
+        "sha256": "c7175271e2944feb663e2b82d21f3389cc50f38b4c165d29fd0c5a339e5267a7"
+      },
+      {
+        "job": "hard_rectangles_adam10k",
+        "path": "results/full_study/hard_rectangles_adam10k/config.json",
+        "sha256": "204f2350b4c40f1a13775f5b274588f01d124ef2ddc00c0a1f5460111344b3c5"
+      },
+      {
+        "job": "arch_l1_w40",
+        "path": "results/full_study/arch_l1_w40/config.json",
+        "sha256": "63ec0c600c450b6aa6365b3cfaf7f1e66540b9733b69aaa26e1f6bad7deaaa84"
+      },
+      {
+        "job": "arch_l2_w40",
+        "path": "results/full_study/arch_l2_w40/config.json",
+        "sha256": "0a604c28e6e1b2aeedd1989bf291454212822cfffa03d27d90ad1e4af8c32502"
+      },
+      {
+        "job": "arch_l4_w40",
+        "path": "results/full_study/arch_l4_w40/config.json",
+        "sha256": "44d257cf6067f92a81daf3b59d600217c1033106d2477dc80685494601b77c38"
+      },
+      {
+        "job": "arch_l5_w5",
+        "path": "results/full_study/arch_l5_w5/config.json",
+        "sha256": "aa9108dba533e43e98dbfc3139373f429555f4ee9db48344ff3f5366ff512938"
+      },
+      {
+        "job": "arch_l5_w10",
+        "path": "results/full_study/arch_l5_w10/config.json",
+        "sha256": "b0233decf2abb4acccd78006a6d572af868976319cea5c4376e62d70f3d81d4f"
+      },
+      {
+        "job": "arch_l5_w20",
+        "path": "results/full_study/arch_l5_w20/config.json",
+        "sha256": "6525c9d6f07c1238cebfadd00f98ba550c296c11f1784451363a94c6ae1de0a1"
+      },
+      {
+        "job": "arch_l5_w40",
+        "path": "results/full_study/arch_l5_w40/config.json",
+        "sha256": "bf3d17331ed99cbd844195dc0990d805530c0ec0f866790c6f571ac1c61665e3"
+      },
+      {
+        "job": "arch_l5_w60",
+        "path": "results/full_study/arch_l5_w60/config.json",
+        "sha256": "e75b629d43c7f9f0cb7ce3adb7a49bcd62289da452719da52c2823503e6ca433"
+      },
+      {
+        "job": "arch_l6_w40",
+        "path": "results/full_study/arch_l6_w40/config.json",
+        "sha256": "d5705376431c806fdaff732d38c6dd6eade0a5d95938f404fd7e2196b230b35b"
+      },
+      {
+        "job": "transfer_w0",
+        "path": "results/full_study/transfer_w0/config.json",
+        "sha256": "ebfa71615eb9dbe40d3e815d59d7697046c995cd227fcb2aabcf769bb2e3ac03"
+      },
+      {
+        "job": "transfer_w0.1",
+        "path": "results/full_study/transfer_w0.1/config.json",
+        "sha256": "ce69576758172a1bcc0b72d2301729686af25ae96b3b9da86e73229c1575d45b"
+      },
+      {
+        "job": "transfer_w0.5",
+        "path": "results/full_study/transfer_w0.5/config.json",
+        "sha256": "b631a5cbed9bf8a5d24a65146f21eb8c5f41b694c3434a6eddfd8992d6c5b38b"
+      },
+      {
+        "job": "transfer_w1",
+        "path": "results/full_study/transfer_w1/config.json",
+        "sha256": "8f4c2206beba25c5a0492eaca9966c2d1795726b891dc9f9e781fb33747c22a2"
+      }
+    ],
+    "fem_references_checked": 19,
+    "mesh_dofs_before_constraints": [
+      {
+        "n": 50,
+        "elements": 2500,
+        "nodes": 2601,
+        "temperature": 2601,
+        "displacement": 5202,
+        "total": 7803
+      },
+      {
+        "n": 100,
+        "elements": 10000,
+        "nodes": 10201,
+        "temperature": 10201,
+        "displacement": 20402,
+        "total": 30603
+      },
+      {
+        "n": 200,
+        "elements": 40000,
+        "nodes": 40401,
+        "temperature": 40401,
+        "displacement": 80802,
+        "total": 121203
+      }
+    ],
+    "max_algebraic_relative_residual": 1.8420357221686036e-13,
+    "max_heat_balance_absolute": 2.26929586233382e-13,
+    "max_dirichlet_error": 0.0,
+    "source_code_review": "FEM assembly/recovery, PINN objectives/batches/optimizers, author code at 5b426dc8eb2255b1bb3b8630619228b36cdb464e and paper Eqs.40,49,62-65 reviewed."
+  },
+  "docx_sha256": "8835101c9d8c8b919de661d658414ee8d4b16bf9c6804ea6ff0565396e2148c0",
   "source_paper_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
   "original_figure_license": "CC BY-NC-ND 4.0",
-  "table_count": 9,
+  "table_count": 12,
   "embedded_figure_count": 46,
-  "expected_pages": 50,
+  "expected_pages": 52,
   "table_style": "White background, black text and horizontal top/header/bottom rules; no shading or vertical rules.",
   "status": "pass",
-  "rendered_pages": 50,
-  "rendered_pdf_sha256": "a5772b3a2bdabc188147a36e723e66f54a936ba5b052e053f67f6e4a9fe741c0",
+  "rendered_pages": 52,
+  "rendered_pdf_sha256": "5cae3221a694a323f47a9b7cd9b02db0b916d595c4f25c43412d3f8741814c69",
   "render_method": "packaged render_docx.py with task-local official LibreOffice 26.2.6 administrative extraction",
   "visual_review": {
     "pages_reviewed_at_original_resolution": [
@@ -931,42 +1134,11 @@
       47,
       48,
       49,
-      50
+      50,
+      51,
+      52
     ],
-    "revised_pages_reviewed_again": [
-      1,
-      2,
-      3,
-      5,
-      7,
-      9,
-      11,
-      13,
-      15,
-      17,
-      19,
-      21,
-      23,
-      25,
-      27,
-      28,
-      29,
-      31,
-      32,
-      33,
-      35,
-      37,
-      39,
-      41,
-      43,
-      45,
-      47,
-      49,
-      50
-    ],
-    "baseline_review": "Previous edition 8887602; unchanged pages match its reviewed PNGs exactly.",
-    "unchanged_final_pages_match_reviewed_pngs": true,
-    "findings": "All 23 original/computed pairs occupy two consecutive pages. Original panels, axes, legends and colour bars are complete. No clipped text, split tables, detached captions or visibly missing glyphs. All nine tables have white backgrounds, black rules and no vertical lines."
+    "findings": "All 52 pages reviewed. Five condition pages fit without split tables. All 23 original/computed pairs retain consecutive pages, complete panels and captions. Twelve unshaded tables use black horizontal rules. No clipped text or missing glyphs."
   },
   "text_bounds_violations": [],
   "text_replacement_characters": 0,
@@ -985,10 +1157,12 @@
     "findings": []
   },
   "editorial_corrections": [
-    "Removed report/research framing, self-referential narration, prescriptions and generalised interpretation; retained conditions, values, observed differences and explicit unavailable results.",
-    "Preserved all 46 image source hashes and sizes, all numerical result tables, all 832 metric checks and the dataset cutoff.",
-    "Fig 10: horizontal axis is the global 200000-update schedule; only active training intervals are plotted.",
-    "Fig 16: quoted average errors use the full evaluation grid, not the x=0.5 cross-section."
+    "Added explicit summary heading and expanded FEM and PINN condition comparisons against source code and saved configurations.",
+    "Added FEM element spaces, integration, direct solver, material representation, recovery, mesh DOFs and saved validation values.",
+    "Added PINN initialization, coordinate mapping, point masks, optimizer defaults, objective/boundary distinctions and transfer input difference.",
+    "Corrected hard transformation sign to actual x(1-x) implementation.",
+    "Corrected author-code shear coefficient: E/((1+nu)*(1-2*nu))*(1-2*nu)=2mu; the discrepancy is with printed Eq.49, not released code.",
+    "Preserved all 46 image hashes and dimensions, all six result tables, all 832 saved prediction metric checks and the dataset cutoff."
   ],
-  "checks_do_not_cover": "No new training, no isolated runtime benchmark and no independent replication of unpublished author runs. Dataset cutoff remains 2026-11-05 03:13 KST."
+  "checks_do_not_cover": "No new training or FEM solve. Existing 19 FEM references and 26 saved training configurations verified; unpublished author FEM settings are not inferred."
 }

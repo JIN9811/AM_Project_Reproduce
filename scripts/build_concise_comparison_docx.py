@@ -26,6 +26,8 @@ SNAP = json.loads((ROOT / 'validation/FULL_STUDY_RESULTS.json').read_text('utf-8
 LIMITS = json.loads((ROOT / 'data/paper_color_limits.json').read_text('utf-8'))
 PAPER = json.loads((ROOT / 'figures/paper_reference/provenance.json').read_text('utf-8'))
 ORIGINALS = {x['paper_figure']: x for x in PAPER['figures']}
+FRONT_PAGES = 5
+FEM_CHECK = json.loads((ROOT / 'results/fem_report_verification.json').read_text('utf-8'))
 EVIDENCE = {'result_snapshot_sha256': hashlib.sha256((ROOT / 'validation/FULL_STUDY_RESULTS.json').read_bytes()).hexdigest(),
             'completed_jobs': SNAP['completed_jobs'], 'figures': [], 'original_figures': [], 'figure_pairs': [], 'metrics_verified': [],
             'excluded_conceptual_figures': ['1', '2', '3', '4', '22'],
@@ -36,6 +38,52 @@ EVIDENCE = {'result_snapshot_sha256': hashlib.sha256((ROOT / 'validation/FULL_ST
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def verify_conditions():
+    """Check saved configurations and FEM evidence without starting a solver."""
+    records = FEM_CHECK['reference_records']
+    assert len(records) == 19
+    for rec in records:
+        folder = ROOT / rec['folder']
+        assert digest(folder / 'solution.npz') == rec['solution_sha256']
+        metadata = json.loads((folder / 'metadata.json').read_text('utf-8'))
+        assert metadata == rec['metadata']
+        n = metadata['n']
+        assert metadata['diagnostics']['elements'] == n*n
+        assert metadata['diagnostics']['vertices'] == (n+1)**2
+    configs = []
+    for name in SNAP['completed_jobs']:
+        path = ROOT / 'results/full_study' / name / 'config.json'
+        c = json.loads(path.read_text('utf-8'))
+        assert c['seed'] == 42 and c['dtype'] == 'float64' and c['n'] == 51
+        assert c['lr'] == .001
+        if name.startswith('transfer_'):
+            assert c['normalization'] == 'none' and not c['hard']
+            assert c['ratios'] == list(range(1, 11)) and c['steps'] == 10000
+        elif name.startswith('baseline_') or name.startswith('sensitivity_'):
+            assert c['boundary_weight'] == 1 and not c['dem_neumann']
+            assert c['backend'] == ('jets' if c['method'] == 'standard' else 'autograd')
+        else:
+            assert c['energy_weight'] == 1 and c['jacobian_backend'] == 'autograd'
+            assert c['reset_mechanical_adam'] == (c['mode'] == 'sequential')
+        configs.append({'job': name, 'path': path.relative_to(ROOT).as_posix(), 'sha256': digest(path)})
+    paths = ['harandi/fem.py', 'harandi/physics.py', 'harandi/pinn.py', 'harandi/train.py',
+             'harandi/baselines.py', 'harandi/transfer.py', 'harandi/full_study.py',
+             'results/fem_report_verification.json', 'docs/SOURCE_PROVENANCE.json']
+    EVIDENCE['condition_audit'] = {
+        'source_files': [{'path': rel, 'sha256': digest(ROOT / rel)} for rel in paths],
+        'saved_configs': configs, 'fem_references_checked': len(records),
+        'mesh_dofs_before_constraints': [
+            {'n': n, 'elements': n*n, 'nodes': (n+1)**2,
+             'temperature': (n+1)**2, 'displacement': 2*(n+1)**2,
+             'total': 3*(n+1)**2} for n in (50, 100, 200)],
+        'max_algebraic_relative_residual': max(r['metadata']['diagnostics'][key]
+            for r in records for key in ('thermal_relative_residual', 'mechanical_relative_residual')),
+        'max_heat_balance_absolute': max(abs(r['metadata']['diagnostics']['heat_balance']) for r in records),
+        'max_dirichlet_error': max(r['dirichlet_max_error'] for r in records),
+        'source_code_review': 'FEM assembly/recovery, PINN objectives/batches/optimizers, author code at 5b426dc8eb2255b1bb3b8630619228b36cdb464e and paper Eqs.40,49,62-65 reviewed.',
+    }
 
 
 def verify_data():
@@ -81,6 +129,11 @@ def m(job, field, metric='mean_absolute_error_over_reference_peak_percent'):
 
 def val(number):
     return f'{number:.4g}'
+
+
+def sci(number):
+    mantissa, exponent = f'{number:.3e}'.split('e')
+    return mantissa + '×10' + str(int(exponent)).translate(str.maketrans('-0123456789', '⁻⁰¹²³⁴⁵⁶⁷⁸⁹'))
 
 
 def peak(job, field):
@@ -214,8 +267,8 @@ def pair(fid, filename, title, comment, own_height=19.3):
     p(comment, size=10)
     EVIDENCE['figures'].append({'paper_figure': fid, 'paper_page': pn,
         'path': path.relative_to(ROOT).as_posix(), 'sha256': digest(path), 'embedded_width_cm': w})
-    EVIDENCE['figure_pairs'].append({'paper_figure': fid, 'original_report_page': 4 + 2 * seq,
-                                     'computed_report_page': 5 + 2 * seq})
+    EVIDENCE['figure_pairs'].append({'paper_figure': fid, 'original_report_page': FRONT_PAGES + 1 + 2 * seq,
+                                     'computed_report_page': FRONT_PAGES + 2 + 2 * seq})
 
 
 def all_field_table(job, geometry):
@@ -228,52 +281,96 @@ def all_field_table(job, geometry):
 
 def main():
     verify_data()
+    verify_conditions()
     DOC.add_paragraph('Harandi 열탄성 재현 비교', 'Title')
     p('FEM과 PINN의 해석 조건 및 수치 결과 비교', size=12)
+    DOC.add_paragraph('요약', 'Heading 2')
     p('원형 개재물의 x=0.5 단면에서 혼합 PINN은 표준 PINN과 DEM보다 FEM50에 가까웠다. 왼쪽 경계점 보강은 변위 최대오차를 줄였지만 온도 최대오차는 늘렸다. hard 조건에서는 Adam의 최종 손실이 L-BFGS보다 작아 논문과 순서가 달랐다.', size=10)
     p('논문 원본 [1]과 재현 결과 [3]를 그림별로 연속된 두 쪽에 배치하였다. 데이터 그림은 23쌍이다.', size=9.4)
     p('계산값은 2026년 11월 5일 03:13 KST까지 학습을 마친 26개 모델의 출력이다. Adam 100만 회 결과와 25개 구조의 독립 시간 측정값은 포함하지 않았다.', size=8.7)
-    DOC.add_paragraph('1 물리 조건과 FEM 비교', 'Heading 1')
+    DOC.add_paragraph('1 공통 물리 조건', 'Heading 1')
     table(['항목', '논문 및 저자 자료', '재현 FEM과 PINN'], [
-        ['해석 영역', '정상 평면변형률 열탄성, [0,1]²', '동일 영역에서 열장이 역학장에 영향을 주는 단방향 연성'],
+        ['해석 영역과 연성', '정상 소변형 평면변형률 열탄성, [0,1]²', '동일 영역. 온도가 역학에 영향을 주는 단방향 연성'],
+        ['지배방정식과 하중', '응력 및 열유속의 발산 0. 체적력·내부 열원 0', '동일. q=−k∇T, 선형 등방성 열탄성 구성식'],
         ['길이와 물리 단위', 'Fig. 2는 μm, 본문은 mm로 표기', '수치상 단위 영역. mm·GPa·K·W/(m K)는 원문 표기를 따르며, 별도의 SI 환산은 적용하지 않음'],
         ['원형 개재물', '직경 0.30, 중심 좌표는 제시하지 않음', '중심 (0.60,0.35), 반지름 0.15'],
         ['사각형 개재물', '4개, 좌상단 높이 0.20. 위치 좌표는 제시하지 않음', '저자 재료 자료에 따른 형상. 좌상단 높이 0.22'],
         ['원형 재료 E와 k', '기지 0.3 / 개재물 1.0', 'FEM과 PINN 공통으로 동일'],
         ['사각형 재료 E와 k', '기지 1.0 / 개재물 0.5', 'FEM과 PINN 공통으로 동일'],
-        ['ν와 열팽창', 'ν=0.3; α와 T₀의 수치는 제시하지 않음', 'ν=0.3, α=1, T₀=0으로 설정'],
+        ['ν와 열팽창', 'ν=0.3. α와 T₀는 본문에 수치 미기재; 저자 코드 [2]는 α=1, T₀=0', 'ν=0.3, α=1, T₀=0. 열응력 계수는 Eα/(1−2ν)'],
         ['변위 경계', '좌우 uₓ=0, 상하 uᵧ=0', '동일한 롤러 구속. 접선 방향은 자유이며 접선력은 0'],
         ['열 경계', '좌 T=1, 우 T=0, 상하 qᵧ=0', '동일 온도 및 단열 조건'],
-        ['FEM 해법', '유한요소 기준해. 저자 저장소에 FEAP 자료 공개', 'FEniCS DOLFIN 2019.2의 사각형 Q1 요소. 온도 해석 후 변위 해석'],
-        ['FEM 격자', 'Fig. A1에서 변당 50, 100, 200', '원형·사각형 각각 50², 100², 200² 요소'],
-        ['FEM 재료 및 복원', '적분과 절점 복원의 세부 조건은 확인하기 어려움', '요소 중심에서 불연속 재료값 부여. 요소 응력과 열유속을 절점으로 복원'],
-        ['PINN 재료 표현', '저자 재료 자료와 보간 사용', '50² 재료 격자의 절점 평균값을 쌍선형 보간. FEM의 불연속 재료 표현과 구별'],
     ], [3,6.7,8], 8.9)
     p('사각형 개재물의 범위는 (x구간; y구간)으로 각각 (0.10–0.34; 0.12–0.44), (0.50–0.92; 0.18–0.42), (0.42–0.94; 0.52–0.94), (0.06–0.34; 0.60–0.82)이다. [1–3]', size=8.5)
 
-    page('2 PINN 공통 설정과 구현 차이')
-    table(['항목', '논문 조건', '재현 조건'], [
-        ['혼합 신경망', '독립 스칼라 신경망 8개, 5층×40, tanh', '동일 구조. 출력은 uₓ,uᵧ,σₓₓ,σᵧᵧ,σₓᵧ,T,qₓ,qᵧ'],
-        ['표준 PINN 및 DEM', '주 변수 u,T; 기본 5층×40, tanh', 'uₓ,uᵧ,T의 3개 독립 망. 응력·열유속은 미분 계산'],
-        ['원형 학습점', '약 5,000개, 계면과 경계에 추가 배치', '51² 격자점과 균등 난수점 2,399개로 구성한 5,000점'],
-        ['사각형 학습과 평가', '학습 2,601개, 평가 10,201개', '51² 학습, 모든 문제 101² 평가. 보강 실험은 1,000개 추가'],
-        ['정밀도와 초기값', '난수 시드와 정밀도는 제시하지 않음', '배정밀도 float64, 난수 시드 42의 단일 실험'],
-        ['Adam', '학습률 0.001, full batch', '동일 학습률·배치. 동시 100,000회'],
-        ['순차 학습', '열과 역학 각 100,000회, 20,000회마다 교대', '총 200,000회. 비활성 망을 고정하고 역학 학습 재개 시 Adam 상태 초기화'],
-        ['혼합 손실', '평형·연결·경계 MSE, 에너지 MAE', '저자 코드의 내부 일−외부 일 항, 에너지 가중치 1. 전이 w는 전체 물리 손실 가중치'],
-        ['일반 경계 처리', '기본 soft 조건과 별도의 hard 조건 비교', '단위 가중치의 soft 페널티. DEM의 hard 조건 2종을 추가 비교'],
-        ['hard 출력 변환', '식 62–64', 'uₓ=x(x−1)Nₓ, uᵧ=y(y−1)Nᵧ, T=1−x+x(x−1)Nₜ'],
-        ['L-BFGS 세부값', '10,000회. 선 탐색의 세부 조건은 제시하지 않음', 'lr=1, strong-Wolfe, history=80, max_iter=1, max_eval=25; 허용오차 10⁻¹⁰/10⁻¹⁴'],
-        ['전단 구성식', '저자 코드는 텐서 전단변형률에 μ를 곱함', 'FEM과 PINN 모두 σₓᵧ=2μεₓᵧ 적용. 저자 구현과 계수 차이'],
-        ['경계와 에너지 해석', '식 56의 역학 NBC=0과 손실 그림이 불일치', '롤러의 접선력 손실 적용. 일 항의 비영 값을 곧바로 물리 잔차로 해석하지 않음'],
-        ['DEM 온도 처리', '공동 최소화의 세부 경로는 제시하지 않음', '역학 에너지에서 온도망으로의 기울기 전달을 차단'],
-        ['표준 PINN 미분', '미분과 재료 보간의 세부 조건은 제시하지 않음', '보간 결절을 피한 점에서 계수 미분. tanh의 해석적 공간 미분 사용'],
-        ['하드웨어와 가속', '기본 CPU Xeon Platinum 8160; 시간 비교 M2 Pro', 'RTX 3090, PyTorch 2.11 CUDA, Adam CUDA graph. 논문과 다른 계산 장비'],
-        ['저장과 결과 선택', '상세 정책은 제시하지 않음', '1,000회마다 최근 가중치를 덮어쓰기 저장. 중간 최적값 대신 지정된 최종 반복의 결과 사용'],
-    ], [3,6.5,8.2], 8.6)
-    p('L-BFGS는 한 번의 갱신에 손실과 기울기를 여러 차례 평가하므로, 반복 수가 같아도 Adam과 계산비용이 같지는 않다. [1–3]', size=8.5)
+    page('2 FEM 해석 조건')
+    table(['항목', '논문 및 저자 자료', '재현 FEM'], [
+        ['프로그램과 실행', 'FEAP [1, §4.1]. 공개된 FEAP 결과 [2]', 'FEniCS DOLFIN 2019.2.0.64.dev0, Ubuntu WSL, 단일 MPI rank'],
+        ['미지수와 해석 순서', '온도·변위 및 파생 응력·열유속', '온도 T를 먼저 풀고 열하중으로 전달하여 u를 계산. 연성 반복 없음'],
+        ['약형과 요소 공간', '기준해를 FEM으로 계산. 세부 약형·요소 차수는 명시하지 않음', 'Galerkin 약형. T는 스칼라 Q1, u는 2성분 Q1. 응력·열유속은 주 미지수가 아님'],
+        ['격자와 요소 크기', 'Fig. A1: 변당 50, 100, 200요소', '정형 4절점 사각형. n=50,100,200; h=1/n. 원형 경계는 요소 중심 판별로 근사'],
+        ['재료 계수', '기지·개재물의 E와 k 분포', 'sharp: 요소 중심에서 상을 판별한 DQ0 상수. 요소 내 E와 k는 일정'],
+        ['재료 민감도 조건', '별도의 대응 결과 없음', 'nodal: 50² 재료 격자의 절점 평균값을 Q1 보간. 두 기하에서 FEM100으로 별도 계산'],
+        ['수치 적분', '적분 차수 미기재', '열·역학 조립과 DQ0 투영의 quadrature_degree=4'],
+        ['경계조건 적용', '앞쪽 물리 조건과 동일', 'Dirichlet 조건을 선형 시스템에 직접 적용. 영 접선력·영 열유속은 자연경계조건'],
+        ['계면 처리', '이질 재료의 열탄성 문제', 'Q1의 연속 T와 u 및 약형으로 완전 접합 적용. 계면 접촉저항·분리 조건 없음'],
+        ['선형 해법', '해법 설정 미기재', '열·역학 시스템과 투영 모두 MUMPS 직접해법. 반복 선형해법의 수렴 허용오차는 설정하지 않음'],
+        ['응력과 열유속', '저자 FEAP 자료에 절점 값 수록', 'σ(u,T), q=−k∇T를 DQ0 요소 평균으로 L² 투영. 인접 요소의 면적 가중 평균으로 절점 복원'],
+        ['평가와 저장', '정규 평가점에서 PINN과 비교', '101² 좌표에서 Q1 보간. 원시 요소 평균과 절점 복원값을 따로 저장. 비교 그림은 복원값 사용'],
+        ['해의 수와 기준 격자', '격자 수렴 및 전이학습용 FE 자료', '기본 6개, nodal 2개, 재료비 1–10·15의 FEM50 11개. PINN 비교는 FEM50, 격자 수렴은 FEM200'],
+    ], [3,6.3,8.4], 8.6)
+    DOC.add_paragraph('격자별 자유도', 'Heading 2')
+    table(['변당 요소 수', '요소 수', '절점 수', 'T 자유도', 'u 자유도', '합계'],
+          [[str(n), f'{n*n:,}', f'{(n+1)**2:,}', f'{(n+1)**2:,}', f'{2*(n+1)**2:,}', f'{3*(n+1)**2:,}']
+           for n in (50,100,200)], [3,2.8,2.9,2.9,3,3.1], 8.7)
+    p('자유도는 구속 전 값이다. Dirichlet 구속은 온도 2(n+1)개, 변위 4(n+1)개에 적용된다. T와 u는 별도의 시스템으로 풀며, 합계는 두 시스템의 자유도를 더한 값이다.', size=8.5)
+    audit = EVIDENCE['condition_audit']
+    p(f"저장된 19개 해의 최대 상대 대수 잔차 ‖Ax−b‖₂/‖b‖₂는 {sci(audit['max_algebraic_relative_residual'])}, 최대 |좌·우 열반력 합|은 {sci(audit['max_heat_balance_absolute'])}, Dirichlet 최대오차는 {audit['max_dirichlet_error']:g}이다. 열반력은 경계조건 적용 전 열전도 행렬에서 계산하였다. 대수 잔차와 격자 이산화 오차는 서로 다른 값이다. [3]", size=8.5)
+    uniform = FEM_CHECK['uniform_analytic_checks']
+    p(f"균질 해석해 비교는 n=8,16,32와 sharp·nodal의 6조건이다. 절점 u,T 최대오차는 {sci(max(r['nodal_uT_max_abs'] for r in uniform))} 이하였고, 요소 내부 uₓ 보간오차는 남았다. 저자 FEAP와의 T 및 변위 벡터 상대 L² 차이는 각각 {sci(FEM_CHECK['author_feap_check']['temperature_relative_l2'])}, {100*FEM_CHECK['author_feap_check']['displacement_relative_l2_raw']:.3f}%이다. 격자 수렴 수치는 그림 A1에 제시하였다. [2,3]", size=8.5)
 
-    page('3 전체 실험 구성과 비교 기준')
+    page('3 PINN 신경망과 학습 설정')
+    table(['항목', '논문 및 저자 자료', '재현 PINN'], [
+        ['혼합 신경망', '독립 스칼라 망 8개, 은닉층 5개×40, tanh', '동일 구조. uₓ,uᵧ,σₓₓ,σᵧᵧ,σₓᵧ,T,qₓ,qᵧ 사이 가중치 공유 없음. 출력층은 선형'],
+        ['표준 PINN과 DEM', 'u,T를 주 변수로 사용', 'uₓ,uᵧ,T의 독립 망 3개, 5×40. σ와 q는 공간 미분으로 계산'],
+        ['입력과 매개변수 수', '기본 입력 x,y', '좌표를 2x−1,2y−1로 변환. 기본 혼합 53,768개, 표준·DEM 20,163개; 전이 혼합 54,408개'],
+        ['초기화와 정밀도', '논문에 시드·초기화 미기재. 저자 코드 [2]는 float64', 'Xavier 정규분포 gain=1, 편향 0. 시드 42, 계산 float64. 초기 가중치는 기본 float32 생성 후 float64로 변환'],
+        ['원형 학습점', '약 5,000개, 계면·경계 추가 배치', '혼합·DEM: 51² 격자+균등 난수 2,399개. 내부 4,800개, 서로 다른 경계점 200개'],
+        ['사각형 학습점', '2,601개', '51² 고정 격자. 내부 2,401개, 경계 200개. 각 변 51개이며 모서리는 두 변에 포함'],
+        ['표준 PINN 학습점', '세부 난수 배치 미기재', '원형의 내부 4,800개를 보간 결절을 피한 균등 난수로 교체. 경계 200개 유지. 시드 73'],
+        ['점 재추출과 보강', '왼쪽 경계 약 1,000점 추가', '학습 중 점 재추출 없음. 보강은 x=0, y 균등 난수 1,000개, 시드 133. 총 3,601개'],
+        ['배치와 FEM 정답', '혼합 PINN full batch. §4.4에서 FE 데이터 결합', '모든 방법 full batch. 기본 PINN·DEM 학습에 FEM 정답 미사용; 전이학습에서만 사용'],
+        ['Adam', '학습률 0.001', '학습률 0.001 고정. β₁=0.9, β₂=0.999, ε=10⁻⁸, weight_decay=0, AMSGrad 꺼짐'],
+        ['순차 학습', '열·역학 각 100,000회, 20,000회마다 교대', '열부터 시작. 비활성 망 고정. 역학 블록 시작 시 Adam 상태 초기화; 열 블록 상태는 유지'],
+        ['L-BFGS', '10,000회. 세부 선 탐색 설정 미기재', 'Adam 사전학습 없이 초기화 후 실행. lr=1, strong-Wolfe, history=80, max_iter=1, max_eval=25; grad/change 허용오차 10⁻¹⁰/10⁻¹⁴'],
+        ['미분 계산', '자동미분', '혼합·DEM은 autograd. 표준 PINN은 tanh 연쇄법칙으로 1·2차 미분과 재료 구배 계산'],
+        ['평가 좌표', '사각형 10,201개', '모든 결과 101² 평가. 별도의 67² 격자에서 물리 잔차 계산. 두 격자 모두 학습의 조기 종료에 미사용'],
+        ['기록과 저장', '상세 정책 미기재', '기본 Adam·전이 손실 1,000회, hard Adam·L-BFGS 손실 100회마다 기록. 최근 체크포인트는 1,000회마다 갱신'],
+        ['결과 선택', '반복 수를 지정', '지정된 마지막 갱신의 모델 사용. 최저 검증오차 선택·조기 종료 없음. 전이는 재료비 완료 시 별도 저장'],
+        ['계산 환경', '기본 CPU Xeon Platinum 8160; 시간 비교 M2 Pro', 'Python 3.11.9, PyTorch 2.11.0+cu128, RTX 3090. Adam CUDA graph, TF32 꺼짐'],
+    ], [3,6.1,8.6], 8.6)
+    p('5×40은 입력·출력층을 제외한 은닉층 수와 너비이다. L-BFGS의 1회는 외부 갱신 호출이며, 내부 손실·기울기 평가 횟수와 다르다. 기본 격자의 경계점 수 200개는 모서리를 중복하지 않은 값이다. [1–3]', size=8.5)
+
+    page('4 PINN 손실과 경계조건')
+    table(['항목', '논문 및 저자 코드', '재현 구현'], [
+        ['혼합 손실 구성', '열·역학의 평형·연결·경계·에너지 손실 합', '5개 역학 항과 5개 열 항의 합. 모든 항의 가중치 1; 에너지 제외 조건만 두 에너지 항 0'],
+        ['평형과 연결 손실', '평형·구성식 연결의 MSE', '평형은 내부점에서만 계산. 연결은 경계를 포함한 전체 점에서 성분 제곱합의 평균'],
+        ['경계 손실의 평균', '저자 코드 [2]: 전체 표본에 경계 마스크를 곱한 뒤 MSE', '각 변의 경계점만 뽑아 MSE를 구한 뒤 합산. 전체 표본 평균과 정규화 구간이 다름'],
+        ['자연경계의 출력', '저자 코드 [2]: 미분 유도 출력과 독립 출력 모두에 영 전단·열유속 항 적용', '혼합은 독립 σₓᵧ의 네 변 및 독립 qᵧ의 상하 변에 페널티. 유도 출력에 대한 별도 페널티 없음'],
+        ['에너지 항', '저자 코드 [2]: 내부 일 절반−외부 일의 절댓값. sqrt(abs(·))에 MSE 적용', '동일한 일 항의 절댓값을 직접 사용. 내부점 평균과 네 변별 평균으로 계산'],
+        ['soft 경계', '기본 비교는 soft 조건', '법선 변위와 좌우 온도 오차의 MSE를 손실에 추가. 경계 가중치 1'],
+        ['hard 경계', '식 62–64 및 [2]는 x(x−1), y(y−1) 인자', 'uₓ=x(1−x)Nₓ, uᵧ=y(1−y)Nᵧ, T=1−x+x(1−x)Nₜ. Dirichlet 조건만 출력 변환으로 만족'],
+        ['전단 구성식', '식 40·49를 함께 읽으면 μεₓᵧ. 저자 코드 [2]를 정리하면 2μεₓᵧ', 'FEM과 PINN 모두 2μεₓᵧ. 저자 공개 코드와 같고 인쇄 식 49와 다름'],
+        ['재료 계수', '저자 절점 재료 자료와 보간', '50² 재료 격자의 인접 요소 상을 절점 평균한 뒤 쌍선형 보간. 기본 FEM의 DQ0 계수와 다름'],
+        ['표준 PINN 손실', '강형 평형식과 경계조건', '2차 공간 미분의 평형 MSE+Dirichlet·Neumann MSE. 연결·에너지 항 없음. 재료 E,k의 구배 포함'],
+        ['DEM 손실', '변분 에너지와 경계조건', '평면변형률 탄성에너지+전도에너지+Dirichlet 페널티. Neumann 페널티는 꺼져 있고 자연경계로 처리'],
+        ['DEM 온도 결합', '세부 기울기 경로 미기재', '역학 에너지에서는 T를 고정하여 온도망으로의 기울기 전달 차단. 면외 탄성변형률 항 포함'],
+    ], [3,6.5,8.2], 8.8)
+    p('에너지 항은 물리 잔차의 제곱과 같은 정의가 아니다. 경계 손실도 단위 가중치를 사용하더라도 평균 구간과 적용 출력이 다르다. 저자 공개 스크립트는 hard 조건, 각 변 400개 추가점, Adam 10,000회 설정이며 논문의 모든 그림에 대한 실행 설정을 제공하지는 않는다. [1,2]', size=9)
+    p('hard 변환의 부호는 원문과 다르지만, 신경망 출력 N의 부호를 바꾸면 같은 함수 집합을 표현한다. Dirichlet 조건은 같으며 동일한 초기 가중치에서의 초기장은 다르다.', size=9)
+    p('저자 코드의 전단 계수는 E/[(1+ν)(1−2ν)]×(1−2ν)=E/(1+ν)=2μ이다. 텐서 전단변형률은 εₓᵧ=(uₓ,ᵧ+uᵧ,ₓ)/2이며, FEM과 PINN 모두 이 정의를 사용한다. [2,3]', size=9)
+
+    page('5 전체 실험 구성과 비교 기준')
     table(['실험군', '논문 조건', '재현 조건과 비교 범위'], [
         ['원형 기본 6종', '혼합·표준·DEM의 동시 및 순차 학습, 5×40', 'soft 조건, Adam 동시 10만 회 또는 순차 20만 회'],
         ['사각형 기본 2종', '혼합 동시 및 순차 학습, 5×40', 'soft 조건, Adam 동시 10만 회 또는 순차 20만 회'],
@@ -288,7 +385,8 @@ def main():
         ['FEM 기준해', '격자 수렴 및 전이학습용 FEM 자료', '기본 6개, 절점 재료 민감도 2개, 전이 재료비 11개의 총 19개'],
     ], [3,7,7.7], 9)
     DOC.add_paragraph('전이학습의 추가 조건', 'Heading 2')
-    p('재료비 Eᵣ=E기지/E개재물과 kᵣ=k기지/k개재물을 같게 두고 1부터 10까지 순차 학습하였다. 기지는 E=k=1, 개재물은 E=k=1/r로 설정하였다. 입력은 x,y,log₁₀Eᵣ,log₁₀kᵣ이며, 데이터 손실은 51²점의 FEM50 8성분에 대한 비정규화 MSE이다. soft 경계를 적용하고 재료비가 바뀔 때 가중치는 전달하되 Adam은 초기화하였다. 재료비 15는 학습과 모델 선택에서 제외하였다.', size=9.4)
+    p('재료비 Eᵣ=E기지/E개재물과 kᵣ=k기지/k개재물을 같게 두고 1부터 10까지 순차 학습하였다. 기지는 E=k=1, 개재물은 E=k=1/r이다. 원문 §4.4는 좌표와 국소 E(x,y),k(x,y)를 입력으로 설명한다. 재현 입력은 좌표와 전역 재료비이며 실제 망에는 2x−1,2y−1,log₁₀Eᵣ,log₁₀kᵣ를 넣었다.', size=9.2)
+    p('총손실은 데이터 손실에 w배의 역학·열 물리 손실을 더한 값이다. 데이터 손실은 51²점의 FEM50 8성분과 독립 혼합 출력 간 MSE이며 성분별 정규화는 하지 않았다. soft 경계를 적용하고, 재료비가 바뀔 때 가중치는 전달하되 Adam은 초기화하였다. 재료비 15는 학습·조기 종료·모델 선택에 사용하지 않았다. [1–3]', size=9.2)
     DOC.add_paragraph('오차 산정과 비교 범위', 'Heading 2')
     p('평균오차(%)는 100×평균|PINN−FEM|/최대|FEM|로 정의하였다. 별도 표기가 없으면 101² 평가점에서 FEM50과 비교하였으며, 응력과 열유속은 독립 혼합 출력이 아닌 변위와 온도의 미분값으로 산정하였다. 격자 수렴에서는 FEM200을 기준해로 사용하였다.', size=9.4)
     p('논문의 평균 상대오차는 정의가 충분히 제시되지 않아 위 지표와 같은지 확인되지 않았다. 색 범위를 맞춘 그림에서 상·하한을 벗어나는 값은 색 막대 끝의 삼각형으로 표시하였으며, 정량 오차에는 원래 값을 반영하였다. 비교 대상은 개념도 Fig. 1–4와 22를 제외한 데이터 그림 23개이다.', size=9.4)
@@ -304,7 +402,7 @@ def main():
          'PINN과 FEM50의 변위를 각각 적용한 형상이다. 변위 확대 계수는 1이며 진폭 보정은 적용하지 않았다. 변위·응력 오차는 그림 8, 온도·열유속 오차는 그림 9에 제시하였다.')
 
     pair(8, 'fig08_circle_coupled_mechanical.png', '원형 문제의 변위 응력 및 절대오차',
-         f"논문과 재현 결과 모두 재료 계면에 오차가 집중되었다. 재현의 σₓₓ 최대오차는 {peak('mixed_circle_coupled','sxx'):.4f}이며, 논문의 오차 색 막대 상한은 0.0632이다. 전단 구성식과 재료 보간 방식은 2쪽 조건표와 같이 다르다.", own_height=20)
+         f"논문과 재현 결과 모두 재료 계면에 오차가 집중되었다. 재현의 σₓₓ 최대오차는 {peak('mixed_circle_coupled','sxx'):.4f}이며, 논문의 오차 색 막대 상한은 0.0632이다. 학습점 배치와 경계 손실의 평균 방식은 앞쪽 조건표와 같이 다르다.", own_height=20)
 
     pair(9, 'fig09_circle_coupled_thermal.png', '원형 문제의 온도 열유속 및 절대오차',
          f"온도 최대오차는 {peak('mixed_circle_coupled','T'):.4f}이며, 논문의 오차 색 막대 상한은 0.0109이다. 재현의 온도 평균오차는 열유속 평균오차보다 작았다.", own_height=14.2)
@@ -380,7 +478,7 @@ def main():
          '논문은 한 변당 100개 요소에서 해가 거의 수렴한다고 기술하였다. 재현에서는 100개에서 200개로 세분화할 때 uₓ와 T의 상대 L² 오차가 응력·열유속보다 작았다. 아래 표의 기준해는 FEM200이다.', own_height=12.3)
     table(['성분', 'FEM50 대 FEM200 L² %', 'FEM100 대 FEM200 L² %'],
           [[LABEL[i]] + [f"{100*SNAP['fem_mesh_convergence'][key][f]['relative_l2']:.4f}" for key in ('FEM50_vs_FEM200','FEM100_vs_FEM200')] for i,f in enumerate(FIELDS)], [3.3,7.2,7.2], 9)
-    p('FEM 기준해는 19개이며, 균질 해석해 비교와 열수지 계산을 수행하였다. 저자의 FEAP 자료에 대한 상대오차는 온도에서 약 4.50×10⁻⁶, 변위에서 약 2.04%였다. 변위 진폭비는 약 0.98이며 원인은 확인되지 않았다. 진폭 보정은 적용하지 않았다. [3]', size=9.2)
+    p('FEM 기준해는 19개이며, 균질 해석해 비교와 열수지 계산을 수행하였다. 저자의 FEAP 자료에 대한 상대 L² 차이는 온도에서 약 4.50×10⁻⁶, 변위 벡터에서 약 2.04%였다. 저자/FEM 변위 진폭비는 약 0.98이며 원인은 확인되지 않았다. 진폭 보정은 적용하지 않았다. [3]', size=9.2)
 
     pair('B1', 'figB1_hard_fullfields.png', '강제 경계조건과 L BFGS의 역학장',
          f"5×40 구조에 L-BFGS 10,000회를 적용한 uₓ 평균오차는 {m('arch_l5_w40','ux'):.2f}%, σₓₓ 평균오차는 {m('arch_l5_w40','sxx'):.2f}%이다. 그림 17과 동일한 모델의 출력이다. 논문에는 두 그림이 동일한 학습 결과인지 명시되어 있지 않다.", own_height=20)
@@ -410,7 +508,7 @@ def main():
     EVIDENCE['original_figure_license'] = PAPER['license']
     EVIDENCE['table_count'] = len(DOC.tables)
     EVIDENCE['embedded_figure_count'] = len(DOC.inline_shapes)
-    EVIDENCE['expected_pages'] = 50
+    EVIDENCE['expected_pages'] = FRONT_PAGES + 2 * len(expected) + 1
     EVIDENCE['table_style'] = 'White background, black text and horizontal top/header/bottom rules; no shading or vertical rules.'
     EVIDENCE['status'] = 'authored; rendering and visual review required'
     (ROOT/'validation/CONCISE_COMPARISON_QA.json').write_text(json.dumps(EVIDENCE, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
