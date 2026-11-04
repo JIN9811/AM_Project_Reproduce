@@ -52,7 +52,7 @@ AM PROJECT  |  수치 재현 연구\par
 
 {\small\color{muted} Numerical Reproduction of Mixed Physics-Informed Neural Networks\newline for Thermoelastic Analysis of Heterogeneous Materials\par}
 
-{\small\color{muted} Harandi et al. (2024), DOI \nolinkurl{10.1002/nme.7388}\newline 진행 보고서 · 2026-11-04 11:32 KST\par}
+{\small\color{muted} Harandi et al. (2024), DOI \nolinkurl{10.1002/nme.7388}\newline 진행 보고서 · 2026-11-04 12:45 KST\par}
 
 \subsection{국문초록}
 
@@ -170,7 +170,7 @@ Harandi 등(2024)은 응력과 열유속을 독립 출력으로 도입한 혼합
 
 \begin{equation}\boldsymbol{\sigma}=2\mu\boldsymbol{\varepsilon}+\lambda\operatorname{tr}(\boldsymbol{\varepsilon})\boldsymbol{I}-\beta(T-T_0)\boldsymbol{I},\qquad \beta=\frac{E\alpha}{1-2\nu}\end{equation}
 
-공통 값은 $\nu$=0.3, $\alpha$=1, T$_{0}$=0이다. 좌우 경계에서 $u_x$=0, 상하에서 $u_y$=0, 네 변의 접선력은 0이다. 왼쪽 T=1, 오른쪽 T=0이고 상하는 단열 $q_y$=0이다. 전단응력은 $\sigma_{xy}$=$\mu$($u_x$,y+$u_y$,x)로 계산한다. $\alpha$=1은 벤치마크 값이며 실제 재료의 열팽창 계수로 해석하지 않는다.\par
+공통 값은 $\nu=0.3$, $\alpha=1$, $T_0=0$이다. 좌우 경계에서 $u_x=0$, 상하에서 $u_y=0$이며 네 변의 접선력은 0이다. 왼쪽 $T=1$, 오른쪽 $T=0$이고 상하는 단열 $q_y=0$이다. 전단응력은 $\sigma_{xy}=\mu(u_{x,y}+u_{y,x})$로 계산한다. $\alpha=1$은 벤치마크 값이며 실제 재료의 열팽창 계수로 해석하지 않는다.\par
 
 \begingroup\small
 
@@ -260,7 +260,7 @@ rectangles & 200 & 1.686e-15 & 1.481e-13 & -2.269e-13\\\addlinespace[2pt]
 
 \begin{equation}\begin{aligned}\boldsymbol r_{\sigma}&=\widehat{\boldsymbol\sigma}-\boldsymbol\sigma(\boldsymbol u,T),&\quad\boldsymbol r_q&=\widehat{\boldsymbol q}+k\nabla T,\\\boldsymbol r_{\mathrm M}&=\nabla\!\cdot\widehat{\boldsymbol\sigma},&r_{\mathrm T}&=\nabla\!\cdot\widehat{\boldsymbol q}.\end{aligned}\end{equation}
 
-저자 파일은 텐서 전단변형률을 \nolinkurl{strain_xy}=($u_x$,y+$u_y$,x)/2로 정의한 뒤 \nolinkurl{sigma_xy}에 곱하는 계수에서 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.\par
+저자 파일의 \nolinkurl{strain_xy}는 텐서 전단변형률 $\varepsilon_{xy}=(u_{x,y}+u_{y,x})/2$이며, \nolinkurl{sigma_xy}에 곱하는 계수는 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.\par
 
 {\small\color{muted} 출처: \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55}{저자 코드의 출력·구성식 정의}; \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278}{일·연결·평형 손실}. 고정 커밋: \nolinkurl{5b426dc8eb2255b1bb3b8630619228b36cdb464e}.\par}
 
@@ -1424,7 +1424,7 @@ C14 & 8,5,11 & Fourier 부호 & 도식의 양의 부호보다 명시된 방정�
 
 C15 & 4,11 & 열변형률 구성식 & 전변형률과 탄성변형률의 혼용 대신 텐서 구성식으로 일관되게 계산한다.\\\addlinespace[1pt]
 
-C16 & 4,11 & 전단 계수 & 텐서 전단과 공학 전단의 계수 차이를 명시하고 $\sigma_{xy}$=$\mu$($u_x$,y+$u_y$,x)를 사용한다.\\\addlinespace[1pt]
+C16 & 4,11 & 전단 계수 & 텐서 전단과 공학 전단의 계수 차이를 명시하고 $\sigma_{xy}=\mu(u_{x,y}+u_{y,x})$를 사용한다.\\\addlinespace[1pt]
 
 C17 & 12,14,18 & 역학 Neumann 손실 & 식 56은 0이지만 손실 그림은 0이 아니다. 롤러 접선력 0을 명시한다.\\\addlinespace[1pt]
 

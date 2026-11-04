@@ -1,6 +1,6 @@
 {
   "status": "verified",
-  "created_utc": "2026-11-04T02:34:53.224081+00:00",
+  "created_utc": "2026-11-04T03:50:30.097056+00:00",
   "neural_completed": 13,
   "neural_registered": 27,
   "timing_completed": 0,
@@ -10,16 +10,21 @@
   "notebook_code_cells": 15,
   "notebook_errors": 0,
   "latex_warnings": 0,
-  "fem_integration_tests_passed": 4,
   "pipeline_tests_passed": 29,
   "fem_references": 19,
   "uniform_fem_checks": 6,
   "broken_document_links": [],
   "files": {
-    "FULL_PROJECT_REPORT_KO.pdf": "1be8a3bc2d6b704345e3cbf225153b01958e088a0e6869de13a2fbf6b4b4c121",
-    "FULL_PROJECT_REPORT_KO.tex": "03b8e526daecb6b743c283e30bda62e3dd3ad9e3e3e51474ed3b05b89f985e37",
-    "FEM_REPORT_KO.pdf": "ef6a6bcf820bf17b49838b43ffb770e7309e2b0f1a6abd763c24b098905634e1",
+    "FULL_PROJECT_REPORT_KO.pdf": "ddb8017f5e68a99489f17240824d888adc7228b372014f689b8cd2026ad697a0",
+    "FULL_PROJECT_REPORT_KO.tex": "a803407a544a489490c10297b3898346a4ab7f24324b4ed127cdfea3c504797a",
+    "FEM_REPORT_KO.pdf": "fa45d2f93056bd79a22386a9d5bbbca0b099f98377a3a9c6bc921f62b5b58a52",
     "FEM_REPORT_KO.tex": "c276355897b07fadf05ee9ac8de6b1ca0d2e3547b0a64fc3d3158393b004424e",
-    "Full_Paper_Reproduction_KO.ipynb": "ac01585186ed93e090c531df00cd21b32ad756294ba20748603739daa5d4a83d"
-  }
+    "Full_Paper_Reproduction_KO.ipynb": "76425cc0b7809977976caca1598983954a8b7037f27d456140e963d47e6ac0bf"
+  },
+  "revision": "GitHub math preservation and obsolete deliverable cleanup",
+  "math_regression_tests_passed": 6,
+  "github_formulas_verified": 347,
+  "mathjax_render_errors": 0,
+  "notebook_code_and_outputs_unchanged": true,
+  "prior_fem_integration_tests_passed": 4
 }

@@ -74,3 +74,16 @@ xelatex -interaction=nonstopmode -halt-on-error FEM_REPORT_KO.tex
 그림의 색 범위 일치와 수치해의 정확도는 별개입니다. FEM 그림은 논문에서 기록한 팔레트와 범위를 사용하며, 범위 밖 값의 비율을 `figures/fem_report/color_scale_audit.json`에 보존합니다. 값을 잘라 저장하거나 저자의 변위 진폭에 맞추어 보정하지 않습니다.
 
 원저자 구현과의 차이는 [표기 및 구현 대조](AUTHOR_NOTATION_KO.md), 국문 편집의 참고 자료는 [편집 참고문헌](EDITORIAL_REFERENCES_KO.md)을 참조합니다.
+
+## 6. GitHub 수식 표시와 최신본 관리
+
+PDF 조판 성공만으로 GitHub의 Markdown 수식이 정상 표시되는 것은 아닙니다. GitHub가 일반 Markdown 구문을 먼저 처리하면서 TeX의 역슬래시, 아래첨자, 별표 및 줄바꿈을 바꾸는 문제를 확인했습니다. 블록 수식은 `math` 코드 블록, 본문 수식은 달러 기호와 백틱으로 보호하는 GitHub 공식 표기를 사용합니다. 절댓값·노름·부등호는 표 구분자나 HTML과 충돌하지 않는 TeX 명령으로 출력합니다.
+
+```powershell
+python -m pytest tests/test_latex_report.py -q
+python scripts/check_report_markdown.py
+```
+
+두 번째 명령은 인증된 `gh` CLI로 GitHub의 상태를 변경하지 않는 Markdown 변환 API를 호출합니다. 모든 수식의 변환 전후 내용을 비교하고 `REPORT_MATH_QA.json`에 기록합니다. 브라우저 화면의 시각 검토와는 다른 검사이며, 수식 입력의 보존 여부를 확인합니다. 공식 근거: [GitHub 수식 작성 안내](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
+
+현재 보고서는 전체 보고서와 FEM 보고서 두 종류이며, PDF·TeX·Markdown은 각각 동일한 원고의 출력 형식입니다. 구버전 보고서·그림집·노트북·배포 압축본은 작업 폴더에서 제거하고 같은 이름의 최신 파일을 갱신합니다. 이전 커밋은 Git 이력에 남습니다. `scripts/build_korean_report.py`와 `scripts/build_notebook.py`는 최신 생성기로 연결되는 호환 명령입니다.

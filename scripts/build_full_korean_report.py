@@ -143,7 +143,7 @@ ISSUES={
  'C13':('qy 네트워크 오기','식 20의 qx 반복과 달리 도식은 별도 qy 가지다. 독립 네트워크를 사용한다.'),
  'C14':('Fourier 부호','도식의 양의 부호보다 명시된 방정식 q=-k grad T를 따른다.'),
  'C15':('열변형률 구성식','전변형률과 탄성변형률의 혼용 대신 텐서 구성식으로 일관되게 계산한다.'),
- 'C16':('전단 계수','텐서 전단과 공학 전단의 계수 차이를 명시하고 σxy=μ(ux,y+uy,x)를 사용한다.'),
+ 'C16':('전단 계수',r'텐서 전단과 공학 전단의 계수 차이를 명시하고 $\sigma_{xy}=\mu(u_{x,y}+u_{y,x})$를 사용한다.'),
  'C17':('역학 Neumann 손실','식 56은 0이지만 손실 그림은 0이 아니다. 롤러 접선력 0을 명시한다.'),
  'C18':('비균일점의 적분','균일점의 동일 가중치 설명과 보강점 배치가 충돌한다. 점 평균 에너지와 공간 적분을 구분한다.'),
  'C19':('동결 장의 독립성','정상 열전도는 역학에 의존하지 않는다. 비활성 열손실 증가를 재현하려고 역연성을 만들지 않는다.'),
@@ -218,7 +218,7 @@ def create_report(root,partial,pinn_python):
     r.equation('\\nabla\\!\\cdot\\boldsymbol{\\sigma}=\\boldsymbol{0},\\qquad \\nabla\\!\\cdot\\boldsymbol{q}=0,\\qquad \\boldsymbol{q}=-k\\nabla T')
     r.equation('\\boldsymbol{\\varepsilon}(\\boldsymbol{u})=\\tfrac12\\!\\left[\\nabla\\boldsymbol{u}+(\\nabla\\boldsymbol{u})^{\\mathsf T}\\right],\\qquad \\mu=\\frac{E}{2(1+\\nu)},\\qquad \\lambda=\\frac{E\\nu}{(1+\\nu)(1-2\\nu)}')
     r.equation('\\boldsymbol{\\sigma}=2\\mu\\boldsymbol{\\varepsilon}+\\lambda\\operatorname{tr}(\\boldsymbol{\\varepsilon})\\boldsymbol{I}-\\beta(T-T_0)\\boldsymbol{I},\\qquad \\beta=\\frac{E\\alpha}{1-2\\nu}')
-    r.p('공통 값은 ν=0.3, α=1, T<sub>0</sub>=0이다. 좌우 경계에서 ux=0, 상하에서 uy=0, 네 변의 접선력은 0이다. 왼쪽 T=1, 오른쪽 T=0이고 상하는 단열 qy=0이다. 전단응력은 σxy=μ(ux,y+uy,x)로 계산한다. α=1은 벤치마크 값이며 실제 재료의 열팽창 계수로 해석하지 않는다.')
+    r.p(r'공통 값은 $\nu=0.3$, $\alpha=1$, $T_0=0$이다. 좌우 경계에서 $u_x=0$, 상하에서 $u_y=0$이며 네 변의 접선력은 0이다. 왼쪽 $T=1$, 오른쪽 $T=0$이고 상하는 단열 $q_y=0$이다. 전단응력은 $\sigma_{xy}=\mu(u_{x,y}+u_{y,x})$로 계산한다. $\alpha=1$은 벤치마크 값이며 실제 재료의 열팽창 계수로 해석하지 않는다.')
     r.table(['기하','기지 E,k','개재물 E,k','좌표/재료 선택'],[['원형','0.3, 0.3','1.0, 1.0','중심 (0.60,0.35), 반지름 0.15'],['사각형','1.0, 1.0','0.5, 0.5','저자 제공 재료 자료의 네 사각형'],['전이학습','1.0, 1.0','1/r, 1/r','matrix/inclusion 비율 r']],[.17,.18,.18,.47])
     r.fig('fig02_geometry','그림 1. 구현된 재료장. 원문 단위·좌표의 불명확성을 구분하며, 도해의 모양을 맞추기 위해 예측값을 조정하지 않는다.',manifest,88*mm)
     r.p('원문 도해의 μm와 본문·축의 mm가 충돌한다. 본 프로젝트는 수치 단위 영역을 사용하고 mm, GPa, K, W/mK는 원문 벤치마크 표기임을 밝힌다. 실제 SI 열유속에는 길이·온도 차에 따른 환산이 필요하다.','small')
@@ -254,7 +254,7 @@ def create_report(root,partial,pinn_python):
         ['EQ1_m-EQ3_m; EQ1_t-EQ2_t',r'$\mathcal L_{\mathrm{link},\sigma},\mathcal L_{\mathrm{link},q}$','독립 출력과 유도 출력의 연결 조건'],
         ['PDE1_m, PDE2_m; PDE1_t',r'$\nabla\cdot\widehat{\boldsymbol\sigma},\nabla\cdot\widehat{\boldsymbol q}$','독립 출력의 1차 미분 잔차']],[.32,.32,.36],caption='원저자 코드와 본 보고서의 표기 대응')
     r.equation(r'\begin{aligned}\boldsymbol r_{\sigma}&=\widehat{\boldsymbol\sigma}-\boldsymbol\sigma(\boldsymbol u,T),&\quad\boldsymbol r_q&=\widehat{\boldsymbol q}+k\nabla T,\\\boldsymbol r_{\mathrm M}&=\nabla\!\cdot\widehat{\boldsymbol\sigma},&r_{\mathrm T}&=\nabla\!\cdot\widehat{\boldsymbol q}.\end{aligned}')
-    r.p(r'저자 파일은 텐서 전단변형률을 strain_xy=(ux,y+uy,x)/2로 정의한 뒤 sigma_xy에 곱하는 계수에서 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.')
+    r.p(r'저자 파일의 strain_xy는 텐서 전단변형률 $\varepsilon_{xy}=(u_{x,y}+u_{y,x})/2$이며, sigma_xy에 곱하는 계수는 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.')
     r.p('출처: <link href="https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55">저자 코드의 출력·구성식 정의</link>; <link href="https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278">일·연결·평형 손실</link>. 고정 커밋: 5b426dc8eb2255b1bb3b8630619228b36cdb464e.','small')
     r.fig('fig01_04_training_architecture','그림 2. 동시·순차 학습과 혼합 네트워크의 구현 절차. 독립 신경망과 장 동결을 구분한다.',manifest,110*mm)
     r.p('동시 학습은 두 장의 손실을 함께 최소화한다. 순차 학습은 한 장의 파라미터만 갱신하고 다른 장을 고정한다. 순차의 역학 블록에서 온도는 처방된 입력이므로 기계 에너지의 온도 방향 기울기를 차단한다. 본 구현은 열 블록 이후 새 역학 블록에서 Adam 상태를 재설정한다. 이 정책은 원문에 명시되지 않은 선택이다.')

@@ -7794,11 +7794,17 @@ a.anchor-link {
   }
 </style>
 <!-- End of mermaid configuration --><style id="portable-light-code">
-body,.jp-Notebook{background:#fff!important;color:#172b44!important}
-.jp-CodeCell .jp-InputArea-editor,.jp-CodeCell .highlight,.highlight pre{background:#f6f8fa!important;color:#1f2328!important}
-.highlight span{color:#1f2328!important}.highlight .k,.highlight .kn,.highlight .kd,.highlight .ow{color:#8250df!important}
-.highlight .s,.highlight .s1,.highlight .s2{color:#0a3069!important}.highlight .c,.highlight .c1{color:#57606a!important}
-.jp-InputPrompt,.jp-OutputPrompt{color:#57606a!important}</style>
+.jp-CodeCell .jp-InputArea-editor, .jp-CodeCell .highlight,
+.jp-CodeCell .highlight pre {background: #f6f8fa !important; color: #1f2328 !important;}
+.highlight span {color: #1f2328 !important;}
+.highlight .k, .highlight .kn, .highlight .kc, .highlight .kd,
+.highlight .ow {color: #8250df !important;}
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sa,
+.highlight .sd {color: #0a3069 !important;}
+.highlight .c, .highlight .c1, .highlight .cm {color: #57606a !important;}
+.highlight .mi, .highlight .mf {color: #0550ae !important;}
+.jp-InputPrompt, .jp-OutputPrompt {color: #57606a !important;}
+</style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
@@ -7811,7 +7817,7 @@ body,.jp-Notebook{background:#fff!important;color:#172b44!important}
 <h1 id="%EC%97%B4%ED%83%84%EC%84%B1-%ED%98%BC%ED%95%A9-PINN:-%EB%85%BC%EB%AC%B8-%EC%A0%84%EC%B2%B4-%EC%8B%A4%ED%97%98%EC%9D%98-%EC%8B%A4%ED%96%89%EA%B3%BC-%EA%B2%80%EC%A6%9D">열탄성 혼합 PINN: 논문 전체 실험의 실행과 검증<a class="anchor-link" href="#%EC%97%B4%ED%83%84%EC%84%B1-%ED%98%BC%ED%95%A9-PINN:-%EB%85%BC%EB%AC%B8-%EC%A0%84%EC%B2%B4-%EC%8B%A4%ED%97%98%EC%9D%98-%EC%8B%A4%ED%96%89%EA%B3%BC-%EA%B2%80%EC%A6%9D">¶</a></h1><p>Harandi et al., <em>Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains</em>, <a href="https://doi.org/10.1002/nme.7388">DOI: 10.1002/nme.7388</a>.</p>
 <p>혼합 PINN·표준 PINN·DEM, 동시·순차 학습, 경계점 보강, 에너지 제외, 강제 경계조건·최적화기, 구조·시간 연구, 재료비 전이학습을 실제 계산 자료와 연결하는 노트북이다. 원문에서 불명확한 설정은 재구성 선택으로 구분한다.</p>
 <p><strong>기본값 <code>RUN_FULL_STUDY=False</code>는 완료를 검증한 결과만 읽는다.</strong> 누락·진행 중 실행은 대기 표에 남긴다. 오차는 예측·FEM NPZ 배열에서 다시 계산하며 보고서의 정적 숫자를 가져오지 않는다. 전체를 실행하려면 <code>RUN_FULL_STUDY=True</code>로 바꾸고 <strong>Run All Cells</strong>를 실행한다. 체크포인트부터 이어서 계산하고 완료된 작업은 재사용한다. 실행 시간은 장비에 따라 길어질 수 있다.</p>
-<p>기존 <code>Harandi_Reproduction_KO.ipynb</code>의 짧은 학습 결과와 이 노트북의 전체 예산을 구분한다. 자세한 실행법은 <code>README_FULL_STUDY_KO.md</code>에 있다.</p>
+<p>최신 재현 노트북은 이 파일이다. <a href="FULL_PROJECT_REPORT_KO.pdf">전체 보고서</a>와 <a href="FEM_REPORT_KO.pdf">FEM 보고서</a>를 함께 참고한다. 자세한 실행법은 <code>README_FULL_STUDY_KO.md</code>에 있다.</p>
 </div>
 </div>
 </div>

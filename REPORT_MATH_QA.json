@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-11-04T03:48:50.089736+00:00",
+  "method": "GitHub Markdown API",
+  "published_ref": null,
+  "files": [
+    {
+      "file": "FULL_PROJECT_REPORT_KO.md",
+      "sha256": "5c273578f317d54daf972a18d70f0d9a2945d8fd71e0f4fe6d27da922c5c0833",
+      "source_formulas": 254,
+      "rendered_formulas": 254,
+      "missing_or_changed": [],
+      "unexpected_or_changed": [],
+      "nested_markup": [],
+      "passed": true
+    },
+    {
+      "file": "FEM_REPORT_KO.md",
+      "sha256": "70b70803dadb775a57f59f4347a3aa916824446fd6c827a64bf491747d0bb03a",
+      "source_formulas": 83,
+      "rendered_formulas": 83,
+      "missing_or_changed": [],
+      "unexpected_or_changed": [],
+      "nested_markup": [],
+      "passed": true
+    },
+    {
+      "file": "docs/AUTHOR_NOTATION_KO.md",
+      "sha256": "2c39abb58372cfb4e0bfee06e0a7799f68b22eccf0c8fec59ee3ede994327b3c",
+      "source_formulas": 10,
+      "rendered_formulas": 10,
+      "missing_or_changed": [],
+      "unexpected_or_changed": [],
+      "nested_markup": [],
+      "passed": true
+    }
+  ],
+  "scope": "Exact source-to-MathJax formula preservation, not a browser screenshot.",
+  "status": "pass",
+  "local_mathjax_validation": {
+    "engine": "MathJax 3.2.2, SVG output",
+    "formulas": 347,
+    "errors": [],
+    "passed": true
+  }
+}

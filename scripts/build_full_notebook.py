@@ -1,4 +1,4 @@
-"""Generate a separate Korean full-paper notebook, preserving the earlier notebook."""
+"""Generate the current Korean full-paper reproduction notebook."""
 from pathlib import Path
 import nbformat as nbf
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +14,7 @@ Harandi et al., *Mixed formulation of physics-informed neural networks for therm
 
 **기본값 `RUN_FULL_STUDY=False`는 완료를 검증한 결과만 읽는다.** 누락·진행 중 실행은 대기 표에 남긴다. 오차는 예측·FEM NPZ 배열에서 다시 계산하며 보고서의 정적 숫자를 가져오지 않는다. 전체를 실행하려면 `RUN_FULL_STUDY=True`로 바꾸고 **Run All Cells**를 실행한다. 체크포인트부터 이어서 계산하고 완료된 작업은 재사용한다. 실행 시간은 장비에 따라 길어질 수 있다.
 
-기존 `Harandi_Reproduction_KO.ipynb`의 짧은 학습 결과와 이 노트북의 전체 예산을 구분한다. 자세한 실행법은 `README_FULL_STUDY_KO.md`에 있다.''')
+최신 재현 노트북은 이 파일이다. [전체 보고서](FULL_PROJECT_REPORT_KO.pdf)와 [FEM 보고서](FEM_REPORT_KO.pdf)를 함께 참고한다. 자세한 실행법은 `README_FULL_STUDY_KO.md`에 있다.''')
 md('''## 1. 환경과 실행 설정
 
 프로젝트 전체를 유지하고 이 폴더에서 노트북을 연다. Windows에서는 `start_notebook.ps1`로 JupyterLab을 시작하여 **Harandi CUDA Python 3.11** 커널을 고른다. FEniCS는 WSL Ubuntu의 Python, 신경망은 현재 커널 Python을 사용한다. Linux에서는 `FENICS_PYTHON`으로 DOLFIN 환경을 지정한다.

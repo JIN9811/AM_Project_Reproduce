@@ -4,19 +4,27 @@
 
 | 항목 | 확인 결과 |
 |---|---|
-| 이번 개정의 파이프라인·완료 판정 시험 | 29 passed (Windows CPU) |
-| FEniCS 통합 및 저자 자료 회귀 시험 | 4 passed (Ubuntu DOLFIN) |
+| 이번 수식 수정의 문서·파이프라인 시험 | 35 passed (수식 회귀 6개 + 완료 판정 29개, Windows CPU) |
+| 이전 개정의 FEniCS 통합 및 저자 자료 회귀 시험 | 4 passed (Ubuntu DOLFIN) |
 | 이전 전체 CPU 회귀 시험 | 126 passed, 9 skipped; 이번 문서 개정에서는 수치 해법을 변경하지 않음 |
 | 완료된 신경망 | 13개; 설정·예정 횟수·최종 가중치·예측 배열 검증 |
 | FEniCS 기준해 | 19개; 설정·배열·잔차·출처 해시 확인 |
 | FEM 추가 검증 | 균질 해석해 6개 및 외부 FEAP 비교를 실제 재계산 |
-| Jupyter Notebook | 코드 셀 15개 순서대로 재실행, 오류 출력 0개 |
-| 전체 보고서 | 39쪽; LaTeX 조판 경고 0개, 모든 페이지 자동 검사 및 시각 검토 |
-| 별도 FEM 보고서 | 17쪽; LaTeX 조판 경고 0개, 모든 페이지 자동 검사 및 시각 검토 |
+| Jupyter Notebook | 이전 실행의 코드 셀 15개·출력 동일성 확인; 오류 출력 0개, 안내 링크만 수정 |
+| 전체 보고서 | 39쪽 자동 재검사; 변경 4쪽 시각 검토, 나머지 35쪽은 이전 검토본과 픽셀 동일 |
+| 별도 FEM 보고서 | 17쪽 자동 재검사; 전 쪽이 이전 검토본과 픽셀 동일, 약형·구성식 페이지 추가 시각 확인 |
 | 출처 자료 | 배포 자료 7개 해시 일치; 미배포 원문 PDF와 발췌 7개는 미검증으로 명시 |
 
-이번 시험 명령은 `python -m pytest tests/test_finish_full_study.py tests/test_full_study.py -q --tb=short`와 Ubuntu의 `python3 -m pytest tests/test_fem.py tests/test_author_reference.py -q`입니다. Windows에서는 `CUDA_VISIBLE_DEVICES=-1`을 적용하여 진행 중인 GPU 학습과 분리했습니다.
+이번 시험 명령은 `python -m pytest tests/test_latex_report.py tests/test_finish_full_study.py tests/test_full_study.py -q --tb=short`입니다. Ubuntu의 FEM 회귀 시험은 이전 개정에서 수행했습니다. Windows에서는 `CUDA_VISIBLE_DEVICES=-1`을 적용하여 진행 중인 GPU 학습과 분리했습니다.
 
 노트북 기본값은 `RUN_FULL_STUDY=False`, `RUN_SMOKE=False`이며, 문서 검증에서 장기 학습을 중복 실행하지 않았습니다. 공개 저장소의 13개 완료 결과와 로컬에서 계속 계산 중인 실행은 구분합니다.
 
 PDF 검증은 `FULL_REPORT_LAYOUT_QA.json`과 `FEM_REPORT_LAYOUT_QA.json`, 조판 기록은 각 `*_TEX_BUILD.json`, 수치 검증은 `results/fem_report_verification.json`에 있습니다. 자동 검사는 수치 정확도의 증명이 아니며 별도의 FEM·외부 자료 검증과 함께 해석해야 합니다.
+
+## GitHub 수식 표시 수정
+
+GitHub Markdown 변환 과정에서 보호되지 않은 TeX 명령의 역슬래시·첨자·별표가 변경되는 문제를 재현했습니다. 블록 수식은 `math` 코드 블록, 본문 수식은 보호된 인라인 구문으로 바꾸었습니다. 부등호의 HTML 이중 이스케이프와 표 안의 절댓값·노름 구분자 충돌도 제거했습니다.
+
+실제 GitHub Markdown API에서 전체 보고서 254개, FEM 보고서 83개, 저자 표기 문서 10개, 총 **347개 수식의 변환 전후 완전 일치**를 확인했습니다. 별도의 MathJax 3.2.2 SVG 변환에서도 **347개 중 오류 0개**였습니다. 이 검사는 브라우저 스크린샷 확인을 의미하지 않습니다. 검사 결과는 `REPORT_MATH_QA.json`에 있습니다.
+
+구버전 한국어 보고서·그림집·노트북과 이전 배포 압축본, 중복 README를 작업 폴더에서 제거했습니다. 최신 전체/FEM 보고서의 PDF·TeX·Markdown은 유지하며, 이전 커밋은 삭제하지 않습니다.

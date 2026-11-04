@@ -4,12 +4,14 @@
 
 FEniCS 유한요소해와 PyTorch 기반 혼합 물리정보 신경망을 이용하여 Harandi 등의 열탄성 벤치마크를 재현하는 연구 프로젝트입니다. 지배방정식, 학습 과정, 성분별 오차 및 원문의 예외 사례를 실행 가능한 코드와 한국어 보고서로 연결합니다.
 
-> **연구 상태 · 2026-11-04 문서 개정**<br>
+> **연구 상태 · 2026-11-04 수식 표시 수정**<br>
 > FEniCS 기준해 **19개**를 검증했으며, 등록된 **27개 신경망 실험 중 13개**의 완료 결과를 수록했습니다. 별도의 시간 측정 실험은 25개입니다. 이 저장소는 해당 시점의 연구 자료이며, 전체 실험이 완료된 최종 결과를 의미하지 않습니다.
 
 **기준 논문** · Harandi et al. (2024), *Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains*, International Journal for Numerical Methods in Engineering, 125(4), e7388. [DOI: 10.1002/nme.7388](https://doi.org/10.1002/nme.7388). 온라인 선게재는 2023년입니다.
 
 ## 연구 자료
+
+최신 보고서는 아래 **전체 보고서**와 **FEM 보고서** 두 종류입니다. PDF는 완성된 조판본이며, Markdown도 GitHub 수식 표시를 검증했습니다. 같은 이름의 파일을 갱신하며 이전 내용은 Git 이력에서 확인합니다.
 
 | 자료 | 내용 |
 |---|---|
@@ -51,8 +53,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start_notebook.ps1
 `Full_Paper_Reproduction_KO.ipynb`를 열고 **Harandi CUDA Python 3.11** 커널을 선택합니다. 기본 설정인 `RUN_FULL_STUDY=False`에서는 저장된 자료를 읽고 오차를 다시 계산합니다. 전체 학습은 `RUN_FULL_STUDY=True`로 변경하거나 다음 명령으로 실행합니다.
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .
-un.ps1 -Task full
+powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1 -Task full
 ```
 
 완료된 실행은 검증 후 재사용합니다. 중단된 실행은 설정이 일치하는 체크포인트에서 이어집니다. 공개 저장소의 자료는 업로드 시점의 스냅샷이므로, 원래 컴퓨터의 현재 실행 상태와 다를 수 있습니다. 자세한 조건은 [전체 실행 안내](README_FULL_STUDY_KO.md)를 참고하십시오.

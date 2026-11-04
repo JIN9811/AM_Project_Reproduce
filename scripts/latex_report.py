@@ -51,7 +51,7 @@ def symbol_tex(text):
 
 def tex_text(text):
     """Convert the report's small HTML vocabulary; preserve explicit $math$."""
-    text=str(text)
+    text=join_subscripts(str(text))
     pattern=r'(\$[^$]+\$|<link\s+href="[^"]+"[^>]*>.*?</link>|<b>.*?</b>|<(?:sub|super)>.*?</(?:sub|super)>|<br\s*/?>)'
     output=[]
     for part in re.split(pattern,text,flags=re.S):
@@ -68,14 +68,43 @@ def tex_text(text):
     return ''.join(output)
 
 
+def join_subscripts(text):
+    """A subscript must share a math group with its base, in both formats."""
+    return re.sub(r'([A-Za-z])<sub>(.*?)</sub>', r'$\1_{\2}$', text)
+
+
+def markdown_math(latex):
+    """GitHub's protected inline syntax avoids Markdown eating TeX tokens.
+
+    Literal pipes still delimit Markdown table cells, even inside code spans.
+    Spell them as TeX commands without changing the mathematical expression.
+    """
+    latex = re.sub(r'\\\|(.*?)\\\|', r'\\lVert \1\\rVert', latex)
+    latex = latex.replace('|', r'\vert ')
+    latex = latex.replace('<', r'\lt ').replace('>', r'\gt ')
+    return '$`' + latex + '`$'
+
+
 def markdown_text(text):
-    text=str(text).replace('<b>','**').replace('</b>','**').replace('<br/>','\n')
+    text=join_subscripts(str(text)).replace('<b>','**').replace('</b>','**').replace('<br/>','\n')
     text=re.sub(r'<link href="([^"]+)"[^>]*>(.*?)</link>',r'[\2](\1)',text)
     text=re.sub(r'<sub>(.*?)</sub>',r'$_{\1}$',text)
     text=re.sub(r'<super>(.*?)</super>',r'$^{\1}$',text)
-    pieces=re.split(r'(\$[^$]+\$|\[[^]]+\]\([^)]+\)|[A-Za-z0-9_./*-]+\.(?:json|py|npz|ipynb|md|pdf|pt|csv|tex))',text)
-    return ''.join(p if p.startswith(('$','[')) or re.search(r'\.(?:json|py|npz|ipynb|md|pdf|pt|csv|tex)$',p)
-                   else TOKEN.sub(lambda m:'$'+SYMBOLS[m.group()]+'$',p) for p in pieces)
+    protected = (r'(\$[^$]+\$|`[^`]+`|\[[^]]+\]\([^)]+\)|'
+                 r'[A-Za-z0-9_./*-]+\.(?:json|py|npz|ipynb|md|pdf|pt|csv|tex|html)|'
+                 r'[A-Za-z][A-Za-z0-9]*_[A-Za-z0-9_]+)')
+    pieces=re.split(protected,text)
+    result=[]
+    for part in pieces:
+        if part.startswith('$'):
+            result.append(markdown_math(part[1:-1]))
+        elif part.startswith(('`','[')):
+            result.append(part)
+        elif re.fullmatch(protected, part):
+            result.append('`'+part+'`')
+        else:
+            result.append(TOKEN.sub(lambda m:markdown_math(SYMBOLS[m.group()]),part))
+    return ''.join(result)
 
 
 PREAMBLE = r'''\documentclass[10pt,a4paper]{article}
@@ -174,7 +203,7 @@ class LatexReport:
     def equation(self,latex):
         self.equation_number+=1
         self.tex.append(r'\begin{equation}'+latex+r'\end{equation}')
-        self.md.append('$$\n'+latex+'\n\\tag{'+str(self.equation_number)+'}\n$$\n')
+        self.md.append('```math\n'+latex+'\n\\tag{'+str(self.equation_number)+'}\n```\n')
 
     def h(self,text,level=1):
         self.last_heading=re.sub(r'^\d+(?:\.\d+)*\.?\s*','',text)
