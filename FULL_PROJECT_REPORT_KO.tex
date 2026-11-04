@@ -52,7 +52,7 @@ AM PROJECT  |  수치 재현 연구\par
 
 {\small\color{muted} Numerical Reproduction of Mixed Physics-Informed Neural Networks\newline for Thermoelastic Analysis of Heterogeneous Materials\par}
 
-{\small\color{muted} Harandi et al. (2024), DOI \nolinkurl{10.1002/nme.7388}\newline 진행 보고서 · 2026-11-04 12:45 KST\par}
+{\small\color{muted} Harandi et al. (2024), DOI \nolinkurl{10.1002/nme.7388}\newline 진행 보고서 · 2026-11-04 13:03 KST\par}
 
 \subsection{국문초록}
 
@@ -379,8 +379,10 @@ J02 & 2.205 & 2.538 & 0.6161 & 3.999\\\addlinespace[2pt]
 {\small\color{muted} 표의 값은 평균 절대오차/기준해 최대 절댓값(\%)이다. 일반 실행 FEM200, 비율 15는 별도 FEM50을 기준으로 하며, 구성식/Fourier 출력을 사용한다. 전체 8성분·직접 출력은 부록 B에 있다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=145.0mm,keepaspectratio]{\detokenize{figures/full_study/fig11_circle_methods.png}}
-\captionof{figure}{원형 세 방법·두 학습 방식의 x=0.5 단면. 그림은 FEM50 기준이며 본문 수치 표의 FEM200과 구분한다.}\end{minipage}\par
+\includegraphics[width=\linewidth,height=137.0mm,keepaspectratio]{\detokenize{figures/full_study/fig11_circle_methods.png}}
+\captionof{figure}{본 프로젝트에서 학습한 6개 모델과 직접 계산한 FEniCS50의 x=0.5 단면. 비교 구성: Harandi et al. (2024), Fig. 11, DOI \nolinkurl{10.1002/nme.7388.} 모든 곡선은 자체 계산 결과이며 원문 그림의 전재·디지타이징이 아니다. 그림의 FEM50과 본문 표의 FEM200은 구분한다.}\end{minipage}\par
+
+{\small\color{muted} 곡선별 원본·학습 횟수·단면 CSV: \href{https://github.com/JIN9811/AM_Project_Reproduce/blob/main/docs/FIGURE_11_PROVENANCE_KO.md}{데이터 출처 명세}. 응력·열유속은 구성식/Fourier 출력이다.\par}
 
 \subsection{동시·순차의 성분별 비교}
 

@@ -498,7 +498,12 @@ def _write_gallery(root, report):
         parts.append(f'<tr><td>{html.escape(name)}</td><td>{job["kind"]}</td><td>{html.escape(str(job["environment"].get("GPU") or job["environment"].get("device")))}</td><td><a href="{history_path}">원본 CSV</a></td></tr>')
     parts.append('</table></details>')
     for item in report['figures']:
-        parts.append(f'<section><h2>{html.escape(item["title"])}</h2><p>{html.escape(item["note"])}</p><img src="{item["png"]}" alt="{html.escape(item["title"])}"><p><a href="{item["svg"]}">SVG 벡터 그림</a></p></section>')
+        provenance = ('<p>수치 자료: 본 프로젝트에서 학습한 6개 모델과 독립 FEniCS50. '
+                      '비교 구성의 참고문헌: Harandi et al. (2024), Fig. 11, DOI 10.1002/nme.7388. '
+                      '<a href="docs/FIGURE_11_PROVENANCE_KO.md">곡선별 출처</a> · '
+                      '<a href="results/figure11_sections.csv">단면 CSV</a></p>'
+                      if item['id'] == 'fig11_circle_methods' else '')
+        parts.append(f'<section><h2>{html.escape(item["title"])}</h2><p>{html.escape(item["note"])}</p>{provenance}<img src="{item["png"]}" alt="{html.escape(item["title"])}"><p><a href="{item["svg"]}">SVG 벡터 그림</a></p></section>')
     parts.append('<details><summary>자료 부족으로 생략한 그림</summary><ul>')
     for item in report['skipped_figures']:
         parts.append('<li>'+html.escape(item['id']+': '+', '.join(item['missing']))+'</li>')

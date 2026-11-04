@@ -1,11 +1,11 @@
 {
-  "created_utc": "2026-11-04T03:48:50.089736+00:00",
+  "created_utc": "2026-11-04T04:04:28.014133+00:00",
   "method": "GitHub Markdown API",
   "published_ref": null,
   "files": [
     {
       "file": "FULL_PROJECT_REPORT_KO.md",
-      "sha256": "5c273578f317d54daf972a18d70f0d9a2945d8fd71e0f4fe6d27da922c5c0833",
+      "sha256": "aefa885cade003a3b15476774887dda387e9b327997e5cc3d3244fc17e821b81",
       "source_formulas": 254,
       "rendered_formulas": 254,
       "missing_or_changed": [],

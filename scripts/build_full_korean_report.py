@@ -314,7 +314,8 @@ def create_report(root,partial,pinn_python):
     rectangles=['mixed_rectangles_coupled','mixed_rectangles_sequential']
     r.p('원형 문제에서는 혼합 PINN, 표준 PINN 및 DEM에 동시·순차 학습을 적용한 여섯 조건을 비교한다. 사각형 문제에서는 혼합 PINN의 두 학습 방식을 평가한다. 비교 지표는 성분별 평균 및 최대 정규화오차이며, 각 방법의 경계조건과 학습 횟수를 함께 제시한다. 원문에서 보고한 방법 간 경향의 재현 여부는 이 수치 비교를 기준으로 판단한다.')
     focus(circle+rectangles)
-    r.fig('fig11_circle_methods','그림 3. 원형 세 방법·두 학습 방식의 x=0.5 단면. 그림은 FEM50 기준이며 본문 수치 표의 FEM200과 구분한다.',manifest,145*mm)
+    r.fig('fig11_circle_methods','그림 3. 본 프로젝트에서 학습한 6개 모델과 직접 계산한 FEniCS50의 x=0.5 단면. 비교 구성: Harandi et al. (2024), Fig. 11, DOI 10.1002/nme.7388. 모든 곡선은 자체 계산 결과이며 원문 그림의 전재·디지타이징이 아니다. 그림의 FEM50과 본문 표의 FEM200은 구분한다.',manifest,137*mm)
+    r.p('곡선별 원본·학습 횟수·단면 CSV: <link href="https://github.com/JIN9811/AM_Project_Reproduce/blob/main/docs/FIGURE_11_PROVENANCE_KO.md">데이터 출처 명세</link>. 응력·열유속은 구성식/Fourier 출력이다.','small')
     r.h('동시·순차의 성분별 비교',2)
     delta('mixed_circle_sequential','mixed_circle_coupled')
     delta('mixed_rectangles_sequential','mixed_rectangles_coupled')

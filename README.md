@@ -23,6 +23,7 @@ FEniCS 유한요소해와 PyTorch 기반 혼합 물리정보 신경망을 이용
 | [보고서 원고 · Markdown](FULL_PROJECT_REPORT_KO.md) | 검색·수정 가능한 본문과 수치 표 |
 | [재현 Jupyter Notebook](Full_Paper_Reproduction_KO.ipynb) | 설정 확인, 실제 배열에서 오차 재계산, 그림 재생성, 전체 학습 실행 |
 | [결과 그림집 · PDF](FULL_STUDY_FIGURES.pdf) | 논문과 대응하는 색 범위·결과장·단면·손실 이력 |
+| [원형 단면 비교의 데이터 출처](docs/FIGURE_11_PROVENANCE_KO.md) | 보고서 그림 3의 자체 학습 결과 6개, FEniCS50, 원논문 Fig. 11 참조 범위와 단면 CSV |
 | [재현 절차](docs/REPRODUCTION_GUIDE_KO.md) | 설치, 결과 열람, 재계산, 장기 실행의 구분 |
 | [실험 명세](PAPER_EXPERIMENT_INVENTORY.md) | 원문 그림·표·반례의 대응 관계와 미기재 조건 |
 

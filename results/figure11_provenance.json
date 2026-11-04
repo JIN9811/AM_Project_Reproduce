@@ -1,0 +1,102 @@
+{
+  "figure": "figures/full_study/fig11_circle_methods.png",
+  "figure_sha256": "b215c4a6494534306afca2c267a8fe7022c17741d686a2e6605ea0721ac2ba33",
+  "data_origin": "Project-trained models and independently computed FEniCS reference",
+  "paper_role": "Benchmark and comparison layout, Figure 11; no digitized curves or copied pixels",
+  "paper_doi": "10.1002/nme.7388",
+  "curves": [
+    {
+      "label": "Standard coupled",
+      "style": "빨강 파선",
+      "source": "results/full_study/baseline_circle_standard_coupled/prediction.npz",
+      "sha256": "792d3dd1d6c44a016bd39c0709c3a7ba0367c7e55c23cf571251c82cff4fad86",
+      "job": "baseline_circle_standard_coupled",
+      "actual_updates": 100000,
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    },
+    {
+      "label": "Standard sequential",
+      "style": "빨강 점선",
+      "source": "results/full_study/baseline_circle_standard_sequential/prediction.npz",
+      "sha256": "bf98e27d723ff7ecc82e1808b8595f9df04c918c31a16f0d6ba44b44185ac78a",
+      "job": "baseline_circle_standard_sequential",
+      "actual_updates": 200000,
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    },
+    {
+      "label": "DEM coupled",
+      "style": "초록 파선",
+      "source": "results/full_study/baseline_circle_dem_coupled/prediction.npz",
+      "sha256": "4b0a06e0c598cea97e3eb2ce3bf9a968c2591ee419e7f69bc02720557093bb80",
+      "job": "baseline_circle_dem_coupled",
+      "actual_updates": 100000,
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    },
+    {
+      "label": "DEM sequential",
+      "style": "초록 점선",
+      "source": "results/full_study/baseline_circle_dem_sequential/prediction.npz",
+      "sha256": "f157ccd2a31a917460d37cebe93971c1a6877ed4da99515f16c0ddc478ba6cb6",
+      "job": "baseline_circle_dem_sequential",
+      "actual_updates": 200000,
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    },
+    {
+      "label": "Mixed coupled",
+      "style": "파랑 파선",
+      "source": "results/full_study/mixed_circle_coupled/prediction.npz",
+      "sha256": "49af3cc7d3e4c416171a5249030d0b037e196dd7b638e44f6beba1b78ffd0c27",
+      "job": "mixed_circle_coupled",
+      "actual_updates": 100000,
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    },
+    {
+      "label": "Mixed sequential",
+      "style": "파랑 점선",
+      "source": "results/full_study/mixed_circle_sequential/prediction.npz",
+      "sha256": "0fa4a4f4084dcf86c2654a360e26a2171d9052e968569327562d4bf5b039e945",
+      "job": "mixed_circle_sequential",
+      "actual_updates": 200000,
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    },
+    {
+      "label": "FEM50",
+      "style": "검정 실선",
+      "source": "results/fem_circle_n50/solution.npz",
+      "sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "samples": 101,
+      "extraction": {
+        "x": 0.5,
+        "method": "exact grid line"
+      }
+    }
+  ],
+  "csv": "results/figure11_sections.csv",
+  "csv_sha256": "ff97017c7f3d9d3b3d7b55d31a49a36f1c71ddbdaf19c797473da8082bb83874",
+  "total_rows": 707,
+  "numerical_sources_verified": true
+}
