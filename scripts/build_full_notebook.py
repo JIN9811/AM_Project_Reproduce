@@ -407,7 +407,15 @@ if all(n in EVALUATIONS for n in ('transfer_w0','transfer_w0.1')):
         differences.append({'성분':f,'평균 변화 pp':100*(b['mean_error_over_peak']-a['mean_error_over_peak']),
                             '최대 변화 pp':100*(b['max_error_over_peak']-a['max_error_over_peak'])})
     table(differences)
-    display(Markdown('변화량은 **w=0.1 − w=0**이다. 음수는 오차 감소, 양수는 증가이다. 성분별 결과를 일반적인 우세로 확대하지 않는다.'))''')
+    display(Markdown('변화량은 **w=0.1 − w=0**이다. 음수는 오차 감소, 양수는 증가이다. 성분별 결과를 일반적인 우세로 확대하지 않는다.'))
+    mean_worse=[r['성분'] for r in differences if r['평균 변화 pp']>0]
+    max_worse=[r['성분'] for r in differences if r['최대 변화 pp']>0]
+    display(Markdown('현재 배열에서 평균오차 악화 성분: **'+', '.join(mean_worse)+
+                     '**; 최대오차 악화 성분: **'+', '.join(max_worse)+'**.'))
+    qx_delta=next(r['최대 변화 pp'] for r in differences if r['성분']=='qx')
+    if qx_delta<0:
+        display(Markdown(f'이 출력 표현에서 qx 최대 정규화오차는 **{abs(qx_delta):.2f} pp 감소**하였다. '
+                         '원문에 제시된 qx 최대오차 증가가 같은 형태로 재현된 것은 아니다.'))''')
 md('''## 12. FEM 50·100·200 격자 수렴
 
 200×200은 비교 기준이며 해석적 정답은 아니다. 원문의 “100에서 거의 수렴”에는 명시된 허용오차가 없으므로 아래 성분별 상대 L2 변화량을 보고 판단한다.''')

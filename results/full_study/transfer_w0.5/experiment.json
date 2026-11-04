@@ -1,0 +1,185 @@
+{
+  "status": "complete",
+  "training_ratios": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "test_ratio": 15,
+  "steps_per_ratio": 10000,
+  "requested_optimizer_updates": 100000,
+  "actual_optimizer_updates": 100000,
+  "completed_training_ratios": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "active_ratio": 10.0,
+  "active_ratio_updates": 10000,
+  "physics_weight": 0.5,
+  "energy": "authors",
+  "hard_dirichlet": false,
+  "training_elapsed_seconds": 3721.574984499981,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "optimizer_execution": "CUDA graph replay",
+  "optimizer_state_between_ratios": "reset; only network weights transfer",
+  "checkpoint_selection": "last scheduled update; no held-out selection",
+  "inputs": "x, y, log10(global E_matrix/E_inclusion), log10(global k_matrix/k_inclusion)",
+  "material_convention": "Figure 22: matrix/inclusion; matrix E=k=1, inclusion E=k=1/ratio",
+  "input_deviation": "Global ratios identify the BVP; page 29 text describes local E(x,y),k(x,y).",
+  "data_loss": "mean squared error over all eight fields",
+  "reconstruction_choices": [
+    "log10 global ratio encoding",
+    "Adam reset at ratio transitions",
+    "data normalization and hard-Dirichlet choice not specified in Section 4.4",
+    "weight 0.5 in the four-weight sweep is a reconstruction choice"
+  ],
+  "training_references": [
+    {
+      "ratio": 1.0,
+      "file": "ratio_1/solution.npz",
+      "sha256": "6969fa78c6b06d2b914a6c65403a47d8d0af092e4fb6bd5bc7d0e25bb4d121c4",
+      "metadata_verified": true,
+      "metadata_sha256": "082ed57b4efaca2a35cd44c73cba3942fe8509564d0f7c9e8da0b287a6e59e0d",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 2.0,
+      "file": "ratio_2/solution.npz",
+      "sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "metadata_verified": true,
+      "metadata_sha256": "e29378f96fa9985bfbee77a7f2fa4efe0bb1b30442290f897b331989b501a856",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 3.0,
+      "file": "ratio_3/solution.npz",
+      "sha256": "b437fc3fb55b913083d14b0fb9d60c1e415c45076d6a9f88e4d44fb723069926",
+      "metadata_verified": true,
+      "metadata_sha256": "6d20895450f3b973523e948f247fbde9ae9303d5c4f822b23d9ef0f3c62e4624",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 4.0,
+      "file": "ratio_4/solution.npz",
+      "sha256": "85d9f07647066f32f807d99813a7887625362fdc5fed7d1b75705da09aa353fd",
+      "metadata_verified": true,
+      "metadata_sha256": "77c0ed8d3150bbd5a39682b55d846118d1c42ae40d3e5fed9e157a40126c5cea",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 5.0,
+      "file": "ratio_5/solution.npz",
+      "sha256": "75cc9b308e5ddf2a126cc63cd6bcaa27636de9ef20ac03e9730711ca56e3f8a1",
+      "metadata_verified": true,
+      "metadata_sha256": "95b74698620dea2750a474505836d183d3a5db612571fe6cf87acc9651101a30",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 6.0,
+      "file": "ratio_6/solution.npz",
+      "sha256": "d17682659769c3af3fa12303db38bbac04dad9bfc1f178eb9e6b836e4479e1a0",
+      "metadata_verified": true,
+      "metadata_sha256": "108ceec105ade6778dc69af8a779084e183db0b2a5e81697fcc393e8cc3cd622",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 7.0,
+      "file": "ratio_7/solution.npz",
+      "sha256": "997fe26c465af676dc0c385b11ce4d5198d722b7173377dcc44e3d8709cbaf82",
+      "metadata_verified": true,
+      "metadata_sha256": "2f6c96b2ab6f0cc0229deecc17def68edce9e5c5cabb7a8053cff8cce95c692b",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 8.0,
+      "file": "ratio_8/solution.npz",
+      "sha256": "0e428824f5839e6ff439098c40cd66b43c4e448e203523696f1efff03939f624",
+      "metadata_verified": true,
+      "metadata_sha256": "327a2db0c99d2a2b52d82f45bd6d8ca287370751bcd85c7fc5a9ae76a1fc3595",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 9.0,
+      "file": "ratio_9/solution.npz",
+      "sha256": "b0ec2f128f1f6e1bcdd65599db3488bdbd3d3728fc498656d46005167974fdd6",
+      "metadata_verified": true,
+      "metadata_sha256": "7345632452b008667b38ef70df0c74553e555b90e84c194dd6b0f45558c526c1",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    {
+      "ratio": 10.0,
+      "file": "ratio_10/solution.npz",
+      "sha256": "18957b486aea41c2dda69079a7c453cc8437775f5424be282f7247868452b2fa",
+      "metadata_verified": true,
+      "metadata_sha256": "0436af8932ac854672f8b9aa3bc4557db2116163d03ec8feb7786ee8739065eb",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    }
+  ],
+  "held_out_evaluation": {
+    "reference": {
+      "ratio": 15,
+      "file": "ratio_15/solution.npz",
+      "sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
+      "metadata_verified": true,
+      "metadata_sha256": "977dd69803783a0d0d816d80f346f8278fd271ab08178149c1af763f87c5bb5d",
+      "coefficient_mode": "sharp",
+      "fem_n": 50
+    },
+    "points": 10201,
+    "used_for_training_or_selection": false,
+    "seconds": 0.19015769998077303
+  },
+  "config": {
+    "ratios": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0
+    ],
+    "steps": 10000,
+    "weight": 0.5,
+    "n": 51,
+    "width": 40,
+    "layers": 5,
+    "energy": "authors",
+    "seed": 42,
+    "dtype": "float64",
+    "lr": 0.001,
+    "hard": false,
+    "normalization": "none",
+    "fast_adam": true
+  },
+  "evaluation_elapsed_seconds": 0.190165000007255
+}

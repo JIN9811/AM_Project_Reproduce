@@ -1,0 +1,1835 @@
+{
+  "status": "verified_refresh",
+  "source_cutoff_utc": "2026-11-04T18:13:46.791469+00:00",
+  "completed_neural": 26,
+  "registered_neural": 27,
+  "completed_timing": 0,
+  "registered_timing": 25,
+  "copied_files": [
+    {
+      "path": "results/full_study/parametric_fem/ratio_1/metadata.json",
+      "sha256": "082ed57b4efaca2a35cd44c73cba3942fe8509564d0f7c9e8da0b287a6e59e0d",
+      "bytes": 863
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_2/metadata.json",
+      "sha256": "e29378f96fa9985bfbee77a7f2fa4efe0bb1b30442290f897b331989b501a856",
+      "bytes": 865
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_3/metadata.json",
+      "sha256": "6d20895450f3b973523e948f247fbde9ae9303d5c4f822b23d9ef0f3c62e4624",
+      "bytes": 864
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_4/metadata.json",
+      "sha256": "77c0ed8d3150bbd5a39682b55d846118d1c42ae40d3e5fed9e157a40126c5cea",
+      "bytes": 864
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_5/metadata.json",
+      "sha256": "95b74698620dea2750a474505836d183d3a5db612571fe6cf87acc9651101a30",
+      "bytes": 867
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_6/metadata.json",
+      "sha256": "108ceec105ade6778dc69af8a779084e183db0b2a5e81697fcc393e8cc3cd622",
+      "bytes": 860
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_7/metadata.json",
+      "sha256": "2f6c96b2ab6f0cc0229deecc17def68edce9e5c5cabb7a8053cff8cce95c692b",
+      "bytes": 866
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_8/metadata.json",
+      "sha256": "327a2db0c99d2a2b52d82f45bd6d8ca287370751bcd85c7fc5a9ae76a1fc3595",
+      "bytes": 860
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_9/metadata.json",
+      "sha256": "7345632452b008667b38ef70df0c74553e555b90e84c194dd6b0f45558c526c1",
+      "bytes": 864
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_10/metadata.json",
+      "sha256": "0436af8932ac854672f8b9aa3bc4557db2116163d03ec8feb7786ee8739065eb",
+      "bytes": 866
+    },
+    {
+      "path": "results/full_study/parametric_fem/ratio_15/metadata.json",
+      "sha256": "977dd69803783a0d0d816d80f346f8278fd271ab08178149c1af763f87c5bb5d",
+      "bytes": 867
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/config.json",
+      "sha256": "7d8c1a91bdfadfcda1cd2bb75231966fc878abfd6c2a4de6911c76405ea7666a",
+      "bytes": 488
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/environment.json",
+      "sha256": "f4b3b298540d8e7953e54f8a915cb4531513e149d893b1faa0e6b5683c27efa9",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/history.csv",
+      "sha256": "fe84d84c2b510b1080335c731910cd7b30d5f4aa83c3b2272fbdc7ed3ee84f00",
+      "bytes": 32976
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/metrics.json",
+      "sha256": "8dac55bfc1f1c61edd4f9407a6ee64e4513b33b2b456bac39e68720be64770e0",
+      "bytes": 15835
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/model.pt",
+      "sha256": "537279171b896ae071680cbd1a3f7ea1c70393e46fe8f3664c7525b21ac6a13c",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/prediction.csv",
+      "sha256": "74407e668c62a06ee1dd471032e8bf58ca8a8450fd4736d000b77960b9e1276b",
+      "bytes": 2593993
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/prediction.npz",
+      "sha256": "5d196c780b7325ad9c17faff4b4e86b1a8ca8622da37a38833339f60d24b3175",
+      "bytes": 2293995
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/run_status.json",
+      "sha256": "77f07be84d69e94552ccf3135bb907987b6d11dcb611ac7a975e52bd195dd402",
+      "bytes": 149
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_coupled/study_job.json",
+      "sha256": "5caf0c5d954807543d70005167253e84d3fd97ad8efdebe20f07e457853b61e4",
+      "bytes": 467
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/config.json",
+      "sha256": "c66eadf2dd3f465afc880ecf336ce56405b1de3c22a253d17326182db4e061fa",
+      "bytes": 490
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/environment.json",
+      "sha256": "f4b3b298540d8e7953e54f8a915cb4531513e149d893b1faa0e6b5683c27efa9",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/history.csv",
+      "sha256": "1f23eb15b58dee77596cac44b1b3e4312fcd6994c9747b2f2bd4c4da30e9684a",
+      "bytes": 41876
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/metrics.json",
+      "sha256": "ac385b32912c23555e203a75259c3ecf0014d67058619ae867eceb3cb7c284a5",
+      "bytes": 15805
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/model.pt",
+      "sha256": "5d05f294d71cbfa7d5aec10dc057b8945dae4300a2175bb53d763ff22ec8fa2f",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/prediction.csv",
+      "sha256": "59f5ad255ce3d3c4c33aa297a228dd3df5721360a8cfdf39af0a20392e8c62ad",
+      "bytes": 2594014
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/prediction.npz",
+      "sha256": "fe908c0bec8691a6398cd9c371ea9fd0473d26f0b78950c9efb749051426afcf",
+      "bytes": 2294029
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/run_status.json",
+      "sha256": "227b35aca7fa7526a2d2ffe25a74c17d6e13e37e81766659689f547fd3bfbb98",
+      "bytes": 149
+    },
+    {
+      "path": "results/full_study/mixed_rectangles_sequential/study_job.json",
+      "sha256": "71a03098919cfd5de01404a8c85dccc21748e09a85fbc51b935bb98644939bce",
+      "bytes": 472
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/config.json",
+      "sha256": "b4c570d0da568efce9e5b2865e4e0c2935e5b8aca2d52ac996ab82ee9bdadf39",
+      "bytes": 484
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/environment.json",
+      "sha256": "8a18e5eeddc16283133c3379d898917e4d3a1b612e3b1e1ebe375a8b65dc463f",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/history.csv",
+      "sha256": "15c657bc056ef228b51c8f9b63af30243ba5eaa30f05781d548d6242e111296e",
+      "bytes": 33457
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/metrics.json",
+      "sha256": "870b1e1a62897d49609ed4066dc6d592152afc645d7b6424cbf74ccbcaef3455",
+      "bytes": 15851
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/model.pt",
+      "sha256": "ccda9a5e617956ade9dd30d27c5a81f8eade2df7d47ccbdafac2b7d1dc3e0e50",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/prediction.csv",
+      "sha256": "c3f966868d2a1c8b8e6ec1d76691e3913f466665cd5276e6164ede768267dcdd",
+      "bytes": 2592733
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/prediction.npz",
+      "sha256": "49af3cc7d3e4c416171a5249030d0b037e196dd7b638e44f6beba1b78ffd0c27",
+      "bytes": 2288512
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/run_status.json",
+      "sha256": "77f07be84d69e94552ccf3135bb907987b6d11dcb611ac7a975e52bd195dd402",
+      "bytes": 149
+    },
+    {
+      "path": "results/full_study/mixed_circle_coupled/study_job.json",
+      "sha256": "99d9f71eb4066e28ccfa41db7ddfb91165b107c066181f7a5fcb4be9ad2e1af6",
+      "bytes": 459
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/config.json",
+      "sha256": "291a6e2a9a290b05dd2864163e5df98f5650e2506b13118b2fc51877c024c0fa",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/environment.json",
+      "sha256": "8a18e5eeddc16283133c3379d898917e4d3a1b612e3b1e1ebe375a8b65dc463f",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/history.csv",
+      "sha256": "9571b4afb873665f145204c94b9a6e13abb497166507ead931ffdd0c68c08cbb",
+      "bytes": 42394
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/metrics.json",
+      "sha256": "b705b75257f763cc0e63449bce2d13bb1a25516a2f314a6e2dd7b24d44162a71",
+      "bytes": 15877
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/model.pt",
+      "sha256": "3ee80df8c8232335ed965605ac64e5ea4a959a66b4686088b1a20db6fc20e12a",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/prediction.csv",
+      "sha256": "fd9c889faf823ae3735c29ee15239945ece69a29002c86f22d8451c148b1b2a1",
+      "bytes": 2593137
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/prediction.npz",
+      "sha256": "0fa4a4f4084dcf86c2654a360e26a2171d9052e968569327562d4bf5b039e945",
+      "bytes": 2288061
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/run_status.json",
+      "sha256": "227b35aca7fa7526a2d2ffe25a74c17d6e13e37e81766659689f547fd3bfbb98",
+      "bytes": 149
+    },
+    {
+      "path": "results/full_study/mixed_circle_sequential/study_job.json",
+      "sha256": "087e78bf60a552e0b51d7d5c144111bcea5bfa20f1cbb8f8dc3e217a538a68df",
+      "bytes": 464
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/config.json",
+      "sha256": "2cc87953068b966b2e1af3cc627a13153f3394166af0cc56edc11fd4ee2806a8",
+      "bytes": 423
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/environment.json",
+      "sha256": "e6c59edc303f90b3434d2795512e602335252e7781840449b36df304835d9351",
+      "bytes": 366
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/experiment.json",
+      "sha256": "70154543018e99340aa1782ec4feddf626bbbad31a228d6916d28f107c5287bc",
+      "bytes": 945
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/history.csv",
+      "sha256": "3a73730c9e78cf7fd6333430122218498b2a7c270df492690566c8ed96d41d9c",
+      "bytes": 26793
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/history.json",
+      "sha256": "447f367605e167be033bbf3f23ceb3abad2c17e35ed12480ebb090a67a027857",
+      "bytes": 68081
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/metrics.json",
+      "sha256": "a07629334ecd107ebe69df18c9dcf1f5237c8463e821fe78c7f2fe7f57db1652",
+      "bytes": 15663
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/model.pt",
+      "sha256": "eb4ff46d2f40bf3fa36df6000ee33641000fab5707c5ac6c24eb56bfa1e7a419",
+      "bytes": 204341
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/prediction.csv",
+      "sha256": "3d87245eeacd41fb726708cf59662313bb25e5cbd9d6745cbec57c2d460e027a",
+      "bytes": 2598358
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/prediction.npz",
+      "sha256": "792d3dd1d6c44a016bd39c0709c3a7ba0367c7e55c23cf571251c82cff4fad86",
+      "bytes": 2244198
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_coupled/study_job.json",
+      "sha256": "ff307768700736bc0fc0e11dab1088861148283bb911e3d915a58eb196be4b54",
+      "bytes": 495
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/config.json",
+      "sha256": "d524294e48b4cfba3fe927184fa257e9a1035d39898102e1c2c7af5906de06de",
+      "bytes": 426
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/environment.json",
+      "sha256": "e6c59edc303f90b3434d2795512e602335252e7781840449b36df304835d9351",
+      "bytes": 366
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/experiment.json",
+      "sha256": "672e8c0a5f00a368e68fa35f8c5f9e47a599db06c51fb66fe89d871c22b1098e",
+      "bytes": 948
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/history.csv",
+      "sha256": "7207b0ac611e985be1abb505a30ab0d0fc7b2a67e8f59491f40e7ec3187a1366",
+      "bytes": 40068
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/history.json",
+      "sha256": "65bd3444fd850009c9844114de6000907dde91365225a19f11aa8a07f7d35ab5",
+      "bytes": 122456
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/metrics.json",
+      "sha256": "244d0dc451da52a78b6cea419f32f77289f20f35e286bd7401caa2f5367cdd40",
+      "bytes": 15713
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/model.pt",
+      "sha256": "14ec20f37b6ff2c711b95fc7cfbcc5b8c07cf59f9c3a1f0c7687264d03af36b5",
+      "bytes": 228661
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/prediction.csv",
+      "sha256": "de360e5c0c4bb8a89607686868bfa37caa3a5fce9a568350f4113f65b8fa4525",
+      "bytes": 2591790
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/prediction.npz",
+      "sha256": "bf98e27d723ff7ecc82e1808b8595f9df04c918c31a16f0d6ba44b44185ac78a",
+      "bytes": 2243011
+    },
+    {
+      "path": "results/full_study/baseline_circle_standard_sequential/study_job.json",
+      "sha256": "c6b0e0ee87dc4389e6ffa66795fdd5970f13a98af775f9bb3b0c6a8be8f558cc",
+      "bytes": 501
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/config.json",
+      "sha256": "8f8f543a8930745f7e9ca8769c94b9f2224ad9437b66c65e18ac9fc7445ce16e",
+      "bytes": 422
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/environment.json",
+      "sha256": "da8c1d9a3d7258e57b35930f180f1b3480f245b069ad6d854e0fb25d07ace63a",
+      "bytes": 370
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/experiment.json",
+      "sha256": "8c1a61169d3b1bfc0125219b9da447bf451e1c00a259ce1693d10ec9e04e5c2a",
+      "bytes": 917
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/history.csv",
+      "sha256": "72dcd2ddc519ec1b8e3170533a1dfac537aeb4515ca82dfcf907934df3446827",
+      "bytes": 22780
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/history.json",
+      "sha256": "d06b751427cd1d8b0b122266b17fc9c3c6a1a2c6746618ce877dfbbe947c1da9",
+      "bytes": 64068
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/metrics.json",
+      "sha256": "33bb09fa46e3d06d6363cc4edf2939ec3d4bae68a96d460c9b5e6bfef9cdbf18",
+      "bytes": 15653
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/model.pt",
+      "sha256": "0ec91f0ad9bc2c4fedd82821206c4cc3a4f90dee45e59cdb1c353159a471d176",
+      "bytes": 204341
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/prediction.csv",
+      "sha256": "0fa638fd62d93218c6b5a3904297f5d7d9528de140df8069906e63bc2b6cc0d9",
+      "bytes": 2596555
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/prediction.npz",
+      "sha256": "4b0a06e0c598cea97e3eb2ce3bf9a968c2591ee419e7f69bc02720557093bb80",
+      "bytes": 2245730
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_coupled/study_job.json",
+      "sha256": "d9613143f581bac57709774bb996015b5adcf7b207e04cc6cd578415e0ba9c3f",
+      "bytes": 489
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/config.json",
+      "sha256": "e2908680ec5ab537a9935554dbcd648b1ca941a16733f86e1273641803d752eb",
+      "bytes": 425
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/environment.json",
+      "sha256": "da8c1d9a3d7258e57b35930f180f1b3480f245b069ad6d854e0fb25d07ace63a",
+      "bytes": 370
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/experiment.json",
+      "sha256": "b6e5ce2d1a24bdcb1d7be16739dee45077af84c19d27785939b77e82373a28e1",
+      "bytes": 920
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/history.csv",
+      "sha256": "7e8378f714e2efb0488b92ab380e8f95e060cf9a0e09f68ff36fa653c5851c27",
+      "bytes": 35982
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/history.json",
+      "sha256": "53a96dad272a1fc8bbe64781ebf9e50a9ff499b3689f5692804082a4ff9d7e64",
+      "bytes": 118370
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/metrics.json",
+      "sha256": "dd80c255396064ae27d59757ef8bd9c0777435481930dfc671464b1be8c11638",
+      "bytes": 15612
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/model.pt",
+      "sha256": "e0379486b324445ff5ff4e7e2cc38a52835b2486a765952fc921af524ad40faa",
+      "bytes": 228661
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/prediction.csv",
+      "sha256": "10f0dd949db191aa9a1e1efc46087351ce7713c2a5a0fb1f3d160242ed86b6e0",
+      "bytes": 2600185
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/prediction.npz",
+      "sha256": "f157ccd2a31a917460d37cebe93971c1a6877ed4da99515f16c0ddc478ba6cb6",
+      "bytes": 2245630
+    },
+    {
+      "path": "results/full_study/baseline_circle_dem_sequential/study_job.json",
+      "sha256": "10dd1f655df177c6a24d67013ae2f3752895a53b0484f375ea6889361e4f6f19",
+      "bytes": 495
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/config.json",
+      "sha256": "cd1264dd8d9d553ec938286ae91a29c9b23bc7cecae74093b017dad89227c522",
+      "bytes": 421
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/environment.json",
+      "sha256": "da8c1d9a3d7258e57b35930f180f1b3480f245b069ad6d854e0fb25d07ace63a",
+      "bytes": 370
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/experiment.json",
+      "sha256": "8c1a61169d3b1bfc0125219b9da447bf451e1c00a259ce1693d10ec9e04e5c2a",
+      "bytes": 917
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/history.csv",
+      "sha256": "58b2ba7a00778e298db6f62f654050ed0263eb7be424e5beb6111283d0b08a1d",
+      "bytes": 19404
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/history.json",
+      "sha256": "b27eaa04aa19c6546a2d5dddd1b43e95cb3081d3691b9fcbb2d61f8ce55291b3",
+      "bytes": 60692
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/metrics.json",
+      "sha256": "b25d7271c3e1367f781ae141925c9a36c825a93cca8330a0f1fbbae09fa4d1aa",
+      "bytes": 15720
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/model.pt",
+      "sha256": "6ad0d96d7c299c194313c7c6ff313166b302317d06197b07faf9806280a45bc6",
+      "bytes": 204341
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/prediction.csv",
+      "sha256": "b0be9d09f86e03b77aab6b1e81b2bf80275c084d3393a93168aaf9a18d90ea49",
+      "bytes": 2594220
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/prediction.npz",
+      "sha256": "c592e7f4b6d3cc4660cfeae788896b6ed6a1e857636e21bdd00c97a0967678b3",
+      "bytes": 2237579
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_coupled/study_job.json",
+      "sha256": "3baae8714a575a6c35a71862a3c34f813ce23e383e9bf535ce4676258db78bdf",
+      "bytes": 598
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/config.json",
+      "sha256": "082b1086d7ebf917e1608b6352cd6f1be08b02cab165fcd1864f293fceda5ed1",
+      "bytes": 424
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/environment.json",
+      "sha256": "da8c1d9a3d7258e57b35930f180f1b3480f245b069ad6d854e0fb25d07ace63a",
+      "bytes": 370
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/experiment.json",
+      "sha256": "b6e5ce2d1a24bdcb1d7be16739dee45077af84c19d27785939b77e82373a28e1",
+      "bytes": 920
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/history.csv",
+      "sha256": "0da3e6b8eb7e87aa2693a7fe8d08595edfbad08a50b86aad0ee0bcbd1a25b70f",
+      "bytes": 32527
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/history.json",
+      "sha256": "c696b14bbce56f7e2a36845f71ef4d7e58a654605303e2b36308e31319fe9d43",
+      "bytes": 114915
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/metrics.json",
+      "sha256": "dfa3a0fc92ab753c1e43ccc1fd36469f5de69d355fa8428f9c4a1682ae12e316",
+      "bytes": 15670
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/model.pt",
+      "sha256": "eb0dd1bc492e78351d7a4bb83110d215a64810716f529d098f4247718e3524b2",
+      "bytes": 228661
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/prediction.csv",
+      "sha256": "7d07c04166e52ff1c63a35c82606b21c202cc4567a73ad4ec68bce0a1ecce394",
+      "bytes": 2597963
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/prediction.npz",
+      "sha256": "eb2da9e6fa2bc6a8b0c6efbee245c0baf91edc3a430a454056d495d094d54d24",
+      "bytes": 2239949
+    },
+    {
+      "path": "results/full_study/sensitivity_circle_dem_hard_sequential/study_job.json",
+      "sha256": "47fa91a37fa0cebb17929360a4f639c269fdea6119e563f3330e1ebd6ea2c42b",
+      "bytes": 604
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/config.json",
+      "sha256": "0a77fac3544b947db00229b026eed2433489694374010acdf8a42da4fe89dc79",
+      "bytes": 491
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/environment.json",
+      "sha256": "e5b71c61595570da26a1101030b327d45a2d27ac9f8d42e66e26a6244faf7672",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/history.csv",
+      "sha256": "2a4d7b0f7acf77207cf9e664857d14c95d43406cfcbedbddc3716baa62442826",
+      "bytes": 32900
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/metrics.json",
+      "sha256": "045f2fcd8db6282f45adf4d3fc799e059b26514c5160d9f5cd614f372913d195",
+      "bytes": 15813
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/model.pt",
+      "sha256": "2c8ce44ae3848d9578cc6581d691fd55b30a25baa5bc6848af07f4eb56d603e0",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/prediction.csv",
+      "sha256": "6a6b07956d829b9a81c45c7e24262a51b59aff4dabe2bc5e63d5cea4a18140ee",
+      "bytes": 2593924
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/prediction.npz",
+      "sha256": "704638945474ed6bfe43c64368474862ff1d7dd46cbeadf6b6c796864e510847",
+      "bytes": 2294133
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/run_status.json",
+      "sha256": "77f07be84d69e94552ccf3135bb907987b6d11dcb611ac7a975e52bd195dd402",
+      "bytes": 149
+    },
+    {
+      "path": "results/full_study/refine_rectangles_left1000/study_job.json",
+      "sha256": "4e85c2afef9cbe39063db4d55d8920fe63dc25e67df90e64a2c5cdc4efd99920",
+      "bytes": 435
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/config.json",
+      "sha256": "c7175271e2944feb663e2b82d21f3389cc50f38b4c165d29fd0c5a339e5267a7",
+      "bytes": 481
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/environment.json",
+      "sha256": "8a18e5eeddc16283133c3379d898917e4d3a1b612e3b1e1ebe375a8b65dc463f",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/history.csv",
+      "sha256": "41e3c105b04e1a8099f0e79c3d2f3ec9830a41e48dc695177b3aa1a53efaee12",
+      "bytes": 30207
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/metrics.json",
+      "sha256": "f19ab8ae1b7a2683b1e5304857c0f7cb90898d738671d0c0f6fa5ec6797f109a",
+      "bytes": 15969
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/model.pt",
+      "sha256": "2d247640d1ea0f5bde7b55b1339ed49935d3e98436b39e439b7b2405581d97f5",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/prediction.csv",
+      "sha256": "2e9c2093044f553056fa60e988fe95a424b3404ddfdd2a0f5c57b1eea43f3688",
+      "bytes": 2592867
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/prediction.npz",
+      "sha256": "a8745561107c4329c139c8e0263e3a247c2632cf3a86a79a8e6249679bdad40f",
+      "bytes": 2286024
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/run_status.json",
+      "sha256": "77f07be84d69e94552ccf3135bb907987b6d11dcb611ac7a975e52bd195dd402",
+      "bytes": 149
+    },
+    {
+      "path": "results/full_study/ablation_circle_noenergy/study_job.json",
+      "sha256": "fe0028a834fa4c79ef9472db0278a1a581e7725d49b8a6430708bab879eba641",
+      "bytes": 423
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/config.json",
+      "sha256": "204f2350b4c40f1a13775f5b274588f01d124ef2ddc00c0a1f5460111344b3c5",
+      "bytes": 485
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/environment.json",
+      "sha256": "f4b3b298540d8e7953e54f8a915cb4531513e149d893b1faa0e6b5683c27efa9",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/history.csv",
+      "sha256": "737ee9cd8a13a98f22803334efc3700e9592b1f9badcc68379d3859cff04752b",
+      "bytes": 28913
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/metrics.json",
+      "sha256": "e808ae206c97e23cc0db23280db8abd3d687fa28521559f570cb2f370264a232",
+      "bytes": 15757
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/model.pt",
+      "sha256": "b179fd13e45b4e9d681ad7314bbc13ae99a5d7c65f7cdecf2efd200fc60cf194",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/prediction.csv",
+      "sha256": "47f091b38976df73edf93158146ac7a73aafdb95902da8facbd80e98cd854cdc",
+      "bytes": 2593916
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/prediction.npz",
+      "sha256": "1684373fc3ea6a95f2b1cbd63431af4bee1aa80851491c74ef91e864d33adae2",
+      "bytes": 2285036
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/run_status.json",
+      "sha256": "d0bfa252c30b90cc67d55ebeae525a02dd5412fb4ed4321a0ebe17cc44321f52",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/hard_rectangles_adam10k/study_job.json",
+      "sha256": "12f1ca392684c3f83395392d92243906d5bf94045fd292cb1cd5aaa0fb4ec93c",
+      "bytes": 426
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/config.json",
+      "sha256": "63ec0c600c450b6aa6365b3cfaf7f1e66540b9733b69aaa26e1f6bad7deaaa84",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/environment.json",
+      "sha256": "4fd27035c346d9815d0f84950469a8bdb14d7e2f94e45d2792399076253ab279",
+      "bytes": 233
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/history.csv",
+      "sha256": "ae8d11bf890b7c766cc314f7a721a68d20ea3fe1787aa4384aefea85196ce0fc",
+      "bytes": 28607
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/metrics.json",
+      "sha256": "c59620e72c0cbf2b455855c4f3a04e1ca7650c0b434072f9e9ba37e89945b3de",
+      "bytes": 15593
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/model.pt",
+      "sha256": "aa9771e80a2730918b314d41227e5c3abd893cd7b3716a71adee90e80f74d7fa",
+      "bytes": 14449
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/prediction.csv",
+      "sha256": "04a4f3f0d92227333320419f1146f3ea9776f7159f0ff1b73da6ca697ed3d5a8",
+      "bytes": 2593635
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/prediction.npz",
+      "sha256": "f9e83b0da51bfdc92cbaeac40545d376320cfb712a7bf8688d085ff34d6a4fca",
+      "bytes": 2280434
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l1_w40/study_job.json",
+      "sha256": "da82e8863a10ef7d5395c411d3b96c54c6435a2558323f3d83e2c456484922de",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/config.json",
+      "sha256": "0a604c28e6e1b2aeedd1989bf291454212822cfffa03d27d90ad1e4af8c32502",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/environment.json",
+      "sha256": "91a05ef09c8b3e4436214b2543b79fce961b89d1879f4d374acfe469da865ceb",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/history.csv",
+      "sha256": "531531d5551fb851b5b3f9d5e19152b24e70daccc012771d19d687d0948e57c0",
+      "bytes": 28698
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/metrics.json",
+      "sha256": "d7a4daa1ceadb2d689f061548523d498bce6282af7a790e950c8e308fade16ad",
+      "bytes": 15652
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/model.pt",
+      "sha256": "63dbd248c22e1591c4691ffa732a0440d9ec7b50233ff9c3a84d348b175e58f9",
+      "bytes": 120283
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/prediction.csv",
+      "sha256": "d29c07c72c381090bba29cde0c5e5854c89511f70531a2fc6493a7b8af7c1e3c",
+      "bytes": 2592515
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/prediction.npz",
+      "sha256": "ea5e4c9fcaed8d0b9077858f8954aebd356abbf123982b7a3ba8f18f496de9af",
+      "bytes": 2279718
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l2_w40/study_job.json",
+      "sha256": "5780723fd3c8935fa744d7a27ebaed482be7c3eb9d3262f2a1b62b803a11e8f0",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/config.json",
+      "sha256": "44d257cf6067f92a81daf3b59d600217c1033106d2477dc80685494601b77c38",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/environment.json",
+      "sha256": "291eae3b03043ecfbf3a222f7b3a77f7014df03aa3175be04d21e9b210fb55eb",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/history.csv",
+      "sha256": "44be9e998661b4dec7b273aaa440b1c79b0227a28e26e26cf526fa1a072069a6",
+      "bytes": 29157
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/metrics.json",
+      "sha256": "32b4cf2493d0019092373911216279506a9cd26949b29229e1936fd019942f1d",
+      "bytes": 15669
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/model.pt",
+      "sha256": "27366dd2d4dd94928810e37aa13d7d833c733bf1209084bba301c01a0f3d004d",
+      "bytes": 331955
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/prediction.csv",
+      "sha256": "2ebee671d52266167fdaf92f501975322533217a2e4abf1ac6b852fb5e684a7d",
+      "bytes": 2592759
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/prediction.npz",
+      "sha256": "8ee8becc1310f401cd1c05b86dca62336170933de1a0cc59b4cdb0368b2527fd",
+      "bytes": 2281439
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l4_w40/study_job.json",
+      "sha256": "0e6dfdd888c5f0752d26a339e5d58935cf20737b3ec334fd133a6814f8856c9e",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/config.json",
+      "sha256": "aa9108dba533e43e98dbfc3139373f429555f4ee9db48344ff3f5366ff512938",
+      "bytes": 485
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/environment.json",
+      "sha256": "c4acebfa01c20e1e57ec564af57b0a8c6f70d12e56ad342a4c946bfd159ef570",
+      "bytes": 233
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/history.csv",
+      "sha256": "b5c9955e6807cebf0a039077b93e4491cce26f182c85f7b16997a5b41f2e6199",
+      "bytes": 28769
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/metrics.json",
+      "sha256": "277b08b2d2be0608fb86c72bd77c01f9780e4e30a5e8267af8541367c35e90a2",
+      "bytes": 15623
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/model.pt",
+      "sha256": "c0fb024aa4686fa9860690c3b92551eaee54a06327e93b520ddff8b0d99ed704",
+      "bytes": 17439
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/prediction.csv",
+      "sha256": "7423a7ae65ac0feafb817e2bb5882da6a008a03e61b69f580b753055da22acdf",
+      "bytes": 2596889
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/prediction.npz",
+      "sha256": "c9c15560e727cb819199767d6f984227263679047d270c4a7c3f133750f72b7b",
+      "bytes": 2282390
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l5_w5/study_job.json",
+      "sha256": "9843d39fa694e4a1ce4e895e0b732bab6ed95af6571715eec423fa1981bd110d",
+      "bytes": 413
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/config.json",
+      "sha256": "b0233decf2abb4acccd78006a6d572af868976319cea5c4376e62d70f3d81d4f",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/environment.json",
+      "sha256": "28231741423f4f974b6fa0f736a7b06a258eb91636797409b5f1991dbad1eea5",
+      "bytes": 233
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/history.csv",
+      "sha256": "c9cb9f5e94f4edc75a1dcf7a2a89262b3d02d793e74760447114da13bb294773",
+      "bytes": 28690
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/metrics.json",
+      "sha256": "24ad5ef7e4a726e32e5c9f7da6acc7fe15d64dc61a43af6154a535b219613a95",
+      "bytes": 15615
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/model.pt",
+      "sha256": "1a28589427f08b02eea87e6c6f63d1164c5d1705b0400e2697a8afc16281e826",
+      "bytes": 39199
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/prediction.csv",
+      "sha256": "f96b21868a7af17885bd8da023e7dc7323de676de92ce282a1ba12b72af94fa1",
+      "bytes": 2598056
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/prediction.npz",
+      "sha256": "78908a46f9eb8dba1b3eec267e29cd6e1231f6726ce5c830cc1ddcab8bdffea0",
+      "bytes": 2280850
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l5_w10/study_job.json",
+      "sha256": "731b7341b7711406f80e6c3ea206f38e74b8cc0eaf3df4acce6ffe9170cf8a17",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/config.json",
+      "sha256": "6525c9d6f07c1238cebfadd00f98ba550c296c11f1784451363a94c6ae1de0a1",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/environment.json",
+      "sha256": "2e5822ff053d038f1c7033b1fdc752abee444cbe3673d57adc8a5add6eb429ff",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/history.csv",
+      "sha256": "43ca456f5f5a443bae9704068b99790ea9f91791162d9ea85545e4358052cac5",
+      "bytes": 27581
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/metrics.json",
+      "sha256": "8568410c7f3d74a25ff1a48e45c224c4749f4aca87a0666e3edab6d00eaf5432",
+      "bytes": 15567
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/model.pt",
+      "sha256": "6e350db9cf798391c769bf09e3d3c801de21197d4b33ac743454fe8720e67768",
+      "bytes": 120799
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/prediction.csv",
+      "sha256": "f9f1ac97b5470b2bd9853328b04ea4671e0c47eb3615b1d4493ca346b6c0a68b",
+      "bytes": 2594156
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/prediction.npz",
+      "sha256": "4ef45cdb983ed3a682c106aedc0850062386ca1d0ef546b8d016fdf7f48cf5f5",
+      "bytes": 2279815
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l5_w20/study_job.json",
+      "sha256": "d63fc5ad3aa2d63876b38ea6ec52674c91a392fe6f56598fb0c4dbfef9bc334e",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/config.json",
+      "sha256": "bf3d17331ed99cbd844195dc0990d805530c0ec0f866790c6f571ac1c61665e3",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/environment.json",
+      "sha256": "f4b3b298540d8e7953e54f8a915cb4531513e149d893b1faa0e6b5683c27efa9",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/history.csv",
+      "sha256": "dbd466971b94de77b3e6663312895d5cacf15bf59737f07ab9300409b718d7b9",
+      "bytes": 28884
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/metrics.json",
+      "sha256": "2374fc703d6e8947b618a05b25fa5843e70089f518614e4859bc4350b22296c7",
+      "bytes": 15667
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/model.pt",
+      "sha256": "fa97d475f5ddb0b77f2ac8ae8186e63e5b2209f0c3648514c1a47574ba5e7b3c",
+      "bytes": 437855
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/prediction.csv",
+      "sha256": "c82fab2a9114ee7ac50561bbda13fc6deee50a33bd9ef12bfb2bce67f8dbd476",
+      "bytes": 2593745
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/prediction.npz",
+      "sha256": "fd244b5bd20ebf61cc06ea841abc933f60e210ddd3af70a166c2dc125fb7f964",
+      "bytes": 2281825
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l5_w40/study_job.json",
+      "sha256": "9bb6e85ac260afa3973bb989c3337fdeb01dce77008c4c3a4e287b95d078ed9b",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/config.json",
+      "sha256": "e75b629d43c7f9f0cb7ce3adb7a49bcd62289da452719da52c2823503e6ca433",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/environment.json",
+      "sha256": "df2f38e6faadb3e382d798eba01a0a402ef4b9fa170fb3c203f6efdce553998e",
+      "bytes": 235
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/history.csv",
+      "sha256": "8bd52478a9dc4f81a1a0230cd044dfd7b49e39883ce731f9bd3720eb076028c6",
+      "bytes": 28694
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/metrics.json",
+      "sha256": "b2f037c6de0aff3190a2be682cf98c123f9da5812bad6f839a42ea8296e684aa",
+      "bytes": 15653
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/model.pt",
+      "sha256": "1f0470253380267dffa5ae3861c9aa7c7a518c1aa6fd66552e5750aeda08ce38",
+      "bytes": 960479
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/prediction.csv",
+      "sha256": "2d0836228e4d54cc74918da93552739add1f49340504372ec5867bfe4981abf3",
+      "bytes": 2593235
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/prediction.npz",
+      "sha256": "811355669f1e6d8acf72d64f686392e507142fcfdbd7148983bb8442ded0b23d",
+      "bytes": 2280104
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l5_w60/study_job.json",
+      "sha256": "c3856ec8938556ee7f2d95e543ec841c8de0e51ff052b4e3707d153f381bd170",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/config.json",
+      "sha256": "d5705376431c806fdaff732d38c6dd6eade0a5d95938f404fd7e2196b230b35b",
+      "bytes": 486
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/environment.json",
+      "sha256": "3cdbfbb71a17e1dbb0c5f822cf17c7cda305407049eaf44f73d8f64540b3a31f",
+      "bytes": 234
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/history.csv",
+      "sha256": "9addc2abbfaa2ee33c10da650f3a86c512b6a416393decfec050ea72ad0f7368",
+      "bytes": 28689
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/metrics.json",
+      "sha256": "302e9306bb77a26b25dfd2c3b2aad008582994e9e6efb29606ec5d091cb8b3c6",
+      "bytes": 15614
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/model.pt",
+      "sha256": "42cf3f59be06157313a14d66f4f74ae6d29378baf57ee47f47ca77e3ff32d325",
+      "bytes": 543819
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/prediction.csv",
+      "sha256": "457c3b29f7a8a57e469c78a4ca933a80a37323541d6620b90de6cc1b0385aa3d",
+      "bytes": 2602109
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/prediction.npz",
+      "sha256": "78d916b82687aa50fd2b1edae98c2cff49ce9469335d09a54b9227a63e082950",
+      "bytes": 2282826
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/run_status.json",
+      "sha256": "3f2cbb8ad7b624112bde3776c2da7e3412b8f9ed710518a7b9b8c0539e9b7621",
+      "bytes": 147
+    },
+    {
+      "path": "results/full_study/arch_l6_w40/study_job.json",
+      "sha256": "34ad7590a68c95cce504dba16c29958581b8783bdb763c14ca6decea0762a8d7",
+      "bytes": 415
+    },
+    {
+      "path": "results/full_study/transfer_w0/config.json",
+      "sha256": "ebfa71615eb9dbe40d3e815d59d7697046c995cd227fcb2aabcf769bb2e3ac03",
+      "bytes": 351
+    },
+    {
+      "path": "results/full_study/transfer_w0/environment.json",
+      "sha256": "512e1b52370c5505c29fd3c1ac1f437f67e58a0a87d488630e4d0488abed1acf",
+      "bytes": 267
+    },
+    {
+      "path": "results/full_study/transfer_w0/experiment.json",
+      "sha256": "77b7060e4445e00ef975561449ed73a097e5d18ef381beaf5967defe07f1a464",
+      "bytes": 5908
+    },
+    {
+      "path": "results/full_study/transfer_w0/held_out_ratio15_errors.json",
+      "sha256": "ecb76d671d9536056850a7b2244d2446d9ee6e5428b0740657cdb6ccee0e8789",
+      "bytes": 3276
+    },
+    {
+      "path": "results/full_study/transfer_w0/history.csv",
+      "sha256": "61f76377ab2cecda81dd43e6814320a512ac3fab06368e84f10d66fcdaea34f2",
+      "bytes": 9134
+    },
+    {
+      "path": "results/full_study/transfer_w0/metrics.json",
+      "sha256": "d6bf1664ba353b5e1d0aedc3704b6893193efc69c159d37a4f3e66fc294cc22b",
+      "bytes": 4602
+    },
+    {
+      "path": "results/full_study/transfer_w0/model.pt",
+      "sha256": "6822a9053d94a4d356491fe408d6cbb1bfef5fbbb49357d0a7ff17e808b44654",
+      "bytes": 444793
+    },
+    {
+      "path": "results/full_study/transfer_w0/prediction.csv",
+      "sha256": "b03cac737218d284b4d5221056cfe0bdcfff2c31e997bc5c0ccb8c4cad2a2665",
+      "bytes": 2593905
+    },
+    {
+      "path": "results/full_study/transfer_w0/prediction.npz",
+      "sha256": "fd321f643170facf5816573a0c89289a8e82d226502c3a03f47c6692270f5f22",
+      "bytes": 2298256
+    },
+    {
+      "path": "results/full_study/transfer_w0/study_job.json",
+      "sha256": "50f9fcdca99eb5bbe7ecf83ac2b57fc9c196793e5aff8912ad835e1fba580037",
+      "bytes": 489
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/config.json",
+      "sha256": "ce69576758172a1bcc0b72d2301729686af25ae96b3b9da86e73229c1575d45b",
+      "bytes": 351
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/environment.json",
+      "sha256": "512e1b52370c5505c29fd3c1ac1f437f67e58a0a87d488630e4d0488abed1acf",
+      "bytes": 267
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/experiment.json",
+      "sha256": "92cb53786002f6d7774c89a01bb1b674e352592b9aeec302ed2a3b7d4d63b4cb",
+      "bytes": 5909
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/held_out_ratio15_errors.json",
+      "sha256": "cc3c2e8c912f72e24af822df000f3d30989f6e4b3fc4bb78c9a2d6429f1536fd",
+      "bytes": 3277
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/history.csv",
+      "sha256": "d55ff7d7200153fd7e193397ef1d59c8c6bd47057d55c8757ec069d678a28824",
+      "bytes": 10819
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/metrics.json",
+      "sha256": "900b81943ed3ecdf919b5184e4d7334ec784c7418fa6ad1c26117da3632d0507",
+      "bytes": 4611
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/model.pt",
+      "sha256": "68d8c39fec75007b804d2f49ffb7a7e438f330f5f044c4b6dc3a36e2c463c5dc",
+      "bytes": 444793
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/prediction.csv",
+      "sha256": "60ec8cd0be6cb941b187f23db1b26d6bb7cf353c5c7fdbe810ce795de6c595a9",
+      "bytes": 2594578
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/prediction.npz",
+      "sha256": "877097c8895a7f864bad072e165c4c3933cb61503bb517362ba0ea50c5092259",
+      "bytes": 2299131
+    },
+    {
+      "path": "results/full_study/transfer_w0.1/study_job.json",
+      "sha256": "1bbef84d5dea68163144395f977314258f3260cf18ba56d620e472ef53b35656",
+      "bytes": 491
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/config.json",
+      "sha256": "b631a5cbed9bf8a5d24a65146f21eb8c5f41b694c3434a6eddfd8992d6c5b38b",
+      "bytes": 351
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/environment.json",
+      "sha256": "512e1b52370c5505c29fd3c1ac1f437f67e58a0a87d488630e4d0488abed1acf",
+      "bytes": 267
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/experiment.json",
+      "sha256": "ee63257b65b5eef528899e9755be0235d0b9346447990dccab24b9656948dab1",
+      "bytes": 5906
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/held_out_ratio15_errors.json",
+      "sha256": "6ff1414b2b44e49d25ed6bf9735ffac4bcfa794c793fe01c0d3b920dca33c9da",
+      "bytes": 3270
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/history.csv",
+      "sha256": "6a5c73f930584e88cdd4c356e475ec9173138040d430e995916c2de8568d6847",
+      "bytes": 10718
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/metrics.json",
+      "sha256": "1d96f868666d5fd3003ec45ff157474f4c726ad7dfdf47c0a9eedf4dad2596cf",
+      "bytes": 4599
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/model.pt",
+      "sha256": "bbfbc4bcdc68972dda79eca8f250398e00fc633b1f66133d50c7178549b05f2f",
+      "bytes": 444793
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/prediction.csv",
+      "sha256": "2481639d179a74cd5a4cfa50c18ba5c9483fd8aa77b3ea118d9e8745ceb066a7",
+      "bytes": 2595592
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/prediction.npz",
+      "sha256": "f5e6e2c0efdd999a9b5f478d2116ff3844f2c9b66d8d61b6cfc9f394310f94fe",
+      "bytes": 2298838
+    },
+    {
+      "path": "results/full_study/transfer_w0.5/study_job.json",
+      "sha256": "c89c3788fbd0cb007781e228b792beabd39bf496c560f77e99f79feb41f4a5bb",
+      "bytes": 491
+    },
+    {
+      "path": "results/full_study/transfer_w1/config.json",
+      "sha256": "8f4c2206beba25c5a0492eaca9966c2d1795726b891dc9f9e781fb33747c22a2",
+      "bytes": 351
+    },
+    {
+      "path": "results/full_study/transfer_w1/environment.json",
+      "sha256": "512e1b52370c5505c29fd3c1ac1f437f67e58a0a87d488630e4d0488abed1acf",
+      "bytes": 267
+    },
+    {
+      "path": "results/full_study/transfer_w1/experiment.json",
+      "sha256": "bfa5ef3e03ca7df5b989f7dd98cdc7c2a760dde2578e0a204e2f05b6c6dfd3ba",
+      "bytes": 5907
+    },
+    {
+      "path": "results/full_study/transfer_w1/held_out_ratio15_errors.json",
+      "sha256": "a25791cb562313efecf44bcc13c5e14ec534fea1e4262fd80f7e62dc3116ec61",
+      "bytes": 3273
+    },
+    {
+      "path": "results/full_study/transfer_w1/history.csv",
+      "sha256": "b58c0968e3686a3480693ffb4d51c358e9fc4a7d695931233287213eca07721a",
+      "bytes": 10674
+    },
+    {
+      "path": "results/full_study/transfer_w1/metrics.json",
+      "sha256": "e1e28b3e4a1f47d88d36cda01106183dedace4a15b6b6d89a9af4de41abd4948",
+      "bytes": 4602
+    },
+    {
+      "path": "results/full_study/transfer_w1/model.pt",
+      "sha256": "bed7bac8bb64ed2ae0fc7cdd03f17400f8f06e447eb2201f54165fdacc295364",
+      "bytes": 444793
+    },
+    {
+      "path": "results/full_study/transfer_w1/prediction.csv",
+      "sha256": "81ccd9e04fc764fdd140c9902e55e021b15c6f013eed2d031e3ffcfd91a706a9",
+      "bytes": 2593656
+    },
+    {
+      "path": "results/full_study/transfer_w1/prediction.npz",
+      "sha256": "12de1f9673273f9422d7fa3483b6a7b5e8b1da53109ebe21d3cd69255ea608ac",
+      "bytes": 2299787
+    },
+    {
+      "path": "results/full_study/transfer_w1/study_job.json",
+      "sha256": "9d69170da70746bb4ad16213e1212ede6da961dc93240b382ca5b75f6d71747f",
+      "bytes": 489
+    }
+  ],
+  "excluded_running_job": "remark_rectangles_adam1m",
+  "excluded_artifacts": [
+    "optimizer checkpoints",
+    "live progress",
+    "console logs"
+  ],
+  "finalized_utc": "2026-11-04T18:23:11.756013+00:00",
+  "figure_count": 39,
+  "notebook": {
+    "code_cells": 15,
+    "execution_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "error_outputs": 0,
+    "sha256": "084386e51f6c6e694479226a7f83b7fe535b57e3bad25e39239c31086eb534d3"
+  },
+  "tests_passed": 44,
+  "report_pages": {
+    "full": 49,
+    "fem": 17
+  },
+  "github_formulas_verified": 376,
+  "mathjax_render_errors": 0,
+  "reverified_fem_references": [
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_circle_n50",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 3.788069735409125e-16,
+        "mechanical_relative_residual": 2.0072844093466615e-14,
+        "heat_left_reaction": 0.3241029485162888,
+        "heat_right_reaction": -0.3241029485162877,
+        "heat_balance": 1.1102230246251565e-15,
+        "conductive_energy": 0.32410294851628796,
+        "mechanical_virtual_work": -2.7763707131922555e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.2940547920000043,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "metadata_sha256": "e7c549169fb0a3bd6a003e389c13b5d1db42e7744563c6c1e3aee10a102c18bd"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_circle_n100",
+      "points": 10201,
+      "n": 100,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 4.836088292977755e-16,
+        "mechanical_relative_residual": 6.029484650816686e-14,
+        "heat_left_reaction": 0.324192535745592,
+        "heat_right_reaction": -0.3241925357455899,
+        "heat_balance": 2.0539125955565396e-15,
+        "conductive_energy": 0.32419253574558843,
+        "mechanical_virtual_work": -1.871407488609339e-15,
+        "elements": 10000,
+        "vertices": 10201,
+        "elapsed_seconds": 1.2494571049999976,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "621c5ab0b6783e4b0b0c8e18e9125ee63e4d92b36f91d5885f99d59549063db9",
+      "metadata_sha256": "c764d01b05e2d11d92124d807cf077ad7af18fe15a235c53b82bdaf0d1876b8a"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_circle_n200",
+      "points": 10201,
+      "n": 200,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.792549066516081e-16,
+        "mechanical_relative_residual": 1.8420357221686036e-13,
+        "heat_left_reaction": 0.323780917898176,
+        "heat_right_reaction": -0.3237809178980231,
+        "heat_balance": 1.5287771049088406e-13,
+        "conductive_energy": 0.3237809178981044,
+        "mechanical_virtual_work": 1.80124944365416e-15,
+        "elements": 40000,
+        "vertices": 40401,
+        "elapsed_seconds": 6.450732373000008,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "90e2baa0ea95c39c6f73688122f5a552c0b7220e9a155a9e4c64ef7eefd9cb8e",
+      "metadata_sha256": "05ca71e22ed5769153a8bc0a6b984668b176f0924d89bf3930ecf09ce33bda6b"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_circle_n100_nodal",
+      "points": 10201,
+      "n": 100,
+      "coefficient_mode": "nodal",
+      "diagnostics": {
+        "thermal_relative_residual": 4.680827426357304e-16,
+        "mechanical_relative_residual": 1.2405129161505557e-13,
+        "heat_left_reaction": 0.3258364513147061,
+        "heat_right_reaction": -0.3258364513147161,
+        "heat_balance": -9.992007221626409e-15,
+        "conductive_energy": 0.3258364513147177,
+        "mechanical_virtual_work": -1.4484669973863218e-15,
+        "elements": 10000,
+        "vertices": 10201,
+        "elapsed_seconds": 1.228608683999994,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "e128bd882f21b5a7ef16f9134d35472aef8e902b406ef54a2b447a371b44df61",
+      "metadata_sha256": "77d63b867d2b53133f3c8434076d63ab25d6f8c401f05508348aa86f5fe63d17"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_rectangles_n50",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.903487957775796e-16,
+        "mechanical_relative_residual": 1.5788437408613792e-14,
+        "heat_left_reaction": 0.739930366237086,
+        "heat_right_reaction": -0.7399303662371419,
+        "heat_balance": -5.595524044110789e-14,
+        "conductive_energy": 0.7399303662371299,
+        "mechanical_virtual_work": -1.8344700758454735e-15,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.2823932409999941,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "metadata_sha256": "69392d96adcddf0da87002fa14139e215a871bca1f754717e8c84c2f85d728c9"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_rectangles_n100",
+      "points": 10201,
+      "n": 100,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 1.0754842200507503e-15,
+        "mechanical_relative_residual": 4.76707771435901e-14,
+        "heat_left_reaction": 0.7398516712348684,
+        "heat_right_reaction": -0.7398516712350364,
+        "heat_balance": -1.6797674362578618e-13,
+        "conductive_energy": 0.7398516712349874,
+        "mechanical_virtual_work": 4.686436785514281e-15,
+        "elements": 10000,
+        "vertices": 10201,
+        "elapsed_seconds": 1.2231279010000122,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "07d03a0bb7fa6e93dbeef69400276fe8753c72b910eecbaaa451e14bcdb9f99a",
+      "metadata_sha256": "09a536681abc1d757064025019fc50d342265857dbc1bf2afb1a0f13cfd809c3"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_rectangles_n200",
+      "points": 10201,
+      "n": 200,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 1.6858650139001126e-15,
+        "mechanical_relative_residual": 1.4808342611496893e-13,
+        "heat_left_reaction": 0.7398271725834609,
+        "heat_right_reaction": -0.7398271725836878,
+        "heat_balance": -2.26929586233382e-13,
+        "conductive_energy": 0.7398271725837524,
+        "mechanical_virtual_work": -2.373084774477327e-15,
+        "elements": 40000,
+        "vertices": 40401,
+        "elapsed_seconds": 6.397677000000002,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "6623e29df0d09828ac2614a5d6e4e4730e0c144d51c16117239bb69240a5a793",
+      "metadata_sha256": "872c8c4ef62313f49d42a20a84fb4f76af38712ca83365f1bd343b4d7e6f6f34"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\fem_rectangles_n100_nodal",
+      "points": 10201,
+      "n": 100,
+      "coefficient_mode": "nodal",
+      "diagnostics": {
+        "thermal_relative_residual": 1.0686191625932745e-15,
+        "mechanical_relative_residual": 1.0138400074464702e-13,
+        "heat_left_reaction": 0.7440496581935496,
+        "heat_right_reaction": -0.7440496581936208,
+        "heat_balance": -7.116529587847253e-14,
+        "conductive_energy": 0.7440496581936016,
+        "mechanical_virtual_work": -9.08439447798448e-16,
+        "elements": 10000,
+        "vertices": 10201,
+        "elapsed_seconds": 1.2083420390000015,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "1211597f5e28ae048707d6b3f2e0240d776995c9e1098d57d12a874928bab30c",
+      "metadata_sha256": "abdc4283f3747bb7b81e69548f6116d0b15ad158198752efdc646853c76a4e7f"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_1",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 9.569505540261374e-16,
+        "mechanical_relative_residual": 8.839797223769834e-14,
+        "heat_left_reaction": 0.999999999999893,
+        "heat_right_reaction": -1.0000000000000566,
+        "heat_balance": -1.6364687382974807e-13,
+        "conductive_energy": 1.000000000000016,
+        "mechanical_virtual_work": 1.105777795717966e-15,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.30887822300000023,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "6969fa78c6b06d2b914a6c65403a47d8d0af092e4fb6bd5bc7d0e25bb4d121c4",
+      "metadata_sha256": "082ed57b4efaca2a35cd44c73cba3942fe8509564d0f7c9e8da0b287a6e59e0d"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_2",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.903487957775796e-16,
+        "mechanical_relative_residual": 1.5788437408613792e-14,
+        "heat_left_reaction": 0.739930366237086,
+        "heat_right_reaction": -0.7399303662371419,
+        "heat_balance": -5.595524044110789e-14,
+        "conductive_energy": 0.7399303662371299,
+        "mechanical_virtual_work": -1.8344700758454735e-15,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.3094725920000001,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "metadata_sha256": "e29378f96fa9985bfbee77a7f2fa4efe0bb1b30442290f897b331989b501a856"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_3",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.971542288079416e-16,
+        "mechanical_relative_residual": 1.174587027237143e-14,
+        "heat_left_reaction": 0.6351952677401322,
+        "heat_right_reaction": -0.6351952677402027,
+        "heat_balance": -7.049916206369744e-14,
+        "conductive_energy": 0.6351952677401868,
+        "mechanical_virtual_work": 1.1289797222091558e-15,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.2951692320000001,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "b437fc3fb55b913083d14b0fb9d60c1e415c45076d6a9f88e4d44fb723069926",
+      "metadata_sha256": "6d20895450f3b973523e948f247fbde9ae9303d5c4f822b23d9ef0f3c62e4624"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_4",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.661612002728186e-16,
+        "mechanical_relative_residual": 1.0594237442474921e-14,
+        "heat_left_reaction": 0.5780320273868376,
+        "heat_right_reaction": -0.5780320273868986,
+        "heat_balance": -6.106226635438361e-14,
+        "conductive_energy": 0.5780320273868824,
+        "mechanical_virtual_work": 2.336455681706262e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.3060056290000004,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "85d9f07647066f32f807d99813a7887625362fdc5fed7d1b75705da09aa353fd",
+      "metadata_sha256": "77c0ed8d3150bbd5a39682b55d846118d1c42ae40d3e5fed9e157a40126c5cea"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_5",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.6903841746618445e-16,
+        "mechanical_relative_residual": 9.320933200731447e-15,
+        "heat_left_reaction": 0.5418699835659266,
+        "heat_right_reaction": -0.5418699835659734,
+        "heat_balance": -4.674038933671909e-14,
+        "conductive_energy": 0.5418699835659638,
+        "mechanical_virtual_work": -4.2164622487961267e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.32665772400000037,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "75cc9b308e5ddf2a126cc63cd6bcaa27636de9ef20ac03e9730711ca56e3f8a1",
+      "metadata_sha256": "95b74698620dea2750a474505836d183d3a5db612571fe6cf87acc9651101a30"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_6",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.362431192564347e-16,
+        "mechanical_relative_residual": 9.23967402695554e-15,
+        "heat_left_reaction": 0.516876582453087,
+        "heat_right_reaction": -0.5168765824531288,
+        "heat_balance": -4.18554080283684e-14,
+        "conductive_energy": 0.5168765824531211,
+        "mechanical_virtual_work": 9.19240811941835e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.30296820799999935,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "d17682659769c3af3fa12303db38bbac04dad9bfc1f178eb9e6b836e4479e1a0",
+      "metadata_sha256": "108ceec105ade6778dc69af8a779084e183db0b2a5e81697fcc393e8cc3cd622"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_7",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.795037319929371e-16,
+        "mechanical_relative_residual": 9.348870160348613e-15,
+        "heat_left_reaction": 0.4985468523123602,
+        "heat_right_reaction": -0.4985468523123886,
+        "heat_balance": -2.842170943040401e-14,
+        "conductive_energy": 0.49854685231238494,
+        "mechanical_virtual_work": -6.701453628132903e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.31081548100000056,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "997fe26c465af676dc0c385b11ce4d5198d722b7173377dcc44e3d8709cbaf82",
+      "metadata_sha256": "2f6c96b2ab6f0cc0229deecc17def68edce9e5c5cabb7a8053cff8cce95c692b"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_8",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.977008086312983e-16,
+        "mechanical_relative_residual": 8.910674646857e-15,
+        "heat_left_reaction": 0.4845185197153085,
+        "heat_right_reaction": -0.4845185197153451,
+        "heat_balance": -3.658184866139891e-14,
+        "conductive_energy": 0.4845185197153393,
+        "mechanical_virtual_work": 1.404583914454971e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.3211478499999991,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "0e428824f5839e6ff439098c40cd66b43c4e448e203523696f1efff03939f624",
+      "metadata_sha256": "327a2db0c99d2a2b52d82f45bd6d8ca287370751bcd85c7fc5a9ae76a1fc3595"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_9",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.547832429820013e-16,
+        "mechanical_relative_residual": 8.654276641481941e-15,
+        "heat_left_reaction": 0.4734309533337846,
+        "heat_right_reaction": -0.47343095333382645,
+        "heat_balance": -4.18554080283684e-14,
+        "conductive_energy": 0.473430953333822,
+        "mechanical_virtual_work": 2.0209528495129803e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.30639598099999965,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "b0ec2f128f1f6e1bcdd65599db3488bdbd3d3728fc498656d46005167974fdd6",
+      "metadata_sha256": "7345632452b008667b38ef70df0c74553e555b90e84c194dd6b0f45558c526c1"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_10",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.091758163753965e-16,
+        "mechanical_relative_residual": 8.267136782181777e-15,
+        "heat_left_reaction": 0.46444412559247206,
+        "heat_right_reaction": -0.46444412559251746,
+        "heat_balance": -4.54081217071689e-14,
+        "conductive_energy": 0.4644441255925083,
+        "mechanical_virtual_work": -5.334274688628682e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.3027774980000011,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "18957b486aea41c2dda69079a7c453cc8437775f5424be282f7247868452b2fa",
+      "metadata_sha256": "0436af8932ac854672f8b9aa3bc4557db2116163d03ec8feb7786ee8739065eb"
+    },
+    {
+      "folder": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\results\\full_study\\parametric_fem\\ratio_15",
+      "points": 10201,
+      "n": 50,
+      "coefficient_mode": "sharp",
+      "diagnostics": {
+        "thermal_relative_residual": 7.777401119052023e-16,
+        "mechanical_relative_residual": 8.37306063229737e-15,
+        "heat_left_reaction": 0.43681504412607375,
+        "heat_right_reaction": -0.43681504412612765,
+        "heat_balance": -5.390132784555135e-14,
+        "conductive_energy": 0.43681504412611644,
+        "mechanical_virtual_work": 2.8872303853288983e-16,
+        "elements": 2500,
+        "vertices": 2601,
+        "elapsed_seconds": 0.3194291100000015,
+        "fenics_version": "2019.2.0.64.dev0"
+      },
+      "solution_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
+      "metadata_sha256": "977dd69803783a0d0d816d80f346f8278fd271ab08178149c1af763f87c5bb5d"
+    }
+  ],
+  "source_checks": [
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\external\\harandi_nme7388.pdf",
+      "expected_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
+      "status": "not_distributed_not_verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_geometry2_fe.csv",
+      "sha256": "5f02c45f4f33f9ef8b5d73ebafabffab372a439a7de726735ff7ee2a453aa5cc",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_geometry2_nodes.txt",
+      "sha256": "f086d05fddd0738e853455fd608a960707efd93aff883ce47d834c6954649204",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\AUTHORS_LICENSE",
+      "sha256": "5cbe5ca8e66dee6d81b2885a678fdfc20ed1ec4239c5e35c87ad782d2dee14dd",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_released_weights.npz",
+      "sha256": "b274c38b81d8eb75224129bb736ac1a8388f48cfb458bcb04ad1cfd0517b4a51",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_released_weights.json",
+      "sha256": "7944068bc4f34fa07bfbec9e54d82f1dbac64b010856feeb550f9e670a1c3f33",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\paper_palette.json",
+      "sha256": "730f17786ac756a907ec1d56475e6e6de3403946fe74a911c7d896fd2733ec02",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\paper_color_limits.json",
+      "sha256": "d5e6e63bd126eb7028c4756f5c3008d491bcb1c0854dc1e02f00e9df2f7aa979",
+      "status": "verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig06.png",
+      "expected_sha256": "07eebbfc2093f44c5a94e40dc6ad3ab0b565325ac390752373138c8aaebebdfd",
+      "status": "not_distributed_not_verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig08.png",
+      "expected_sha256": "3a6d0d582606a38de8fb98b4d24cc85ffd06b95f1e8e7bd89f9afd6ff0d2fa12",
+      "status": "not_distributed_not_verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig09.png",
+      "expected_sha256": "6bbd09b5c1f1113d8d9eb8d63a08e832b2effa7f41248ea4fec6b8722cf0bb9f",
+      "status": "not_distributed_not_verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig10.png",
+      "expected_sha256": "7522a98963e0edae57a0d68b99a84a5688b4663fdd0ba8debd3f418211855086",
+      "status": "not_distributed_not_verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig13.png",
+      "expected_sha256": "df6957094acb9a7bc113458a5e1aa692d3b6a29ac86fd634d8b361fcbcc24eaa",
+      "status": "not_distributed_not_verified"
+    },
+    {
+      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig14.png",
+      "expected_sha256": "09744b6b14bf2e09baea8483173ff542b067d14dcafaecca5c3933bc69a5671e",
+      "status": "not_distributed_not_verified"
+    }
+  ],
+  "completed_jobs": [
+    "mixed_rectangles_coupled",
+    "mixed_rectangles_sequential",
+    "mixed_circle_coupled",
+    "mixed_circle_sequential",
+    "baseline_circle_standard_coupled",
+    "baseline_circle_standard_sequential",
+    "baseline_circle_dem_coupled",
+    "baseline_circle_dem_sequential",
+    "sensitivity_circle_dem_hard_coupled",
+    "sensitivity_circle_dem_hard_sequential",
+    "refine_rectangles_left1000",
+    "ablation_circle_noenergy",
+    "hard_rectangles_adam10k",
+    "arch_l1_w40",
+    "arch_l2_w40",
+    "arch_l4_w40",
+    "arch_l5_w5",
+    "arch_l5_w10",
+    "arch_l5_w20",
+    "arch_l5_w40",
+    "arch_l5_w60",
+    "arch_l6_w40",
+    "transfer_w0",
+    "transfer_w0.1",
+    "transfer_w0.5",
+    "transfer_w1"
+  ],
+  "changed_interpretation": "Nonmonotonic architecture accuracy; transfer T and qy worsen while qx maximum improves.",
+  "artifact_sha256": {
+    "reports/FULL_PROJECT_REPORT_KO.pdf": "1a1782b7f4775d1ea69e72d4464de8c6a05466c69d6e1d4dc7196de61afab44f",
+    "reports/FULL_PROJECT_REPORT_KO.tex": "014ea972c9d5f74a2cd1bf2595c75cbbfa72868f077cee2f35bdfad62f2c274c",
+    "reports/FEM_REPORT_KO.pdf": "40bca486e9708bd68ffd7107c2fe1a1d520f204f6565541d604c463144d9dd9c",
+    "reports/FEM_REPORT_KO.tex": "54c6cfae61f7f2343000c9374f4a6b4980317da799a52cdc099155d0df20524e",
+    "reports/FULL_STUDY_FIGURES.pdf": "f16af014fc79cd32d837c3e8ad118f9a9965fdeab90552c21f8548540cd8eec2",
+    "notebooks/Full_Paper_Reproduction_KO.ipynb": "084386e51f6c6e694479226a7f83b7fe535b57e3bad25e39239c31086eb534d3",
+    "notebooks/Full_Paper_Reproduction_KO.html": "4483d67eaf39bf2f592e06e0e0550344081ea84a8818cb2b987beeb14d8a3123"
+  },
+  "local_links_checked": 189,
+  "broken_links": []
+}

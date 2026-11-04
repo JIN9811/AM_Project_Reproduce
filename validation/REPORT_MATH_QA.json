@@ -1,13 +1,13 @@
 {
-  "created_utc": "2026-11-04T17:32:27.480321+00:00",
+  "created_utc": "2026-11-04T18:21:07.889438+00:00",
   "method": "GitHub Markdown API",
   "published_ref": null,
   "files": [
     {
       "file": "reports/FULL_PROJECT_REPORT_KO.md",
-      "sha256": "9b3ad87ada983c0d4ef3c6c0124645a7ad86513a6a2a8b1500428b29bb6a238b",
-      "source_formulas": 254,
-      "rendered_formulas": 254,
+      "sha256": "2be8520ecaf18ccd4640570e312e6e5895d3716adefa3e83d4856015130d9e4c",
+      "source_formulas": 283,
+      "rendered_formulas": 283,
       "missing_or_changed": [],
       "unexpected_or_changed": [],
       "nested_markup": [],
@@ -15,7 +15,7 @@
     },
     {
       "file": "reports/FEM_REPORT_KO.md",
-      "sha256": "d990ff34ae7d67dc8828bc21b75e28d75da6866ca5377d5c215b60448915c8eb",
+      "sha256": "5bad95663b2bf561d91e97e3c8b9e8ef4544ccd0f7f9283013136dd84d8fbcbd",
       "source_formulas": 83,
       "rendered_formulas": 83,
       "missing_or_changed": [],
@@ -35,5 +35,11 @@
     }
   ],
   "scope": "Exact source-to-MathJax formula preservation, not a browser screenshot.",
-  "status": "pass"
+  "status": "pass",
+  "mathjax_validation": {
+    "engine": "MathJax 3.2.2, SVG output",
+    "formulas": 376,
+    "errors": [],
+    "passed": true
+  }
 }

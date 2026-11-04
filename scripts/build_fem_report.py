@@ -99,6 +99,13 @@ def build(root):
     r.p(f'본 보고서는 정상 열전도와 평면변형률 열탄성 문제에 대한 FEniCS 유한요소 기준해의 정식화, 구현 및 검증을 제시한다. 원형 및 사각형 개재물 문제에서 연속 쌍선형 요소를 사용하고, 열전도 해를 열하중으로 전달하여 역학 문제를 순차적으로 해석하였다. 저장된 19개 기준해의 최대 선형 시스템 상대 잔차는 {residual:.3e}, 최대 열수지 불균형은 {balance:.3e}이었다. 별도의 균질 해석해 검증에서는 절점 일치와 요소 내부 보간 오차를 구분하였다. 저자 공개 FEAP 자료와 비교한 온도의 상대 L2 차이는 {pct(authors["temperature_relative_l2"])}%, 변위 벡터의 차이는 {pct(authors["displacement_relative_l2_raw"])}%였다. 변위의 약 0.98배 진폭 관계는 관측 결과로만 기록하며 수치해를 보정하지 않았다. 본 보고서는 신경망 학습과 독립적으로 FEM 기준해의 신뢰성과 한계를 설명한다.')
     r.p('핵심용어: 유한요소법, 열탄성, 평면변형률, 이질 재료, FEniCS, 격자 수렴','small')
     r.p('이 문서의 FEM 검증은 완료되었다. 전체 PINN·전이학습 연구의 완료 여부는 별도의 전체 보고서에 표시한다. 저장된 선형 시스템 잔차는 이산 방정식의 해법 정확도이며, 연속체 문제에 대한 총 오차가 아니다.')
+    manifest_path=root/'validation/FULL_STUDY_RESULTS.json'
+    if manifest_path.exists():
+        manifest=read(manifest_path)
+        neural=sum(row.get('kind')!='timing' for row in manifest.get('jobs',{}).values())
+        r.p(f'이번 자료 갱신에서는 동일한 19개 FEM 기준해의 배열 해시를 다시 확인하고, 완료된 {neural}개 신경망 실험과 연결하였다. '
+            '일반 기하의 본문 수치 표는 FEM200, 재료비 15의 전이학습 평가는 별도의 FEM50을 사용한다. '
+            '추가 PINN 학습 결과가 FEM 기준해 자체의 신규 계산을 의미하지는 않는다.','small')
     r.page(); r.h('Abstract',2)
     r.p(f'This report documents a sequential finite element solution of steady heat conduction and plane-strain thermoelasticity in heterogeneous domains using FEniCS. Bilinear quadrilateral elements are used for temperature and displacement. Nineteen saved reference solutions satisfy the discrete equations with a maximum relative algebraic residual of {residual:.3e}. Six additional uniform-material runs distinguish nodal exactness from interpolation error. Comparisons with the authors\' released FEAP data give relative differences of {pct(authors["temperature_relative_l2"])}% in temperature and {pct(authors["displacement_relative_l2_raw"])}% in the displacement vector. The observed amplitude ratio is reported without fitting or rescaling the computed fields.')
     r.h('기호',2)

@@ -1,0 +1,21 @@
+{
+  "id": "arch_l2_w40",
+  "kind": "mixed",
+  "config": {
+    "geometry": "rectangles",
+    "mode": "coupled",
+    "n": 51,
+    "width": 40,
+    "layers": 2,
+    "hard": true,
+    "energy": "authors",
+    "adam_steps": 0,
+    "lbfgs_steps": 10000,
+    "switch": 20000,
+    "log_every": 100,
+    "checkpoint_every": 1000,
+    "fast_adam": false,
+    "dtype": "float64",
+    "left_refine": 0
+  }
+}

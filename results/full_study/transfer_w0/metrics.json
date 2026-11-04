@@ -1,0 +1,134 @@
+{
+  "problem": {
+    "geometry": "rectangles",
+    "nu": 0.3,
+    "alpha": 1.0,
+    "T0": 0.0,
+    "ratio": 15,
+    "circle_x": 0.6,
+    "circle_y": 0.35,
+    "circle_radius": 0.15,
+    "material_grid": 50
+  },
+  "diagnostics_independent_grid": {
+    "M_connection": 0.911772184281499,
+    "M_equilibrium": 0.9495771287104935,
+    "M_dirichlet": 0.01213001351988207,
+    "M_neumann": 0.04643901742585601,
+    "M_energy": 0.0,
+    "T_connection": 0.08016230342510271,
+    "T_equilibrium": 0.5200586098120459,
+    "T_dirichlet": 0.00018517541737763556,
+    "T_neumann": 0.013699146920480776,
+    "T_energy": 0.0,
+    "mechanical": 1.9199183439377305,
+    "thermal": 0.614105235575007,
+    "total": 2.5340235795127377,
+    "max_normal_displacement_error": 0.1165923794792551,
+    "max_temperature_boundary_error": 0.022524570633631225
+  },
+  "comparisons": {
+    "FEM_held_out_ratio15": {
+      "direct_mixed_outputs": {
+        "ux": {
+          "relative_L2": 0.15446956774023077,
+          "MAE": 0.025704439621284228,
+          "mean_error_over_peak": 0.05231295177314226,
+          "max_error_over_peak": 0.23728552789626794
+        },
+        "uy": {
+          "relative_L2": 0.33206492539198323,
+          "MAE": 0.015022367224513984,
+          "mean_error_over_peak": 0.07068387152877899,
+          "max_error_over_peak": 0.4286147885834248
+        },
+        "sxx": {
+          "relative_L2": 0.39108086723087804,
+          "MAE": 0.12718068750472863,
+          "mean_error_over_peak": 0.09847481259300625,
+          "max_error_over_peak": 0.8539742365157378
+        },
+        "syy": {
+          "relative_L2": 0.4542106227278296,
+          "MAE": 0.14510853098037169,
+          "mean_error_over_peak": 0.06413921540243019,
+          "max_error_over_peak": 0.8446621076830513
+        },
+        "sxy": {
+          "relative_L2": 0.864412053545425,
+          "MAE": 0.03356391832024019,
+          "mean_error_over_peak": 0.07074612857766696,
+          "max_error_over_peak": 0.908405513341724
+        },
+        "T": {
+          "relative_L2": 0.020840705544639855,
+          "MAE": 0.011048334253477132,
+          "mean_error_over_peak": 0.011048334253477132,
+          "max_error_over_peak": 0.03518451550896973
+        },
+        "qx": {
+          "relative_L2": 0.4073896302164076,
+          "MAE": 0.12418768571702382,
+          "mean_error_over_peak": 0.09553971343914601,
+          "max_error_over_peak": 0.9038044402713856
+        },
+        "qy": {
+          "relative_L2": 0.6786316802345745,
+          "MAE": 0.036866766428827115,
+          "mean_error_over_peak": 0.04920326097120117,
+          "max_error_over_peak": 0.6512299160475601
+        }
+      },
+      "constitutive_outputs": {
+        "ux": {
+          "relative_L2": 0.15446956774023077,
+          "MAE": 0.025704439621284228,
+          "mean_error_over_peak": 0.05231295177314226,
+          "max_error_over_peak": 0.23728552789626794
+        },
+        "uy": {
+          "relative_L2": 0.33206492539198323,
+          "MAE": 0.015022367224513984,
+          "mean_error_over_peak": 0.07068387152877899,
+          "max_error_over_peak": 0.4286147885834248
+        },
+        "sxx": {
+          "relative_L2": 1.0152627857612848,
+          "MAE": 0.29426376796010006,
+          "mean_error_over_peak": 0.2278456735163138,
+          "max_error_over_peak": 2.182038881329945
+        },
+        "syy": {
+          "relative_L2": 0.9510806594315186,
+          "MAE": 0.2904346917789894,
+          "mean_error_over_peak": 0.1283746250513059,
+          "max_error_over_peak": 1.6661265214940042
+        },
+        "sxy": {
+          "relative_L2": 1.3936323383343185,
+          "MAE": 0.05090044735136614,
+          "mean_error_over_peak": 0.10728811691836901,
+          "max_error_over_peak": 2.122669654626649
+        },
+        "T": {
+          "relative_L2": 0.020840705544639855,
+          "MAE": 0.011048334253477132,
+          "mean_error_over_peak": 0.011048334253477132,
+          "max_error_over_peak": 0.03518451550896973
+        },
+        "qx": {
+          "relative_L2": 0.23562385830946453,
+          "MAE": 0.0700410426019869,
+          "mean_error_over_peak": 0.05388377358461024,
+          "max_error_over_peak": 0.6442213123456929
+        },
+        "qy": {
+          "relative_L2": 0.4983592966434897,
+          "MAE": 0.03324466512132227,
+          "mean_error_over_peak": 0.044369118648430614,
+          "max_error_over_peak": 0.43176876519249047
+        }
+      }
+    }
+  }
+}

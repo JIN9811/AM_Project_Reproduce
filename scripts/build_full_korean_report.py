@@ -187,6 +187,18 @@ def create_report(root,partial,pinn_python):
     r.p(f'<b>작성 시점의 검증 완료 작업은 {len(complete)}/{len(specs)}개이다.</b> '
         +(f'미완료 {len(pending)}개 작업은 결과 비교에 넣지 않았다. 이 문서는 전체 학습 완료나 방법의 우세를 주장하지 않는 진행 보고서이다.' if partial
           else '등록된 작업의 완료 기준을 충족했으나, 원문의 미기재 설정을 포함한 비트 단위 동일 재현을 뜻하지는 않는다.'))
+    neural_total=sum(j['kind']!='timing' for j in specs)
+    timing_total=sum(j['kind']=='timing' for j in specs)
+    timing_complete=sum(j['kind']=='timing' and j['id'] in complete for j in specs)
+    r.p(f'정확도 평가용 신경망 실험은 {len(results)}/{neural_total}개, 독립 시간 측정은 {timing_complete}/{timing_total}개 완료되었다. 두 집계를 구분하며, 진행 중인 추가 학습의 중간 체크포인트를 최종 결과 표에 넣지 않는다.','small')
+    snapshot_path=root/'validation/PUBLIC_SNAPSHOT.json'
+    snapshot=read_json(snapshot_path) if snapshot_path.exists() else {}
+    snapshot_current=set(snapshot.get('completed_jobs',[]))==complete
+    if snapshot_current:
+        cutoff=snapshot.get('source_cutoff_utc')
+        if cutoff:
+            stamp=datetime.fromisoformat(cutoff).astimezone(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M KST')
+            r.p('수치 자료 확정 시점: '+stamp+'. 문서 생성 시각과 별도로 기록한다.','small')
     r.table(['구분','등록','검증 완료'],[[label,sum(j['kind']==kind for j in specs),sum(j['kind']==kind and j['id'] in complete for j in specs)]
             for kind,label in [('mixed','혼합 PINN·구조·추가 예산'),('baseline','표준 PINN·DEM 및 민감도'),('transfer','전이학습'),('timing','독립 시간 측정')]], [.58,.21,.21])
     r.page(); r.h('Abstract',2)
@@ -375,6 +387,18 @@ def create_report(root,partial,pinn_python):
     r.fig('fig21_width_derived','그림 8. 너비에 따른 구성식 출력의 평균·최대 절대오차. 큰 망의 단조 개선을 가정하지 않는다.',manifest,178*mm)
     r.p('원문에서는 5개 은닉층을 갖는 구조가 전반적으로 양호한 성능을 보이나, σxx의 최대오차에는 예외가 제시되어 있다. 본 연구에서는 평균오차와 최대오차를 함께 비교하여 이러한 경향을 검토한다. 최대오차는 재료 경계의 위치, 응력 복원 방식 및 평가 격자에 민감하므로 단일 지표만으로 구조의 적합성을 판단하기 어렵다.')
     delta('arch_l5_w40','arch_l4_w40')
+    if all(name in results for name in ('arch_l4_w40','arch_l5_w40','arch_l5_w20','arch_l5_w60')):
+        d4=results['arch_l4_w40']['derived']; d5=results['arch_l5_w40']['derived']
+        r.p(f'실제 FEM200 비교에서 4층·40뉴런의 온도 상대 L2 오차는 {d4["T"]["relative_l2"]*100:.2f}%, '
+            f'5층·40뉴런은 {d5["T"]["relative_l2"]*100:.2f}%이다. 반면 수평 정상응력 오차는 '
+            f'{d4["sxx"]["relative_l2"]*100:.2f}%에서 {d5["sxx"]["relative_l2"]*100:.2f}%로 감소한다. '
+            '동일한 층수 증가가 물리량에 따라 다른 결과를 보인다.')
+        r.p(f'5층에서 20·40·60뉴런의 수평변위 상대 L2 오차는 각각 '
+            f'{results["arch_l5_w20"]["derived"]["ux"]["relative_l2"]*100:.2f}%, '
+            f'{d5["ux"]["relative_l2"]*100:.2f}%, '
+            f'{results["arch_l5_w60"]["derived"]["ux"]["relative_l2"]*100:.2f}%이다. '
+            '고정된 L-BFGS 예산과 단일 시드에서 오차는 네트워크 크기에 대해 단조 감소하지 않는다. '
+            '이를 표현 능력만의 효과로 해석할 수 없으며, 최적화 정체와 초기값의 영향은 별도 시드 반복과 수렴 검사를 통해 구분해야 한다.')
 
     r.page(); r.h('11. Table 4 시간 측정과 실행 환경')
     r.p('25개 조합은 각 100 L-BFGS 업데이트를 다른 연구 작업과 겹치지 않게 실행한다. 지표는 원본 이력의 정확한 update=100 누적 시간/100이다. 초기 설정·closure·로그·체크포인트 오버헤드를 포함한 벽시계 시간이며 순수 GPU 커널 시간은 아니다. 여러 작업 동시 실행의 시간으로 이를 대체하지 않는다.')
@@ -418,11 +442,33 @@ def create_report(root,partial,pinn_python):
     delta('transfer_w0.1','transfer_w0')
     r.p('원문의 전이학습 결과에서는 물리 손실을 추가하였을 때 여러 성분의 오차가 감소하는 반면, qx의 최대오차는 일부 위치에서 증가하는 예외가 나타난다. 이에 따라 본 연구는 평균오차와 최대오차의 변화량을 각각 산정한다. 음의 변화량은 개선, 양의 변화량은 악화를 의미하며, 그 부호를 통해 물리 손실의 이점과 국소적인 한계를 함께 평가한다.')
     if 'transfer_w0' in results and 'transfer_w0.1' in results:
+        data_only=results['transfer_w0']['derived']; physics_data=results['transfer_w0.1']['derived']
+        mean_worse=[f for f in FIELDS if physics_data[f]['mean_peak_percent']>data_only[f]['mean_peak_percent']]
+        max_worse=[f for f in FIELDS if physics_data[f]['max_peak_percent']>data_only[f]['max_peak_percent']]
+        r.p('이번 계산에서 w=0.1은 데이터만 사용한 w=0에 비해 평균 정규화오차가 '+
+            ', '.join(mean_worse)+'에서, 최대 정규화오차가 '+', '.join(max_worse)+'에서 증가하였다. '
+            '원문의 예외 성분과 로컬 계산의 악화 성분을 구분해야 한다.')
+        change_qx=physics_data['qx']['max_peak_percent']-data_only['qx']['max_peak_percent']
+        r.p(f'수평 열유속 qx의 최대 정규화오차 변화는 {change_qx:+.2f} pp이다. '
+            +('이 비교에서는 qx 최대오차가 감소했으므로 원문의 qx 최대오차 악화 사례가 같은 형태로 재현되었다고 할 수 없다. '
+              if change_qx<0 else '이 비교에서는 qx 최대오차가 증가하였다. ')
+            +f'온도 상대 L2 오차는 {data_only["T"]["relative_l2"]*100:.2f}%에서 '
+            f'{physics_data["T"]["relative_l2"]*100:.2f}%로 변하였다. '
+            '물리 항이 모든 성분의 일반화 오차를 줄인다는 결론은 지지되지 않는다.')
+        r.p(f'w=0.1의 수평 정상응력 상대 L2 오차는 {physics_data["sxx"]["relative_l2"]*100:.2f}%로 여전히 크다. '
+            '일부 성분의 개선을 미학습 재료비의 정밀 재현으로 해석하지 않으며, 전체장·직접 출력·구성식 출력의 차이를 함께 확인한다.')
         t0=results['transfer_w0']['status'].get('training_elapsed_seconds')
         t1=results['transfer_w0.1']['status'].get('training_elapsed_seconds')
         if t0 is not None and t1:
             r.table(['측정','값'],[['w=0 학습초',number(t0)],['w=0.1 학습초',number(t1)],['1-t(w=0)/t(w=0.1)',number((1-t0/t1)*100)+'%']],[.64,.36])
+            r.p(f'기록된 학습 시간으로 계산한 데이터 전용 실행의 비용 감소율은 {(1-t0/t1)*100:.2f}%이다. '
+                '실행별 누적 벽시계 시간에 대한 관측값이며, 독립 반복 시간 측정이나 원문 장비에서의 비용 비율을 대신하지 않는다.','small')
     else: r.p('데이터만/물리+데이터의 시간 비교는 두 실행 완료까지 대기한다. 원문의 약 82% 비용 감소를 본 계산값인 것처럼 복사하지 않는다.','small')
+    if all(name in results for name in ('transfer_w0','transfer_w0.1')):
+        r.page(); r.h('13.1 미학습 재료비의 전체장과 국소 오차',2)
+        r.fig('fig23_transfer','미학습 비율 15에서 w=0.1의 물리·데이터 결합 결과. 원문 Fig. 23의 비교 구성을 참고하였으며 모든 패널은 자체 학습과 FEniCS50 자료이다.',manifest,183*mm)
+        r.page(); r.h('13.2 데이터 전용 모델의 동일 기준 비교',2)
+        r.fig('fig24_transfer','미학습 비율 15에서 w=0의 데이터 전용 결과. 원문 Fig. 24에 대응하며 앞 그림과 같은 기준해·성분을 사용한다. 색 포화와 수치 오차는 그림집의 범위 감사표를 함께 확인한다.',manifest,183*mm)
 
     r.page(); r.h('14. FEM 격자 수렴과 해석 한계')
     convergence=[]
@@ -455,6 +501,8 @@ def create_report(root,partial,pinn_python):
                     rows.append([label,mode_label,f"{values['ux']['relative_l2']*100:.2f}",f"{values['T']['relative_l2']*100:.2f}"])
             r.table(['기하','학습 방식','수평변위 오차 (%)','온도 오차 (%)'],rows,[.20,.20,.30,.30],caption='주 혼합 PINN의 상대 L2 오차 요약(FEM200 기준)')
             r.p('위 결과는 순차 학습의 효과가 기하와 평가 성분에 의존함을 보여준다. 따라서 학습 방법의 선택에는 전체 목적함수의 감소뿐 아니라 변위·응력·온도·열유속의 오차와 경계조건의 만족도를 함께 고려해야 한다. 연성 경계조건의 에너지 최소화에서는 페널티 자체가 유발하는 편향도 별도로 평가할 필요가 있다.')
+        if 'transfer_w0.1' in results and 'transfer_w0' in results:
+            r.p('확장된 구조 연구와 전이학습에서도 개선은 성분별로 달랐다. 네트워크 깊이·너비의 증가가 단조 개선을 보장하지 않았고, 물리·데이터 결합은 일부 변위·응력·열유속을 개선하면서 온도 및 수직 열유속을 악화시켰다. 따라서 원문의 특정 최적 구조나 예외 성분을 이 구현에 그대로 일반화할 수 없다.')
     r.h('15.1 적용 범위와 후속 검증',2)
     r.p('첫째, 단일 시드와 지정 기하·하중·재료비에 대한 결과이므로 표본 변동이나 다른 문제에 대한 일반화를 확정하지 않는다. 둘째, 소프트 페널티·에너지·재료 미분·학습 배치·옵티마이저 상태 정책은 비교의 의미를 바꾼다. 셋째, 원문의 미기재 설정과 도해/본문 충돌 때문에 완전한 동일 실험의 유일한 해석은 존재하지 않는다.')
     r.p('넷째, 비율 15의 성공은 새로운 미세구조·다른 경계조건·독립 두 재료비의 일반화를 입증하지 않는다. 다섯째, 원문 시각 형식과 색 범위를 맞춘 것은 수치해를 맞춘 것과 다르다. 포화 색 영역은 감사표로 드러내고 예측 배열은 그대로 둔다. 여섯째, 장기 궤적과 실제 장비 시간이 원문과 다른 것은 소프트웨어·장비·재구성 차이를 함께 검토해야 한다.')
@@ -489,10 +537,14 @@ def create_report(root,partial,pinn_python):
                     if count is not None: actual=str(count)
                 except json.JSONDecodeError: pass
             if (folder/'checkpoint.pt').exists(): status='진행/재시작'
+            elif snapshot_current and name in snapshot.get('observed_running_jobs',[]):
+                status='로컬 학습 중'
         optimizer='Adam' if job['kind']=='transfer' or c.get('optimizer')=='adam' or c.get('adam_steps',0)>0 else 'L-BFGS'
         form=f"{c['layers']}×{c['width']} / "+('hard' if c['hard'] else 'soft')+' / '+optimizer
         inventory_rows.append([codes[name],name,form,f'{actual} / {budget(job):,}',status])
     r.table(['코드','실행 ID','구조·경계·최적화','실제 / 요구','상태'],inventory_rows,[.07,.39,.26,.16,.12])
+    if snapshot_current and snapshot.get('observed_running_jobs'):
+        r.p('로컬 학습 중 표시는 공개 자료 갱신 때 관측한 상태이다. 공개본에는 해당 실행의 중간 모델을 포함하지 않아 실제 횟수는 빈값으로 남긴다. 최종 결과 표는 검증 완료 실행만 사용한다.','small')
     current_missing_refs=sorted(set(pending_refs+[name for name in manifest.get('pending_references',[])
                                                if not (root/name).is_file()]))
     if current_missing_refs:

@@ -1,14 +1,18 @@
 {
-  "created_utc": "2026-11-04T17:32:30.560957+00:00",
   "status": "pass",
-  "checked_local_links": 138,
+  "created_utc": "2026-11-04T18:23:11.756013+00:00",
+  "scope": "Current report, gallery and notebook links after 26-run refresh",
+  "checked_local_links": 189,
   "broken_links": [],
-  "original_pdfs_byte_identical": {
-    "reports/FULL_PROJECT_REPORT_KO.pdf": true,
-    "reports/FEM_REPORT_KO.pdf": true,
-    "reports/FULL_STUDY_FIGURES.pdf": true
+  "files": {
+    "reports/FULL_PROJECT_REPORT_KO.pdf": "1a1782b7f4775d1ea69e72d4464de8c6a05466c69d6e1d4dc7196de61afab44f",
+    "reports/FULL_PROJECT_REPORT_KO.tex": "014ea972c9d5f74a2cd1bf2595c75cbbfa72868f077cee2f35bdfad62f2c274c",
+    "reports/FEM_REPORT_KO.pdf": "40bca486e9708bd68ffd7107c2fe1a1d520f204f6565541d604c463144d9dd9c",
+    "reports/FEM_REPORT_KO.tex": "54c6cfae61f7f2343000c9374f4a6b4980317da799a52cdc099155d0df20524e",
+    "reports/FULL_STUDY_FIGURES.pdf": "f16af014fc79cd32d837c3e8ad118f9a9965fdeab90552c21f8548540cd8eec2",
+    "notebooks/Full_Paper_Reproduction_KO.ipynb": "084386e51f6c6e694479226a7f83b7fe535b57e3bad25e39239c31086eb534d3",
+    "notebooks/Full_Paper_Reproduction_KO.html": "4483d67eaf39bf2f592e06e0e0550344081ea84a8818cb2b987beeb14d8a3123"
   },
-  "changed_numerical_or_figure_files": [],
   "notebook": {
     "code_cells": 15,
     "execution_counts": [
@@ -29,99 +33,6 @@
       15
     ],
     "error_outputs": 0,
-    "sha256": "79fe3763f240ff5d48b91a8b9f278aca3d67f87dce9089d0d8ee265c8c17c2c0"
-  },
-  "pdf_qa": {
-    "status": "pass",
-    "automatic_checks_passed": true,
-    "pdf_sha256": "00634906b87bc71d10dc3886086ea6d4c12721dec3eb16173ae929b02f6059f4",
-    "page_count": 39,
-    "rendered_page_count": 39,
-    "qa_json_sha256": "af5ac942427f943c7ae2035c9f2aed5d3179084687778c7a430f5c5f8ea73b75",
-    "manual_visual_review": {
-      "performed": true,
-      "status": "passed",
-      "scope": "Updated figure 3 provenance caption and adjoining text inspected on pages 12 and 13; title date on page 1. Remaining pages unchanged in content.",
-      "changed_pages": [
-        1,
-        12,
-        13
-      ]
-    }
-  },
-  "source_checks": [
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\external\\harandi_nme7388.pdf",
-      "expected_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
-      "status": "not_distributed_not_verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_geometry2_fe.csv",
-      "sha256": "5f02c45f4f33f9ef8b5d73ebafabffab372a439a7de726735ff7ee2a453aa5cc",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_geometry2_nodes.txt",
-      "sha256": "f086d05fddd0738e853455fd608a960707efd93aff883ce47d834c6954649204",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\AUTHORS_LICENSE",
-      "sha256": "5cbe5ca8e66dee6d81b2885a678fdfc20ed1ec4239c5e35c87ad782d2dee14dd",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_released_weights.npz",
-      "sha256": "b274c38b81d8eb75224129bb736ac1a8388f48cfb458bcb04ad1cfd0517b4a51",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\authors_released_weights.json",
-      "sha256": "7944068bc4f34fa07bfbec9e54d82f1dbac64b010856feeb550f9e670a1c3f33",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\paper_palette.json",
-      "sha256": "730f17786ac756a907ec1d56475e6e6de3403946fe74a911c7d896fd2733ec02",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\data\\paper_color_limits.json",
-      "sha256": "d5e6e63bd126eb7028c4756f5c3008d491bcb1c0854dc1e02f00e9df2f7aa979",
-      "status": "verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig06.png",
-      "expected_sha256": "07eebbfc2093f44c5a94e40dc6ad3ab0b565325ac390752373138c8aaebebdfd",
-      "status": "not_distributed_not_verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig08.png",
-      "expected_sha256": "3a6d0d582606a38de8fb98b4d24cc85ffd06b95f1e8e7bd89f9afd6ff0d2fa12",
-      "status": "not_distributed_not_verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig09.png",
-      "expected_sha256": "6bbd09b5c1f1113d8d9eb8d63a08e832b2effa7f41248ea4fec6b8722cf0bb9f",
-      "status": "not_distributed_not_verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig10.png",
-      "expected_sha256": "7522a98963e0edae57a0d68b99a84a5688b4663fdd0ba8debd3f418211855086",
-      "status": "not_distributed_not_verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig13.png",
-      "expected_sha256": "df6957094acb9a7bc113458a5e1aa692d3b6a29ac86fd634d8b361fcbcc24eaa",
-      "status": "not_distributed_not_verified"
-    },
-    {
-      "path": "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\outputs\\AM_Project_Reproduce\\figures\\paper_reference\\original_fig14.png",
-      "expected_sha256": "09744b6b14bf2e09baea8483173ff542b067d14dcafaecca5c3933bc69a5671e",
-      "status": "not_distributed_not_verified"
-    }
-  ],
-  "scope": "Document relocation only. Public numerical snapshot remains 13 of 27 neural runs.",
-  "document_path_tests_passed": 39,
-  "independent_review": "No actionable findings"
+    "sha256": "084386e51f6c6e694479226a7f83b7fe535b57e3bad25e39239c31086eb534d3"
+  }
 }

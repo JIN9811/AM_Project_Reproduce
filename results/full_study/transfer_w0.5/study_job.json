@@ -1,0 +1,31 @@
+{
+  "id": "transfer_w0.5",
+  "kind": "transfer",
+  "config": {
+    "ratios": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "steps": 10000,
+    "weight": 0.5,
+    "n": 51,
+    "width": 40,
+    "layers": 5,
+    "device": "auto",
+    "energy": "authors",
+    "dtype": "float64",
+    "hard": false,
+    "normalization": "none",
+    "fast_adam": true,
+    "log_every": 1000,
+    "checkpoint_every": 1000
+  }
+}

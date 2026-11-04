@@ -1,25 +1,23 @@
 {
   "status": "partial_reproduction_snapshot",
-  "created_utc": "2026-11-04T02:28:43.419766+00:00",
-  "neural_completed": 13,
+  "created_utc": "2026-11-04T18:13:46.791469+00:00",
+  "neural_completed": 26,
   "neural_registered": 27,
   "timing_registered": 25,
   "completed_jobs": [
-    "ablation_circle_noenergy",
-    "baseline_circle_dem_coupled",
-    "baseline_circle_dem_sequential",
-    "baseline_circle_standard_coupled",
-    "baseline_circle_standard_sequential",
-    "hard_rectangles_adam10k",
-    "mixed_circle_coupled",
-    "mixed_circle_sequential",
     "mixed_rectangles_coupled",
     "mixed_rectangles_sequential",
-    "refine_rectangles_left1000",
+    "mixed_circle_coupled",
+    "mixed_circle_sequential",
+    "baseline_circle_standard_coupled",
+    "baseline_circle_standard_sequential",
+    "baseline_circle_dem_coupled",
+    "baseline_circle_dem_sequential",
     "sensitivity_circle_dem_hard_coupled",
-    "sensitivity_circle_dem_hard_sequential"
-  ],
-  "not_included_jobs": [
+    "sensitivity_circle_dem_hard_sequential",
+    "refine_rectangles_left1000",
+    "ablation_circle_noenergy",
+    "hard_rectangles_adam10k",
     "arch_l1_w40",
     "arch_l2_w40",
     "arch_l4_w40",
@@ -32,7 +30,9 @@
     "transfer_w0",
     "transfer_w0.1",
     "transfer_w0.5",
-    "transfer_w1",
+    "transfer_w1"
+  ],
+  "not_included_jobs": [
     "timing_l1_w5",
     "timing_l1_w10",
     "timing_l1_w20",
@@ -64,5 +64,10 @@
   "source_repository": "https://github.com/phyml4e/PINNs",
   "source_commit": "5b426dc8eb2255b1bb3b8630619228b36cdb464e",
   "automatic_upload_of_future_runs": false,
-  "document_revision": "Documents grouped into reports, notebooks, docs and validation; numerical snapshot unchanged"
+  "document_revision": "Refresh figures, analysis and notebook from 26 verified completed neural experiments",
+  "source_cutoff_utc": "2026-11-04T18:13:46.791469+00:00",
+  "observed_running_jobs": [
+    "remark_rectangles_adam1m"
+  ],
+  "progress_observed_utc": "2026-11-04T18:19:32.938955+00:00"
 }

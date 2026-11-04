@@ -52,7 +52,7 @@
 
 {\small\color{muted} Harandi 등의 혼합 PINN 연구에 대한 독립 기준해 보고서 | AM Project Reproduce\par}
 
-{\small\color{muted} 작성일: 2026-11-04 | XeLaTeX 조판 · 계산 자료 기반 재생성\par}
+{\small\color{muted} 작성일: 2026-11-05 | XeLaTeX 조판 · 계산 자료 기반 재생성\par}
 
 \subsection{국문 초록}
 
@@ -61,6 +61,8 @@
 {\small\color{muted} 핵심용어: 유한요소법, 열탄성, 평면변형률, 이질 재료, FEniCS, 격자 수렴\par}
 
 이 문서의 FEM 검증은 완료되었다. 전체 PINN·전이학습 연구의 완료 여부는 별도의 전체 보고서에 표시한다. 저장된 선형 시스템 잔차는 이산 방정식의 해법 정확도이며, 연속체 문제에 대한 총 오차가 아니다.\par
+
+{\small\color{muted} 이번 자료 갱신에서는 동일한 19개 FEM 기준해의 배열 해시를 다시 확인하고, 완료된 26개 신경망 실험과 연결하였다. 일반 기하의 본문 수치 표는 FEM200, 재료비 15의 전이학습 평가는 별도의 FEM50을 사용한다. 추가 PINN 학습 결과가 FEM 기준해 자체의 신규 계산을 의미하지는 않는다.\par}
 
 \clearpage
 
@@ -516,7 +518,7 @@ python scripts/build_fem_report.py
 
 \rowcolor{tint} \textbf{파일} & \textbf{내용}\\\midrule
 
-\nolinkurl{FEM_REPORT_KO.tex} / .md / .pdf & 편집 가능한 LaTeX·Markdown과 최종 PDF\\\addlinespace[2pt]
+\nolinkurl{reports/FEM_REPORT_KO.tex} / .md / .pdf & 편집 가능한 LaTeX·Markdown과 최종 PDF\\\addlinespace[2pt]
 
 \nolinkurl{scripts/verify_fem_report.py} & 실제 FEM 검증 및 외부 자료 비교\\\addlinespace[2pt]
 
