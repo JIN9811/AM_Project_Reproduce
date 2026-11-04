@@ -14,3 +14,11 @@ full_pipeline_status.json
 FULL_STUDY_PROGRESS.html
 FULL_STUDY_TRAINING_PREVIEW.*
 results/full_study/pipeline_logs/
+
+tmp/
+*.aux
+*.out
+*.toc
+*.synctex.gz
+missfont.log
+mfput.log

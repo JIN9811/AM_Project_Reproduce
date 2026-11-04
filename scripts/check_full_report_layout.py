@@ -22,6 +22,7 @@ import sys
 import pdfplumber
 from PIL import Image, ImageChops, ImageDraw, ImageStat
 from reportlab.pdfbase.ttfonts import TTFont
+from fontTools.ttLib import TTFont as OpenTypeFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -70,6 +71,37 @@ def load_font_maps(paths):
     return maps, metadata
 
 
+def latex_font_maps(document):
+    """Match PDF PostScript names to the actual TeX/OpenType source fonts.
+
+    Mathematical alphanumeric Unicode has no coverage in Malgun; auditing
+    XeLaTeX against that unrelated font would produce false missing glyphs.
+    The original ReportLab audit continues to use its supplied Malgun maps.
+    """
+    names={str(c['fontname']).split('+')[-1] for page in document.pages for c in page.chars}
+    if not any('LatinModern' in name or name.startswith('LMRoman') for name in names): return None,[]
+    fmt='%{postscriptname}|%{file};'
+    distro=os.environ.get('HARANDI_WSL_DISTRO','Ubuntu')
+    if os.name=='nt': command=['wsl','-d',distro,'--exec','fc-list','-f',fmt]
+    else: command=['fc-list','-f',fmt]
+    output=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',check=True).stdout
+    candidates={}
+    for record in output.split(';'):
+        if '|' not in record: continue
+        names_in_file,path=record.split('|',1)
+        if not path.lower().endswith(('.otf','.ttf')): continue
+        for name in names_in_file.split(','): candidates[name]=path
+    maps={}; metadata=[]
+    for name in sorted(names):
+        if name not in candidates: raise RuntimeError('No installed source font for PDF font '+name)
+        source=candidates[name]
+        path=Path('//wsl.localhost/'+distro+source) if os.name=='nt' else Path(source)
+        with OpenTypeFont(path) as font:
+            maps[name]=set((font.getBestCmap() or {}).keys())
+        metadata.append({'postscript_name':name,'source_font':source,'sha256':sha256(path),'mapped_codepoints':len(maps[name])})
+    return maps,metadata
+
+
 def inspect_page(page, font_maps, tolerance):
     text = page.extract_text() or ''
     chars = [c for c in page.chars if c.get('text', '').strip()]
@@ -89,7 +121,8 @@ def inspect_page(page, font_maps, tolerance):
         # ReportLab embeds Malgun and Malgun-Bold under subset names. Audit the
         # corresponding supplied font map, rather than silently accepting any
         # character merely because a different supplied font contains it.
-        mapping = font_maps[1] if 'bold' in fontname.lower() and len(font_maps)>1 else font_maps[0]
+        if isinstance(font_maps,dict): mapping=font_maps[fontname.split('+')[-1]]
+        else: mapping = font_maps[1] if 'bold' in fontname.lower() and len(font_maps)>1 else font_maps[0]
         for value in char['text']:
             if value.isspace():
                 continue
@@ -230,13 +263,18 @@ def audit(root, pdf, workdir, output, dpi=110, tolerance=0.5, renderer_name='aut
         directory = workdir/report['pdf_sha256'][:16]
         directory.mkdir(parents=True, exist_ok=True)
         report['render_directory'] = str(directory)
-        font_maps, font_metadata = load_font_maps([
-            font or os.environ.get('FONT_KO','C:/Windows/Fonts/malgun.ttf'),
-            bold_font or os.environ.get('FONT_KO_BOLD','C:/Windows/Fonts/malgunbd.ttf')])
-        report['audit_fonts'] = font_metadata
         renderer = Renderer(pdf,renderer_name,dpi)
         report['renderer'] = {'name':renderer.name,'version':renderer.version}
         with pdfplumber.open(pdf) as document:
+            tex_maps,tex_metadata=latex_font_maps(document)
+            if tex_maps is not None:
+                font_maps=tex_maps; report['audit_fonts']=tex_metadata
+                report['automatic_scope'][3]='extracted characters present in the matching installed TeX/OpenType source font maps'
+            else:
+                font_maps,font_metadata=load_font_maps([
+                    font or os.environ.get('FONT_KO','C:/Windows/Fonts/malgun.ttf'),
+                    bold_font or os.environ.get('FONT_KO_BOLD','C:/Windows/Fonts/malgunbd.ttf')])
+                report['audit_fonts']=font_metadata
             report['page_count'] = len(document.pages)
             if not document.pages:
                 raise ValueError('PDF contains no pages.')

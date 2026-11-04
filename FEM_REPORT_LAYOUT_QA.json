@@ -1,0 +1,798 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-04T02:33:22+00:00",
+  "status": "pass",
+  "automatic_checks_passed": true,
+  "pdf": "PROJECT_ROOT\\FEM_REPORT_KO.pdf",
+  "pdf_sha256": "ef6a6bcf820bf17b49838b43ffb770e7309e2b0f1a6abd763c24b098905634e1",
+  "page_count": 17,
+  "rendered_page_count": 17,
+  "pages": [
+    {
+      "page": 1,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 743,
+      "visible_text_char_count": 689,
+      "body_text_char_count": 659,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "FSFOSX+UnDotum-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-001.png",
+        "png_sha256": "8e702fe45a781dea63c0e2345f6f0b4ce80c532fac14b13e3ac08dc25bd99230",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 4.962620854928548,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 2,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 1203,
+      "visible_text_char_count": 1039,
+      "body_text_char_count": 1009,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-002.png",
+        "png_sha256": "bb9958e21413421f41cc74dbae71fe01f2ea71108d7aa28cd91102225f72412c",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 5.150904366288981,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 3,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 713,
+      "visible_text_char_count": 670,
+      "body_text_char_count": 640,
+      "fonts": [
+        "AKYMUY+LMMono9-Regular",
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-003.png",
+        "png_sha256": "5317299ec17040cbd90469f1d007ab7c5a551cbdff4d754549d81267cc70a849",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 4.80418641187872,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 4,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 607,
+      "visible_text_char_count": 528,
+      "body_text_char_count": 498,
+      "fonts": [
+        "AKYMUY+LMMono9-Regular",
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "FSFOSX+UnDotum-Bold",
+        "JZWCDL+LMRoman7-Regular",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-004.png",
+        "png_sha256": "72092ca69c80fd0633a286eeca6fb1c997df7f46e17712e6e4e05d1c3792fb3a",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 3.3811800734877657,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 5,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 774,
+      "visible_text_char_count": 669,
+      "body_text_char_count": 639,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-005.png",
+        "png_sha256": "6912c20d22691457cbee19df66fbe59ccf74220b090aae7bb16bf3bb584fff42",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 5.393066762297532,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 6,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 691,
+      "visible_text_char_count": 607,
+      "body_text_char_count": 577,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "FSFOSX+UnDotum-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-006.png",
+        "png_sha256": "52036eada844c2b7e3820724252302af5ca6a8c4cdb152d4605ef190b60c16d6",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 3.8658725889495122,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 7,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 855,
+      "visible_text_char_count": 744,
+      "body_text_char_count": 714,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "JZWCDL+LMRoman7-Regular",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-007.png",
+        "png_sha256": "c804cd46dd25cee8b93aa4fb58aec3f4915e0ec24b07c195db9739dec790f8d5",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 5.962431300892839,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 8,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 546,
+      "visible_text_char_count": 495,
+      "body_text_char_count": 465,
+      "fonts": [
+        "AKYMUY+LMMono9-Regular",
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "JZWCDL+LMRoman7-Regular",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-008.png",
+        "png_sha256": "f6172e1850cbf954e9a06a99a6296eb310e298f1bfc7507dcdca9213f37b40de",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 4.889952497644805,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 9,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 183,
+      "visible_text_char_count": 172,
+      "body_text_char_count": 142,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-009.png",
+        "png_sha256": "9e378c21cdf22ae6e3c4c4d986f8d6d41796015cb6973ccc1ba192ea7b84aa3d",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 18.686027932181776,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 10,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 184,
+      "visible_text_char_count": 173,
+      "body_text_char_count": 142,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-010.png",
+        "png_sha256": "92e49e0f77778d76c3ef26c93bde2c2a4782dd03f672a5838dc20be6ba1522d5",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 20.24546763777533,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 11,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 1234,
+      "visible_text_char_count": 1117,
+      "body_text_char_count": 1086,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "JZWCDL+LMRoman7-Regular",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "SJYMUV+LMRoman8-Regular",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-011.png",
+        "png_sha256": "2eed4fb9d1a9220daf78fcc0d2a31baafe1dc50d1bd31a948d032f3af043ec90",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 5.145526553218861,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 12,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 841,
+      "visible_text_char_count": 735,
+      "body_text_char_count": 704,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "NIFRVV+LMRoman8-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "SJYMUV+LMRoman8-Regular",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-012.png",
+        "png_sha256": "558bc89d9ed052f2d76e262d961f1fe1f989e013c73acf6f59e3798450febe1f",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 4.693888163118932,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 13,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 771,
+      "visible_text_char_count": 664,
+      "body_text_char_count": 633,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "NIFRVV+LMRoman8-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "SJYMUV+LMRoman8-Regular",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-013.png",
+        "png_sha256": "a4f84487ede2e254fbcf0f022913d3dc69fe2220d3512768779faa358a3cc83a",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 7.068765991842915,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 14,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 738,
+      "visible_text_char_count": 662,
+      "body_text_char_count": 631,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "NIFRVV+LMRoman8-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "SJYMUV+LMRoman8-Regular",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-014.png",
+        "png_sha256": "0008cac3000c476ea11721fffaba9412c5f85d310f1296eaa63e57ad0e3e2f01",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 5.612434289357367,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 15,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 522,
+      "visible_text_char_count": 477,
+      "body_text_char_count": 446,
+      "fonts": [
+        "AKYMUY+LMMono9-Regular",
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "JZWCDL+LMRoman7-Regular",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-015.png",
+        "png_sha256": "5e66778a25131fc1eb2cd7c7ce1d0c76d23036fcd052cac93d07e2242dc8f8d8",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 4.009929956083802,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 16,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 1091,
+      "visible_text_char_count": 1021,
+      "body_text_char_count": 990,
+      "fonts": [
+        "AKYMUY+LMMono9-Regular",
+        "AUJWRH+LMSans8-Regular",
+        "DEQCAB+LMRoman10-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "QFDLXA+LMSans10-Bold",
+        "TMHSTK+UnDotum",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-016.png",
+        "png_sha256": "4b2a1365a6c55d9fd493fb00ab0749bd4dc8069258d83a0448bbf8604c38d893",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 6.59882311420773,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    },
+    {
+      "page": 17,
+      "width_points": 595.28,
+      "height_points": 841.89,
+      "text_char_count": 1241,
+      "visible_text_char_count": 1082,
+      "body_text_char_count": 1051,
+      "fonts": [
+        "AUJWRH+LMSans8-Regular",
+        "DLSDCT+LMRoman9-Bold",
+        "FSFOSX+UnDotum-Bold",
+        "MQJINE+UnBatang-Bold",
+        "NIFRVV+LMRoman8-Bold",
+        "OQXHZA+LMRoman9-Regular",
+        "SJYMUV+LMRoman8-Regular",
+        "TMHSTK+UnDotum",
+        "VLKDWL+LatinModernMath-Regular",
+        "YGFACC+LMMono8-Regular",
+        "ZVZGCN+UnBatang"
+      ],
+      "out_of_bounds_character_count": 0,
+      "out_of_bounds_examples": [],
+      "replacement_codepoints": [],
+      "missing_font_characters": [],
+      "unresolved_character_ids": [],
+      "failures": [],
+      "warnings": [],
+      "render": {
+        "png": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\page-017.png",
+        "png_sha256": "90d3f59dce920106b8fd6b8ae960223d86ec0baf1b8900de31df6f918cc2335c",
+        "pixel_width": 910,
+        "pixel_height": 1287,
+        "mean_nonwhite_intensity": 4.053114976191899,
+        "blank_white_raster": false
+      },
+      "automatic_checks_passed": true
+    }
+  ],
+  "contact_sheets": [
+    {
+      "path": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\contact-01.png",
+      "sha256": "bd2f41a94fbff810b0fdfdb49555b80be8d9d695952c2c07e77964bde8e94bd3",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "path": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b\\contact-02.png",
+      "sha256": "f4b84e4bcf9422818b7d5c785541c5f792ecac0409b1216b815540b737146940",
+      "pages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "automatic_scope": [
+    "nonempty extracted text on every page",
+    "extracted character bounding boxes inside physical page",
+    "no Unicode replacement/null or unresolved CID character mappings",
+    "extracted characters present in the matching installed TeX/OpenType source font maps",
+    "every page rendered to nonempty, nonwhite PNG"
+  ],
+  "limitations": [
+    "Automatic pass is not manual visual approval.",
+    "This tool does not establish scientific correctness, table readability, text/image overlap, or aesthetic quality.",
+    "Font-map checks cover extracted PDF text, not glyphs or clipping already rasterized inside figures.",
+    "Font-map coverage cannot by itself prove every embedded-font glyph was drawn correctly."
+  ],
+  "manual_visual_review": {
+    "performed": true,
+    "status": "reviewed",
+    "reviewed_utc": "2026-11-04T02:34:53.150482+00:00",
+    "reviewer": "Codex visual inspection",
+    "scope": "All pages in final rendered contact sheets; equations, author notation table, weak form, figures and command blocks also inspected at full-page scale."
+  },
+  "parameters": {
+    "dpi": 110,
+    "text_bounds_tolerance_points": 0.5
+  },
+  "software": {
+    "pdfplumber": "0.11.9",
+    "pypdfium2": "5.14.0",
+    "Pillow": "12.3.0",
+    "reportlab": "4.4.9"
+  },
+  "errors": [],
+  "warnings": [],
+  "pdf_size_bytes": 1156800,
+  "render_directory": "LOCAL_WORKSPACE\\work\\full_study\\latex_fem_qa\\ef6a6bcf820bf17b",
+  "audit_fonts": [
+    {
+      "postscript_name": "LMMono8-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmmono8-regular.otf",
+      "sha256": "17319490d20f24e192bd7e7999484b95111a4654ac2620e7aa215591142ae997",
+      "mapped_codepoints": 759
+    },
+    {
+      "postscript_name": "LMMono9-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmmono9-regular.otf",
+      "sha256": "cdd53c7dc01a1d25f21eaf7cae44bfb8a9665e4cbd60e5f8da14287aca819bb9",
+      "mapped_codepoints": 759
+    },
+    {
+      "postscript_name": "LMRoman10-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf",
+      "sha256": "1aa18cfefa58132c52ce5de70db1fd1154201c19cd2b2cdaffba4906a33e6852",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMRoman7-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmroman7-regular.otf",
+      "sha256": "48c4b46ab255eec96588fb992fba1ed6102e53d051da480738a61cc6cdb328c3",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMRoman8-Bold",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmroman8-bold.otf",
+      "sha256": "04d4f633c3da31a169f4c54a7fe8c7e63925b39d030381f8d3eab955f16be7b2",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMRoman8-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmroman8-regular.otf",
+      "sha256": "f73015c3827596586faa380c398501caf9b5bcbb6f40b46af6a51277ca97c9fc",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMRoman9-Bold",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmroman9-bold.otf",
+      "sha256": "f72feac9ea12eb858d8093d6c0ee710a6c25f59b61278c88ec41c0a680838415",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMRoman9-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmroman9-regular.otf",
+      "sha256": "8ab7b017fc67ea0e30cbf9e7ebd940010442ea67b40cf65f87d73f3ca11b0e6f",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMSans10-Bold",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmsans10-bold.otf",
+      "sha256": "a597b710326c1a8a2c7238d808e5d38711638a72a32383478db4829d63afd687",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LMSans8-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm/lmsans8-regular.otf",
+      "sha256": "04f0d25ca474494cb707e752170f6c22cdcb8ae2b5fb80872143e18d5cc463f8",
+      "mapped_codepoints": 794
+    },
+    {
+      "postscript_name": "LatinModernMath-Regular",
+      "source_font": "/usr/share/texmf/fonts/opentype/public/lm-math/latinmodern-math.otf",
+      "sha256": "6075562b771f8b82f0c179e363389684f2dd09de30038269e2628e504bd7be0f",
+      "mapped_codepoints": 2045
+    },
+    {
+      "postscript_name": "UnBatang",
+      "source_font": "/usr/share/fonts/truetype/unfonts-core/UnBatang.ttf",
+      "sha256": "5066e52d247568acc6c2984f41d8f7e3c20e28f19f0d8acda9d33027be91e991",
+      "mapped_codepoints": 19793
+    },
+    {
+      "postscript_name": "UnBatang-Bold",
+      "source_font": "/usr/share/fonts/truetype/unfonts-core/UnBatangBold.ttf",
+      "sha256": "4443d5c8ca7f1562ee3b5e22652e2c0d90c360948fc5f8998a98600d25631a8e",
+      "mapped_codepoints": 19793
+    },
+    {
+      "postscript_name": "UnDotum",
+      "source_font": "/usr/share/fonts/truetype/unfonts-core/UnDotum.ttf",
+      "sha256": "5b8373e126bb61f59105cf7f54a47eb1b089c2b0aacb70c6cd688bd8ea76cdc9",
+      "mapped_codepoints": 19617
+    },
+    {
+      "postscript_name": "UnDotum-Bold",
+      "source_font": "/usr/share/fonts/truetype/unfonts-core/UnDotumBold.ttf",
+      "sha256": "c4bf31b1b74a9c9164b23e1feae0d9060b38f4790302dc44e7b1e5051c9afd78",
+      "mapped_codepoints": 19289
+    }
+  ],
+  "renderer": {
+    "name": "pypdfium2",
+    "version": "5.14.0"
+  },
+  "finished_utc": "2026-11-04T02:33:25+00:00"
+}

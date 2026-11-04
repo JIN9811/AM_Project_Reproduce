@@ -2,3 +2,6 @@ reportlab==4.4.9
 Pillow>=11
 pdfplumber==0.11.9
 pypdfium2==5.14.0
+fonttools>=4.60
+matplotlib>=3.10
+# System dependency: XeLaTeX with Korean support; see docs/LATEX_REPORTS_KO.md.

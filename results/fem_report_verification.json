@@ -1,0 +1,968 @@
+{
+  "status": "pass",
+  "reference_count": 19,
+  "reference_records": [
+    {
+      "folder": "results/fem_circle_n100",
+      "metadata": {
+        "problem": {
+          "geometry": "circle",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 100,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 4.836088292977755e-16,
+          "mechanical_relative_residual": 6.029484650816686e-14,
+          "heat_left_reaction": 0.324192535745592,
+          "heat_right_reaction": -0.3241925357455899,
+          "heat_balance": 2.0539125955565396e-15,
+          "conductive_energy": 0.32419253574558843,
+          "mechanical_virtual_work": -1.871407488609339e-15,
+          "elements": 10000,
+          "vertices": 10201,
+          "elapsed_seconds": 1.2494571049999976,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "621c5ab0b6783e4b0b0c8e18e9125ee63e4d92b36f91d5885f99d59549063db9"
+    },
+    {
+      "folder": "results/fem_circle_n100_nodal",
+      "metadata": {
+        "problem": {
+          "geometry": "circle",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 100,
+        "coefficient_mode": "nodal",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 4.680827426357304e-16,
+          "mechanical_relative_residual": 1.2405129161505557e-13,
+          "heat_left_reaction": 0.3258364513147061,
+          "heat_right_reaction": -0.3258364513147161,
+          "heat_balance": -9.992007221626409e-15,
+          "conductive_energy": 0.3258364513147177,
+          "mechanical_virtual_work": -1.4484669973863218e-15,
+          "elements": 10000,
+          "vertices": 10201,
+          "elapsed_seconds": 1.228608683999994,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "e128bd882f21b5a7ef16f9134d35472aef8e902b406ef54a2b447a371b44df61"
+    },
+    {
+      "folder": "results/fem_circle_n200",
+      "metadata": {
+        "problem": {
+          "geometry": "circle",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 200,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.792549066516081e-16,
+          "mechanical_relative_residual": 1.8420357221686036e-13,
+          "heat_left_reaction": 0.323780917898176,
+          "heat_right_reaction": -0.3237809178980231,
+          "heat_balance": 1.5287771049088406e-13,
+          "conductive_energy": 0.3237809178981044,
+          "mechanical_virtual_work": 1.80124944365416e-15,
+          "elements": 40000,
+          "vertices": 40401,
+          "elapsed_seconds": 6.450732373000008,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "90e2baa0ea95c39c6f73688122f5a552c0b7220e9a155a9e4c64ef7eefd9cb8e"
+    },
+    {
+      "folder": "results/fem_circle_n50",
+      "metadata": {
+        "problem": {
+          "geometry": "circle",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 3.788069735409125e-16,
+          "mechanical_relative_residual": 2.0072844093466615e-14,
+          "heat_left_reaction": 0.3241029485162888,
+          "heat_right_reaction": -0.3241029485162877,
+          "heat_balance": 1.1102230246251565e-15,
+          "conductive_energy": 0.32410294851628796,
+          "mechanical_virtual_work": -2.7763707131922555e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.2940547920000043,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb"
+    },
+    {
+      "folder": "results/fem_rectangles_n100",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 100,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 1.0754842200507503e-15,
+          "mechanical_relative_residual": 4.76707771435901e-14,
+          "heat_left_reaction": 0.7398516712348684,
+          "heat_right_reaction": -0.7398516712350364,
+          "heat_balance": -1.6797674362578618e-13,
+          "conductive_energy": 0.7398516712349874,
+          "mechanical_virtual_work": 4.686436785514281e-15,
+          "elements": 10000,
+          "vertices": 10201,
+          "elapsed_seconds": 1.2231279010000122,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "07d03a0bb7fa6e93dbeef69400276fe8753c72b910eecbaaa451e14bcdb9f99a"
+    },
+    {
+      "folder": "results/fem_rectangles_n100_nodal",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 100,
+        "coefficient_mode": "nodal",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 1.0686191625932745e-15,
+          "mechanical_relative_residual": 1.0138400074464702e-13,
+          "heat_left_reaction": 0.7440496581935496,
+          "heat_right_reaction": -0.7440496581936208,
+          "heat_balance": -7.116529587847253e-14,
+          "conductive_energy": 0.7440496581936016,
+          "mechanical_virtual_work": -9.08439447798448e-16,
+          "elements": 10000,
+          "vertices": 10201,
+          "elapsed_seconds": 1.2083420390000015,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "1211597f5e28ae048707d6b3f2e0240d776995c9e1098d57d12a874928bab30c"
+    },
+    {
+      "folder": "results/fem_rectangles_n200",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 200,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 1.6858650139001126e-15,
+          "mechanical_relative_residual": 1.4808342611496893e-13,
+          "heat_left_reaction": 0.7398271725834609,
+          "heat_right_reaction": -0.7398271725836878,
+          "heat_balance": -2.26929586233382e-13,
+          "conductive_energy": 0.7398271725837524,
+          "mechanical_virtual_work": -2.373084774477327e-15,
+          "elements": 40000,
+          "vertices": 40401,
+          "elapsed_seconds": 6.397677000000002,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "6623e29df0d09828ac2614a5d6e4e4730e0c144d51c16117239bb69240a5a793"
+    },
+    {
+      "folder": "results/fem_rectangles_n50",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": null,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.903487957775796e-16,
+          "mechanical_relative_residual": 1.5788437408613792e-14,
+          "heat_left_reaction": 0.739930366237086,
+          "heat_right_reaction": -0.7399303662371419,
+          "heat_balance": -5.595524044110789e-14,
+          "conductive_energy": 0.7399303662371299,
+          "mechanical_virtual_work": -1.8344700758454735e-15,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.2823932409999941,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_1",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 1.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 9.569505540261374e-16,
+          "mechanical_relative_residual": 8.839797223769834e-14,
+          "heat_left_reaction": 0.999999999999893,
+          "heat_right_reaction": -1.0000000000000566,
+          "heat_balance": -1.6364687382974807e-13,
+          "conductive_energy": 1.000000000000016,
+          "mechanical_virtual_work": 1.105777795717966e-15,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.30887822300000023,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "6969fa78c6b06d2b914a6c65403a47d8d0af092e4fb6bd5bc7d0e25bb4d121c4"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_10",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 10.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.091758163753965e-16,
+          "mechanical_relative_residual": 8.267136782181777e-15,
+          "heat_left_reaction": 0.46444412559247206,
+          "heat_right_reaction": -0.46444412559251746,
+          "heat_balance": -4.54081217071689e-14,
+          "conductive_energy": 0.4644441255925083,
+          "mechanical_virtual_work": -5.334274688628682e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.3027774980000011,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "18957b486aea41c2dda69079a7c453cc8437775f5424be282f7247868452b2fa"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_15",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 15.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.777401119052023e-16,
+          "mechanical_relative_residual": 8.37306063229737e-15,
+          "heat_left_reaction": 0.43681504412607375,
+          "heat_right_reaction": -0.43681504412612765,
+          "heat_balance": -5.390132784555135e-14,
+          "conductive_energy": 0.43681504412611644,
+          "mechanical_virtual_work": 2.8872303853288983e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.3194291100000015,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_2",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 2.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.903487957775796e-16,
+          "mechanical_relative_residual": 1.5788437408613792e-14,
+          "heat_left_reaction": 0.739930366237086,
+          "heat_right_reaction": -0.7399303662371419,
+          "heat_balance": -5.595524044110789e-14,
+          "conductive_energy": 0.7399303662371299,
+          "mechanical_virtual_work": -1.8344700758454735e-15,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.3094725920000001,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_3",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 3.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.971542288079416e-16,
+          "mechanical_relative_residual": 1.174587027237143e-14,
+          "heat_left_reaction": 0.6351952677401322,
+          "heat_right_reaction": -0.6351952677402027,
+          "heat_balance": -7.049916206369744e-14,
+          "conductive_energy": 0.6351952677401868,
+          "mechanical_virtual_work": 1.1289797222091558e-15,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.2951692320000001,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "b437fc3fb55b913083d14b0fb9d60c1e415c45076d6a9f88e4d44fb723069926"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_4",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 4.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.661612002728186e-16,
+          "mechanical_relative_residual": 1.0594237442474921e-14,
+          "heat_left_reaction": 0.5780320273868376,
+          "heat_right_reaction": -0.5780320273868986,
+          "heat_balance": -6.106226635438361e-14,
+          "conductive_energy": 0.5780320273868824,
+          "mechanical_virtual_work": 2.336455681706262e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.3060056290000004,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "85d9f07647066f32f807d99813a7887625362fdc5fed7d1b75705da09aa353fd"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_5",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 5.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.6903841746618445e-16,
+          "mechanical_relative_residual": 9.320933200731447e-15,
+          "heat_left_reaction": 0.5418699835659266,
+          "heat_right_reaction": -0.5418699835659734,
+          "heat_balance": -4.674038933671909e-14,
+          "conductive_energy": 0.5418699835659638,
+          "mechanical_virtual_work": -4.2164622487961267e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.32665772400000037,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "75cc9b308e5ddf2a126cc63cd6bcaa27636de9ef20ac03e9730711ca56e3f8a1"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_6",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 6.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.362431192564347e-16,
+          "mechanical_relative_residual": 9.23967402695554e-15,
+          "heat_left_reaction": 0.516876582453087,
+          "heat_right_reaction": -0.5168765824531288,
+          "heat_balance": -4.18554080283684e-14,
+          "conductive_energy": 0.5168765824531211,
+          "mechanical_virtual_work": 9.19240811941835e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.30296820799999935,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "d17682659769c3af3fa12303db38bbac04dad9bfc1f178eb9e6b836e4479e1a0"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_7",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 7.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.795037319929371e-16,
+          "mechanical_relative_residual": 9.348870160348613e-15,
+          "heat_left_reaction": 0.4985468523123602,
+          "heat_right_reaction": -0.4985468523123886,
+          "heat_balance": -2.842170943040401e-14,
+          "conductive_energy": 0.49854685231238494,
+          "mechanical_virtual_work": -6.701453628132903e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.31081548100000056,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "997fe26c465af676dc0c385b11ce4d5198d722b7173377dcc44e3d8709cbaf82"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_8",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 8.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.977008086312983e-16,
+          "mechanical_relative_residual": 8.910674646857e-15,
+          "heat_left_reaction": 0.4845185197153085,
+          "heat_right_reaction": -0.4845185197153451,
+          "heat_balance": -3.658184866139891e-14,
+          "conductive_energy": 0.4845185197153393,
+          "mechanical_virtual_work": 1.404583914454971e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.3211478499999991,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "0e428824f5839e6ff439098c40cd66b43c4e448e203523696f1efff03939f624"
+    },
+    {
+      "folder": "results/full_study/parametric_fem/ratio_9",
+      "metadata": {
+        "problem": {
+          "geometry": "rectangles",
+          "nu": 0.3,
+          "alpha": 1.0,
+          "T0": 0.0,
+          "ratio": 9.0,
+          "circle_x": 0.6,
+          "circle_y": 0.35,
+          "circle_radius": 0.15,
+          "material_grid": 50
+        },
+        "n": 50,
+        "coefficient_mode": "sharp",
+        "field_names": [
+          "ux",
+          "uy",
+          "sxx",
+          "syy",
+          "sxy",
+          "T",
+          "qx",
+          "qy"
+        ],
+        "diagnostics": {
+          "thermal_relative_residual": 7.547832429820013e-16,
+          "mechanical_relative_residual": 8.654276641481941e-15,
+          "heat_left_reaction": 0.4734309533337846,
+          "heat_right_reaction": -0.47343095333382645,
+          "heat_balance": -4.18554080283684e-14,
+          "conductive_energy": 0.473430953333822,
+          "mechanical_virtual_work": 2.0209528495129803e-16,
+          "elements": 2500,
+          "vertices": 2601,
+          "elapsed_seconds": 0.30639598099999965,
+          "fenics_version": "2019.2.0.64.dev0"
+        }
+      },
+      "dirichlet_max_error": 0.0,
+      "solution_sha256": "b0ec2f128f1f6e1bcdd65599db3488bdbd3d3728fc498656d46005167974fdd6"
+    }
+  ],
+  "uniform_analytic_checks": [
+    {
+      "mode": "sharp",
+      "n": 8,
+      "nodal_uT_max_abs": 3.3306690738754696e-16,
+      "full_grid_ux_max_abs": 0.0036272321428572896,
+      "T_max_abs": 3.3306690738754696e-16,
+      "sxx_max_abs": 1.3322676295501878e-15,
+      "qx_max_abs": 1.1102230246251565e-15,
+      "diagnostics": {
+        "thermal_relative_residual": 3.0173685263432105e-16,
+        "mechanical_relative_residual": 1.751145183301328e-15,
+        "heat_left_reaction": 1.0,
+        "heat_right_reaction": -0.9999999999999999,
+        "heat_balance": 1.1102230246251565e-16,
+        "conductive_energy": 0.9999999999999994,
+        "mechanical_virtual_work": 9.367506770274758e-17,
+        "elements": 64,
+        "vertices": 81,
+        "elapsed_seconds": 0.05451731100000501,
+        "fenics_version": "2019.2.0.64.dev0"
+      }
+    },
+    {
+      "mode": "sharp",
+      "n": 16,
+      "nodal_uT_max_abs": 1.4432899320127035e-15,
+      "full_grid_ux_max_abs": 0.0009068080357143848,
+      "T_max_abs": 1.4432899320127035e-15,
+      "sxx_max_abs": 4.440892098500626e-15,
+      "qx_max_abs": 9.2148511043888e-15,
+      "diagnostics": {
+        "thermal_relative_residual": 4.2664674347734136e-16,
+        "mechanical_relative_residual": 8.505879532422385e-15,
+        "heat_left_reaction": 0.9999999999999951,
+        "heat_right_reaction": -1.0000000000000013,
+        "heat_balance": -6.217248937900877e-15,
+        "conductive_energy": 0.9999999999999984,
+        "mechanical_virtual_work": 6.140921104957897e-16,
+        "elements": 256,
+        "vertices": 289,
+        "elapsed_seconds": 0.03781558200000035,
+        "fenics_version": "2019.2.0.64.dev0"
+      }
+    },
+    {
+      "mode": "sharp",
+      "n": 32,
+      "nodal_uT_max_abs": 6.050715484207103e-15,
+      "full_grid_ux_max_abs": 0.00022670200892904724,
+      "T_max_abs": 6.050715484207103e-15,
+      "sxx_max_abs": 1.687538997430238e-14,
+      "qx_max_abs": 3.197442310920451e-14,
+      "diagnostics": {
+        "thermal_relative_residual": 6.638765456099761e-16,
+        "mechanical_relative_residual": 3.892382986882525e-14,
+        "heat_left_reaction": 0.9999999999999798,
+        "heat_right_reaction": -1.0000000000000142,
+        "heat_balance": -3.441691376337985e-14,
+        "conductive_energy": 1.0000000000000002,
+        "mechanical_virtual_work": 1.7652979772408983e-15,
+        "elements": 1024,
+        "vertices": 1089,
+        "elapsed_seconds": 0.1203972209999975,
+        "fenics_version": "2019.2.0.64.dev0"
+      }
+    },
+    {
+      "mode": "nodal",
+      "n": 8,
+      "nodal_uT_max_abs": 3.3306690738754696e-16,
+      "full_grid_ux_max_abs": 0.0036272321428572896,
+      "T_max_abs": 3.3306690738754696e-16,
+      "sxx_max_abs": 1.3322676295501878e-15,
+      "qx_max_abs": 1.1102230246251565e-15,
+      "diagnostics": {
+        "thermal_relative_residual": 3.0173685263432105e-16,
+        "mechanical_relative_residual": 1.751145183301328e-15,
+        "heat_left_reaction": 1.0,
+        "heat_right_reaction": -0.9999999999999999,
+        "heat_balance": 1.1102230246251565e-16,
+        "conductive_energy": 0.9999999999999994,
+        "mechanical_virtual_work": 9.367506770274758e-17,
+        "elements": 64,
+        "vertices": 81,
+        "elapsed_seconds": 0.022876988000000154,
+        "fenics_version": "2019.2.0.64.dev0"
+      }
+    },
+    {
+      "mode": "nodal",
+      "n": 16,
+      "nodal_uT_max_abs": 1.4432899320127035e-15,
+      "full_grid_ux_max_abs": 0.0009068080357143848,
+      "T_max_abs": 1.4432899320127035e-15,
+      "sxx_max_abs": 4.440892098500626e-15,
+      "qx_max_abs": 9.2148511043888e-15,
+      "diagnostics": {
+        "thermal_relative_residual": 4.2664674347734136e-16,
+        "mechanical_relative_residual": 8.505879532422385e-15,
+        "heat_left_reaction": 0.9999999999999951,
+        "heat_right_reaction": -1.0000000000000013,
+        "heat_balance": -6.217248937900877e-15,
+        "conductive_energy": 0.9999999999999984,
+        "mechanical_virtual_work": 6.140921104957897e-16,
+        "elements": 256,
+        "vertices": 289,
+        "elapsed_seconds": 0.03928462600000415,
+        "fenics_version": "2019.2.0.64.dev0"
+      }
+    },
+    {
+      "mode": "nodal",
+      "n": 32,
+      "nodal_uT_max_abs": 6.050715484207103e-15,
+      "full_grid_ux_max_abs": 0.00022670200892904724,
+      "T_max_abs": 6.050715484207103e-15,
+      "sxx_max_abs": 1.687538997430238e-14,
+      "qx_max_abs": 3.197442310920451e-14,
+      "diagnostics": {
+        "thermal_relative_residual": 6.638765456099761e-16,
+        "mechanical_relative_residual": 3.892382986882525e-14,
+        "heat_left_reaction": 0.9999999999999798,
+        "heat_right_reaction": -1.0000000000000142,
+        "heat_balance": -3.441691376337985e-14,
+        "conductive_energy": 1.0000000000000002,
+        "mechanical_virtual_work": 1.7652979772408983e-15,
+        "elements": 1024,
+        "vertices": 1089,
+        "elapsed_seconds": 0.11761961499999529,
+        "fenics_version": "2019.2.0.64.dev0"
+      }
+    }
+  ],
+  "author_feap_check": {
+    "temperature_relative_l2": 4.499195931239788e-06,
+    "displacement_relative_l2_raw": 0.020407853693013147,
+    "least_squares_author_over_fem_amplitude": 0.9800003020222003,
+    "amplitude_applied_to_results": false,
+    "evaluation_points": 2601
+  },
+  "notes": [
+    "Uniform Q1 nodal exactness does not imply exact interpolation between nodes.",
+    "All stored numerical fields and author FEAP data remain unscaled."
+  ]
+}

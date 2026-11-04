@@ -4,8 +4,8 @@
 
 FEniCS 유한요소해와 PyTorch 기반 혼합 물리정보 신경망을 이용하여 Harandi 등의 열탄성 벤치마크를 재현하는 연구 프로젝트입니다. 지배방정식, 학습 과정, 성분별 오차 및 원문의 예외 사례를 실행 가능한 코드와 한국어 보고서로 연결합니다.
 
-> **연구 상태 · 2026-11-04 10:51 KST**  
-> FEniCS 기준해 **19개**를 검증했으며, 등록된 **27개 신경망 실험 중 11개**의 완료 결과를 수록했습니다. 별도의 시간 측정 실험은 25개입니다. 이 저장소는 해당 시점의 연구 자료이며, 전체 실험이 완료된 최종 결과를 의미하지 않습니다.
+> **연구 상태 · 2026-11-04 문서 개정**<br>
+> FEniCS 기준해 **19개**를 검증했으며, 등록된 **27개 신경망 실험 중 13개**의 완료 결과를 수록했습니다. 별도의 시간 측정 실험은 25개입니다. 이 저장소는 해당 시점의 연구 자료이며, 전체 실험이 완료된 최종 결과를 의미하지 않습니다.
 
 **기준 논문** · Harandi et al. (2024), *Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains*, International Journal for Numerical Methods in Engineering, 125(4), e7388. [DOI: 10.1002/nme.7388](https://doi.org/10.1002/nme.7388). 온라인 선게재는 2023년입니다.
 
@@ -14,6 +14,10 @@ FEniCS 유한요소해와 PyTorch 기반 혼합 물리정보 신경망을 이용
 | 자료 | 내용 |
 |---|---|
 | [한국어 연구 보고서 · PDF](FULL_PROJECT_REPORT_KO.pdf) | 국·영문 초록, 정식화, 방법, 결과 및 고찰, 결론, 상세 부록 |
+| [전체 보고서 · LaTeX 원본](FULL_PROJECT_REPORT_KO.tex) | 번호가 부여된 수식과 학술 문서 조판 원본 |
+| [독립 FEM 보고서 · PDF](FEM_REPORT_KO.pdf) | 약형 유도, 19개 기준해, 균질 해석해 검증, 격자 수렴, 저자 FEAP 자료 비교 |
+| [FEM 보고서 · LaTeX 원본](FEM_REPORT_KO.tex) | 신경망 학습과 독립적으로 편집·재생성 가능한 원고 |
+| [문서 재생성 안내](docs/LATEX_REPORTS_KO.md) | XeLaTeX 설치, 보고서 생성 및 모든 페이지 검증 |
 | [보고서 원고 · Markdown](FULL_PROJECT_REPORT_KO.md) | 검색·수정 가능한 본문과 수치 표 |
 | [재현 Jupyter Notebook](Full_Paper_Reproduction_KO.ipynb) | 설정 확인, 실제 배열에서 오차 재계산, 그림 재생성, 전체 학습 실행 |
 | [결과 그림집 · PDF](FULL_STUDY_FIGURES.pdf) | 논문과 대응하는 색 범위·결과장·단면·손실 이력 |
@@ -73,3 +77,7 @@ docs/                    재현 절차, 문서 편집 기준, 공개 자료 안�
 문서의 서술·편집은 [한국전산구조공학회 작성 지침](https://www.jcoseik.or.kr/journal-information/instructions-for-authors/)과 국문 공학 논문을 참고했습니다. [참고 자료와 적용 범위](docs/EDITORIAL_REFERENCES_KO.md)에 해당 출처를 명시했습니다.
 
 자체 코드의 라이선스는 [MIT](LICENSE)입니다. 저자 공개 데이터·가중치에는 [원저자 라이선스](data/AUTHORS_LICENSE)가 적용됩니다. 원문 PDF와 원문 그림 발췌는 공개본에 포함하지 않으며, [자료 배포 및 출처 정책](docs/PUBLIC_DISTRIBUTION_KO.md)에 재현 자료의 범위를 정리했습니다.
+
+## 원저자 구현과의 차이
+
+[저자 코드의 표기·구성식 대조](docs/AUTHOR_NOTATION_KO.md)에서 독립 출력과 구성식 출력, 전단 계수 및 일 기반 보조 항을 구분합니다. 공개 FEAP 자료와 관측된 변위 진폭 차이도 별도 FEM 보고서에 기록했으며, 결과를 맞추기 위한 진폭 보정은 적용하지 않았습니다.

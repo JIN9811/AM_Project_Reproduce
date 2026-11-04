@@ -1,14 +1,16 @@
 {
   "status": "partial_reproduction_snapshot",
-  "created_utc": "2026-11-04T01:53:18.179744+00:00",
-  "neural_completed": 11,
+  "created_utc": "2026-11-04T02:28:43.419766+00:00",
+  "neural_completed": 13,
   "neural_registered": 27,
   "timing_registered": 25,
   "completed_jobs": [
+    "ablation_circle_noenergy",
     "baseline_circle_dem_coupled",
     "baseline_circle_dem_sequential",
     "baseline_circle_standard_coupled",
     "baseline_circle_standard_sequential",
+    "hard_rectangles_adam10k",
     "mixed_circle_coupled",
     "mixed_circle_sequential",
     "mixed_rectangles_coupled",
@@ -18,8 +20,6 @@
     "sensitivity_circle_dem_hard_sequential"
   ],
   "not_included_jobs": [
-    "ablation_circle_noenergy",
-    "hard_rectangles_adam10k",
     "arch_l1_w40",
     "arch_l2_w40",
     "arch_l4_w40",
@@ -63,5 +63,6 @@
   "original_paper_and_crops_distributed": false,
   "source_repository": "https://github.com/phyml4e/PINNs",
   "source_commit": "5b426dc8eb2255b1bb3b8630619228b36cdb464e",
-  "automatic_upload_of_future_runs": false
+  "automatic_upload_of_future_runs": false,
+  "document_revision": "XeLaTeX full study and independent FEM report"
 }

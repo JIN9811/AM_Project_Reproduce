@@ -1,0 +1,21 @@
+{
+  "id": "hard_rectangles_adam10k",
+  "kind": "mixed",
+  "config": {
+    "geometry": "rectangles",
+    "mode": "coupled",
+    "n": 51,
+    "width": 40,
+    "layers": 5,
+    "hard": true,
+    "energy": "authors",
+    "adam_steps": 10000,
+    "lbfgs_steps": 0,
+    "switch": 20000,
+    "log_every": 100,
+    "checkpoint_every": 1000,
+    "fast_adam": true,
+    "dtype": "float64",
+    "left_refine": 0
+  }
+}

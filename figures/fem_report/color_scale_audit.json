@@ -1,0 +1,162 @@
+[
+  {
+    "geometry": "circle",
+    "field": "ux",
+    "vmin": 0.008,
+    "vmax": 0.215,
+    "data_min": 0.0,
+    "data_max": 0.22291213523383033,
+    "below_percent": 1.9801980198019802,
+    "above_percent": 5.783746691500833
+  },
+  {
+    "geometry": "circle",
+    "field": "uy",
+    "vmin": -0.04,
+    "vmax": 0.0613,
+    "data_min": -0.039738024096889535,
+    "data_max": 0.05450518640971824,
+    "below_percent": 0.0,
+    "above_percent": 0.0
+  },
+  {
+    "geometry": "circle",
+    "field": "sxx",
+    "vmin": -0.5142,
+    "vmax": -0.3124,
+    "data_min": -0.5314416440249194,
+    "data_max": -0.2812932662048578,
+    "below_percent": 0.039211841976276834,
+    "above_percent": 0.5195569061856681
+  },
+  {
+    "geometry": "circle",
+    "field": "syy",
+    "vmin": -0.6086,
+    "vmax": -0.1464,
+    "data_min": -0.6008553484277608,
+    "data_max": -0.14915646802922633,
+    "below_percent": 0.0,
+    "above_percent": 0.0
+  },
+  {
+    "geometry": "circle",
+    "field": "sxy",
+    "vmin": -0.0679,
+    "vmax": 0.0745,
+    "data_min": -0.09016835070538586,
+    "data_max": 0.09432233221092019,
+    "below_percent": 0.2744828938339378,
+    "above_percent": 0.19605920988138417
+  },
+  {
+    "geometry": "circle",
+    "field": "T",
+    "vmin": 0.0099,
+    "vmax": 0.9895,
+    "data_min": 0.0,
+    "data_max": 1.0,
+    "below_percent": 0.9900990099009901,
+    "above_percent": 1.2351730222527204
+  },
+  {
+    "geometry": "circle",
+    "field": "qx",
+    "vmin": 0.1914,
+    "vmax": 0.5081,
+    "data_min": 0.16013845859242182,
+    "data_max": 0.5329887371164552,
+    "below_percent": 0.40192138025683755,
+    "above_percent": 0.09802960494069209
+  },
+  {
+    "geometry": "circle",
+    "field": "qy",
+    "vmin": -0.1354,
+    "vmax": 0.1291,
+    "data_min": -0.15817881723156174,
+    "data_max": 0.15502616495217805,
+    "below_percent": 0.14704440741103814,
+    "above_percent": 0.18625624938731497
+  },
+  {
+    "geometry": "rectangles",
+    "field": "ux",
+    "vmin": 0,
+    "vmax": 0.295,
+    "data_min": 0.0,
+    "data_max": 0.30088926537316707,
+    "below_percent": 0.0,
+    "above_percent": 1.3528085481815508
+  },
+  {
+    "geometry": "rectangles",
+    "field": "uy",
+    "vmin": -0.0598,
+    "vmax": 0.0553,
+    "data_min": -0.06098518623942392,
+    "data_max": 0.05642920738179334,
+    "below_percent": 0.06862072345848445,
+    "above_percent": 0.05881776296441525
+  },
+  {
+    "geometry": "rectangles",
+    "field": "sxx",
+    "vmin": -1.2692,
+    "vmax": -0.7224,
+    "data_min": -1.2852128530018974,
+    "data_max": -0.7250608690822832,
+    "below_percent": 1.176355259288305,
+    "above_percent": 0.0
+  },
+  {
+    "geometry": "rectangles",
+    "field": "syy",
+    "vmin": -2.051,
+    "vmax": -0.297,
+    "data_min": -2.036607373109125,
+    "data_max": -0.31082365861315053,
+    "below_percent": 0.0,
+    "above_percent": 0.0
+  },
+  {
+    "geometry": "rectangles",
+    "field": "sxy",
+    "vmin": -0.2178,
+    "vmax": 0.2218,
+    "data_min": -0.3059910792740428,
+    "data_max": 0.3092504600422133,
+    "below_percent": 0.04901480247034604,
+    "above_percent": 0.07842368395255367
+  },
+  {
+    "geometry": "rectangles",
+    "field": "T",
+    "vmin": 0,
+    "vmax": 1,
+    "data_min": 0.0,
+    "data_max": 1.0,
+    "below_percent": 0.0,
+    "above_percent": 0.0
+  },
+  {
+    "geometry": "rectangles",
+    "field": "qx",
+    "vmin": 0.4677,
+    "vmax": 1.1406,
+    "data_min": 0.4626773538426392,
+    "data_max": 1.1411818243770175,
+    "below_percent": 0.15684736790510734,
+    "above_percent": 0.05881776296441525
+  },
+  {
+    "geometry": "rectangles",
+    "field": "qy",
+    "vmin": -0.2794,
+    "vmax": 0.2204,
+    "data_min": -0.383855028616358,
+    "data_max": 0.31777289218877897,
+    "below_percent": 0.1274384864228997,
+    "above_percent": 0.1078325654347613
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "completed": {
+    "adam": 10000,
+    "lbfgs": 0
+  },
+  "expected": {
+    "adam": 10000,
+    "lbfgs": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "created_utc": "2026-11-04T02:34:53.224081+00:00",
+  "neural_completed": 13,
+  "neural_registered": 27,
+  "timing_completed": 0,
+  "timing_registered": 25,
+  "full_report_pages": 39,
+  "fem_report_pages": 17,
+  "notebook_code_cells": 15,
+  "notebook_errors": 0,
+  "latex_warnings": 0,
+  "fem_integration_tests_passed": 4,
+  "pipeline_tests_passed": 29,
+  "fem_references": 19,
+  "uniform_fem_checks": 6,
+  "broken_document_links": [],
+  "files": {
+    "FULL_PROJECT_REPORT_KO.pdf": "1be8a3bc2d6b704345e3cbf225153b01958e088a0e6869de13a2fbf6b4b4c121",
+    "FULL_PROJECT_REPORT_KO.tex": "03b8e526daecb6b743c283e30bda62e3dd3ad9e3e3e51474ed3b05b89f985e37",
+    "FEM_REPORT_KO.pdf": "ef6a6bcf820bf17b49838b43ffb770e7309e2b0f1a6abd763c24b098905634e1",
+    "FEM_REPORT_KO.tex": "c276355897b07fadf05ee9ac8de6b1ca0d2e3547b0a64fc3d3158393b004424e",
+    "Full_Paper_Reproduction_KO.ipynb": "ac01585186ed93e090c531df00cd21b32ad756294ba20748603739daa5d4a83d"
+  }
+}

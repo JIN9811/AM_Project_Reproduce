@@ -602,7 +602,7 @@ class Finisher:
                 'notebook': validate_notebook(self.root/'Full_Paper_Reproduction_KO.ipynb'),
                 'figure_count': len(report.get('figures', [])), 'strict_figure_status': report['status'],
                 'report_layout_qa': verify_report_qa(self.root),
-                'report_pdf_check': 'ReportLab and automatic all-page layout/render checks succeeded. No new manual visual-review claim is implied.'}
+                'report_pdf_check': 'XeLaTeX compilation and automatic all-page layout/render checks succeeded. No new manual visual-review claim is implied.'}
 
     def run(self):
         self.acquire()

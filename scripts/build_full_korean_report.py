@@ -16,24 +16,11 @@ import subprocess
 import sys
 
 import numpy as np
-from PIL import Image as PILImage
-from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
-                               Image, PageBreak, KeepTogether)
-from reportlab.platypus.tableofcontents import TableOfContents
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = ('ux','uy','sxx','syy','sxy','T','qx','qy')
 WIDTH = 174*mm
-INK = colors.HexColor('#172B44')
-ACCENT = colors.HexColor('#287B7C')
-GRAY = colors.HexColor('#58616D')
 
 
 def read_json(path):
@@ -131,107 +118,7 @@ def load_results(root,specs,complete,manifest):
     return results,sorted(set(pending))
 
 
-class ReportDoc(SimpleDocTemplate):
-    def afterFlowable(self,flowable):
-        if (isinstance(flowable,Paragraph) and flowable.style.name=='H1'
-                and flowable.getPlainText()!='보고서 읽기와 목차'):
-            text=flowable.getPlainText(); key='section_'+hashlib.sha256(text.encode()).hexdigest()[:12]
-            self.canv.bookmarkPage(key); self.canv.addOutlineEntry(text,key,0)
-            self.notify('TOCEntry',(0,text,self.page,key))
-
-
-class Report:
-    def __init__(self,root,partial,complete,total):
-        self.root,self.partial,self.complete,self.total=root,partial,complete,total
-        regular=Path(os.environ.get('FONT_KO','C:/Windows/Fonts/malgun.ttf'))
-        bold=Path(os.environ.get('FONT_KO_BOLD','C:/Windows/Fonts/malgunbd.ttf'))
-        if not regular.exists(): raise FileNotFoundError('Set FONT_KO to a Korean TrueType font.')
-        pdfmetrics.registerFont(TTFont('Korean',str(regular)))
-        pdfmetrics.registerFont(TTFont('KoreanBold',str(bold if bold.exists() else regular)))
-        pdfmetrics.registerFontFamily('Korean',normal='Korean',bold='KoreanBold')
-        self.styles={
-            'title':ParagraphStyle('Title',fontName='KoreanBold',fontSize=23,leading=34,textColor=INK,spaceAfter=17,wordWrap='CJK'),
-            'h1':ParagraphStyle('H1',fontName='KoreanBold',fontSize=15,leading=23,textColor=INK,spaceAfter=12,keepWithNext=True,wordWrap='CJK'),
-            'h2':ParagraphStyle('H2',fontName='KoreanBold',fontSize=11.2,leading=17,spaceBefore=9,spaceAfter=6,keepWithNext=True,wordWrap='CJK'),
-            'body':ParagraphStyle('Body',fontName='Korean',fontSize=9.6,leading=16,spaceAfter=8,wordWrap='CJK'),
-            'small':ParagraphStyle('Small',fontName='Korean',fontSize=8.1,leading=12.4,spaceAfter=6,wordWrap='CJK',textColor=GRAY),
-            'table':ParagraphStyle('Table',fontName='Korean',fontSize=7.8,leading=11.3,wordWrap='CJK'),
-            'numeric':ParagraphStyle('Numeric',fontName='Korean',fontSize=7.2,leading=10.3,wordWrap='CJK'),
-            'equation':ParagraphStyle('Equation',fontName='Korean',fontSize=10.2,leading=18,leftIndent=10,spaceAfter=9,wordWrap='CJK')}
-        self.story=[]; self.md=[]; self.figures=[]
-        self.table_number=0; self.equation_number=0; self.last_heading='연구 개요'
-    def p(self,text,style='body'):
-        if style=='equation':
-            self.equation_number+=1
-            equation=Table([[Paragraph(clean(text),self.styles[style]),
-                            Paragraph(f'({self.equation_number})',self.styles['small'])]],
-                           colWidths=[WIDTH-12*mm,12*mm])
-            equation.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'MIDDLE'),
-                ('BACKGROUND',(0,0),(-1,-1),colors.HexColor('#F4F7F8')),
-                ('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7)]))
-            self.story.extend([equation,Spacer(1,9)])
-            self.md.append(f'식 ({self.equation_number})  '+clean(text).replace('<br/>','\n').replace('](',r'\](')+'\n')
-            return
-        self.story.append(Paragraph(clean(text),self.styles[style]))
-        markdown=clean(text).replace('<b>','**').replace('</b>','**').replace('<br/>',' ' if style=='title' else '\n')
-        markdown=markdown.replace('<super>','<sup>').replace('</super>','</sup>')
-        markdown=re.sub(r'<link href="([^"]+)"[^>]*>(.*?)</link>',r'[\2](\1)',markdown)
-        self.md.append(('# ' if style=='title' else '')+markdown+'\n')
-    def h(self,text,level=1):
-        self.last_heading=re.sub(r'^\d+\.\s*','',text)
-        self.story.append(Paragraph(html.escape(text),self.styles['h1' if level==1 else 'h2']))
-        self.md.append('#'*(level+1)+' '+text+'\n')
-    def page(self): self.story.append(PageBreak()); self.md.append('\n---\n')
-    def table(self,headers,rows,widths=None,numeric=False,caption=None):
-        if not rows: self.p('검증 완료 자료가 없어 현재 수치 표를 작성하지 않는다. 해당 실행은 대기 목록에 남긴다.','small'); return
-        self.table_number+=1
-        caption=f'표 {self.table_number}. '+(caption or self.last_heading)
-        cap_style=ParagraphStyle('TableCaption',parent=self.styles['small'],textColor=INK,keepWithNext=len(rows)<=14)
-        self.story.append(Paragraph(html.escape(caption),cap_style))
-        self.md.append('**'+caption+'**\n')
-        style=self.styles['numeric' if numeric else 'table']
-        data=[[Paragraph(clean(html.escape(str(v))),style) for v in row] for row in [headers]+rows]
-        table=Table(data,colWidths=[WIDTH*v for v in widths] if widths else [WIDTH/len(headers)]*len(headers),repeatRows=1,hAlign='LEFT')
-        table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#E8EDF3')),
-            ('LINEBELOW',(0,0),(-1,0),.6,INK),('LINEBELOW',(0,1),(-1,-1),.3,colors.HexColor('#DBE0E5')),
-            ('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),
-            ('TOPPADDING',(0,0),(-1,-1),3 if numeric else 4),
-            ('BOTTOMPADDING',(0,0),(-1,-1),3 if numeric else 4)]))
-        table.spaceAfter=8
-        self.story.append(table)
-        self.md.append('| '+' | '.join(map(str,headers))+' |\n| '+' | '.join(['---']*len(headers))+' |\n'+
-                       '\n'.join('| '+' | '.join(str(v).replace('|','/') for v in row)+' |' for row in rows)+'\n')
-    def fig(self,identifier,caption,manifest,maxheight=136*mm):
-        item=next((v for v in manifest.get('figures',[]) if v['id']==identifier),None)
-        if item is None or not (self.root/item['png']).exists():
-            self.p('그림 대기: '+caption+' 해당 완료 실행과 기준해가 준비되면 추가된다.','small'); return
-        path=self.root/item['png']
-        with PILImage.open(path) as image: w,h=image.size
-        width=min(WIDTH,maxheight*w/h); height=width*h/w
-        picture=Image(str(path),width=width,height=height); picture.hAlign='CENTER'
-        caption=f'그림 {len(self.figures)+1}. '+re.sub(r'^그림\s*\d+\.\s*','',caption)
-        cap=Paragraph(clean(html.escape(caption)),self.styles['small'])
-        self.story.append(KeepTogether([picture,Spacer(1,5),cap,Spacer(1,6)]))
-        self.md.append(f'![{caption}]({Path(item["png"]).as_posix()})\n')
-        self.figures.append(identifier)
-    def footer(self,canvas,doc):
-        canvas.saveState(); canvas.setStrokeColor(colors.HexColor('#C7CDD5'))
-        if doc.page>1:
-            canvas.setFont('Korean',7.0); canvas.setFillColor(GRAY)
-            canvas.drawString(18*mm,287*mm,'AM PROJECT  /  열탄성 혼합 물리정보 신경망의 수치 재현')
-            canvas.setStrokeColor(ACCENT); canvas.line(18*mm,284*mm,192*mm,284*mm)
-        canvas.line(18*mm,17*mm,192*mm,17*mm); canvas.setFont('Korean',7.3); canvas.setFillColor(GRAY)
-        state='진행 보고서' if self.partial else '등록 실험 완료 보고서'
-        canvas.drawString(18*mm,12*mm,f'{state} | 검증 완료 {self.complete}/{self.total} | Harandi 재현 연구')
-        canvas.drawRightString(192*mm,12*mm,str(doc.page)); canvas.restoreState()
-    def build(self):
-        target=self.root/'FULL_PROJECT_REPORT_KO.pdf'
-        doc=ReportDoc(str(target),pagesize=A4,rightMargin=18*mm,leftMargin=18*mm,
-                      topMargin=20*mm,bottomMargin=23*mm,title='이질 재료의 열탄성 해석을 위한 혼합 물리정보 신경망의 수치 재현',
-                      author='Reproduction project',pageCompression=1)
-        doc.multiBuild(self.story,onFirstPage=self.footer,onLaterPages=self.footer)
-        (self.root/'FULL_PROJECT_REPORT_KO.md').write_text('\n'.join(self.md),encoding='utf-8')
-        return target
+from latex_report import LatexReport as Report
 
 FIGURE_NAMES={1:'동시·순차 학습 절차',2:'기하와 재료',3:'경계조건',4:'혼합 네트워크와 손실',
  5:'원형의 학습·평가·FEM 격자',6:'원형 동시 손실 이력',7:'원형 변형 형상',8:'원형 역학 전체장',9:'원형 열 전체장',
@@ -284,7 +171,6 @@ def create_report(root,partial,pinn_python):
     r=Report(root,partial,len(complete),len(specs))
     mode='진행 보고서' if partial else '등록된 전체 실험 완료 보고서'
     generated=datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M KST')
-    r.story.append(Spacer(1,8*mm))
     r.p('AM PROJECT  |  수치 재현 연구','h2')
     r.p('이질 재료의 열탄성 해석을 위한<br/>혼합 물리정보 신경망의 수치 재현','title')
     r.p('Numerical Reproduction of Mixed Physics-Informed Neural Networks<br/>for Thermoelastic Analysis of Heterogeneous Materials','small')
@@ -315,8 +201,7 @@ def create_report(root,partial,pinn_python):
     r.p('본 문서는 학술지 게재 논문이 아닌 재현 연구 보고서이다. 국문 공학 논문의 서술 체계를 참고하되, 전체 수치 자료를 확인할 수 있도록 상세 표와 실행 명세를 부록에 수록하였다.','small')
     r.page(); r.h('보고서 읽기와 목차')
     r.p('본문은 물리·수치 방법, 비교의 공정성, 실험별 관측, 재현 및 한계 순으로 구성한다. 부록에는 모든 작업의 정확한 예산·완료 상태, 8개 성분의 오차, 원문 28개 그림과 4개 표의 대응 및 출처 기록을 둔다. 미완료 항목은 숫자 0이 아니라 대기로 표시한다.')
-    toc=TableOfContents(); toc.levelStyles=[ParagraphStyle('TOC',fontName='Korean',fontSize=9,leading=17,leftIndent=0,firstLineIndent=0,spaceBefore=0,wordWrap='CJK')]
-    r.story.append(toc); r.md.append('목차는 PDF에서 자동 생성된다.\n')
+    r.toc()
     r.page(); r.h('1. 서론')
     r.p('이질 재료의 열탄성 해석에서는 재료 경계에서 온도 기울기와 응력의 변화가 커지므로, 변위와 온도의 근사 정확도만으로 수치해의 신뢰성을 평가하기 어렵다. 특히 신경망 기반 해석은 잔차의 구성, 경계조건의 부과 및 최적화 절차에 따라 서로 다른 오차 양상을 나타낼 수 있다. 이에 따라 해의 공간 분포와 물리량별 오차를 함께 검토할 필요가 있다.')
     r.p('Harandi 등(2024)은 응력과 열유속을 독립 출력으로 도입한 혼합 정식화를 제시하였다. 본 연구의 목적은 이 정식화를 FEniCS 유한요소해와 비교하여 재현하고, 원문에서 보고한 개선 경향과 예외가 구현 조건에 따라 어떻게 나타나는지 검토하는 데 있다. 이를 위해 원형·사각형 개재물 문제, 비교 방법, 경계조건 민감도, 신경망 구조 및 재료비 전이학습을 하나의 실행 체계로 구성하였다.')
@@ -330,9 +215,9 @@ def create_report(root,partial,pinn_python):
 
     r.page(); r.h('2. 물리적 문제와 경계조건')
     r.p('영역 Ω=[0,1]×[0,1]에서 정상 열전도와 소변형 등방성 열탄성을 계산한다. 열전도 해가 열팽창을 통해 역학에 영향을 주며, 역학이 열전도에 되먹임하는 열원이나 재료 변화는 포함하지 않는다. 3차원 평면변형률 조건 εzz=0을 적용하되 면외 열변형률과 면외 응력을 에너지에서 무시하지 않는다.')
-    r.p('∇·σ=0,   ∇·q=0,   q=-k∇T','equation')
-    r.p('ε=(∇u+∇u<super>T</super>)/2,   μ=E/[2(1+ν)],<br/>λ=Eν/[(1+ν)(1-2ν)]','equation')
-    r.p('σ=2με+λ tr(ε)I-Eα(T-T<sub>0</sub>)I/(1-2ν)','equation')
+    r.equation('\\nabla\\!\\cdot\\boldsymbol{\\sigma}=\\boldsymbol{0},\\qquad \\nabla\\!\\cdot\\boldsymbol{q}=0,\\qquad \\boldsymbol{q}=-k\\nabla T')
+    r.equation('\\boldsymbol{\\varepsilon}(\\boldsymbol{u})=\\tfrac12\\!\\left[\\nabla\\boldsymbol{u}+(\\nabla\\boldsymbol{u})^{\\mathsf T}\\right],\\qquad \\mu=\\frac{E}{2(1+\\nu)},\\qquad \\lambda=\\frac{E\\nu}{(1+\\nu)(1-2\\nu)}')
+    r.equation('\\boldsymbol{\\sigma}=2\\mu\\boldsymbol{\\varepsilon}+\\lambda\\operatorname{tr}(\\boldsymbol{\\varepsilon})\\boldsymbol{I}-\\beta(T-T_0)\\boldsymbol{I},\\qquad \\beta=\\frac{E\\alpha}{1-2\\nu}')
     r.p('공통 값은 ν=0.3, α=1, T<sub>0</sub>=0이다. 좌우 경계에서 ux=0, 상하에서 uy=0, 네 변의 접선력은 0이다. 왼쪽 T=1, 오른쪽 T=0이고 상하는 단열 qy=0이다. 전단응력은 σxy=μ(ux,y+uy,x)로 계산한다. α=1은 벤치마크 값이며 실제 재료의 열팽창 계수로 해석하지 않는다.')
     r.table(['기하','기지 E,k','개재물 E,k','좌표/재료 선택'],[['원형','0.3, 0.3','1.0, 1.0','중심 (0.60,0.35), 반지름 0.15'],['사각형','1.0, 1.0','0.5, 0.5','저자 제공 재료 자료의 네 사각형'],['전이학습','1.0, 1.0','1/r, 1/r','matrix/inclusion 비율 r']],[.17,.18,.18,.47])
     r.fig('fig02_geometry','그림 1. 구현된 재료장. 원문 단위·좌표의 불명확성을 구분하며, 도해의 모양을 맞추기 위해 예측값을 조정하지 않는다.',manifest,88*mm)
@@ -340,7 +225,7 @@ def create_report(root,partial,pinn_python):
 
     r.page(); r.h('3. FEniCS 기준해와 오차 정의')
     r.p('Q1 사각형 유한요소로 열전도 선형 시스템을 먼저 풀고 온도 해를 열하중으로 대입하여 변위를 구한다. 주 기준해는 요소 중심의 불연속 재료 구분을 사용한다. 신경망에는 50×50 재료 격자의 절점 평균·쌍선형 보간 계수가 쓰인다. 두 재료 표현의 차이는 지워서는 안 되며, 동일 절점 재료장의 별도 기준해로도 확인할 수 있다.')
-    r.p('∫Ω k∇T·∇w dΩ=0<br/>∫Ω [2με(u):ε(v)+λ div(u)div(v)] dΩ<br/>=∫Ω [Eα/(1-2ν)](T-T<sub>0</sub>)div(v) dΩ','equation')
+    r.equation('\\begin{aligned}\\int_\\Omega k\\nabla T_h\\!\\cdot\\nabla w_h\\,\\mathrm d\\Omega&=0,\\\\\\int_\\Omega\\!\\left[2\\mu\\boldsymbol{\\varepsilon}(\\boldsymbol{u}_h):\\boldsymbol{\\varepsilon}(\\boldsymbol{v}_h)+\\lambda(\\nabla\\!\\cdot\\boldsymbol{u}_h)(\\nabla\\!\\cdot\\boldsymbol{v}_h)\\right]\\mathrm d\\Omega&=\\int_\\Omega\\beta(T_h-T_0)\\nabla\\!\\cdot\\boldsymbol{v}_h\\,\\mathrm d\\Omega.\\end{aligned}')
     r.p('응력·열유속의 요소 평균값을 보존하고, 비교용 연속 절점값은 명시적인 주변 요소 복원으로 만든다. 국소 경계에서 복원 방식과 재료 불연속은 최대오차에 영향을 준다. 선형 시스템의 잔차가 작다는 사실은 이산 해법 검증이며 공간 이산화 오차가 0이라는 의미는 아니다.')
     femrows=[]
     for geom in ('circle','rectangles'):
@@ -351,14 +236,26 @@ def create_report(root,partial,pinn_python):
     r.table(['기하','요소/변','열 잔차','역학 잔차','열수지'],femrows,[.23,.14,.21,.21,.21])
     r.h('평가 기준과 세 가지 다른 상대화',2)
     r.p('본문·부록의 일반 실행 정량 기준은 FEM200이며, 비율 15만 별도 FEM50을 사용한다. 원문 형식 그림은 FEM50을 사용하는 경우가 있으므로 그림 캡션의 기준을 따른다. 모든 신경망 평가는 101×101 좌표이다. 직접 혼합 출력과 변위·온도 미분으로 얻은 구성식/Fourier 출력은 별도로 계산한다.')
-    r.p('상대 L2=||예측-기준||2 / ||기준||2<br/>평균/최대 정규화오차=mean/max(|예측-기준|) / max(|기준|)','equation')
+    r.equation('\\begin{aligned}e_{L^2}(f)&=\\frac{\\|\\widehat{\\boldsymbol f}-\\boldsymbol f^{\\mathrm{ref}}\\|_2}{\\|\\boldsymbol f^{\\mathrm{ref}}\\|_2},\\qquad e_{\\mathrm{MAE}}(f)=\\frac1N\\sum_{i=1}^{N}|\\widehat f_i-f_i^{\\mathrm{ref}}|,\\\\ e_{\\mathrm{mean,peak}}(f)&=\\frac{e_{\\mathrm{MAE}}(f)}{\\max_i|f_i^{\\mathrm{ref}}|},\\qquad e_{\\mathrm{max,peak}}(f)=\\frac{\\max_i|\\widehat f_i-f_i^{\\mathrm{ref}}|}{\\max_i|f_i^{\\mathrm{ref}}|}.\\end{aligned}')
     r.p('평균 절대오차, 최대 절대오차와 상대 L2는 서로 다른 기준이다. 기준해가 0인 분모는 정의하지 않고 빈값으로 남긴다. 작은 전단·횡열유속 성분은 상대오차가 커질 수 있으므로 절대오차와 함께 읽는다. 본 정의가 원문의 모호한 평균 상대오차 문구와 완전히 동일하다고 단정하지 않는다.')
 
     r.page(); r.h('4. 혼합 PINN과 학습 절차')
     r.p('8개 독립 스칼라 신경망이 ux, uy, σxx, σyy, σxy, T, qx, qy를 출력한다. 기본은 각각 5개 은닉층·층당 40개 tanh 뉴런이다. 독립 응력·열유속 출력은 평형·보존식의 1차 미분을 가능하게 하며, 구성식 및 Fourier 연결 손실이 주 변수의 미분 결과와 맞춘다.')
     r.p('원형의 기본 배치는 51×51 직교 격자와 시드가 고정된 내부 균등 난수 2,399점으로 총 5,000점이다. 원문 그림 5의 계면·경계 보강점 좌표는 공개되지 않았으므로 그 분포를 그대로 재현하지 않았다. 같은 점 개수가 같은 배치 또는 같은 정확도를 뜻하지 않는다. 각 점의 동일 가중치도 면적에 정확한 적분 공식과 구분한다.','small')
-    r.p('L=L<sub>M</sub>+L<sub>T</sub><br/>L<sub>M</sub>: 구성식 연결 + 평형 + 변위/접선력 경계 + 에너지 항<br/>L<sub>T</sub>: Fourier 연결 + 보존 + 온도/단열 경계 + 에너지 항','equation')
-    r.p('에너지 표현은 실행 가능한 저자 공개 코드의 일 표현을 따른 authors 변형이다. 인쇄된 확장식은 별도 옵션으로 남기지만 기본 결과와 혼합하지 않는다. 일부 에너지 항은 정답에서도 0일 필요가 없으므로 손실의 0 수렴만으로 물리적 정확성을 판단하지 않는다.')
+    r.equation('\\begin{aligned}\\mathcal L&=\\mathcal L_{\\mathrm M}+\\mathcal L_{\\mathrm T},\\\\\\mathcal L_{\\mathrm M}&=\\mathcal L_{\\mathrm{link},\\sigma}+\\mathcal L_{\\mathrm{eq}}+\\mathcal L_{\\mathrm D,u}+\\mathcal L_{\\mathrm N,t}+\\mathcal L_{\\mathrm E,M},\\\\\\mathcal L_{\\mathrm T}&=\\mathcal L_{\\mathrm{link},q}+\\mathcal L_{\\mathrm{div},q}+\\mathcal L_{\\mathrm D,T}+\\mathcal L_{\\mathrm N,q}+\\mathcal L_{\\mathrm E,T}.\\end{aligned}')
+    r.p(r'아래 첨자 $\mathrm{link}$는 독립 출력과 구성식의 연결, $\mathrm{eq}$는 역학 평형, $\mathrm D$와 $\mathrm N$은 각각 Dirichlet 및 Neumann 경계조건, $\mathrm E$는 일 기반 보조 항을 뜻한다. 에너지 항은 저자 코드의 내부 일과 경계 외부 일의 차를 사용한다. 이 항은 온도를 고정한 열탄성 퍼텐셜 에너지와 동일하지 않으며, 정확해에서 반드시 0이 되는 잔차로 해석해서는 안 된다.')
+    r.h('4.1 원저자 구현과 수식 표기의 대응',2)
+    r.p('원저자 공개 저장소 phyml4e/PINNs의 Thermomechanic/Thermo_mechanic.py를 대조하였다. 공개 파일은 SciANN/TensorFlow를 사용하고, 좌표를 입력으로 하는 8개 독립 함수와 강제 경계 출력 변환을 정의한다. 본 프로젝트는 같은 물리량 구분을 PyTorch로 구현하되, 논문의 소프트 경계 주 실험과 공개 코드의 하드 경계 실행을 구분한다.')
+    r.table(['저자 코드의 변수','보고서 표기','의미'],[
+        ['sig_x_O, sig_y_O, sig_xy_O',r'$\widehat\sigma_{xx},\widehat\sigma_{yy},\widehat\sigma_{xy}$','독립 응력 신경망의 출력'],
+        ['sigma_x, sigma_y, sigma_xy',r'$\sigma_{xx}(\boldsymbol u,T),\sigma_{yy}(\boldsymbol u,T),\sigma_{xy}(\boldsymbol u)$','변위 미분과 온도에서 계산한 구성식 응력'],
+        ['q_x_O, q_y_O',r'$\widehat q_x,\widehat q_y$','독립 열유속 신경망의 출력'],
+        ['q_x, q_y','$-kT_{,x},-kT_{,y}$','Fourier 법칙에서 계산한 열유속'],
+        ['EQ1_m-EQ3_m; EQ1_t-EQ2_t',r'$\mathcal L_{\mathrm{link},\sigma},\mathcal L_{\mathrm{link},q}$','독립 출력과 유도 출력의 연결 조건'],
+        ['PDE1_m, PDE2_m; PDE1_t',r'$\nabla\cdot\widehat{\boldsymbol\sigma},\nabla\cdot\widehat{\boldsymbol q}$','독립 출력의 1차 미분 잔차']],[.32,.32,.36],caption='원저자 코드와 본 보고서의 표기 대응')
+    r.equation(r'\begin{aligned}\boldsymbol r_{\sigma}&=\widehat{\boldsymbol\sigma}-\boldsymbol\sigma(\boldsymbol u,T),&\quad\boldsymbol r_q&=\widehat{\boldsymbol q}+k\nabla T,\\\boldsymbol r_{\mathrm M}&=\nabla\!\cdot\widehat{\boldsymbol\sigma},&r_{\mathrm T}&=\nabla\!\cdot\widehat{\boldsymbol q}.\end{aligned}')
+    r.p(r'저자 파일은 텐서 전단변형률을 strain_xy=(ux,y+uy,x)/2로 정의한 뒤 sigma_xy에 곱하는 계수에서 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.')
+    r.p('출처: <link href="https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55">저자 코드의 출력·구성식 정의</link>; <link href="https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278">일·연결·평형 손실</link>. 고정 커밋: 5b426dc8eb2255b1bb3b8630619228b36cdb464e.','small')
     r.fig('fig01_04_training_architecture','그림 2. 동시·순차 학습과 혼합 네트워크의 구현 절차. 독립 신경망과 장 동결을 구분한다.',manifest,110*mm)
     r.p('동시 학습은 두 장의 손실을 함께 최소화한다. 순차 학습은 한 장의 파라미터만 갱신하고 다른 장을 고정한다. 순차의 역학 블록에서 온도는 처방된 입력이므로 기계 에너지의 온도 방향 기울기를 차단한다. 본 구현은 열 블록 이후 새 역학 블록에서 Adam 상태를 재설정한다. 이 정책은 원문에 명시되지 않은 선택이다.')
     r.p('float64와 시드 42를 유지한다. CUDA 그래프 및 tanh 연쇄법칙의 공간 미분 가속은 동일 목적함수·업데이트를 목표로 검증했으나, 부동소수점 연산 순서에 따른 장기 궤적 차이가 가능하다. 정밀도나 예정 예산을 줄인 결과로 치환하지 않는다.','small')
@@ -367,11 +264,11 @@ def create_report(root,partial,pinn_python):
     r.h('표준 PINN',2)
     r.p('주 변수 ux, uy, T만 출력하고 응력·열유속은 미분하여 만든다. 평형·열보존 잔차에는 공간 2차 미분과 재료 계수 미분이 필요하다. 절점 쌍선형 재료장의 보간 결절에서는 고전적 미분이 정의되지 않으므로 표준 PINN의 내부 배치는 재현 가능한 비결절 점을 사용한다. 이것은 방법 비교에 영향을 주는 공개된 정규화·배치 선택이다.')
     r.h('심층 에너지법(DEM)',2)
-    r.p('DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 탄성 에너지를 최소화한다. 열 에너지는 (1/2)∫k|∇T|²이고, 역학 에너지는 온도를 고정한 상태의 완전한 평면변형률 탄성 에너지다. 기본 자연 경계는 변분 문제에 포함하며 별도 Neumann 페널티를 임의로 추가하지 않는다. 기본 비교는 단위 가중치의 소프트 Dirichlet 페널티를 사용하고 하드 경계 제어를 추가한다.')
+    r.p('DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 탄성 에너지를 최소화한다. 열 에너지는 $\\frac12\\int_\\Omega k|\\nabla T|^2\\,\\mathrm d\\Omega$이고, 역학 에너지는 온도를 고정한 상태의 완전한 평면변형률 탄성 에너지다. 기본 자연 경계는 변분 문제에 포함하며 별도 Neumann 페널티를 임의로 추가하지 않는다. 기본 비교는 단위 가중치의 소프트 Dirichlet 페널티를 사용하고 하드 경계 제어를 추가한다.')
     r.p('<b>동시 DEM의 온도 기울기 처리도 구현 선택이다.</b> 역학 에너지를 계산할 때 T를 처방값으로 취급하여 그 항에서 온도망으로 가는 기울기를 차단한다. 반면 동시 표준·혼합 PINN은 역학 손실의 기울기가 온도망으로 전달된다. 이 선택은 열전도에서 역학으로 향하는 단방향 물리를 위한 변분 재구성이며, 원문 식 14의 문구를 그대로 따른 u,T 공동 최소화는 아니다. 따라서 방법 간 차이에는 이 최적화 경로의 차이도 포함된다.','small')
     r.h('소프트 페널티 편향을 방법 자체의 실패와 구분',2)
     r.p('균질 1차원 단위 구간에서 T(x)=ax+b라 두고 단위 경계 페널티를 쓰면 다음 목적함수가 된다. 이는 학습 결과를 꾸며낸 예시가 아니라 해석적으로 계산할 수 있는 비교 진단이다.')
-    r.p('J(a,b)=(1/2)a²+(b-1)²+(a+b)²<br/>∂J/∂a=3a+2b=0,   ∂J/∂b=2a+4b-2=0<br/>a=-1/2,   b=3/4,   T(x)=0.75-0.5x','equation')
+    r.equation('\\begin{aligned}J(a,b)&=\\tfrac12a^2+(b-1)^2+(a+b)^2,\\\\\\frac{\\partial J}{\\partial a}&=3a+2b=0,\\qquad \\frac{\\partial J}{\\partial b}=2a+4b-2=0,\\\\(a^*,b^*)&=\\left(-\\tfrac12,\\tfrac34\\right),\\qquad T^*(x)=\\tfrac34-\\tfrac12x.\\end{aligned}')
     r.p('이 최소해의 경계값은 0.75와 0.25이며, 정확한 강제 경계 해 T=1-x와 다르다. J는 정확한 경계 해의 0.5보다 소프트 최소해의 0.25에서 더 작다. 따라서 최적화가 성공해도 유한한 페널티는 Dirichlet 문제의 정답을 그대로 최소화하지 않을 수 있다. 하드 경계 제어는 이 편향과 DEM의 표현력·최적화 한계를 분리하기 위해 필요하다.')
     r.table(['비교','읽는 원칙'],[['기본 소프트 DEM','원문의 비교 구조를 재구성하되 경계 페널티 편향을 공개'],['추가 하드 DEM 두 방식','동일 방법에서 경계 처리에 따른 민감도를 확인하는 추가 연구'],['방법 간 우세 판단','성분별 실제 오차·경계 오차·예산을 함께 보고한다'],['순차 열 장','역학을 바꾸어 비활성 열손실이 변하도록 인위적 역연성을 만들지 않는다']],[.32,.68])
 
@@ -458,7 +355,8 @@ def create_report(root,partial,pinn_python):
     delta('ablation_circle_noenergy','mixed_circle_coupled')
 
     r.page(); r.h('9. 하드 경계·최적화기·1M 연속 실행')
-    r.p('하드 변환은 ux=x(1-x)Nux, uy=y(1-y)Nuy, T=1-x+x(1-x)NT로 Dirichlet 조건을 만족시킨다. 원문의 x(x-1) 표현과 부호는 기저 신경망에 흡수될 수 있지만 초기화 궤적은 동일하다고 보장하지 않는다. 하드 경계의 정확한 0 오차를 로그 축에서 임의의 작은 양수로 바꾸지 않는다.')
+    r.p('강제 경계조건은 다음 출력 변환으로 부과한다. 원문의 $x(x-1)$ 표현과 부호 차이는 기저 신경망에 흡수될 수 있지만 초기화 궤적까지 같음을 보장하지 않는다. 정확히 0인 경계 오차를 로그 축에서 임의의 양수로 바꾸지 않는다.')
+    r.equation(r'u_x=x(1-x)N_{u_x},\qquad u_y=y(1-y)N_{u_y},\qquad T=1-x+x(1-x)N_T')
     focus(['hard_rectangles_adam10k','arch_l5_w40'])
     r.fig('fig18_hard_objective','그림 5. 하드 Adam과 L-BFGS의 실제 목적함수 이력. 한 L-BFGS 업데이트의 내부 closure 비용은 별도이다.',manifest,108*mm)
     r.p('하드 두 실행은 각각 10k이지만 소프트 기본 Adam은 100k이다. 따라서 소프트/하드 결과 차이를 경계조건 하나의 인과 효과로 부르지 않는다. Adam과 L-BFGS는 목적함수 평가 횟수와 벽시계 시간까지 함께 확인한다.')
@@ -504,7 +402,7 @@ def create_report(root,partial,pinn_python):
     r.page(); r.h('12. 재료비 전이학습의 설계')
     r.p('그림 22의 명시적 정의에 따라 E기지/E개재물=k기지/k개재물=r이다. 기지 E=k=1, 개재물 E=k=1/r로 둔다. r=1,...,10을 순서대로 학습하고 각 비율에 10k Adam을 배분한다. 총 100k 업데이트 후 최종 가중치로 r=15를 평가한다. 두 재료비는 이 연구에서 항상 같으므로 독립 E비율·k비율 일반화를 검증한 것으로 해석하지 않는다.')
     r.p('입력은 x,y와 전역 log10 재료비 두 개이다. 같은 기지 좌표에서 국소 E,k가 같아도 전체 BVP는 달라지므로 전역 비율이 문제를 식별한다. 국소 E(x,y),k(x,y)를 말하는 본문과 이 인코딩 선택의 차이를 공개한다.')
-    r.p('L전체=L데이터+w(L열+L역학)','equation')
+    r.equation('\\mathcal L_{\\mathrm{total}}=\\mathcal L_{\\mathrm{data}}+w\\!\\left(\\mathcal L_{\\mathrm T}+\\mathcal L_{\\mathrm M}\\right)')
     transfer=[j for j in specs if j['kind']=='transfer']
     r.table(['실행','w','경계','데이터 정규화','총 업데이트'],[[codes[j['id']],j['config']['weight'],'hard' if j['config']['hard'] else 'soft',j['config'].get('normalization'),budget(j)] for j in transfer],[.15,.12,.16,.32,.25])
     r.fig('fig22_transfer_protocol','그림 9. 비율 1-10 전이와 미학습 비율 15 평가. 가중치 0.5는 원문에 미기재인 보완 선택이다.',manifest,108*mm)
@@ -651,11 +549,11 @@ def create_report(root,partial,pinn_python):
         ['원시 FEM','results/fem_*/solution.npz 및 results/full_study/parametric_fem/ratio_*/solution.npz'],
         ['편집 가능한 실험','Full_Paper_Reproduction_KO.ipynb, README_FULL_STUDY_KO.md'],
         ['그림집','FULL_STUDY_FIGURES.pdf, FULL_STUDY_GALLERY_KO.html, figures/full_study/*.svg'],
-        ['본 보고서 원본','scripts/build_full_korean_report.py, FULL_PROJECT_REPORT_KO.md']],[.24,.76])
+        ['본 보고서 원본','scripts/build_full_korean_report.py, FULL_PROJECT_REPORT_KO.tex, FULL_PROJECT_REPORT_KO.md'],['별도 FEM 보고서','FEM_REPORT_KO.pdf 및 FEM_REPORT_KO.tex; docs/LATEX_REPORTS_KO.md의 재생성 안내']],[.24,.76])
     r.p('출처 식별용 SHA-256은 아래와 같다. 예측·기준해별 해시는 수치 JSON과 작업 폴더에 연결된다. 이 보고서의 그림은 현재 그림집에서 가져오며, 수치 표는 별도로 다시 계산한다.','small')
     for filename in ('PAPER_EXPERIMENT_INVENTORY.json','FULL_STUDY_PROTOCOL.json','FULL_STUDY_RESULTS.json'):
         r.p(html.escape(filename)+'<br/>'+sha(root/filename),'small')
-    r.p('재생성 명령은 문서용 Python으로 scripts/build_full_korean_report.py를 실행하고 --pinn-python에 torch가 있는 프로젝트 Python을 지정하는 것이다. 엄격한 기본값은 전체 작업 및 최신 그림집의 완료를 요구한다. --partial만 진행 보고서를 허용하며 표지와 모든 페이지의 꼬리말에 이를 표시한다. 보고서 생성 과정에서 신경망 학습이나 기존 보고서 파일을 수정하지 않는다.')
+    r.p('재생성 명령은 문서용 Python으로 scripts/build_full_korean_report.py를 실행하고 --pinn-python에 torch가 있는 프로젝트 Python을 지정하는 것이다. 엄격한 기본값은 전체 작업 및 최신 그림집의 완료를 요구한다. --partial만 진행 보고서를 허용하며 표지와 모든 페이지의 꼬리말에 이를 표시한다. 보고서 생성 과정은 신경망 학습을 수행하지 않는다. LaTeX 원본과 Markdown 및 PDF를 함께 갱신한다. XeLaTeX 설치와 재생성 명령은 docs/LATEX_REPORTS_KO.md에 정리하였다.')
     r.p('서지: Harandi A., Moeineddin A., Kaliske M., Reese S., Rezaei S. Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. DOI <link href="https://doi.org/10.1002/nme.7388" color="#245D96">10.1002/nme.7388</link>. 저자 공개 코드 및 원문 자료의 상세 출처는 SOURCE_PROVENANCE.json과 원문 감사 목록을 따른다.','small')
     target=r.build()
     print(f'{target}: mode={"partial" if partial else "complete"}; completed={len(complete)}/{len(specs)}; evaluated={len(results)}; figures={len(r.figures)}')
