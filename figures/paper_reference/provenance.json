@@ -1,0 +1,384 @@
+{
+  "source_title": "Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains",
+  "authors": "Ali Harandi, Ahmad Moeineddin, Michael Kaliske, Stefanie Reese, Shahed Rezaei",
+  "doi": "https://doi.org/10.1002/nme.7388",
+  "source_filename": "Numerical Meth Engineering - 2023 - Harandi - Mixed formulation of physics‐informed neural networks for thermo‐mechanically.pdf",
+  "source_pdf_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
+  "copyright": "© 2023 The Authors. Published by John Wiley & Sons Ltd.",
+  "license": "CC BY-NC-ND 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "scope": "Third-party original figure extracts; not project-generated results and not covered by a project code licence.",
+  "processing": "Rasterised original PDF at stated dpi; complete figure area extracted without changing plot content; proportional display scaling only.",
+  "coordinate_system": "PDF points from top-left; x0, top, x1, bottom",
+  "dpi": 240,
+  "figures": [
+    {
+      "paper_figure": "5",
+      "paper_page": 13,
+      "bbox_points": [
+        44,
+        44,
+        550,
+        207
+      ],
+      "path": "figures/paper_reference/paper_fig5.png",
+      "sha256": "6196aae0175a283b16ef17ba618dc1e1b2108865cefc8694880ad89c43f207f5",
+      "pixel_dimensions": [
+        1687,
+        543
+      ]
+    },
+    {
+      "paper_figure": "6",
+      "paper_page": 14,
+      "bbox_points": [
+        90,
+        44,
+        505,
+        490
+      ],
+      "path": "figures/paper_reference/paper_fig6.png",
+      "sha256": "86eb1c64a5c98f9f3b856e046d4077cd6b02812b596fd22fc1696ca87f83cbe0",
+      "pixel_dimensions": [
+        1384,
+        1486
+      ]
+    },
+    {
+      "paper_figure": "7",
+      "paper_page": 15,
+      "bbox_points": [
+        50,
+        44,
+        545,
+        205
+      ],
+      "path": "figures/paper_reference/paper_fig7.png",
+      "sha256": "5de6caee8dfa63f454d4a062efadddaa2b2436771d4d2dfb2c2c16f81d5744df",
+      "pixel_dimensions": [
+        1650,
+        536
+      ]
+    },
+    {
+      "paper_figure": "8",
+      "paper_page": 16,
+      "bbox_points": [
+        70,
+        45,
+        525,
+        704
+      ],
+      "path": "figures/paper_reference/paper_fig8.png",
+      "sha256": "b2312b9340c5e5b376731d28320eb7af01bd1cca6fbca9588978d085fd0169e2",
+      "pixel_dimensions": [
+        1518,
+        2197
+      ]
+    },
+    {
+      "paper_figure": "9",
+      "paper_page": 17,
+      "bbox_points": [
+        45,
+        45,
+        550,
+        485
+      ],
+      "path": "figures/paper_reference/paper_fig9.png",
+      "sha256": "a053b937a3ea55d592d02fa436752f5525b0e79035c349d209116f500fb6d089",
+      "pixel_dimensions": [
+        1684,
+        1467
+      ]
+    },
+    {
+      "paper_figure": "10",
+      "paper_page": 18,
+      "bbox_points": [
+        90,
+        45,
+        505,
+        494
+      ],
+      "path": "figures/paper_reference/paper_fig10.png",
+      "sha256": "0b0c4d4b8c6b072f143df1e1e75ed8207862f190cce59ce49f898944741bdd33",
+      "pixel_dimensions": [
+        1384,
+        1497
+      ]
+    },
+    {
+      "paper_figure": "11",
+      "paper_page": 19,
+      "bbox_points": [
+        45,
+        44,
+        550,
+        487
+      ],
+      "path": "figures/paper_reference/paper_fig11.png",
+      "sha256": "7c3d401dad4b835a1baf33abf0290ad8df1657873b31e8936ccb80aa17d7efbe",
+      "pixel_dimensions": [
+        1684,
+        1476
+      ]
+    },
+    {
+      "paper_figure": "12",
+      "paper_page": 20,
+      "bbox_points": [
+        44,
+        44,
+        550,
+        208
+      ],
+      "path": "figures/paper_reference/paper_fig12.png",
+      "sha256": "488edfbe7ce7165e8ee395ab08606742029cb4ff3f10d82e53cae14a814675d4",
+      "pixel_dimensions": [
+        1687,
+        546
+      ]
+    },
+    {
+      "paper_figure": "13",
+      "paper_page": 21,
+      "bbox_points": [
+        76,
+        57,
+        519,
+        687
+      ],
+      "path": "figures/paper_reference/paper_fig13.png",
+      "sha256": "5643fb3e4e9e2ec4b1a0e25944f72706ab662d98ac6a27785871e18f3a0da851",
+      "pixel_dimensions": [
+        1478,
+        2100
+      ]
+    },
+    {
+      "paper_figure": "14",
+      "paper_page": 22,
+      "bbox_points": [
+        48,
+        45,
+        547,
+        472
+      ],
+      "path": "figures/paper_reference/paper_fig14.png",
+      "sha256": "b76bc0d2c4592a2ee28453c6dec5420911648d15fc6e7ea8000e6970f4b029f1",
+      "pixel_dimensions": [
+        1664,
+        1423
+      ]
+    },
+    {
+      "paper_figure": "15",
+      "paper_page": 23,
+      "bbox_points": [
+        53,
+        64,
+        541,
+        237
+      ],
+      "path": "figures/paper_reference/paper_fig15.png",
+      "sha256": "1e780c51a4377b0bb8dae5b21284a97eb10f49269532e0e9069c235e7dd9e4e3",
+      "pixel_dimensions": [
+        1627,
+        577
+      ]
+    },
+    {
+      "paper_figure": "16",
+      "paper_page": 23,
+      "bbox_points": [
+        70,
+        302,
+        525,
+        692
+      ],
+      "path": "figures/paper_reference/paper_fig16.png",
+      "sha256": "9e6c4c0aa3b005e50eb8d885f6664c65ee030716feaa53ee01583a36bbc923eb",
+      "pixel_dimensions": [
+        1518,
+        1300
+      ]
+    },
+    {
+      "paper_figure": "17",
+      "paper_page": 24,
+      "bbox_points": [
+        45,
+        63,
+        550,
+        382
+      ],
+      "path": "figures/paper_reference/paper_fig17.png",
+      "sha256": "48f2b78b84fb243387e6500e6edc5b34db1fb2a0396581f1eb7fd7a6e896a040",
+      "pixel_dimensions": [
+        1684,
+        1063
+      ]
+    },
+    {
+      "paper_figure": "18",
+      "paper_page": 24,
+      "bbox_points": [
+        108,
+        455,
+        490,
+        682
+      ],
+      "path": "figures/paper_reference/paper_fig18.png",
+      "sha256": "d26e2d74058852e0b662de1896e71aed96a2e05a5d52b9e23a510dd68975aab7",
+      "pixel_dimensions": [
+        1274,
+        756
+      ]
+    },
+    {
+      "paper_figure": "19",
+      "paper_page": 25,
+      "bbox_points": [
+        57,
+        45,
+        537,
+        496
+      ],
+      "path": "figures/paper_reference/paper_fig19.png",
+      "sha256": "b12697a5d01568afced2a991c8fdb09961c566c470ad2378ce47f5e2a9d3cfdb",
+      "pixel_dimensions": [
+        1601,
+        1503
+      ]
+    },
+    {
+      "paper_figure": "20",
+      "paper_page": 26,
+      "bbox_points": [
+        92,
+        485,
+        505,
+        688
+      ],
+      "path": "figures/paper_reference/paper_fig20.png",
+      "sha256": "1b218f3997e2de5562e5b6b7037f0f73750518dee8ad69e78363ed208335404c",
+      "pixel_dimensions": [
+        1377,
+        676
+      ]
+    },
+    {
+      "paper_figure": "21",
+      "paper_page": 27,
+      "bbox_points": [
+        85,
+        60,
+        525,
+        267
+      ],
+      "path": "figures/paper_reference/paper_fig21.png",
+      "sha256": "d926f411d7301bceba19a0ee6dd8a6042a492fc0c483b92188d731eedfbc902f",
+      "pixel_dimensions": [
+        1468,
+        690
+      ]
+    },
+    {
+      "paper_figure": "23",
+      "paper_page": 28,
+      "bbox_points": [
+        74,
+        190,
+        522,
+        692
+      ],
+      "path": "figures/paper_reference/paper_fig23.png",
+      "sha256": "35a653d638d4a1788907e6b634cbad309956e78461d9196cfb1eb9f7b0b21fa9",
+      "pixel_dimensions": [
+        1494,
+        1674
+      ]
+    },
+    {
+      "paper_figure": "24",
+      "paper_page": 29,
+      "bbox_points": [
+        74,
+        190,
+        522,
+        692
+      ],
+      "path": "figures/paper_reference/paper_fig24.png",
+      "sha256": "dd48e8c23e7b37ccbf4491f9e9ca9e61e177ba66dc84d256a00b629cfd0fe46f",
+      "pixel_dimensions": [
+        1494,
+        1674
+      ]
+    },
+    {
+      "paper_figure": "25",
+      "paper_page": 30,
+      "bbox_points": [
+        50,
+        255,
+        545,
+        683
+      ],
+      "path": "figures/paper_reference/paper_fig25.png",
+      "sha256": "d6826c5ed70d4a651f64c2a4d431bee11b544f899211e5ef3ef320018f7c0629",
+      "pixel_dimensions": [
+        1650,
+        1427
+      ]
+    },
+    {
+      "paper_figure": "A1",
+      "paper_page": 35,
+      "bbox_points": [
+        45,
+        44,
+        553,
+        491
+      ],
+      "path": "figures/paper_reference/paper_figA1.png",
+      "sha256": "94a97c59a5f032ef7193f8bb2c63dec1d03d188abae38cb291d84a98d10ba981",
+      "pixel_dimensions": [
+        1694,
+        1490
+      ]
+    },
+    {
+      "paper_figure": "B1",
+      "paper_page": 36,
+      "bbox_points": [
+        81,
+        57,
+        513,
+        687
+      ],
+      "path": "figures/paper_reference/paper_figB1.png",
+      "sha256": "5c290cf99d7d3e63c6029fb90f055ad6a7769123a524dfd270f92bf7c1872350",
+      "pixel_dimensions": [
+        1441,
+        2100
+      ]
+    },
+    {
+      "paper_figure": "B2",
+      "paper_page": 37,
+      "bbox_points": [
+        76,
+        45,
+        518,
+        424
+      ],
+      "path": "figures/paper_reference/paper_figB2.png",
+      "sha256": "ddf9d49903e69cf9d3bd0e8f74d3907ee6aa1b84d36bbc596200bd11fba3fcd4",
+      "pixel_dimensions": [
+        1474,
+        1263
+      ]
+    }
+  ]
+}

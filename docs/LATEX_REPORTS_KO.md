@@ -91,12 +91,19 @@ python scripts/check_report_markdown.py
 
 ## 7. 간결한 Word 비교 보고서
 
-`reports/CONCISE_COMPARISON_KO.docx`는 원문 조건과 본 실험 조건을 비교한 표, 데이터 그림 23개, 그림별 관측과 짧은 의견을 담습니다. 개념도는 제외하며 모든 삽입 그림은 자체 계산 결과입니다. 기존 전체 보고서의 이론·수식 전개를 반복하지 않습니다.
+`reports/CONCISE_COMPARISON_KO.docx`는 전체 조건표 3쪽, 데이터 그림 비교 46쪽, 참고문헌 1쪽으로 구성합니다. Fig. 5–21, 23–25, A1, B1, B2의 각 그림을 **논문 원본 한 쪽 → 자체 계산 그림 한 쪽** 순서로 배치합니다. 총 23쌍이며 개념도는 제외합니다. 표는 흰 배경, 검은 글자와 상단·표제 아래·하단의 가로선만 사용합니다. 본문은 그림별 수치와 짧은 비교 의견으로 작성하며 기존 전체 보고서의 이론·수식 전개를 반복하지 않습니다.
 
 ```powershell
 python scripts/build_concise_comparison_docx.py
 ```
 
-`requirements-documents.txt`의 `python-docx`가 필요합니다. 생성기는 저장된 26개 완료 예측과 FEM50 배열에서 비교 수치 832개를 독립 재계산하고, 출처 해시와 그림 23개의 대응을 `validation/CONCISE_COMPARISON_QA.json`에 기록합니다. 현재 원고는 2026-11-05 03:13 KST의 26개 완료 실험에 맞춰 작성되어 있으므로, 완료 집합이 바뀌면 조건·해석도 함께 검토해야 합니다. 새로 생성한 파일은 시각 검토 전 상태로 표시됩니다.
+`requirements-documents.txt`의 `python-docx`가 필요합니다. 생성기는 저장된 26개 완료 예측과 FEM50 배열에서 비교 수치 832개를 독립 재계산하고, 원본·자체 그림의 해시와 23쌍의 페이지 대응을 `validation/CONCISE_COMPARISON_QA.json`에 기록합니다. 현재 원고는 2026-11-05 03:13 KST의 26개 완료 실험에 맞춰 작성되어 있으므로, 완료 집합이 바뀌면 조건·해석도 함께 검토해야 합니다. 새로 생성한 파일은 시각 검토 전 상태로 표시됩니다.
+
+원본 그림은 `figures/paper_reference`에 수록했습니다. `provenance.json`에는 원문 PDF의 해시, 쪽수, 추출 좌표 및 그림 해시가 있습니다. 원문 그림은 CC BY-NC-ND 4.0 자료이며 프로젝트의 MIT 코드 라이선스와 구분됩니다. 축·범례·색 막대는 그대로 보존했습니다. 원본 그림을 다시 추출하려면 동일한 37쪽 PDF를 지정합니다.
+
+```powershell
+python scripts/extract_paper_comparison_figures.py "C:/path/to/Harandi.pdf"
+python scripts/build_concise_comparison_docx.py
+```
 
 배포 전에는 DOCX를 페이지 이미지로 렌더링하여 표 분할, 그림과 캡션의 분리, 글리프 누락을 확인합니다. 렌더링 PDF와 PNG는 작업용 검수 자료이며 Word 결과물과 구분합니다.

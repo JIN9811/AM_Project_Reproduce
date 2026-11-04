@@ -1,0 +1,27 @@
+Original paper figures — third-party content
+
+Ali Harandi, Ahmad Moeineddin, Michael Kaliske, Stefanie Reese, Shahed Rezaei.
+Mixed formulation of physics-informed neural networks for thermo-mechanically
+coupled systems and heterogeneous domains.
+International Journal for Numerical Methods in Engineering 125(4), e7388,
+2024 (first published online in 2023).
+https://doi.org/10.1002/nme.7388
+
+© 2023 The Authors. Published by John Wiley & Sons Ltd.
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+These figures retain the paper's licence and are not covered by the project
+code's MIT licence. The same applies to these originals when embedded in the
+Word comparison report. No endorsement by the authors or publisher is implied.
+
+Figures 5–21, 23–25, A1, B1 and B2 were extracted from the user-supplied
+37-page original PDF at 240 dpi for scholarly comparison. Only the surrounding
+page text and whitespace were excluded. Figure content, axes, legends, colour
+bars and numerical labels were preserved. Display resizing is proportional.
+
+provenance.json records the original PDF SHA-256, page numbers, figure-region
+coordinates, extraction resolution and each image's SHA-256.
+
+The corresponding figures in ../full_study/ are independently generated from
+this project's FEniCS and PINN results. They are not copies of paper plots.

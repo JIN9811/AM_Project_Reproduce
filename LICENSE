@@ -22,3 +22,9 @@ SOFTWARE.
 
 The data/ files originating from phyml4e/PINNs remain subject to
 data/AUTHORS_LICENSE, which preserves their original copyright notice.
+
+Original paper figure extracts in figures/paper_reference/ and their copies
+embedded in reports/CONCISE_COMPARISON_KO.docx are excluded from this MIT
+licence. They are copyright (c) 2023 The Authors, published by John Wiley &
+Sons Ltd., under CC BY-NC-ND 4.0. See figures/paper_reference/ATTRIBUTION.txt
+and provenance.json for the source, licence and extraction details.
