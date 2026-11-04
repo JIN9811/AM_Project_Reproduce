@@ -1,0 +1,37 @@
+{
+  "purpose": "Execute all identifiable manuscript experimental families and disclose every source gap; not assert universal agreement with the paper.",
+  "source": "PAPER_EXPERIMENT_INVENTORY.json",
+  "precision": "float64 throughout FEM/PINN studies",
+  "seed": 42,
+  "new_results_root": "results/full_study",
+  "main_schedule": "Adam100000 per field; coupled100000 total, sequential200000 total; alternating20000-update field blocks",
+  "architecture_schedule": "Coupled hard-Dirichlet L-BFGS10000 updates; depth1,2,4,5,6 at width40; width5,10,20,40,60 at depth5",
+  "timing_schedule": "25 combinations,100 L-BFGS updates each, run without another study process on GPU",
+  "remark7": "Separate1M Adam continuation of the preserved100k rectangle run; softBC is an explicit reconstruction assumption. Source time on AppleM2Pro cannot be reproduced on RTX3090.",
+  "methodological_choices": {
+    "physics": "Consistent3D plane-strain thermal stress, engineering shear, roller tangential traction, as documented in original project. Inconsistent printed expanded equations are not silently used.",
+    "mixed_energy": "Authors' public-code work terms (--energy authors), as the clearest executable source. Printed manuscript energy variant remains available but differs.",
+    "baseline_boundary_conditions": "Primary standard/DEM reconstructions use soft unit penalties. Additional hard-Dirichlet DEM coupled/sequential sensitivity controls distinguish penalty bias from method limitations.",
+    "circle_sampling": "51x51 Cartesian grid plus2399 seeded uniform random interior points gives5000 points. The unpublished exact Fig5 interface/boundary-enriched point distribution is not reproduced; equal-point weighting follows the chosen implementation and is not area-exact quadrature.",
+    "dem_thermal_stop_gradient": "In coupled DEM, the mechanical energy treats temperature as prescribed (stop-gradient), whereas coupled standard/mixed losses retain mechanical-loss derivatives into the thermal network. This one-way variational reconstruction is physically motivated but is not literal joint u,T minimization of the manuscript Eq14 wording. Method comparisons therefore depend on this disclosed choice.",
+    "sequential_optimizer": "Both mixed and baseline reset mechanical Adam state at each new mechanical block after temperature changes. Paper optimizer-state policy is unspecified.",
+    "material": "50x50 nodal-averaged bilinear coefficient field in PINNs. Standard PINN collocation avoids interpolation knots and differentiates coefficients. SharpFEM references retain the distinction.",
+    "transfer": "Paired matrix/inclusion ratios1..10,10000Adam per ratio, weights[0,0.1,0.5,1],test15 held out. Fourth weight0.5 is a declared reconstruction choice.",
+    "transfer_inputs": "x,y and two log10 global ratios identify the complete BVP; source prose describes local E,k, which is ambiguous in the unchanged matrix.",
+    "transfer_data_loss": "Raw mean-squared error over eight fields; Section4.4 does not fully specify its normalization.",
+    "transfer_boundary_conditions": "SoftDirichlet reconstruction follows Eq65 including the full physics loss. Hard/soft treatment is not explicitly stated in Section4.4.",
+    "checkpoint_selection": "Last scheduled update only; no held-out tuning or cherry-picking successful seeds.",
+    "acceleration": "CUDAgraph Adam is used for full Adam runs. Standard PINN uses exact analytic tanh spatial derivatives (jets); mixed/DEM retain autograd. Parameter gradients remain automatic. Values and parameter gradients were verified against autograd; graph replay against eager-capturable Adam. Standard benchmark194.15to78.52ms/update; mixed jets and torch.compile were slower and are not used. Operation ordering can change floating-point trajectories. No budget or precision reduction."
+  },
+  "required_reporting": [
+    "Eight-field direct mixed and constitutive-derived errors",
+    "Mean and maximum absolute error plus explicitly defined relative normalizations",
+    "StandardPINN/DEM failure or success without forcing manuscript ranking",
+    "Softboundary and leftrefinement before/after errors",
+    "HardAdam versus hardL-BFGS objective and errors",
+    "Architecture sigma_xx exception checked rather than assumed",
+    "Transfer qx maximum-error exception and data-only runtime advantage checked rather than assumed",
+    "Complete figure/table coverage with unidentifiable original settings declared"
+  ],
+  "cuda_documentation": "https://docs.pytorch.org/docs/stable/notes/cuda.html#cuda-graphs"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "mixed_circle_sequential",
+  "kind": "mixed",
+  "config": {
+    "geometry": "circle",
+    "mode": "sequential",
+    "n": 51,
+    "width": 40,
+    "layers": 5,
+    "hard": false,
+    "energy": "authors",
+    "adam_steps": 100000,
+    "lbfgs_steps": 0,
+    "switch": 20000,
+    "log_every": 1000,
+    "checkpoint_every": 1000,
+    "fast_adam": true,
+    "dtype": "float64",
+    "left_refine": 0,
+    "reset_mechanical_adam": true
+  }
+}

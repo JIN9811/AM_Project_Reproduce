@@ -1,0 +1,22 @@
+{
+  "method": "dem",
+  "geometry": "circle",
+  "mode": "coupled",
+  "steps": 100000,
+  "switch": 20000,
+  "width": 40,
+  "layers": 5,
+  "hard": false,
+  "n": 51,
+  "optimizer": "adam",
+  "lr": 0.001,
+  "dtype": "float64",
+  "device": "auto",
+  "seed": 42,
+  "log_every": 1000,
+  "checkpoint_every": 1000,
+  "boundary_weight": 1.0,
+  "dem_neumann": false,
+  "fast_adam": true,
+  "backend": "autograd"
+}

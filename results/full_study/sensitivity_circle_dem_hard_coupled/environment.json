@@ -1,0 +1,14 @@
+{
+  "python": "3.11.9",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.4.6",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "device": "cuda",
+  "dtype": "float64",
+  "fast_adam": true,
+  "derivative_backend": "autograd",
+  "execution_variant": "cuda_graph_capturable_adam",
+  "GPU": "NVIDIA GeForce RTX 3090",
+  "training_points": 5000,
+  "parameter_count": 20163
+}

@@ -1,0 +1,38 @@
+{
+  "problem": {
+    "geometry": "rectangles",
+    "nu": 0.3,
+    "alpha": 1.0,
+    "T0": 0.0,
+    "ratio": 6.0,
+    "circle_x": 0.6,
+    "circle_y": 0.35,
+    "circle_radius": 0.15,
+    "material_grid": 50
+  },
+  "n": 50,
+  "coefficient_mode": "sharp",
+  "field_names": [
+    "ux",
+    "uy",
+    "sxx",
+    "syy",
+    "sxy",
+    "T",
+    "qx",
+    "qy"
+  ],
+  "diagnostics": {
+    "thermal_relative_residual": 7.362431192564347e-16,
+    "mechanical_relative_residual": 9.23967402695554e-15,
+    "heat_left_reaction": 0.516876582453087,
+    "heat_right_reaction": -0.5168765824531288,
+    "heat_balance": -4.18554080283684e-14,
+    "conductive_energy": 0.5168765824531211,
+    "mechanical_virtual_work": 9.19240811941835e-16,
+    "elements": 2500,
+    "vertices": 2601,
+    "elapsed_seconds": 0.30296820799999935,
+    "fenics_version": "2019.2.0.64.dev0"
+  }
+}

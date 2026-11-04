@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="338.4pt" viewBox="0 0 792 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-04T10:29:56.060783</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 338.4 
+L 792 338.4 
+L 792 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <g id="patch_2">
+     <path d="M 78.289105 212.748789 
+L 186.687542 212.748789 
+Q 196.687542 212.748789 196.687542 202.748789 
+L 196.687542 118.731211 
+Q 196.687542 108.731211 186.687542 108.731211 
+L 78.289105 108.731211 
+Q 68.289105 108.731211 68.289105 118.731211 
+L 68.289105 202.748789 
+Q 68.289105 212.748789 78.289105 212.748789 
+z
+" style="fill: #fff0dd; stroke: #999999; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(102.639886 127.330625)">Thermal20k</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(87.132074 139.333359)">Mechanical frozen</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(128.29848 151.335313)">↓</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(95.097699 163.338047)">Mechanical20k</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(94.674261 175.340781)">Thermal frozen</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(128.29848 187.342734)">↓</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(78.289105 199.345469)">Five cycles;200k total</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10.8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="132.488324" y="37.992" transform="rotate(-0 132.488324 37.992)">Sequential</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="text_3">
+    <g id="patch_3">
+     <path d="M 332.065469 200.746055 
+L 467.854531 200.746055 
+Q 477.854531 200.746055 477.854531 190.746055 
+L 477.854531 130.733945 
+Q 477.854531 120.733945 467.854531 120.733945 
+L 332.065469 120.733945 
+Q 322.065469 120.733945 322.065469 130.733945 
+L 322.065469 190.746055 
+Q 322.065469 200.746055 332.065469 200.746055 
+z
+" style="fill: #fff0dd; stroke: #999999; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(332.065469 139.333359)">Thermal + mechanical loss</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(395.770156 151.335313)">↓</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(350.056094 163.338047)">All networks update</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(395.770156 175.34)">↓</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(348.958438 187.342734)">100k Adam baseline</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10.8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="399.96" y="37.992" transform="rotate(-0 399.96 37.992)">Coupled</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="text_5">
+    <g id="patch_4">
+     <path d="M 588.588708 206.747031 
+L 746.274645 206.747031 
+Q 756.274645 206.747031 756.274645 196.747031 
+L 756.274645 124.732969 
+Q 756.274645 114.732969 746.274645 114.732969 
+L 588.588708 114.732969 
+Q 578.588708 114.732969 578.588708 124.732969 
+L 578.588708 196.747031 
+Q 578.588708 206.747031 588.588708 206.747031 
+z
+" style="fill: #fff0dd; stroke: #999999; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(589.901208 133.332383)">Eight separate scalar networks</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(588.588708 145.335117)">Default5 hidden layers×40tanh</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(663.241833 157.33707)">↓</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(603.160583 169.339023)">ux,uy,sxx,syy,sxy,T,qx,qy</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(663.241833 181.340977)">↓</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(590.987145 193.343711)">First-derivative physical losses</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="667.431676" y="37.992" transform="rotate(-0 667.431676 37.992)">Mixed architecture</text>
+   </g>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="43.56" y="330.627159" transform="rotate(-0 43.56 330.627159)">PARTIAL PROGRESS: completed jobs only | New schematic. Baseline soft BCs and authors-energy variant; hard/L-BFGS and transfer cases have separate configurations.</text>
+  </g>
+ </g>
+</svg>

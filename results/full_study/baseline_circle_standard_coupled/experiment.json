@@ -1,0 +1,22 @@
+{
+  "method": "standard",
+  "steps_per_field": 100000,
+  "requested_total_updates": 100000,
+  "completed_updates": 100000,
+  "field_updates": {
+    "thermal": 100000,
+    "mechanical": 100000
+  },
+  "complete": true,
+  "optimizer": "adam",
+  "mode": "coupled",
+  "execution_variant": "cuda_graph_capturable_adam",
+  "derivative_backend": "jets",
+  "material": "nodal bilinear regularization",
+  "collocation": "off-knot random interior; original boundaries",
+  "mechanical_energy": "complete plane-strain elastic energy with prescribed temperature",
+  "dem_natural_boundaries": "variational",
+  "optimizer_switch_policy": "reset mechanics after thermal blocks; reset all sequential L-BFGS blocks",
+  "history_evaluation": "post_update",
+  "source_note": "Section 4.1.2 specifies equal optimizer and per-field epochs, but does not fully specify comparator boundary penalties or DEM energy; these choices are explicit here."
+}

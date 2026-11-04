@@ -1,0 +1,24 @@
+{
+  "id": "baseline_circle_standard_sequential",
+  "kind": "baseline",
+  "config": {
+    "method": "standard",
+    "geometry": "circle",
+    "mode": "sequential",
+    "steps": 100000,
+    "switch": 20000,
+    "hard": false,
+    "width": 40,
+    "layers": 5,
+    "n": 51,
+    "optimizer": "adam",
+    "lr": 0.001,
+    "dtype": "float64",
+    "device": "auto",
+    "seed": 42,
+    "log_every": 1000,
+    "checkpoint_every": 1000,
+    "fast_adam": true,
+    "backend": "jets"
+  }
+}

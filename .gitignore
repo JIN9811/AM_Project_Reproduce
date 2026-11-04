@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.notebook_work/
+.ipynb_checkpoints/
+external/
+*.tmp
+*.lock
+*.log
+results/full_study/queue_status.json
+full_pipeline_status.json
+FULL_STUDY_PROGRESS.html
+FULL_STUDY_TRAINING_PREVIEW.*
+results/full_study/pipeline_logs/

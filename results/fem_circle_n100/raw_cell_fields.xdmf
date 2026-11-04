@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Xdmf Version="3.0">
+  <Domain>
+    <Grid Name="Raw cell averages" GridType="Uniform">
+      <Topology TopologyType="Quadrilateral" NumberOfElements="10000">
+        <DataItem Dimensions="10000 4" DataType="Int" Precision="8" Format="HDF">raw_cell_fields.h5:/cells</DataItem>
+      </Topology>
+      <Geometry GeometryType="XY">
+        <DataItem Dimensions="10201 2" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/vertices</DataItem>
+      </Geometry>
+      <Attribute Name="E" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10000" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/E</DataItem>
+      </Attribute>
+      <Attribute Name="sxx" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10000" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/sxx</DataItem>
+      </Attribute>
+      <Attribute Name="syy" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10000" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/syy</DataItem>
+      </Attribute>
+      <Attribute Name="sxy" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10000" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/sxy</DataItem>
+      </Attribute>
+      <Attribute Name="qx" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10000" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/qx</DataItem>
+      </Attribute>
+      <Attribute Name="qy" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="10000" DataType="Float" Precision="8" Format="HDF">raw_cell_fields.h5:/qy</DataItem>
+      </Attribute>
+    </Grid>
+  </Domain>
+</Xdmf>

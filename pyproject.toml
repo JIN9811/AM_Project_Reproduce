@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harandi-thermoelasticity-reproduction"
+version = "1.0.0"
+description = "FEniCS FEM and mixed PINNs for Harandi et al. (nme.7388)"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.21"]
+
+[project.optional-dependencies]
+pinn = ["torch>=2.2", "scipy>=1.10", "matplotlib>=3.7"]
+test = ["pytest>=6.2"]
+
+[tool.setuptools.packages.find]
+include = ["harandi*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

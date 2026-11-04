@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="3.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <Domain>
+    <Grid Name="TimeSeries" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="mesh" GridType="Uniform">
+        <Topology NumberOfElements="40000" TopologyType="Quadrilateral" NodesPerElement="4">
+          <DataItem Dimensions="40000 4" NumberType="UInt" Format="HDF">solution.h5:/Mesh/0/mesh/topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XY">
+          <DataItem Dimensions="40401 2" Format="HDF">solution.h5:/Mesh/0/mesh/geometry</DataItem>
+        </Geometry>
+        <Time Value="0.000000000000000e+00" />
+        <Attribute Name="temperature" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="40401 1" Format="HDF">solution.h5:/VisualisationVector/0</DataItem>
+        </Attribute>
+        <Attribute Name="displacement" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="40401 3" Format="HDF">solution.h5:/VisualisationVector/1</DataItem>
+        </Attribute>
+        <Attribute Name="sxx" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="40401 1" Format="HDF">solution.h5:/VisualisationVector/2</DataItem>
+        </Attribute>
+        <Attribute Name="syy" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="40401 1" Format="HDF">solution.h5:/VisualisationVector/3</DataItem>
+        </Attribute>
+        <Attribute Name="sxy" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="40401 1" Format="HDF">solution.h5:/VisualisationVector/4</DataItem>
+        </Attribute>
+        <Attribute Name="qx" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="40401 1" Format="HDF">solution.h5:/VisualisationVector/5</DataItem>
+        </Attribute>
+        <Attribute Name="qy" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="40401 1" Format="HDF">solution.h5:/VisualisationVector/6</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>

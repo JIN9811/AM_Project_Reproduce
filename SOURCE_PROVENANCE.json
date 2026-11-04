@@ -1,0 +1,42 @@
+{
+  "paper": {
+    "path": "external/harandi_nme7388.pdf",
+    "sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
+    "doi": "10.1002/nme.7388"
+  },
+  "authors_repository": "https://github.com/phyml4e/PINNs",
+  "authors_commit": "5b426dc8eb2255b1bb3b8630619228b36cdb464e",
+  "included_data": {
+    "authors_geometry2_fe.csv": "5f02c45f4f33f9ef8b5d73ebafabffab372a439a7de726735ff7ee2a453aa5cc",
+    "authors_geometry2_nodes.txt": "f086d05fddd0738e853455fd608a960707efd93aff883ce47d834c6954649204",
+    "AUTHORS_LICENSE": "5cbe5ca8e66dee6d81b2885a678fdfc20ed1ec4239c5e35c87ad782d2dee14dd",
+    "authors_released_weights.npz": "b274c38b81d8eb75224129bb736ac1a8388f48cfb458bcb04ad1cfd0517b4a51",
+    "authors_released_weights.json": "7944068bc4f34fa07bfbec9e54d82f1dbac64b010856feeb550f9e670a1c3f33"
+  },
+  "paper_visual_style": {
+    "palette": {
+      "path": "data/paper_palette.json",
+      "sha256": "730f17786ac756a907ec1d56475e6e6de3403946fe74a911c7d896fd2733ec02",
+      "source": "Supplied PDF, printed Fig.8 colorbar, page 16; original source hash stored in palette JSON"
+    },
+    "ranges": {
+      "path": "data/paper_color_limits.json",
+      "sha256": "d5e6e63bd126eb7028c4756f5c3008d491bcb1c0854dc1e02f00e9df2f7aa979",
+      "source": "Manual transcription of printed Figs.8,9,13,14"
+    },
+    "original_comparison_crops": {
+      "original_fig06.png": "07eebbfc2093f44c5a94e40dc6ad3ab0b565325ac390752373138c8aaebebdfd",
+      "original_fig08.png": "3a6d0d582606a38de8fb98b4d24cc85ffd06b95f1e8e7bd89f9afd6ff0d2fa12",
+      "original_fig09.png": "6bbd09b5c1f1113d8d9eb8d63a08e832b2effa7f41248ea4fec6b8722cf0bb9f",
+      "original_fig10.png": "7522a98963e0edae57a0d68b99a84a5688b4663fdd0ba8debd3f418211855086",
+      "original_fig13.png": "df6957094acb9a7bc113458a5e1aa692d3b6a29ac86fd634d8b361fcbcc24eaa",
+      "original_fig14.png": "09744b6b14bf2e09baea8483173ff542b067d14dcafaecca5c3933bc69a5671e"
+    },
+    "note": "Original crops are explicitly labeled supplied-paper excerpts; all reproduction panels are generated from actual numerical arrays."
+  },
+  "distribution": {
+    "mode": "public",
+    "external_paper_and_crops_included": false,
+    "note": "Original PDF and paper crops are not redistributed. Missing external artifacts are explicitly unverified."
+  }
+}

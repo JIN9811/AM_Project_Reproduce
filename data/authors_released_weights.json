@@ -1,0 +1,10 @@
+{
+  "source_filename": "model_v_new.hdf5",
+  "source_sha256": "676388105ca80b793daced5e83734b88b487be99db1cc6c3f30255734a9d4a26",
+  "extracted_sha256": "b274c38b81d8eb75224129bb736ac1a8388f48cfb458bcb04ad1cfd0517b4a51",
+  "authors_commit": "5b426dc8eb2255b1bb3b8630619228b36cdb464e",
+  "source_url": "https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/model_v_new.hdf5",
+  "license": "MIT; see data/AUTHORS_LICENSE",
+  "architecture": "eight independent raw-(x,y) 5x40 tanh networks, linear outputs",
+  "status": "released pretrained model; original training history is not supplied"
+}
