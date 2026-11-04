@@ -15,7 +15,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start_notebook.ps1
 
 ## 2. 저장된 결과의 검토
 
-`Full_Paper_Reproduction_KO.ipynb`의 `RUN_FULL_STUDY=False`, `RUN_SMOKE=False`를 유지하고 모든 셀을 실행한다. 이 과정은 완료된 예측과 FEM 배열에서 오차를 다시 계산한다. 직접 혼합 출력과 구성식·Fourier 법칙으로 얻은 출력을 선택할 수 있다. 그림집의 기준 FEM 격자와 본문 오차 표의 FEM200 기준은 각 캡션을 확인한다.
+`notebooks/Full_Paper_Reproduction_KO.ipynb`의 `RUN_FULL_STUDY=False`, `RUN_SMOKE=False`를 유지하고 모든 셀을 실행한다. 이 과정은 완료된 예측과 FEM 배열에서 오차를 다시 계산한다. 직접 혼합 출력과 구성식·Fourier 법칙으로 얻은 출력을 선택할 수 있다. 그림집의 기준 FEM 격자와 본문 오차 표의 FEM200 기준은 각 캡션을 확인한다.
 
 ## 3. 전체 수치실험
 
@@ -45,6 +45,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start_notebook.ps1
 
 ## 5. 결과 해석
 
-논문의 색 범위를 맞춘 그림과 수치 정확도의 일치는 별도의 문제다. 색 범위를 벗어나는 값은 포화 표시로 확인하고, 평균오차와 최대오차를 함께 검토한다. 원문의 미기재 조건, 추가 DEM 경계 실험 및 전이학습 가중치 0.5의 재구성 선택은 `FULL_STUDY_PROTOCOL.json`에 명시되어 있다.
+논문의 색 범위를 맞춘 그림과 수치 정확도의 일치는 별도의 문제다. 색 범위를 벗어나는 값은 포화 표시로 확인하고, 평균오차와 최대오차를 함께 검토한다. 원문의 미기재 조건, 추가 DEM 경계 실험 및 전이학습 가중치 0.5의 재구성 선택은 `docs/FULL_STUDY_PROTOCOL.json`에 명시되어 있다.
 
 실행 가능한 코드와 완료된 수치실험의 범위도 구분한다. 공개 스냅샷에 포함되지 않은 실험의 성능은 아직 결론으로 사용할 수 없다.

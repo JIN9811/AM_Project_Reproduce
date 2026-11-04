@@ -1,0 +1,32 @@
+[
+  {
+    "report": "reports/FULL_PROJECT_REPORT_KO.pdf",
+    "tex": "reports/FULL_PROJECT_REPORT_KO.tex",
+    "pages": 39,
+    "all_page_text_identical": true,
+    "relocated_tex_sha256": "5e081ad97d1771085898355d78eca6549940aa3e75e00bf5f3125a5790f9d2b3",
+    "scratch_compilation": {
+      "engine": "XeLaTeX",
+      "passes": 3,
+      "missing_characters": [],
+      "warnings": [],
+      "tex_sha256": "5e081ad97d1771085898355d78eca6549940aa3e75e00bf5f3125a5790f9d2b3",
+      "pdf_sha256": "1602575409d576b2ea1f68298028459a313f222ecc938049a0752447e13d3eb8"
+    }
+  },
+  {
+    "report": "reports/FEM_REPORT_KO.pdf",
+    "tex": "reports/FEM_REPORT_KO.tex",
+    "pages": 17,
+    "all_page_text_identical": true,
+    "relocated_tex_sha256": "51a034c16926b20a2f74aa62dff814ad80c0d7e1278c6918c57316f33741be10",
+    "scratch_compilation": {
+      "engine": "XeLaTeX",
+      "passes": 3,
+      "missing_characters": [],
+      "warnings": [],
+      "tex_sha256": "51a034c16926b20a2f74aa62dff814ad80c0d7e1278c6918c57316f33741be10",
+      "pdf_sha256": "f838491728a7f3829f7eb884a28322dae76f162c7aa17397490a049a6486c189"
+    }
+  }
+]

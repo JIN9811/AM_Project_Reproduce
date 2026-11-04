@@ -16,7 +16,7 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = 'JIN9811/AM_Project_Reproduce'
-FILES = ('FULL_PROJECT_REPORT_KO.md', 'FEM_REPORT_KO.md', 'docs/AUTHOR_NOTATION_KO.md')
+FILES = ('reports/FULL_PROJECT_REPORT_KO.md', 'reports/FEM_REPORT_KO.md', 'docs/AUTHOR_NOTATION_KO.md')
 
 
 class MathParser(HTMLParser):
@@ -90,6 +90,7 @@ def check(root, output, published_ref=None):
         if not row['passed']:
             report['status'] = 'fail'
         print(f"{name}: {len(parser.formulas)}/{len(expected)} formulas; {'PASS' if row['passed'] else 'FAIL'}")
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding='utf-8')
     return report['status'] == 'pass'
 
@@ -101,4 +102,4 @@ if __name__ == '__main__':
     p.add_argument('--published-ref')
     args = p.parse_args()
     root = args.root.resolve()
-    raise SystemExit(0 if check(root, args.output or root/'REPORT_MATH_QA.json', args.published_ref) else 1)
+    raise SystemExit(0 if check(root, args.output or root/'validation/REPORT_MATH_QA.json', args.published_ref) else 1)

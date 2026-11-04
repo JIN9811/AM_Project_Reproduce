@@ -1,7 +1,7 @@
 """Complete identifiable manuscript experiment families, with restartable jobs.
 
-Manuscript equations/settings contain ambiguities. See PAPER_EXPERIMENT_INVENTORY.json
-and FULL_STUDY_PROTOCOL.json; full budgets do not imply bitwise author equivalence.
+Manuscript equations/settings contain ambiguities. See docs/PAPER_EXPERIMENT_INVENTORY.json
+and docs/FULL_STUDY_PROTOCOL.json; full budgets do not imply bitwise author equivalence.
 """
 import argparse,json,os,subprocess,sys,time,hashlib,shutil,pickle
 from contextlib import contextmanager

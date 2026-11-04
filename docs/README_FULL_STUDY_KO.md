@@ -4,11 +4,11 @@
 
 ## 먼저 열 파일
 
-- [Full_Paper_Reproduction_KO.ipynb](Full_Paper_Reproduction_KO.ipynb): 실행 설정, 완료·대기 상태, 실제 FEM/PINN 검증, NPZ 기반 오차 재계산, 편집 가능한 비교 그림.
-- `PAPER_EXPERIMENT_INVENTORY.json`: 원문 실험·그림·표·출처 충돌 목록.
-- `FULL_STUDY_PROTOCOL.json`: 전체 연구의 실제 선택과 예산.
-- `FULL_STUDY_RESULTS.json`: 그림집의 검증 완료 실행, 누락 실행·기준해, 비교 결과, 색 범위 감사.
-- `FULL_STUDY_GALLERY_KO.html`, `FULL_STUDY_FIGURES.pdf`: 해당 파일이 생성된 시점의 전체 또는 부분 그림집. 제목만으로 완료를 판단하지 말고 JSON의 상태를 함께 확인한다.
+- [notebooks/Full_Paper_Reproduction_KO.ipynb](../notebooks/Full_Paper_Reproduction_KO.ipynb): 실행 설정, 완료·대기 상태, 실제 FEM/PINN 검증, NPZ 기반 오차 재계산, 편집 가능한 비교 그림.
+- `docs/PAPER_EXPERIMENT_INVENTORY.json`: 원문 실험·그림·표·출처 충돌 목록.
+- `docs/FULL_STUDY_PROTOCOL.json`: 전체 연구의 실제 선택과 예산.
+- `validation/FULL_STUDY_RESULTS.json`: 그림집의 검증 완료 실행, 누락 실행·기준해, 비교 결과, 색 범위 감사.
+- `reports/FULL_STUDY_GALLERY_KO.html`, `reports/FULL_STUDY_FIGURES.pdf`: 해당 파일이 생성된 시점의 전체 또는 부분 그림집. 제목만으로 완료를 판단하지 말고 JSON의 상태를 함께 확인한다.
 
 노트북 기본값은 `RUN_FULL_STUDY=False`다. **검증 완료 실행만 읽고 누락·진행 중 작업을 대기 표에 남긴다.** 기본 미리보기는 장기 학습이나 시간 측정을 시작하지 않는다. 각 오차는 실제 `prediction.npz`와 `solution.npz`에서 다시 계산하며 저장된 보고서 수치를 그대로 가져오지 않는다.
 
@@ -20,7 +20,7 @@
 powershell -NoProfile -ExecutionPolicy Bypass -File .\start_notebook.ps1
 ```
 
-JupyterLab은 기본으로 새 `Full_Paper_Reproduction_KO.ipynb`를 연다. **Harandi CUDA Python 3.11** 커널을 고른다. FEniCS는 WSL Ubuntu Python, PyTorch는 현재 커널 Python을 쓴다. Linux의 별도 FEM Python은 `FENICS_PYTHON` 환경변수로 지정한다. 전체 작업 목록은 CUDA 그래프 항목을 포함하므로 CUDA가 없는 환경은 별도의 CPU 구성이 필요하다.
+JupyterLab은 기본으로 새 `notebooks/Full_Paper_Reproduction_KO.ipynb`를 연다. **Harandi CUDA Python 3.11** 커널을 고른다. FEniCS는 WSL Ubuntu Python, PyTorch는 현재 커널 Python을 쓴다. Linux의 별도 FEM Python은 `FENICS_PYTHON` 환경변수로 지정한다. 전체 작업 목록은 CUDA 그래프 항목을 포함하므로 CUDA가 없는 환경은 별도의 CPU 구성이 필요하다.
 
 ## 한 번에 전체 계산
 
@@ -30,7 +30,7 @@ JupyterLab은 기본으로 새 `Full_Paper_Reproduction_KO.ipynb`를 연다. **H
 .\run.ps1 -Task full
 ```
 
-완료 검증과 문서 생성은 `scripts/finish_full_study.py`가 담당한다. PDF용 Python을 별도로 쓰려면 `-DocumentPython '경로/python.exe'`를 지정한다. 진행 현황은 `FULL_STUDY_PROGRESS.html`, 세부 상태는 `full_pipeline_status.json`에 기록한다. 기존 압축파일을 보존하고 새 전체 연구는 상위 폴더의 `harandi_full_study.zip`에 저장한다. 모든 계산·검증·문서 생성이 끝나기 전에는 완료 ZIP을 만들지 않는다.
+완료 검증과 문서 생성은 `scripts/finish_full_study.py`가 담당한다. PDF용 Python을 별도로 쓰려면 `-DocumentPython '경로/python.exe'`를 지정한다. 진행 현황은 `reports/FULL_STUDY_PROGRESS.html`, 세부 상태는 `validation/full_pipeline_status.json`에 기록한다. 기존 압축파일을 보존하고 새 전체 연구는 상위 폴더의 `harandi_full_study.zip`에 저장한다. 모든 계산·검증·문서 생성이 끝나기 전에는 완료 ZIP을 만들지 않는다.
 
 설정 셀에서 다음을 지정하고 **Run All Cells**를 실행한다.
 
@@ -80,7 +80,7 @@ RESUME_JOB_ID = 'transfer_w0.1'
 
 **학습점 분포의 차이:** 원형은 51×51 직교 격자와 시드가 고정된 내부 균등 난수 2,399점을 합친 5,000점이다. 원문 그림 5의 계면·경계 보강 좌표는 공개되지 않아 그 분포를 그대로 재현하지 않았다. 같은 점 수가 같은 배치·정확도를 뜻하지 않으며, 동일 점 가중치도 면적에 정확한 적분과 구분한다.
 
-**동시 DEM의 온도 기울기 처리:** DEM의 역학 에너지는 온도를 처방값으로 취급하고 해당 항에서 온도망으로 향하는 기울기를 차단한다. 동시 표준·혼합 PINN의 역학 손실은 온도망으로 기울기를 전달한다. 이는 단방향 열탄성 물리를 위한 변분 재구성이지만 원문 식 14의 u,T 공동 최소화와 문자 그대로 같지는 않다. 방법 비교에는 이 최적화 경로 차이가 포함된다. 두 선택은 `FULL_STUDY_PROTOCOL.json`의 `circle_sampling`, `dem_thermal_stop_gradient`에도 기록한다.
+**동시 DEM의 온도 기울기 처리:** DEM의 역학 에너지는 온도를 처방값으로 취급하고 해당 항에서 온도망으로 향하는 기울기를 차단한다. 동시 표준·혼합 PINN의 역학 손실은 온도망으로 기울기를 전달한다. 이는 단방향 열탄성 물리를 위한 변분 재구성이지만 원문 식 14의 u,T 공동 최소화와 문자 그대로 같지는 않다. 방법 비교에는 이 최적화 경로 차이가 포함된다. 두 선택은 `docs/FULL_STUDY_PROTOCOL.json`의 `circle_sampling`, `dem_thermal_stop_gradient`에도 기록한다.
 
 | 실험군 | 구현 범위와 읽는 방법 |
 |---|---|
@@ -116,7 +116,7 @@ RESUME_JOB_ID = 'transfer_w0.1'
 & $studyPython -m harandi.full_figures --partial
 ```
 
-노트북에서 `BUILD_FIGURE_PACK=True`를 선택해도 된다. 실제 완료 실행만 사용하며 `FULL_STUDY_RESULTS.json`에 pending 목록을 남긴다. 원문 인쇄 색 범위 밖 실제 값은 감사표에 공개하고 배열을 색 범위에 맞게 바꾸지 않는다.
+노트북에서 `BUILD_FIGURE_PACK=True`를 선택해도 된다. 실제 완료 실행만 사용하며 `validation/FULL_STUDY_RESULTS.json`에 pending 목록을 남긴다. 원문 인쇄 색 범위 밖 실제 값은 감사표에 공개하고 배열을 색 범위에 맞게 바꾸지 않는다.
 
 ## 노트북 원본과 검증
 
@@ -124,7 +124,7 @@ RESUME_JOB_ID = 'transfer_w0.1'
 
 ```powershell
 & $studyPython scripts/build_full_notebook.py
-& $studyPython -m jupyter nbconvert --execute --to notebook --inplace Full_Paper_Reproduction_KO.ipynb --ExecutePreprocessor.timeout=300
+& $studyPython -m jupyter nbconvert --execute --to notebook --inplace notebooks/Full_Paper_Reproduction_KO.ipynb --ExecutePreprocessor.timeout=300
 ```
 
 두 번째 명령은 노트북에 저장된 설정을 실행한다. 기본 미리보기에서는 장기 학습을 시작하지 않지만, RUN_FULL_STUDY를 True로 저장했다면 전체 계산을 수행한다. 장기 실행은 적절한 셀 시간 제한 또는 JupyterLab에서 실행한다.

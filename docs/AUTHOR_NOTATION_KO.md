@@ -1,6 +1,6 @@
 # 원저자 구현과 보고서 표기의 대응
 
-대조 대상은 원저자 공개 저장소 [phyml4e/PINNs](https://github.com/phyml4e/PINNs)의 고정 커밋 `5b426dc8eb2255b1bb3b8630619228b36cdb464e`입니다. [Thermomechanic/Thermo_mechanic.py](https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py)를 2026-11-04에 다시 확인했습니다. 저장소의 MIT 라이선스와 포함 자료의 출처는 기존 `data/AUTHORS_LICENSE` 및 `SOURCE_PROVENANCE.json`에 보존합니다.
+대조 대상은 원저자 공개 저장소 [phyml4e/PINNs](https://github.com/phyml4e/PINNs)의 고정 커밋 `5b426dc8eb2255b1bb3b8630619228b36cdb464e`입니다. [Thermomechanic/Thermo_mechanic.py](https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py)를 2026-11-04에 다시 확인했습니다. 저장소의 MIT 라이선스와 포함 자료의 출처는 기존 `data/AUTHORS_LICENSE` 및 `docs/SOURCE_PROVENANCE.json`에 보존합니다.
 
 ## 독립 출력과 구성식 출력을 구분하는 표기
 
@@ -39,4 +39,4 @@
 
 ## 공개 FEAP 자료와의 차이
 
-독립 FEniCS50 계산을 저자 51×51 자료에 대조한 결과, 온도의 상대 $`L^2`$ 차이는 약 0.00045%, 변위 벡터는 약 2.04%입니다. 최소제곱 진폭비는 저자/FEniCS 약 0.9800003입니다. 이 비율은 관측된 관계이며 원인은 공개 자료만으로 확정하지 못했습니다. 결과 진폭을 맞추는 보정은 적용하지 않았습니다. 수치 근거는 [FEM 검증 기록](../results/fem_report_verification.json)과 [독립 FEM 보고서](../FEM_REPORT_KO.pdf)에 있습니다.
+독립 FEniCS50 계산을 저자 51×51 자료에 대조한 결과, 온도의 상대 $`L^2`$ 차이는 약 0.00045%, 변위 벡터는 약 2.04%입니다. 최소제곱 진폭비는 저자/FEniCS 약 0.9800003입니다. 이 비율은 관측된 관계이며 원인은 공개 자료만으로 확정하지 못했습니다. 결과 진폭을 맞추는 보정은 적용하지 않았습니다. 수치 근거는 [FEM 검증 기록](../results/fem_report_verification.json)과 [독립 FEM 보고서](../reports/FEM_REPORT_KO.pdf)에 있습니다.

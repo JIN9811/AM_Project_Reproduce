@@ -68,8 +68,8 @@ def test_default_refuses_incomplete_catalogue_without_writing_outputs(tmp_path):
     module = api()
     with pytest.raises(RuntimeError, match='Incomplete'):
         module.generate(tmp_path)
-    assert not (tmp_path/'FULL_STUDY_RESULTS.json').exists()
-    assert not (tmp_path/'FULL_STUDY_FIGURES.pdf').exists()
+    assert not (tmp_path/'validation/FULL_STUDY_RESULTS.json').exists()
+    assert not (tmp_path/'reports/FULL_STUDY_FIGURES.pdf').exists()
 
 
 def test_metrics_keep_direct_derived_and_zero_reference_explicit(tmp_path):
@@ -130,10 +130,10 @@ def test_partial_build_only_admits_complete_jobs_and_marks_pending(tmp_path,monk
     assert 'mixed_circle_coupled' in report['pending_jobs']
     assert report['jobs']['mixed_rectangles_coupled']['comparisons']['FEM_n200']['derived']['qx']['max_absolute_error']==3
     assert report['skipped_figures']
-    assert (tmp_path/'FULL_STUDY_FIGURES.pdf').stat().st_size>1000
-    assert (tmp_path/'FULL_STUDY_GALLERY_KO.html').exists()
+    assert (tmp_path/'reports/FULL_STUDY_FIGURES.pdf').stat().st_size>1000
+    assert (tmp_path/'reports/FULL_STUDY_GALLERY_KO.html').exists()
     assert any((tmp_path/'figures/full_study').glob('*.svg'))
-    assert json.loads((tmp_path/'FULL_STUDY_RESULTS.json').read_text(encoding='utf-8'))['pending_jobs']==report['pending_jobs']
+    assert json.loads((tmp_path/'validation/FULL_STUDY_RESULTS.json').read_text(encoding='utf-8'))['pending_jobs']==report['pending_jobs']
     assert before=={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in folder.iterdir()}
 
 

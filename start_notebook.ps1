@@ -1,4 +1,4 @@
-param([string]$Notebook = 'Full_Paper_Reproduction_KO.ipynb')
+param([string]$Notebook = 'notebooks/Full_Paper_Reproduction_KO.ipynb')
 $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot
 $pythonExe = Join-Path $PSScriptRoot '.venv\Scripts\python.exe'

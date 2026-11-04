@@ -166,8 +166,10 @@ class Writer:
         self.root, self.partial = Path(root), partial
         self.out = self.root/'figures/full_study'
         self.out.mkdir(parents=True, exist_ok=True)
+        (self.root/'reports').mkdir(parents=True, exist_ok=True)
+        (self.root/'validation').mkdir(parents=True, exist_ok=True)
         self.items, self.audit = [], []
-        self.pdf = PdfPages(self.root/'FULL_STUDY_FIGURES.pdf')
+        self.pdf = PdfPages(self.root/'reports/FULL_STUDY_FIGURES.pdf')
         self.cmap = paper_cmap(self.root)
 
     def save(self, fig, name, title, note, source=None):
@@ -487,28 +489,28 @@ def _write_gallery(root, report):
       f'<p class="status"><strong>{"부분 진행 보고서" if report["status"]=="partial" else "등록된 전체 작업 완료"}</strong> · 완료 {len(report["completed_jobs"])} / {report["catalogue_jobs"]} 작업. 미완료 작업의 예측은 그림에 포함하지 않았습니다.</p>',
       '<p>그림은 저장된 수치 결과만 사용합니다. 응력·열유속 그림은 구성식으로 계산한 값을 사용하며, JSON에는 직접 출력과 구성식 출력의 모든 8개 장 오차를 각각 보존합니다. 색 막대 삼각형은 원문 색 범위를 벗어난 값을 나타냅니다.</p>',
       '<p>비교 기준은 본 프로젝트의 FEM50 및 FEM200입니다. 매개변수 학습은 비율15의 별도 FEM50과만 비교합니다. 논문 수치와의 일치 또는 혼합 PINN의 우수성을 가정하지 않습니다.</p>',
-      '<p><a href="FULL_STUDY_FIGURES.pdf">전체 그림 PDF</a> · <a href="FULL_STUDY_RESULTS.json">전체 수치·출처 JSON</a></p>',
+      '<p><a href="FULL_STUDY_FIGURES.pdf">전체 그림 PDF</a> · <a href="../validation/FULL_STUDY_RESULTS.json">전체 수치·출처 JSON</a></p>',
       '<p>설정 해석: α=1, T₀=0, 원점 좌표, 일부 경계 손실, 전이학습 입력 및 w=0.5는 재구성 선택입니다. 그림25는 패널 제목과 본문에 따른 x=0.35를 사용합니다(원문 캡션 x=0.5와 충돌).</p>',
       '<details open><summary>미완료 작업 및 참조</summary><ul>']
     for name in report['pending_jobs']+report['pending_references']:
         parts.append('<li><code>'+html.escape(name)+'</code></li>')
     parts.append('</ul></details><details><summary>실제 완료 작업의 설정과 이력</summary><table><tr><th>작업</th><th>분류</th><th>장치</th><th>이력</th></tr>')
     for name,job in report['jobs'].items():
-        history_path=f'results/full_study/{name}/history.csv'
+        history_path=f'../results/full_study/{name}/history.csv'
         parts.append(f'<tr><td>{html.escape(name)}</td><td>{job["kind"]}</td><td>{html.escape(str(job["environment"].get("GPU") or job["environment"].get("device")))}</td><td><a href="{history_path}">원본 CSV</a></td></tr>')
     parts.append('</table></details>')
     for item in report['figures']:
         provenance = ('<p>수치 자료: 본 프로젝트에서 학습한 6개 모델과 독립 FEniCS50. '
                       '비교 구성의 참고문헌: Harandi et al. (2024), Fig. 11, DOI 10.1002/nme.7388. '
-                      '<a href="docs/FIGURE_11_PROVENANCE_KO.md">곡선별 출처</a> · '
-                      '<a href="results/figure11_sections.csv">단면 CSV</a></p>'
+                      '<a href="../docs/FIGURE_11_PROVENANCE_KO.md">곡선별 출처</a> · '
+                      '<a href="../results/figure11_sections.csv">단면 CSV</a></p>'
                       if item['id'] == 'fig11_circle_methods' else '')
-        parts.append(f'<section><h2>{html.escape(item["title"])}</h2><p>{html.escape(item["note"])}</p>{provenance}<img src="{item["png"]}" alt="{html.escape(item["title"])}"><p><a href="{item["svg"]}">SVG 벡터 그림</a></p></section>')
+        parts.append(f'<section><h2>{html.escape(item["title"])}</h2><p>{html.escape(item["note"])}</p>{provenance}<img src="../{item["png"]}" alt="{html.escape(item["title"])}"><p><a href="../{item["svg"]}">SVG 벡터 그림</a></p></section>')
     parts.append('<details><summary>자료 부족으로 생략한 그림</summary><ul>')
     for item in report['skipped_figures']:
         parts.append('<li>'+html.escape(item['id']+': '+', '.join(item['missing']))+'</li>')
     parts.append('</ul></details></html>')
-    (root/'FULL_STUDY_GALLERY_KO.html').write_text(''.join(parts),encoding='utf-8')
+    (root/'reports/FULL_STUDY_GALLERY_KO.html').write_text(''.join(parts),encoding='utf-8')
 
 
 def generate(root=ROOT, partial=False):
@@ -696,7 +698,7 @@ def generate(root=ROOT, partial=False):
         if any(j['id']==f'sensitivity_circle_dem_hard_{mode}' for j in specs):
             report['observed_comparisons'][f'dem_hard_vs_soft_{mode}']=_comparison_summary(report['jobs'],
                 f'sensitivity_circle_dem_hard_{mode}',f'baseline_circle_dem_{mode}')
-    target=root/'FULL_STUDY_RESULTS.json';temp=target.with_suffix('.tmp')
+    target=root/'validation/FULL_STUDY_RESULTS.json';temp=target.with_suffix('.tmp')
     temp.write_text(json.dumps(report,indent=2,ensure_ascii=False,allow_nan=False),encoding='utf-8');temp.replace(target)
     _write_gallery(root,report)
     print(f"Full-study figures: {report['status']}; {len(completed)}/{len(specs)} jobs; {len(writer.items)} figures")

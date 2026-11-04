@@ -26,7 +26,7 @@ def sha(path):
 
 
 def main():
-    manifest = json.loads((ROOT/'FULL_STUDY_RESULTS.json').read_text(encoding='utf-8'))
+    manifest = json.loads((ROOT/'validation/FULL_STUDY_RESULTS.json').read_text(encoding='utf-8'))
     jobs = {j['id']: j for j in catalogue()}
     records, samples = [], []
     for name, label, style in METHODS:

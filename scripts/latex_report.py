@@ -160,33 +160,36 @@ PREAMBLE = r'''\documentclass[10pt,a4paper]{article}
 
 def compile_tex(root, stem):
     root=Path(root).resolve(); build=root/'tmp/latex'/stem; build.mkdir(parents=True,exist_ok=True)
+    reports=root/'reports'; reports.mkdir(exist_ok=True)
+    validation=root/'validation'; validation.mkdir(exist_ok=True)
     executable=shutil.which('xelatex')
     args=['-interaction=nonstopmode','-halt-on-error','-file-line-error',
-          '-output-directory=tmp/latex/'+stem,stem+'.tex']
+          '-output-directory=../tmp/latex/'+stem,stem+'.tex']
     if executable: cmd=[executable,*args]
     elif os.name=='nt' and shutil.which('wsl'):
-        cmd=['wsl','-d',os.environ.get('HARANDI_WSL_DISTRO','Ubuntu'),'--cd',str(root),'--','xelatex',*args]
+        cmd=['wsl','-d',os.environ.get('HARANDI_WSL_DISTRO','Ubuntu'),'--cd',str(reports),'--','xelatex',*args]
     else: raise RuntimeError('Install XeLaTeX and Korean support: see docs/LATEX_REPORTS_KO.md')
     for iteration in range(3):
-        proc=subprocess.run(cmd,cwd=root,capture_output=True,text=True,encoding='utf-8',errors='replace')
+        proc=subprocess.run(cmd,cwd=reports,capture_output=True,text=True,encoding='utf-8',errors='replace')
         (build/f'compile-{iteration+1}.txt').write_text(proc.stdout+proc.stderr,encoding='utf-8')
         if proc.returncode: raise RuntimeError('XeLaTeX failed: '+(proc.stdout+proc.stderr)[-5000:])
     log=(build/(stem+'.log')).read_text(encoding='utf-8',errors='replace')
     missing=[line for line in log.splitlines() if 'Missing character:' in line]
     if missing: raise RuntimeError('LaTeX font coverage failure: '+'; '.join(missing[:10]))
     warnings=[line for line in log.splitlines() if 'Overfull' in line or 'Warning:' in line]
-    shutil.copy2(build/(stem+'.pdf'),root/(stem+'.pdf'))
+    shutil.copy2(build/(stem+'.pdf'),reports/(stem+'.pdf'))
     qa={'engine':'XeLaTeX','passes':3,'missing_characters':missing,'warnings':warnings,
-        'tex_sha256':hashlib.sha256((root/(stem+'.tex')).read_bytes()).hexdigest(),
-        'pdf_sha256':hashlib.sha256((root/(stem+'.pdf')).read_bytes()).hexdigest()}
-    (root/(stem+'_TEX_BUILD.json')).write_text(json.dumps(qa,ensure_ascii=False,indent=2),encoding='utf-8')
-    return root/(stem+'.pdf')
+        'tex_sha256':hashlib.sha256((reports/(stem+'.tex')).read_bytes()).hexdigest(),
+        'pdf_sha256':hashlib.sha256((reports/(stem+'.pdf')).read_bytes()).hexdigest()}
+    (validation/(stem+'_TEX_BUILD.json')).write_text(json.dumps(qa,ensure_ascii=False,indent=2),encoding='utf-8')
+    return reports/(stem+'.pdf')
 
 
 class LatexReport:
     def __init__(self,root,partial=False,complete=19,total=19,stem='FULL_PROJECT_REPORT_KO',
                  header='열탄성 혼합 물리정보 신경망의 수치 재현',status=None):
         self.root=Path(root); self.partial=partial; self.complete=complete; self.total=total
+        self.reports=self.root/'reports'; self.reports.mkdir(parents=True,exist_ok=True)
         self.stem=stem; self.header=header
         self.status=status or f'{"진행 보고서" if partial else "등록 실험 완료 보고서"} | 검증 완료 {complete}/{total}'
         self.tex=[]; self.md=[]; self.figures=[]; self.table_number=0; self.equation_number=0; self.last_heading='연구 개요'
@@ -243,13 +246,14 @@ class LatexReport:
     def figure(self,path,caption,maxheight_mm=150,identifier=None):
         path=Path(path); relative=path.relative_to(self.root).as_posix() if path.is_absolute() else path.as_posix()
         if not (self.root/relative).exists(): raise FileNotFoundError(relative)
+        document_relative=Path(os.path.relpath(self.root/relative,self.reports)).as_posix()
         title=re.sub(r'^그림\s*\d+\.\s*','',caption)
         # A minipage keeps a figure and its caption together, without float reordering.
         self.tex.append(r'\par\begin{minipage}{\linewidth}\centering'+'\n'+
-            r'\includegraphics[width=\linewidth,height='+str(maxheight_mm)+r'mm,keepaspectratio]{\detokenize{'+relative+'}}\n'+
+            r'\includegraphics[width=\linewidth,height='+str(maxheight_mm)+r'mm,keepaspectratio]{\detokenize{'+document_relative+'}}\n'+
             r'\captionof{figure}{'+tex_text(title)+r'}\end{minipage}\par')
         self.figures.append(identifier or relative)
-        self.md.append(f'![그림 {len(self.figures)}. {title}]({relative})\n')
+        self.md.append(f'![그림 {len(self.figures)}. {title}]({document_relative})\n')
 
     def fig(self,identifier,caption,manifest,maxheight=425.2):
         item=next((v for v in manifest.get('figures',[]) if v['id']==identifier),None)
@@ -263,6 +267,6 @@ class LatexReport:
 
     def build(self):
         pre=PREAMBLE.replace('@HEADER@',tex_text(self.header)).replace('@STATUS@',tex_text(self.status))
-        (self.root/(self.stem+'.tex')).write_text(pre+'\n\n'.join(self.tex)+'\n\\end{document}\n',encoding='utf-8')
-        (self.root/(self.stem+'.md')).write_text('\n'.join(self.md),encoding='utf-8')
+        (self.reports/(self.stem+'.tex')).write_text(pre+'\n\n'.join(self.tex)+'\n\\end{document}\n',encoding='utf-8')
+        (self.reports/(self.stem+'.md')).write_text('\n'.join(self.md),encoding='utf-8')
         return compile_tex(self.root,self.stem)

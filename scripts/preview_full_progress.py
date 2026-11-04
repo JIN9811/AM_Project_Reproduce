@@ -54,11 +54,15 @@ def preview(job='mixed_rectangles_coupled'):
     ax.legend(ncol=3);ax.grid(alpha=.2)
     fig.suptitle('INTERMEDIATE CHECKPOINT - NOT A COMPLETED STUDY\n'+job,fontsize=15)
     fig.supxlabel('Paper color ranges; triangle ends indicate values outside the displayed range. Benchmark coordinates.',fontsize=9)
-    output=ROOT/'FULL_STUDY_TRAINING_PREVIEW.png';fig.savefig(output,dpi=150);plt.close(fig)
+    output=ROOT/'reports/FULL_STUDY_TRAINING_PREVIEW.png'
+    output.parent.mkdir(parents=True,exist_ok=True)
+    fig.savefig(output,dpi=150);plt.close(fig)
     metadata=dict(status='intermediate_only',job=job,completed=done,
         generated_utc=datetime.now(timezone.utc).isoformat(),checkpoint_sha256=hashlib.sha256(raw).hexdigest(),
         reference=str(reference.relative_to(ROOT)),color_scale_audit=audit)
-    output.with_suffix('.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
+    metadata_path=ROOT/'validation/FULL_STUDY_TRAINING_PREVIEW.json'
+    metadata_path.parent.mkdir(parents=True,exist_ok=True)
+    metadata_path.write_text(json.dumps(metadata,indent=2),encoding='utf-8')
     print(json.dumps({'figure':str(output),'completed':done}))
 
 

@@ -153,11 +153,11 @@ ISSUES={
 
 
 def create_report(root,partial,pinn_python):
-    manifest_path=root/'FULL_STUDY_RESULTS.json'
+    manifest_path=root/'validation/FULL_STUDY_RESULTS.json'
     if not manifest_path.exists(): raise FileNotFoundError('First run python -m harandi.full_figures [--partial].')
     manifest=read_json(manifest_path)
-    inventory=read_json(root/'PAPER_EXPERIMENT_INVENTORY.json')
-    protocol=read_json(root/'FULL_STUDY_PROTOCOL.json')
+    inventory=read_json(root/'docs/PAPER_EXPERIMENT_INVENTORY.json')
+    protocol=read_json(root/'docs/FULL_STUDY_PROTOCOL.json')
     state=verify_state(root,pinn_python)
     specs=state['catalogue']; complete=set(state['complete']); pending=[j['id'] for j in specs if j['id'] not in complete]
     if not partial and (pending or manifest.get('status')!='complete' or manifest.get('pending_references')
@@ -210,7 +210,7 @@ def create_report(root,partial,pinn_python):
     r.p(f'현재 목록은 정확도·물리 비교용 {sum(j["kind"]!="timing" for j in specs)}개와 시간 측정용 {sum(j["kind"]=="timing" for j in specs)}개 작업으로 구성된다. 각 작업의 분류와 예산은 하드코딩한 완료 문구가 아니라 실행 시점의 catalogue에서 읽는다.')
     r.h('1.2 수치 결과의 검증 기준',2)
     r.p('완료 판정은 설정 일치, 실제 업데이트 수, 최종 상태, 101×101 예측 배열의 유한성, 가중치의 유한성 및 모델 구조 적합성을 확인한다. 체크포인트나 그림이 존재하는 것만으로 완료를 인정하지 않는다. 보고서 생성기는 별도의 프로젝트 Python에서 이 검사를 수행한 뒤, 완료 예측의 직접·미분 출력 오차를 NPZ로 다시 계산한다. 부분 결과·짧은 시험·기존 빠른 실행은 전체 예산의 결과로 대체하지 않는다.')
-    r.table(['자료','역할'],[['PAPER_EXPERIMENT_INVENTORY.json','원문 본문·그림·표의 감사 목록'],['FULL_STUDY_PROTOCOL.json','재구성 선택과 전체 학습 계획'],['FULL_STUDY_RESULTS.json','검증된 그림·출처 해시·수치 비교'],['results/full_study/*','실제 설정·모델·예측·손실·완료 상태'],['Full_Paper_Reproduction_KO.ipynb','편집 가능한 실행·독립 재계산 절차']],[.46,.54])
+    r.table(['자료','역할'],[['docs/PAPER_EXPERIMENT_INVENTORY.json','원문 본문·그림·표의 감사 목록'],['docs/FULL_STUDY_PROTOCOL.json','재구성 선택과 전체 학습 계획'],['validation/FULL_STUDY_RESULTS.json','검증된 그림·출처 해시·수치 비교'],['results/full_study/*','실제 설정·모델·예측·손실·완료 상태'],['notebooks/Full_Paper_Reproduction_KO.ipynb','편집 가능한 실행·독립 재계산 절차']],[.46,.54])
     r.p('그림집 생성 시점의 완료 목록과 현재 검증 목록이 다르면, 보고서는 현재 검증 결과와 새로 계산한 오차를 기준으로 한다. 엄격한 최종 보고서는 그림집도 최신 전체 완료 상태여야 생성된다.','small')
 
     r.page(); r.h('2. 물리적 문제와 경계조건')
@@ -459,13 +459,13 @@ def create_report(root,partial,pinn_python):
     r.p('첫째, 단일 시드와 지정 기하·하중·재료비에 대한 결과이므로 표본 변동이나 다른 문제에 대한 일반화를 확정하지 않는다. 둘째, 소프트 페널티·에너지·재료 미분·학습 배치·옵티마이저 상태 정책은 비교의 의미를 바꾼다. 셋째, 원문의 미기재 설정과 도해/본문 충돌 때문에 완전한 동일 실험의 유일한 해석은 존재하지 않는다.')
     r.p('넷째, 비율 15의 성공은 새로운 미세구조·다른 경계조건·독립 두 재료비의 일반화를 입증하지 않는다. 다섯째, 원문 시각 형식과 색 범위를 맞춘 것은 수치해를 맞춘 것과 다르다. 포화 색 영역은 감사표로 드러내고 예측 배열은 그대로 둔다. 여섯째, 장기 궤적과 실제 장비 시간이 원문과 다른 것은 소프트웨어·장비·재구성 차이를 함께 검토해야 한다.')
     r.h('15.2 계산 자료의 재사용',2)
-    r.p('Full_Paper_Reproduction_KO.ipynb는 완료·대기 상태, 독립 FEM/PINN 검증, NPZ 오차 재계산 및 편집 가능한 그림을 제공한다. 기본값은 전체 학습을 시작하지 않고 완료된 자료만 읽는다. RUN_FULL_STUDY=True는 누락 FEM과 신경망 전체를 실행한 뒤 시간 연구를 단독 실행한다. 동일 설정의 체크포인트는 이어서 계산한다.')
+    r.p('notebooks/Full_Paper_Reproduction_KO.ipynb는 완료·대기 상태, 독립 FEM/PINN 검증, NPZ 오차 재계산 및 편집 가능한 그림을 제공한다. 기본값은 전체 학습을 시작하지 않고 완료된 자료만 읽는다. RUN_FULL_STUDY=True는 누락 FEM과 신경망 전체를 실행한 뒤 시간 연구를 단독 실행한다. 동일 설정의 체크포인트는 이어서 계산한다.')
     r.p('명령행: python -m harandi.full_study --groups mixed baseline transfer --workers 1<br/>이후: python -m harandi.full_study --groups timing --workers 1<br/>그림: python -m harandi.full_figures<br/>보고서: python scripts/build_full_korean_report.py --pinn-python PROJECT_PYTHON','small')
     r.p('중간 상태만 공유할 때는 그림과 보고서에 --partial을 명시한다. 새로운 조건은 별도 폴더에 저장하고 기존 결과를 바꾸어 재현 성공처럼 보이게 하지 않는다. 원본 로그를 완만하게 보간하거나 기록되지 않은 비활성 손실을 0으로 채우지 않는다.')
 
     r.page(); r.h('참고문헌')
     r.p('Harandi, A., Moeineddin, A., Kaliske, M., Reese, S., Rezaei, S. (2024). Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. International Journal for Numerical Methods in Engineering, 125(4), e7388. <link href="https://doi.org/10.1002/nme.7388" color="#245D96">https://doi.org/10.1002/nme.7388</link>. 온라인 선게재 연도는 2023년이다.','small')
-    r.p('phyml4e. PINNs: 저자 공개 구현 및 벤치마크 자료. <link href="https://github.com/phyml4e/PINNs" color="#245D96">https://github.com/phyml4e/PINNs</link>. 사용 커밋과 파일 해시는 SOURCE_PROVENANCE.json에 기록하였다.','small')
+    r.p('phyml4e. PINNs: 저자 공개 구현 및 벤치마크 자료. <link href="https://github.com/phyml4e/PINNs" color="#245D96">https://github.com/phyml4e/PINNs</link>. 사용 커밋과 파일 해시는 docs/SOURCE_PROVENANCE.json에 기록하였다.','small')
     r.h('국문 서술 및 편집 형식 참고',2)
     r.p('아래 자료는 국·영문 제목과 초록, 용어의 최초 정의, 번호가 부여된 수식·표·그림, 결과와 해석을 연결하는 문단 구성에 참고하였다. 본 연구의 수치 결과는 자체 계산에서 얻었으며, 아래 논문의 계산 결과를 검증 자료로 사용하지 않았다. 학술지의 저자·소속·게재 정보나 편집 서식을 그대로 재현하지 않았다.','small')
     r.p('한국전산구조공학회. 논문 작성 및 투고 지침, 3절 원고 작성 요령. <link href="https://www.jcoseik.or.kr/journal-information/instructions-for-authors/" color="#245D96">학회 공식 작성 지침</link>. 확인일: 2026-11-04.','small')
@@ -514,12 +514,12 @@ def create_report(root,partial,pinn_python):
                 r.h(label+' - '+caption,2)
                 rows=[[codes[name]]+[number(results[name][representation][f][key],key=='relative_l2') for f in FIELDS] for name in names]
                 r.table(['실행']+list(FIELDS),rows,[.16]+[.105]*8,numeric=True)
-                r.p('빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 FULL_STUDY_RESULTS.json에 있다.','small')
+                r.p('빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 validation/FULL_STUDY_RESULTS.json에 있다.','small')
     r.h('재계산한 참조의 감사 기록',2)
     r.table(['실행','기준해','예측 SHA-256 앞 12자리'],[[codes[name],item['reference'],item['prediction_sha256'][:12]] for name,item in results.items()],[.12,.66,.22])
 
     r.page(); r.h('부록 C. 원문 28개 그림·4개 표의 대응')
-    r.p('원문 1-25와 A1,B1,B2의 28개 그림, Table 1-4를 모두 목록화한다. 아래 “생성”은 해당 대응 그림 파일이 있다는 뜻이며 원문의 숨은 설정까지 동일하다는 뜻은 아니다. 도식·격자·시간 표와 신경망 결과를 구분하고, 원래 그림 전체는 FULL_STUDY_FIGURES.pdf와 HTML 갤러리에서 확대해 확인한다.')
+    r.p('원문 1-25와 A1,B1,B2의 28개 그림, Table 1-4를 모두 목록화한다. 아래 “생성”은 해당 대응 그림 파일이 있다는 뜻이며 원문의 숨은 설정까지 동일하다는 뜻은 아니다. 도식·격자·시간 표와 신경망 결과를 구분하고, 원래 그림 전체는 reports/FULL_STUDY_FIGURES.pdf와 HTML 갤러리에서 확대해 확인한다.')
     coverage=[]
     for entry in inventory['figures']:
         identifier=entry['figure']; token=str(identifier)
@@ -544,18 +544,18 @@ def create_report(root,partial,pinn_python):
 
     r.page(); r.h('부록 E. 파일·출처·보고서 재생성')
     r.table(['자료','위치와 용도'],[['기준 논문','Harandi et al. (2024), Int. J. Numer. Methods Eng., 125(4), e7388; DOI 10.1002/nme.7388'],
-        ['원문 감사','PAPER_EXPERIMENT_INVENTORY.json; 본문·도해·표·부록을 분리 기록'],
-        ['구현 선택','FULL_STUDY_PROTOCOL.json; 목적함수·경계·예산·입력·추가 제어'],
+        ['원문 감사','docs/PAPER_EXPERIMENT_INVENTORY.json; 본문·도해·표·부록을 분리 기록'],
+        ['구현 선택','docs/FULL_STUDY_PROTOCOL.json; 목적함수·경계·예산·입력·추가 제어'],
         ['수치 결과','results/full_study/각 ID의 prediction.npz, model.pt, checkpoint.pt, history.csv'],
         ['원시 FEM','results/fem_*/solution.npz 및 results/full_study/parametric_fem/ratio_*/solution.npz'],
-        ['편집 가능한 실험','Full_Paper_Reproduction_KO.ipynb, README_FULL_STUDY_KO.md'],
-        ['그림집','FULL_STUDY_FIGURES.pdf, FULL_STUDY_GALLERY_KO.html, figures/full_study/*.svg'],
-        ['본 보고서 원본','scripts/build_full_korean_report.py, FULL_PROJECT_REPORT_KO.tex, FULL_PROJECT_REPORT_KO.md'],['별도 FEM 보고서','FEM_REPORT_KO.pdf 및 FEM_REPORT_KO.tex; docs/LATEX_REPORTS_KO.md의 재생성 안내']],[.24,.76])
+        ['편집 가능한 실험','notebooks/Full_Paper_Reproduction_KO.ipynb, docs/README_FULL_STUDY_KO.md'],
+        ['그림집','reports/FULL_STUDY_FIGURES.pdf, reports/FULL_STUDY_GALLERY_KO.html, figures/full_study/*.svg'],
+        ['본 보고서 원본','scripts/build_full_korean_report.py, reports/FULL_PROJECT_REPORT_KO.tex, reports/FULL_PROJECT_REPORT_KO.md'],['별도 FEM 보고서','reports/FEM_REPORT_KO.pdf 및 reports/FEM_REPORT_KO.tex; docs/LATEX_REPORTS_KO.md의 재생성 안내']],[.24,.76])
     r.p('출처 식별용 SHA-256은 아래와 같다. 예측·기준해별 해시는 수치 JSON과 작업 폴더에 연결된다. 이 보고서의 그림은 현재 그림집에서 가져오며, 수치 표는 별도로 다시 계산한다.','small')
-    for filename in ('PAPER_EXPERIMENT_INVENTORY.json','FULL_STUDY_PROTOCOL.json','FULL_STUDY_RESULTS.json'):
+    for filename in ('docs/PAPER_EXPERIMENT_INVENTORY.json','docs/FULL_STUDY_PROTOCOL.json','validation/FULL_STUDY_RESULTS.json'):
         r.p(html.escape(filename)+'<br/>'+sha(root/filename),'small')
     r.p('재생성 명령은 문서용 Python으로 scripts/build_full_korean_report.py를 실행하고 --pinn-python에 torch가 있는 프로젝트 Python을 지정하는 것이다. 엄격한 기본값은 전체 작업 및 최신 그림집의 완료를 요구한다. --partial만 진행 보고서를 허용하며 표지와 모든 페이지의 꼬리말에 이를 표시한다. 보고서 생성 과정은 신경망 학습을 수행하지 않는다. LaTeX 원본과 Markdown 및 PDF를 함께 갱신한다. XeLaTeX 설치와 재생성 명령은 docs/LATEX_REPORTS_KO.md에 정리하였다.')
-    r.p('서지: Harandi A., Moeineddin A., Kaliske M., Reese S., Rezaei S. Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. DOI <link href="https://doi.org/10.1002/nme.7388" color="#245D96">10.1002/nme.7388</link>. 저자 공개 코드 및 원문 자료의 상세 출처는 SOURCE_PROVENANCE.json과 원문 감사 목록을 따른다.','small')
+    r.p('서지: Harandi A., Moeineddin A., Kaliske M., Reese S., Rezaei S. Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. DOI <link href="https://doi.org/10.1002/nme.7388" color="#245D96">10.1002/nme.7388</link>. 저자 공개 코드 및 원문 자료의 상세 출처는 docs/SOURCE_PROVENANCE.json과 원문 감사 목록을 따른다.','small')
     target=r.build()
     print(f'{target}: mode={"partial" if partial else "complete"}; completed={len(complete)}/{len(specs)}; evaluated={len(results)}; figures={len(r.figures)}')
     return {'pdf':str(target),'completed':len(complete),'catalogue':len(specs),'evaluated':len(results),'figures':r.figures,'partial':partial}

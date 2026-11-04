@@ -7808,7 +7808,7 @@ a.anchor-link {
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=69023d5b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2c36825">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7817,12 +7817,12 @@ a.anchor-link {
 <h1 id="%EC%97%B4%ED%83%84%EC%84%B1-%ED%98%BC%ED%95%A9-PINN:-%EB%85%BC%EB%AC%B8-%EC%A0%84%EC%B2%B4-%EC%8B%A4%ED%97%98%EC%9D%98-%EC%8B%A4%ED%96%89%EA%B3%BC-%EA%B2%80%EC%A6%9D">열탄성 혼합 PINN: 논문 전체 실험의 실행과 검증<a class="anchor-link" href="#%EC%97%B4%ED%83%84%EC%84%B1-%ED%98%BC%ED%95%A9-PINN:-%EB%85%BC%EB%AC%B8-%EC%A0%84%EC%B2%B4-%EC%8B%A4%ED%97%98%EC%9D%98-%EC%8B%A4%ED%96%89%EA%B3%BC-%EA%B2%80%EC%A6%9D">¶</a></h1><p>Harandi et al., <em>Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains</em>, <a href="https://doi.org/10.1002/nme.7388">DOI: 10.1002/nme.7388</a>.</p>
 <p>혼합 PINN·표준 PINN·DEM, 동시·순차 학습, 경계점 보강, 에너지 제외, 강제 경계조건·최적화기, 구조·시간 연구, 재료비 전이학습을 실제 계산 자료와 연결하는 노트북이다. 원문에서 불명확한 설정은 재구성 선택으로 구분한다.</p>
 <p><strong>기본값 <code>RUN_FULL_STUDY=False</code>는 완료를 검증한 결과만 읽는다.</strong> 누락·진행 중 실행은 대기 표에 남긴다. 오차는 예측·FEM NPZ 배열에서 다시 계산하며 보고서의 정적 숫자를 가져오지 않는다. 전체를 실행하려면 <code>RUN_FULL_STUDY=True</code>로 바꾸고 <strong>Run All Cells</strong>를 실행한다. 체크포인트부터 이어서 계산하고 완료된 작업은 재사용한다. 실행 시간은 장비에 따라 길어질 수 있다.</p>
-<p>최신 재현 노트북은 이 파일이다. <a href="FULL_PROJECT_REPORT_KO.pdf">전체 보고서</a>와 <a href="FEM_REPORT_KO.pdf">FEM 보고서</a>를 함께 참고한다. 자세한 실행법은 <code>README_FULL_STUDY_KO.md</code>에 있다.</p>
+<p>최신 재현 노트북은 이 파일이다. <a href="../reports/FULL_PROJECT_REPORT_KO.pdf">전체 보고서</a>와 <a href="../reports/FEM_REPORT_KO.pdf">FEM 보고서</a>를 함께 참고한다. 자세한 실행법은 <a href="../docs/README_FULL_STUDY_KO.md">전체 실행 안내</a>에 있다.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e444da2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7fcdb352">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7833,7 +7833,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f46e0049">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e3b5adae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7914,9 +7914,9 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Project: PROJECT_ROOT 
-Python: LOCAL_WORKSPACE\work\pinn-env\Scripts\python.exe
-Torch: 2.11.0+cu128 | GPU: CPU
+<pre>Project: C:\Users\user\Documents\Codex\2026-11-03\x20\outputs\AM_Project_Reproduce
+Python: C:\Users\user\Documents\Codex\2026-11-03\x20\work\pinn-env\Scripts\python.exe
+Torch: 2.11.0+cu128 | GPU: NVIDIA GeForce RTX 3090
 Accuracy jobs: 27 | isolated timing jobs: 25
 </pre>
 </div>
@@ -7924,7 +7924,7 @@ Accuracy jobs: 27 | isolated timing jobs: 25
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f02a8d14">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d6725a9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7945,7 +7945,7 @@ $$\sigma=2\mu\varepsilon+\lambda\operatorname{tr}(\varepsilon)I-\frac{E\alpha(T-
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=930700b2">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=15f27a64">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7960,15 +7960,15 @@ $$\sigma=2\mu\varepsilon+\lambda\operatorname{tr}(\varepsilon)I-\frac{E\alpha(T-
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">geometry</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'x / L'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'y / L'</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'E [benchmark units]'</span><span class="p">)</span>
 <span class="n">show_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="n">inventory</span> <span class="o">=</span> <span class="n">read_json</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'PAPER_EXPERIMENT_INVENTORY.json'</span><span class="p">)</span>
+<span class="n">inventory</span> <span class="o">=</span> <span class="n">read_json</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'docs/PAPER_EXPERIMENT_INVENTORY.json'</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">inventory</span><span class="p">:</span>
     <span class="n">table</span><span class="p">([{</span><span class="s1">'기록'</span><span class="p">:</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="s1">''</span><span class="p">),</span><span class="s1">'내용'</span><span class="p">:</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">''</span><span class="p">)),</span>
             <span class="s1">'출처'</span><span class="p">:</span><span class="s1">'; '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'locator'</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span> <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'sources'</span><span class="p">,[]))}</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">inventory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'studies'</span><span class="p">,[])])</span>
     <span class="n">table</span><span class="p">([{</span><span class="s1">'ID'</span><span class="p">:</span><span class="n">s</span><span class="p">[</span><span class="s1">'id'</span><span class="p">],</span><span class="s1">'주제'</span><span class="p">:</span><span class="n">s</span><span class="p">[</span><span class="s1">'topic'</span><span class="p">],</span><span class="s1">'재현 처리'</span><span class="p">:</span><span class="n">s</span><span class="p">[</span><span class="s1">'reproduction_implication'</span><span class="p">]}</span>
            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">inventory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'source_issues'</span><span class="p">,[])])</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">'**실험 감사 목록 대기:** PAPER_EXPERIMENT_INVENTORY.json이 아직 없습니다. 실제 실행 목록은 아래 catalogue를 사용합니다.'</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Protocol:'</span><span class="p">,</span> <span class="s1">'available'</span> <span class="k">if</span> <span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'FULL_STUDY_PROTOCOL.json'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="s1">'not yet supplied'</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">'**실험 감사 목록 대기:** docs/PAPER_EXPERIMENT_INVENTORY.json이 아직 없습니다. 실제 실행 목록은 아래 catalogue를 사용합니다.'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Protocol:'</span><span class="p">,</span> <span class="s1">'available'</span> <span class="k">if</span> <span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'docs/FULL_STUDY_PROTOCOL.json'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="s1">'not yet supplied'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8006,7 +8006,7 @@ $$\sigma=2\mu\varepsilon+\lambda\operatorname{tr}(\varepsilon)I-\frac{E\alpha(T-
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a90e5011">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95586523">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8016,7 +8016,7 @@ $$\sigma=2\mu\varepsilon+\lambda\operatorname{tr}(\varepsilon)I-\frac{E\alpha(T-
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c1e6ab34">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6829d117">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8078,7 +8078,7 @@ $$\sigma=2\mu\varepsilon+\lambda\operatorname{tr}(\varepsilon)I-\frac{E\alpha(T-
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c49944c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4caf5081">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8088,7 +8088,7 @@ $$\sigma=2\mu\varepsilon+\lambda\operatorname{tr}(\varepsilon)I-\frac{E\alpha(T-
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=73258326">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e90c71cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8142,7 +8142,7 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57d49aa3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=847e158e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8152,7 +8152,7 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=781b59f1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=899c273f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8204,7 +8204,7 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=80b05f75">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a44b0a3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8216,7 +8216,7 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=43f46864">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6fbe84a6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8288,7 +8288,7 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c5e6799">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb08cd26">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8298,7 +8298,7 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7ad74f06">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fc933db1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8346,18 +8346,18 @@ Verified complete: 13 / 52
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e2321c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e32d9df">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="7.-%ED%98%BC%ED%95%A9%C2%B7%ED%91%9C%EC%A4%80-PINN%C2%B7DEM,-%EB%8F%99%EC%8B%9C%C2%B7%EC%88%9C%EC%B0%A8-%ED%95%99%EC%8A%B5">7. 혼합·표준 PINN·DEM, 동시·순차 학습<a class="anchor-link" href="#7.-%ED%98%BC%ED%95%A9%C2%B7%ED%91%9C%EC%A4%80-PINN%C2%B7DEM,-%EB%8F%99%EC%8B%9C%C2%B7%EC%88%9C%EC%B0%A8-%ED%95%99%EC%8A%B5">¶</a></h2><p>원형의 세 방법 × 두 학습 방식과 사각형 혼합 PINN 두 방식을 비교한다. 표준 PINN의 2차 미분·절점 재료장 정규화, DEM의 변분 에너지·자연 경계 처리도 결과에 영향을 준다. 선택은 실행별 <code>experiment.json</code>에 공개한다. 큰 오차나 실패를 숨기지 않는다.</p>
-<p><strong>동시 DEM의 역학 에너지는 T를 처방값으로 취급하여 온도망으로 가는 기울기를 차단한다.</strong> 동시 표준·혼합 PINN에서는 역학 손실의 기울기가 온도망으로 전달된다. DEM의 이 선택은 단방향 열탄성 물리를 위한 변분 재구성이며, 원문 식 14의 u,T 공동 최소화를 문자 그대로 구현한 것은 아니다. 방법 비교에는 이 최적화 경로 차이가 포함되므로 원문의 방법 이름만으로 완전히 동일한 비교라고 단정하지 않는다. 선택은 <code>FULL_STUDY_PROTOCOL.json</code>에도 기록된다.</p>
+<p><strong>동시 DEM의 역학 에너지는 T를 처방값으로 취급하여 온도망으로 가는 기울기를 차단한다.</strong> 동시 표준·혼합 PINN에서는 역학 손실의 기울기가 온도망으로 전달된다. DEM의 이 선택은 단방향 열탄성 물리를 위한 변분 재구성이며, 원문 식 14의 u,T 공동 최소화를 문자 그대로 구현한 것은 아니다. 방법 비교에는 이 최적화 경로 차이가 포함되므로 원문의 방법 이름만으로 완전히 동일한 비교라고 단정하지 않는다. 선택은 <code>docs/FULL_STUDY_PROTOCOL.json</code>에도 기록된다.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8f12e784">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5a02b177">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8454,7 +8454,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db89ffa4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc50330f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8464,7 +8464,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=caf8e389">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=47ad2364">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8510,7 +8510,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb69d3f5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d626653">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8520,7 +8520,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6e4071ca">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a6b2b4c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8582,7 +8582,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b43e586a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a5f1f990">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8592,7 +8592,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=86b74a16">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3580f9a7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8668,7 +8668,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e2c57987">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e297203c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8678,7 +8678,7 @@ Comparison pending: []
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=888b6f54">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=30025eb2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8744,7 +8744,7 @@ Pending architecture: width
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c335f29">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2bb78d26">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8755,7 +8755,7 @@ Pending architecture: width
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4a37d515">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ed1007f4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8828,7 +8828,7 @@ Pending figure: Unseen ratio 15: four fixed physics weights
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e538b5b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9df2ed4f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8838,7 +8838,7 @@ Pending figure: Unseen ratio 15: four fixed physics weights
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d275fdd7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f7bcc694">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8885,7 +8885,7 @@ Pending figure: Unseen ratio 15: four fixed physics weights
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=271b6803">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2901e44c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8895,7 +8895,7 @@ Pending figure: Unseen ratio 15: four fixed physics weights
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0fc14327">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=089396e9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8907,12 +8907,12 @@ Pending figure: Unseen ratio 15: four fixed physics weights
     <span class="n">command</span><span class="o">=</span><span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span><span class="s1">'-m'</span><span class="p">,</span><span class="s1">'harandi.full_figures'</span><span class="p">,</span><span class="s1">'--root'</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)]</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">completed_ids</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="n">JOBS</span><span class="p">):</span> <span class="n">command</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'--partial'</span><span class="p">)</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="n">cwd</span><span class="o">=</span><span class="n">ROOT</span><span class="p">,</span><span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">report</span><span class="o">=</span><span class="n">read_json</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'FULL_STUDY_RESULTS.json'</span><span class="p">)</span>
+<span class="n">report</span><span class="o">=</span><span class="n">read_json</span><span class="p">(</span><span class="n">ROOT</span><span class="o">/</span><span class="s1">'validation/FULL_STUDY_RESULTS.json'</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">report</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Figure status:'</span><span class="p">,</span><span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'status'</span><span class="p">),</span><span class="s1">'| pending jobs:'</span><span class="p">,</span><span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pending_jobs'</span><span class="p">,[]))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Pending references:'</span><span class="p">,</span><span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pending_references'</span><span class="p">,[]))</span>
     <span class="n">table</span><span class="p">([{</span><span class="s1">'ID'</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'id'</span><span class="p">),</span><span class="s1">'내용'</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'title'</span><span class="p">),</span><span class="s1">'원문'</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'source_figure'</span><span class="p">),</span><span class="s1">'PNG'</span><span class="p">:</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'png'</span><span class="p">)}</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">report</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'figures'</span><span class="p">,[])])</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">'[그림 PDF](FULL_STUDY_FIGURES.pdf) · [HTML 갤러리](FULL_STUDY_GALLERY_KO.html)'</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">'[그림 PDF](../reports/FULL_STUDY_FIGURES.pdf) · [HTML 갤러리](../reports/FULL_STUDY_GALLERY_KO.html)'</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">'**그림집 대기.** BUILD_FIGURE_PACK=True로 완료된 결과를 묶을 수 있다. 위 계산은 NPZ를 직접 읽는다.'</span><span class="p">))</span>
 <span class="n">STATUS</span><span class="o">=</span><span class="n">status_rows</span><span class="p">();</span> <span class="n">completed</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">'완료'</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">STATUS</span><span class="p">)</span>
@@ -8947,7 +8947,7 @@ Pending references: []
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output" data-mime-type="text/markdown" tabindex="0">
-<p><a href="FULL_STUDY_FIGURES.pdf">그림 PDF</a> · <a href="FULL_STUDY_GALLERY_KO.html">HTML 갤러리</a></p>
+<p><a href="../reports/FULL_STUDY_FIGURES.pdf">그림 PDF</a> · <a href="../reports/FULL_STUDY_GALLERY_KO.html">HTML 갤러리</a></p>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8965,7 +8965,7 @@ Pending references: []
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a184afd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b987d5c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

@@ -1,11 +1,11 @@
 {
-  "created_utc": "2026-11-04T04:04:28.014133+00:00",
+  "created_utc": "2026-11-04T17:32:27.480321+00:00",
   "method": "GitHub Markdown API",
   "published_ref": null,
   "files": [
     {
-      "file": "FULL_PROJECT_REPORT_KO.md",
-      "sha256": "aefa885cade003a3b15476774887dda387e9b327997e5cc3d3244fc17e821b81",
+      "file": "reports/FULL_PROJECT_REPORT_KO.md",
+      "sha256": "9b3ad87ada983c0d4ef3c6c0124645a7ad86513a6a2a8b1500428b29bb6a238b",
       "source_formulas": 254,
       "rendered_formulas": 254,
       "missing_or_changed": [],
@@ -14,8 +14,8 @@
       "passed": true
     },
     {
-      "file": "FEM_REPORT_KO.md",
-      "sha256": "70b70803dadb775a57f59f4347a3aa916824446fd6c827a64bf491747d0bb03a",
+      "file": "reports/FEM_REPORT_KO.md",
+      "sha256": "d990ff34ae7d67dc8828bc21b75e28d75da6866ca5377d5c215b60448915c8eb",
       "source_formulas": 83,
       "rendered_formulas": 83,
       "missing_or_changed": [],
@@ -25,7 +25,7 @@
     },
     {
       "file": "docs/AUTHOR_NOTATION_KO.md",
-      "sha256": "2c39abb58372cfb4e0bfee06e0a7799f68b22eccf0c8fec59ee3ede994327b3c",
+      "sha256": "86441150d358412999ce43b88fb9fcd675ddb625d3f12aa812b2131ec40d8d6f",
       "source_formulas": 10,
       "rendered_formulas": 10,
       "missing_or_changed": [],
@@ -35,11 +35,5 @@
     }
   ],
   "scope": "Exact source-to-MathJax formula preservation, not a browser screenshot.",
-  "status": "pass",
-  "local_mathjax_validation": {
-    "engine": "MathJax 3.2.2, SVG output",
-    "formulas": 347,
-    "errors": [],
-    "passed": true
-  }
+  "status": "pass"
 }

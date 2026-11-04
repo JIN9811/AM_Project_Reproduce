@@ -64,5 +64,5 @@
   "source_repository": "https://github.com/phyml4e/PINNs",
   "source_commit": "5b426dc8eb2255b1bb3b8630619228b36cdb464e",
   "automatic_upload_of_future_runs": false,
-  "document_revision": "XeLaTeX full study and independent FEM report"
+  "document_revision": "Documents grouped into reports, notebooks, docs and validation; numerical snapshot unchanged"
 }

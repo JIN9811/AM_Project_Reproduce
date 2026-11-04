@@ -10,8 +10,8 @@ external/
 *.lock
 *.log
 results/full_study/queue_status.json
-full_pipeline_status.json
-FULL_STUDY_PROGRESS.html
+validation/full_pipeline_status.json
+reports/FULL_STUDY_PROGRESS.html
 FULL_STUDY_TRAINING_PREVIEW.*
 results/full_study/pipeline_logs/
 
@@ -20,5 +20,5 @@ tmp/
 *.out
 *.toc
 *.synctex.gz
-missfont.log
+validation/missfont.log
 mfput.log

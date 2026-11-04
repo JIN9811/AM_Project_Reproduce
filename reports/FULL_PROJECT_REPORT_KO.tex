@@ -187,7 +187,7 @@ Harandi 등(2024)은 응력과 열유속을 독립 출력으로 도입한 혼합
 \bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=88.0mm,keepaspectratio]{\detokenize{figures/full_study/fig02_geometry.png}}
+\includegraphics[width=\linewidth,height=88.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig02_geometry.png}}
 \captionof{figure}{구현된 재료장. 원문 단위·좌표의 불명확성을 구분하며, 도해의 모양을 맞추기 위해 예측값을 조정하지 않는다.}\end{minipage}\par
 
 {\small\color{muted} 원문 도해의 $\mu$m와 본문·축의 mm가 충돌한다. 본 프로젝트는 수치 단위 영역을 사용하고 mm, GPa, K, \nolinkurl{W/mK}는 원문 벤치마크 표기임을 밝힌다. 실제 SI 열유속에는 길이·온도 차에 따른 환산이 필요하다.\par}
@@ -265,7 +265,7 @@ rectangles & 200 & 1.686e-15 & 1.481e-13 & -2.269e-13\\\addlinespace[2pt]
 {\small\color{muted} 출처: \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55}{저자 코드의 출력·구성식 정의}; \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278}{일·연결·평형 손실}. 고정 커밋: \nolinkurl{5b426dc8eb2255b1bb3b8630619228b36cdb464e}.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=110.00000000000001mm,keepaspectratio]{\detokenize{figures/full_study/fig01_04_training_architecture.png}}
+\includegraphics[width=\linewidth,height=110.00000000000001mm,keepaspectratio]{\detokenize{../figures/full_study/fig01_04_training_architecture.png}}
 \captionof{figure}{동시·순차 학습과 혼합 네트워크의 구현 절차. 독립 신경망과 장 동결을 구분한다.}\end{minipage}\par
 
 동시 학습은 두 장의 손실을 함께 최소화한다. 순차 학습은 한 장의 파라미터만 갱신하고 다른 장을 고정한다. 순차의 역학 블록에서 온도는 처방된 입력이므로 기계 에너지의 온도 방향 기울기를 차단한다. 본 구현은 열 블록 이후 새 역학 블록에서 Adam 상태를 재설정한다. 이 정책은 원문에 명시되지 않은 선택이다.\par
@@ -379,7 +379,7 @@ J02 & 2.205 & 2.538 & 0.6161 & 3.999\\\addlinespace[2pt]
 {\small\color{muted} 표의 값은 평균 절대오차/기준해 최대 절댓값(\%)이다. 일반 실행 FEM200, 비율 15는 별도 FEM50을 기준으로 하며, 구성식/Fourier 출력을 사용한다. 전체 8성분·직접 출력은 부록 B에 있다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=137.0mm,keepaspectratio]{\detokenize{figures/full_study/fig11_circle_methods.png}}
+\includegraphics[width=\linewidth,height=137.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig11_circle_methods.png}}
 \captionof{figure}{본 프로젝트에서 학습한 6개 모델과 직접 계산한 FEniCS50의 x=0.5 단면. 비교 구성: Harandi et al. (2024), Fig. 11, DOI \nolinkurl{10.1002/nme.7388.} 모든 곡선은 자체 계산 결과이며 원문 그림의 전재·디지타이징이 아니다. 그림의 FEM50과 본문 표의 FEM200은 구분한다.}\end{minipage}\par
 
 {\small\color{muted} 곡선별 원본·학습 횟수·단면 CSV: \href{https://github.com/JIN9811/AM_Project_Reproduce/blob/main/docs/FIGURE_11_PROVENANCE_KO.md}{데이터 출처 명세}. 응력·열유속은 구성식/Fourier 출력이다.\par}
@@ -515,7 +515,7 @@ $q_y$ & 22.56 & 1.732e+04\\\addlinespace[2pt]
 {\small\color{muted} 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{figures/full_study/fig13_rectangles_coupled_mechanical.png}}
+\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig13_rectangles_coupled_mechanical.png}}
 \captionof{figure}{사각형 역학 전체장. 원문 그림 13에 대응하는 실제 계산 결과.}\end{minipage}\par
 
 \clearpage
@@ -525,7 +525,7 @@ $q_y$ & 22.56 & 1.732e+04\\\addlinespace[2pt]
 {\small\color{muted} 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{figures/full_study/fig14_rectangles_coupled_thermal.png}}
+\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig14_rectangles_coupled_thermal.png}}
 \captionof{figure}{사각형 열 전체장. 원문 그림 14에 대응하는 실제 계산 결과.}\end{minipage}\par
 
 \clearpage
@@ -535,7 +535,7 @@ $q_y$ & 22.56 & 1.732e+04\\\addlinespace[2pt]
 원래 CSV에 기록된 실제 손실 항을 표시한다. 이력의 진동을 평활화하지 않았으며, 손실 감소가 모든 성분의 오차 감소를 보장하지 않는다.\par
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=180.0mm,keepaspectratio]{\detokenize{figures/full_study/fig06_rectangles_coupled_losses.png}}
+\includegraphics[width=\linewidth,height=180.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig06_rectangles_coupled_losses.png}}
 \captionof{figure}{사각형 100,000회 학습의 열·역학 손실 이력.}\end{minipage}\par
 
 \clearpage
@@ -545,7 +545,7 @@ $q_y$ & 22.56 & 1.732e+04\\\addlinespace[2pt]
 {\small\color{muted} 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{figures/full_study/fig08_circle_coupled_mechanical.png}}
+\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig08_circle_coupled_mechanical.png}}
 \captionof{figure}{원형 역학 전체장. 원문 그림 08에 대응하는 실제 계산 결과.}\end{minipage}\par
 
 \clearpage
@@ -555,7 +555,7 @@ $q_y$ & 22.56 & 1.732e+04\\\addlinespace[2pt]
 {\small\color{muted} 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{figures/full_study/fig09_circle_coupled_thermal.png}}
+\includegraphics[width=\linewidth,height=210.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig09_circle_coupled_thermal.png}}
 \captionof{figure}{원형 열 전체장. 원문 그림 09에 대응하는 실제 계산 결과.}\end{minipage}\par
 
 \clearpage
@@ -565,7 +565,7 @@ $q_y$ & 22.56 & 1.732e+04\\\addlinespace[2pt]
 원래 CSV에 기록된 실제 손실 항을 표시한다. 이력의 진동을 평활화하지 않았으며, 손실 감소가 모든 성분의 오차 감소를 보장하지 않는다.\par
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=180.0mm,keepaspectratio]{\detokenize{figures/full_study/fig06_circle_coupled_losses.png}}
+\includegraphics[width=\linewidth,height=180.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig06_circle_coupled_losses.png}}
 \captionof{figure}{원형 100,000회 학습의 열·역학 손실 이력.}\end{minipage}\par
 
 \clearpage
@@ -591,7 +591,7 @@ J13 & 0 & 0 & 0 & 0\\\addlinespace[2pt]
 \bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=135.0mm,keepaspectratio]{\detokenize{figures/full_study/fig15_left_refinement.png}}
+\includegraphics[width=\linewidth,height=135.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig15_left_refinement.png}}
 \captionof{figure}{왼쪽 점 보강 배치와 오차. 보강 전후를 실제 완료 결과로 비교한다.}\end{minipage}\par
 
 \begingroup\small
@@ -781,7 +781,7 @@ J26 & 1.0 & soft & none & 100000\\\addlinespace[2pt]
 \bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=108.0mm,keepaspectratio]{\detokenize{figures/full_study/fig22_transfer_protocol.png}}
+\includegraphics[width=\linewidth,height=108.0mm,keepaspectratio]{\detokenize{../figures/full_study/fig22_transfer_protocol.png}}
 \captionof{figure}{비율 1-10 전이와 미학습 비율 15 평가. 가중치 0.5는 원문에 미기재인 보완 선택이다.}\end{minipage}\par
 
 각 비율의 Adam 상태는 새로 시작하고 모델 가중치를 전달한다. 비율 내부 재시작은 Adam 상태를 보존한다. 원시 8성분 MSE의 단위별 규모와 physics 손실의 상대 크기는 가중치 효과에 영향을 준다. 다른 정규화로 얻은 w=0.1과 같은 의미의 가중치라고 가정하지 않는다.\par
@@ -829,7 +829,7 @@ rectangles 100 & 0.00662 & 0.0614 & 0.156 & 0.169 & 5.2 & 0.00122 & 0.128 & 4.82
 {\small\color{muted} 표는 200$\times$200 대비 상대 $L^2$(\%)를 NPZ에서 새로 계산했다. 기준이 0인 분모는 빈값이다. 해법 잔차와 격자 수렴은 서로 다른 검증이다.\par}
 
 \par\begin{minipage}{\linewidth}\centering
-\includegraphics[width=\linewidth,height=146.0mm,keepaspectratio]{\detokenize{figures/full_study/figA1_mesh_convergence.png}}
+\includegraphics[width=\linewidth,height=146.0mm,keepaspectratio]{\detokenize{../figures/full_study/figA1_mesh_convergence.png}}
 \captionof{figure}{사각형의 FEM \nolinkurl{50/100/200} 단면. 200은 비교 기준이며 해석적 정답은 아니다.}\end{minipage}\par
 
 응력·열유속은 재료 경계에서 불연속일 수 있고 연속 절점 복원에 의존한다. 따라서 작은 평균오차와 큰 국소 최대오차가 동시에 나타날 수 있다. 원문의 “100에서 거의 수렴”에는 정량 허용오차가 없으므로 본 표의 변화를 보고 판단한다.\par

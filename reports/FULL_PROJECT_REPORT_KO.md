@@ -83,11 +83,11 @@ Harandi 등(2024)은 응력과 열유속을 독립 출력으로 도입한 혼합
 
 | 자료 | 역할 |
 | --- | --- |
-| `PAPER_EXPERIMENT_INVENTORY.json` | 원문 본문·그림·표의 감사 목록 |
-| `FULL_STUDY_PROTOCOL.json` | 재구성 선택과 전체 학습 계획 |
-| `FULL_STUDY_RESULTS.json` | 검증된 그림·출처 해시·수치 비교 |
+| `docs/PAPER_EXPERIMENT_INVENTORY.json` | 원문 본문·그림·표의 감사 목록 |
+| `docs/FULL_STUDY_PROTOCOL.json` | 재구성 선택과 전체 학습 계획 |
+| `validation/FULL_STUDY_RESULTS.json` | 검증된 그림·출처 해시·수치 비교 |
 | results/`full_study`/* | 실제 설정·모델·예측·손실·완료 상태 |
-| `Full_Paper_Reproduction_KO.ipynb` | 편집 가능한 실행·독립 재계산 절차 |
+| `notebooks/Full_Paper_Reproduction_KO.ipynb` | 편집 가능한 실행·독립 재계산 절차 |
 
 그림집 생성 시점의 완료 목록과 현재 검증 목록이 다르면, 보고서는 현재 검증 결과와 새로 계산한 오차를 기준으로 한다. 엄격한 최종 보고서는 그림집도 최신 전체 완료 상태여야 생성된다.
 
@@ -123,7 +123,7 @@ Harandi 등(2024)은 응력과 열유속을 독립 출력으로 도입한 혼합
 | 사각형 | 1.0, 1.0 | 0.5, 0.5 | 저자 제공 재료 자료의 네 사각형 |
 | 전이학습 | 1.0, 1.0 | 1/r, 1/r | matrix/inclusion 비율 r |
 
-![그림 1. 구현된 재료장. 원문 단위·좌표의 불명확성을 구분하며, 도해의 모양을 맞추기 위해 예측값을 조정하지 않는다.](figures/full_study/fig02_geometry.png)
+![그림 1. 구현된 재료장. 원문 단위·좌표의 불명확성을 구분하며, 도해의 모양을 맞추기 위해 예측값을 조정하지 않는다.](../figures/full_study/fig02_geometry.png)
 
 원문 도해의 $`\mu`$m와 본문·축의 mm가 충돌한다. 본 프로젝트는 수치 단위 영역을 사용하고 mm, GPa, K, W/mK는 원문 벤치마크 표기임을 밝힌다. 실제 SI 열유속에는 길이·온도 차에 따른 환산이 필요하다.
 
@@ -199,7 +199,7 @@ Q1 사각형 유한요소로 열전도 선형 시스템을 먼저 풀고 온도 
 
 출처: [저자 코드의 출력·구성식 정의](https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55); [일·연결·평형 손실](https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278). 고정 커밋: 5b426dc8eb2255b1bb3b8630619228b36cdb464e.
 
-![그림 2. 동시·순차 학습과 혼합 네트워크의 구현 절차. 독립 신경망과 장 동결을 구분한다.](figures/full_study/fig01_04_training_architecture.png)
+![그림 2. 동시·순차 학습과 혼합 네트워크의 구현 절차. 독립 신경망과 장 동결을 구분한다.](../figures/full_study/fig01_04_training_architecture.png)
 
 동시 학습은 두 장의 손실을 함께 최소화한다. 순차 학습은 한 장의 파라미터만 갱신하고 다른 장을 고정한다. 순차의 역학 블록에서 온도는 처방된 입력이므로 기계 에너지의 온도 방향 기울기를 차단한다. 본 구현은 열 블록 이후 새 역학 블록에서 Adam 상태를 재설정한다. 이 정책은 원문에 명시되지 않은 선택이다.
 
@@ -287,7 +287,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 표의 값은 평균 절대오차/기준해 최대 절댓값(%)이다. 일반 실행 FEM200, 비율 15는 별도 FEM50을 기준으로 하며, 구성식/Fourier 출력을 사용한다. 전체 8성분·직접 출력은 부록 B에 있다.
 
-![그림 3. 본 프로젝트에서 학습한 6개 모델과 직접 계산한 FEniCS50의 x=0.5 단면. 비교 구성: Harandi et al. (2024), Fig. 11, DOI 10.1002/nme.7388. 모든 곡선은 자체 계산 결과이며 원문 그림의 전재·디지타이징이 아니다. 그림의 FEM50과 본문 표의 FEM200은 구분한다.](figures/full_study/fig11_circle_methods.png)
+![그림 3. 본 프로젝트에서 학습한 6개 모델과 직접 계산한 FEniCS50의 x=0.5 단면. 비교 구성: Harandi et al. (2024), Fig. 11, DOI 10.1002/nme.7388. 모든 곡선은 자체 계산 결과이며 원문 그림의 전재·디지타이징이 아니다. 그림의 FEM50과 본문 표의 FEM200은 구분한다.](../figures/full_study/fig11_circle_methods.png)
 
 곡선별 원본·학습 횟수·단면 CSV: [데이터 출처 명세](https://github.com/JIN9811/AM_Project_Reproduce/blob/main/docs/FIGURE_11_PROVENANCE_KO.md). 응력·열유속은 구성식/Fourier 출력이다.
 
@@ -373,7 +373,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.
 
-![그림 4. 사각형 역학 전체장. 원문 그림 13에 대응하는 실제 계산 결과.](figures/full_study/fig13_rectangles_coupled_mechanical.png)
+![그림 4. 사각형 역학 전체장. 원문 그림 13에 대응하는 실제 계산 결과.](../figures/full_study/fig13_rectangles_coupled_mechanical.png)
 
 
 ---
@@ -382,7 +382,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.
 
-![그림 5. 사각형 열 전체장. 원문 그림 14에 대응하는 실제 계산 결과.](figures/full_study/fig14_rectangles_coupled_thermal.png)
+![그림 5. 사각형 열 전체장. 원문 그림 14에 대응하는 실제 계산 결과.](../figures/full_study/fig14_rectangles_coupled_thermal.png)
 
 
 ---
@@ -391,7 +391,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 원래 CSV에 기록된 실제 손실 항을 표시한다. 이력의 진동을 평활화하지 않았으며, 손실 감소가 모든 성분의 오차 감소를 보장하지 않는다.
 
-![그림 6. 사각형 100,000회 학습의 열·역학 손실 이력.](figures/full_study/fig06_rectangles_coupled_losses.png)
+![그림 6. 사각형 100,000회 학습의 열·역학 손실 이력.](../figures/full_study/fig06_rectangles_coupled_losses.png)
 
 
 ---
@@ -400,7 +400,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.
 
-![그림 7. 원형 역학 전체장. 원문 그림 08에 대응하는 실제 계산 결과.](figures/full_study/fig08_circle_coupled_mechanical.png)
+![그림 7. 원형 역학 전체장. 원문 그림 08에 대응하는 실제 계산 결과.](../figures/full_study/fig08_circle_coupled_mechanical.png)
 
 
 ---
@@ -409,7 +409,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 완료된 100,000회 실행의 예측, FEniCS50 기준해 및 절대 차이를 원문 색 범위로 표시한다. 응력과 열유속은 구성식/Fourier 미분 출력이다. 색 범위 밖 값은 색 막대의 삼각형으로 표시하며, 수치 배열을 범위에 맞추어 수정하지 않는다. FEM200 기준의 정량 오차는 본문과 부록 B에 별도로 제시한다.
 
-![그림 8. 원형 열 전체장. 원문 그림 09에 대응하는 실제 계산 결과.](figures/full_study/fig09_circle_coupled_thermal.png)
+![그림 8. 원형 열 전체장. 원문 그림 09에 대응하는 실제 계산 결과.](../figures/full_study/fig09_circle_coupled_thermal.png)
 
 
 ---
@@ -418,7 +418,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 
 원래 CSV에 기록된 실제 손실 항을 표시한다. 이력의 진동을 평활화하지 않았으며, 손실 감소가 모든 성분의 오차 감소를 보장하지 않는다.
 
-![그림 9. 원형 100,000회 학습의 열·역학 손실 이력.](figures/full_study/fig06_circle_coupled_losses.png)
+![그림 9. 원형 100,000회 학습의 열·역학 손실 이력.](../figures/full_study/fig06_circle_coupled_losses.png)
 
 
 ---
@@ -436,7 +436,7 @@ DEM은 주 변수의 1차 미분으로 열전도 에너지와 평면변형률 �
 | J11 | 0.01718 | 0.03382 | 0.0176 | 0.03382 |
 | J13 | 0 | 0 | 0 | 0 |
 
-![그림 10. 왼쪽 점 보강 배치와 오차. 보강 전후를 실제 완료 결과로 비교한다.](figures/full_study/fig15_left_refinement.png)
+![그림 10. 왼쪽 점 보강 배치와 오차. 보강 전후를 실제 완료 결과로 비교한다.](../figures/full_study/fig15_left_refinement.png)
 
 **표 16. 왼쪽 경계 보강과 에너지 항 제외**
 
@@ -585,7 +585,7 @@ Table 1의 100k와 Remark 7의 1M이 충돌하므로 사각형 100k 체크포인
 | J25 | 0.5 | soft | none | 100000 |
 | J26 | 1.0 | soft | none | 100000 |
 
-![그림 11. 비율 1-10 전이와 미학습 비율 15 평가. 가중치 0.5는 원문에 미기재인 보완 선택이다.](figures/full_study/fig22_transfer_protocol.png)
+![그림 11. 비율 1-10 전이와 미학습 비율 15 평가. 가중치 0.5는 원문에 미기재인 보완 선택이다.](../figures/full_study/fig22_transfer_protocol.png)
 
 각 비율의 Adam 상태는 새로 시작하고 모델 가중치를 전달한다. 비율 내부 재시작은 Adam 상태를 보존한다. 원시 8성분 MSE의 단위별 규모와 physics 손실의 상대 크기는 가중치 효과에 영향을 준다. 다른 정규화로 얻은 w=0.1과 같은 의미의 가중치라고 가정하지 않는다.
 
@@ -626,7 +626,7 @@ Table 1의 100k와 Remark 7의 1M이 충돌하므로 사각형 100k 체크포인
 
 표는 200$`\times`$200 대비 상대 $`L^2`$(%)를 NPZ에서 새로 계산했다. 기준이 0인 분모는 빈값이다. 해법 잔차와 격자 수렴은 서로 다른 검증이다.
 
-![그림 12. 사각형의 FEM 50/100/200 단면. 200은 비교 기준이며 해석적 정답은 아니다.](figures/full_study/figA1_mesh_convergence.png)
+![그림 12. 사각형의 FEM 50/100/200 단면. 200은 비교 기준이며 해석적 정답은 아니다.](../figures/full_study/figA1_mesh_convergence.png)
 
 응력·열유속은 재료 경계에서 불연속일 수 있고 연속 절점 복원에 의존한다. 따라서 작은 평균오차와 큰 국소 최대오차가 동시에 나타날 수 있다. 원문의 “100에서 거의 수렴”에는 정량 허용오차가 없으므로 본 표의 변화를 보고 판단한다.
 
@@ -656,7 +656,7 @@ Table 1의 100k와 Remark 7의 1M이 충돌하므로 사각형 100k 체크포인
 
 ### 15.2 계산 자료의 재사용
 
-`Full_Paper_Reproduction_KO.ipynb`는 완료·대기 상태, 독립 FEM/PINN 검증, NPZ 오차 재계산 및 편집 가능한 그림을 제공한다. 기본값은 전체 학습을 시작하지 않고 완료된 자료만 읽는다. `RUN_FULL_STUDY`=True는 누락 FEM과 신경망 전체를 실행한 뒤 시간 연구를 단독 실행한다. 동일 설정의 체크포인트는 이어서 계산한다.
+`notebooks/Full_Paper_Reproduction_KO.ipynb`는 완료·대기 상태, 독립 FEM/PINN 검증, NPZ 오차 재계산 및 편집 가능한 그림을 제공한다. 기본값은 전체 학습을 시작하지 않고 완료된 자료만 읽는다. `RUN_FULL_STUDY`=True는 누락 FEM과 신경망 전체를 실행한 뒤 시간 연구를 단독 실행한다. 동일 설정의 체크포인트는 이어서 계산한다.
 
 명령행: python -m harandi.`full_study` --groups mixed baseline transfer --workers 1
 이후: python -m harandi.`full_study` --groups timing --workers 1
@@ -672,7 +672,7 @@ Table 1의 100k와 Remark 7의 1M이 충돌하므로 사각형 100k 체크포인
 
 Harandi, A., Moeineddin, A., Kaliske, M., Reese, S., Rezaei, S. (2024). Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. International Journal for Numerical Methods in Engineering, 125(4), e7388. [https://doi.org/10.1002/nme.7388](https://doi.org/10.1002/nme.7388). 온라인 선게재 연도는 2023년이다.
 
-phyml4e. PINNs: 저자 공개 구현 및 벤치마크 자료. [https://github.com/phyml4e/PINNs](https://github.com/phyml4e/PINNs). 사용 커밋과 파일 해시는 `SOURCE_PROVENANCE.json`에 기록하였다.
+phyml4e. PINNs: 저자 공개 구현 및 벤치마크 자료. [https://github.com/phyml4e/PINNs](https://github.com/phyml4e/PINNs). 사용 커밋과 파일 해시는 `docs/SOURCE_PROVENANCE.json`에 기록하였다.
 
 ### 국문 서술 및 편집 형식 참고
 
@@ -775,7 +775,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | J12 | 1.2 | 12.5 | 1.98 | 1.72 | 28.2 | 0.4 | 3.41 | 25.1 |
 | J13 | 2.15 | 19.2 | 8.35 | 7.59 | 87.9 | 2.09 | 9.11 | 72 |
 
-빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `FULL_STUDY_RESULTS.json`에 있다.
+빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `validation/FULL_STUDY_RESULTS.json`에 있다.
 
 ### 직접 출력 - 평균 절대오차
 
@@ -797,7 +797,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | J12 | 0.001344 | 0.001341 | 0.003093 | 0.003219 | 0.001668 | 0.001728 | 0.004246 | 0.002636 |
 | J13 | 0.003043 | 0.002979 | 0.05851 | 0.05149 | 0.02073 | 0.01048 | 0.04897 | 0.02213 |
 
-빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `FULL_STUDY_RESULTS.json`에 있다.
+빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `validation/FULL_STUDY_RESULTS.json`에 있다.
 
 ### 직접 출력 - 최대 절대오차
 
@@ -819,7 +819,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | J12 | 0.008116 | 0.008388 | 0.1 | 0.1028 | 0.04246 | 0.007702 | 0.1453 | 0.06949 |
 | J13 | 0.01454 | 0.01436 | 0.2729 | 0.4305 | 0.3062 | 0.0327 | 0.2812 | 0.3338 |
 
-빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `FULL_STUDY_RESULTS.json`에 있다.
+빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `validation/FULL_STUDY_RESULTS.json`에 있다.
 
 
 ---
@@ -844,7 +844,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | J12 | 1.2 | 12.5 | 2.96 | 2.29 | 32.4 | 0.4 | 3.68 | 22.5 |
 | J13 | 2.15 | 19.2 | 6.73 | 6.32 | 59.2 | 2.09 | 13.6 | 101 |
 
-빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `FULL_STUDY_RESULTS.json`에 있다.
+빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `validation/FULL_STUDY_RESULTS.json`에 있다.
 
 ### 구성식/Fourier 출력 - 평균 절대오차
 
@@ -866,7 +866,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | J12 | 0.001344 | 0.001341 | 0.003461 | 0.004025 | 0.001835 | 0.001728 | 0.004019 | 0.002599 |
 | J13 | 0.003043 | 0.002979 | 0.04798 | 0.04737 | 0.01681 | 0.01048 | 0.07835 | 0.03508 |
 
-빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `FULL_STUDY_RESULTS.json`에 있다.
+빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `validation/FULL_STUDY_RESULTS.json`에 있다.
 
 ### 구성식/Fourier 출력 - 최대 절대오차
 
@@ -888,7 +888,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | J12 | 0.008116 | 0.008388 | 0.3052 | 0.1731 | 0.1124 | 0.007702 | 0.1755 | 0.07401 |
 | J13 | 0.01454 | 0.01436 | 0.2593 | 0.3048 | 0.1851 | 0.0327 | 0.4273 | 0.3291 |
 
-빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `FULL_STUDY_RESULTS.json`에 있다.
+빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 `validation/FULL_STUDY_RESULTS.json`에 있다.
 
 ### 재계산한 참조의 감사 기록
 
@@ -915,7 +915,7 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 
 ## 부록 C. 원문 28개 그림·4개 표의 대응
 
-원문 1-25와 A1,B1,B2의 28개 그림, Table 1-4를 모두 목록화한다. 아래 “생성”은 해당 대응 그림 파일이 있다는 뜻이며 원문의 숨은 설정까지 동일하다는 뜻은 아니다. 도식·격자·시간 표와 신경망 결과를 구분하고, 원래 그림 전체는 `FULL_STUDY_FIGURES.pdf`와 HTML 갤러리에서 확대해 확인한다.
+원문 1-25와 A1,B1,B2의 28개 그림, Table 1-4를 모두 목록화한다. 아래 “생성”은 해당 대응 그림 파일이 있다는 뜻이며 원문의 숨은 설정까지 동일하다는 뜻은 아니다. 도식·격자·시간 표와 신경망 결과를 구분하고, 원래 그림 전체는 `reports/FULL_STUDY_FIGURES.pdf`와 HTML 갤러리에서 확대해 확인한다.
 
 **표 33. 부록 C. 원문 28개 그림·4개 표의 대응**
 
@@ -1005,26 +1005,26 @@ J 코드는 본 보고서의 표에서 사용하는 실행 식별자이다. 현�
 | 자료 | 위치와 용도 |
 | --- | --- |
 | 기준 논문 | Harandi et al. (2024), Int. J. Numer. Methods Eng., 125(4), e7388; DOI 10.1002/nme.7388 |
-| 원문 감사 | `PAPER_EXPERIMENT_INVENTORY.json`; 본문·도해·표·부록을 분리 기록 |
-| 구현 선택 | `FULL_STUDY_PROTOCOL.json`; 목적함수·경계·예산·입력·추가 제어 |
+| 원문 감사 | `docs/PAPER_EXPERIMENT_INVENTORY.json`; 본문·도해·표·부록을 분리 기록 |
+| 구현 선택 | `docs/FULL_STUDY_PROTOCOL.json`; 목적함수·경계·예산·입력·추가 제어 |
 | 수치 결과 | results/`full_study`/각 ID의 `prediction.npz`, `model.pt`, `checkpoint.pt`, `history.csv` |
 | 원시 FEM | `results/fem_*/solution.npz` 및 `results/full_study/parametric_fem/ratio_*/solution.npz` |
-| 편집 가능한 실험 | `Full_Paper_Reproduction_KO.ipynb`, `README_FULL_STUDY_KO.md` |
-| 그림집 | `FULL_STUDY_FIGURES.pdf`, `FULL_STUDY_GALLERY_KO.html`, figures/`full_study`/*.svg |
-| 본 보고서 원본 | `scripts/build_full_korean_report.py`, `FULL_PROJECT_REPORT_KO.tex`, `FULL_PROJECT_REPORT_KO.md` |
-| 별도 FEM 보고서 | `FEM_REPORT_KO.pdf` 및 `FEM_REPORT_KO.tex`; `docs/LATEX_REPORTS_KO.md`의 재생성 안내 |
+| 편집 가능한 실험 | `notebooks/Full_Paper_Reproduction_KO.ipynb`, `docs/README_FULL_STUDY_KO.md` |
+| 그림집 | `reports/FULL_STUDY_FIGURES.pdf`, `reports/FULL_STUDY_GALLERY_KO.html`, figures/`full_study`/*.svg |
+| 본 보고서 원본 | `scripts/build_full_korean_report.py`, `reports/FULL_PROJECT_REPORT_KO.tex`, `reports/FULL_PROJECT_REPORT_KO.md` |
+| 별도 FEM 보고서 | `reports/FEM_REPORT_KO.pdf` 및 `reports/FEM_REPORT_KO.tex`; `docs/LATEX_REPORTS_KO.md`의 재생성 안내 |
 
 출처 식별용 SHA-256은 아래와 같다. 예측·기준해별 해시는 수치 JSON과 작업 폴더에 연결된다. 이 보고서의 그림은 현재 그림집에서 가져오며, 수치 표는 별도로 다시 계산한다.
 
-`PAPER_EXPERIMENT_INVENTORY.json`
+`docs/PAPER_EXPERIMENT_INVENTORY.json`
 898b954660003a6b8e6dfa2aa1cee171b77ce0d1a9c25ed9af43045c6bc977d6
 
-`FULL_STUDY_PROTOCOL.json`
+`docs/FULL_STUDY_PROTOCOL.json`
 a1f0e018d32d6464ca662af03feefb439e3772c4223b16a249e71ec4b05cb38b
 
-`FULL_STUDY_RESULTS.json`
+`validation/FULL_STUDY_RESULTS.json`
 360880951597ca8e5315ef2d710f45ac5e66505b1df437d2508e12d0c1566331
 
 재생성 명령은 문서용 Python으로 `scripts/build_full_korean_report.py`를 실행하고 --pinn-python에 torch가 있는 프로젝트 Python을 지정하는 것이다. 엄격한 기본값은 전체 작업 및 최신 그림집의 완료를 요구한다. --partial만 진행 보고서를 허용하며 표지와 모든 페이지의 꼬리말에 이를 표시한다. 보고서 생성 과정은 신경망 학습을 수행하지 않는다. LaTeX 원본과 Markdown 및 PDF를 함께 갱신한다. XeLaTeX 설치와 재생성 명령은 `docs/LATEX_REPORTS_KO.md`에 정리하였다.
 
-서지: Harandi A., Moeineddin A., Kaliske M., Reese S., Rezaei S. Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. DOI [10.1002/nme.7388](https://doi.org/10.1002/nme.7388). 저자 공개 코드 및 원문 자료의 상세 출처는 `SOURCE_PROVENANCE.json`과 원문 감사 목록을 따른다.
+서지: Harandi A., Moeineddin A., Kaliske M., Reese S., Rezaei S. Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. DOI [10.1002/nme.7388](https://doi.org/10.1002/nme.7388). 저자 공개 코드 및 원문 자료의 상세 출처는 `docs/SOURCE_PROVENANCE.json`과 원문 감사 목록을 따른다.

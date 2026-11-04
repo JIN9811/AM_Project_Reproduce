@@ -263,9 +263,9 @@ def verify_references(root):
 
 def verify_sources(root):
     root = Path(root)
-    provenance = read_json(root/'SOURCE_PROVENANCE.json')
+    provenance = read_json(root/'docs/SOURCE_PROVENANCE.json')
     if not provenance:
-        raise PipelineError('Missing SOURCE_PROVENANCE.json')
+        raise PipelineError('Missing docs/SOURCE_PROVENANCE.json')
     public = (provenance.get('distribution', {}).get('mode') == 'public'
               and provenance.get('distribution', {}).get('external_paper_and_crops_included') is False)
     paper = Path(provenance['paper']['path'])
@@ -293,11 +293,11 @@ def verify_sources(root):
 
 def verify_report_qa(root):
     root = Path(root)
-    path = root/'FULL_REPORT_LAYOUT_QA.json'
+    path = root/'validation/FULL_REPORT_LAYOUT_QA.json'
     record = read_json(path, {})
     if record.get('status') != 'pass' or record.get('automatic_checks_passed') is not True:
         raise PipelineError('Final PDF automatic layout QA did not pass')
-    if record.get('pdf_sha256') != sha256(root/'FULL_PROJECT_REPORT_KO.pdf'):
+    if record.get('pdf_sha256') != sha256(root/'reports/FULL_PROJECT_REPORT_KO.pdf'):
         raise PipelineError('Final PDF layout QA hash is stale')
     pages = record.get('page_count')
     if not isinstance(pages, int) or pages < 1 or record.get('rendered_page_count') != pages:
@@ -355,7 +355,7 @@ def write_bundle(root, target, verification, heartbeat=None):
                     for chunk in iter(lambda: source.read(1024*1024), b''):
                         destination.write(chunk)
                         pulse()
-            archive.writestr('harandi_reproduction/FULL_STUDY_MANIFEST.json', payload)
+            archive.writestr('harandi_reproduction/validation/FULL_STUDY_MANIFEST.json', payload)
         with zipfile.ZipFile(temporary) as archive:
             if archive.testzip() is not None:
                 raise PipelineError('ZIP CRC validation failed')
@@ -368,7 +368,7 @@ def write_bundle(root, target, verification, heartbeat=None):
                 if digest.hexdigest() != record['sha256']:
                     raise PipelineError('File changed during packaging: '+name)
         temporary.replace(target)
-        atomic_text(root/'FULL_STUDY_MANIFEST.json', payload.decode('utf-8'))
+        atomic_text(root/'validation/FULL_STUDY_MANIFEST.json', payload.decode('utf-8'))
     finally:
         temporary.unlink(missing_ok=True)
     return {'path': str(target), 'bytes': target.stat().st_size, 'sha256': sha256(target, pulse),
@@ -469,7 +469,7 @@ class Finisher:
         self.awake = SleepGuard()
 
     def acquire(self):
-        state = read_json(self.root/'full_pipeline_status.json', {})
+        state = read_json(self.root/'validation/full_pipeline_status.json', {})
         if pid_alive(state.get('child_pid')):
             raise PipelineError('Another finalizer stage process is still running')
         if self.lock.exists():
@@ -490,16 +490,16 @@ class Finisher:
                   'verified_complete_jobs': len(self.verified), 'registered_jobs': len(self.jobs),
                   'queue_reported_complete_jobs': len((queue or {}).get('completed', [])),
                   'archive': self.archive_info, 'jobs': rows}
-        atomic_json(self.root/'full_pipeline_status.json', status)
+        atomic_json(self.root/'validation/full_pipeline_status.json', status)
         cells = []
         for row in rows:
             loss = '—' if row['last_loss'] is None else f'{row["last_loss"]:.6g}'
             cells.append('<tr>'+''.join('<td>'+html.escape(str(value))+'</td>' for value in (
                 row['id'], row['status'], row['actual_logged_or_checkpoint_updates'],
                 row['requested_updates'], loss, row['detail']))+'</tr>')
-        preview = read_json(self.root/'FULL_STUDY_TRAINING_PREVIEW.json', {})
+        preview = read_json(self.root/'validation/FULL_STUDY_TRAINING_PREVIEW.json', {})
         preview_html = ''
-        if preview.get('status') == 'intermediate_only' and (self.root/'FULL_STUDY_TRAINING_PREVIEW.png').exists():
+        if preview.get('status') == 'intermediate_only' and (self.root/'reports/FULL_STUDY_TRAINING_PREVIEW.png').exists():
             count = sum(preview.get('completed', {}).values())
             caption = (f'Static intermediate preview: {preview.get("job", "unknown")}, '
                        f'{count:,} checkpoint updates, generated {preview.get("generated_utc", "unknown")}. '
@@ -517,7 +517,7 @@ class Finisher:
                     'The final report and ZIP are complete only when this pipeline says complete.</p>'
                     '<table><thead><tr><th>Job</th><th>Status</th><th>Observed updates</th><th>Requested</th><th>Last loss</th><th>Evidence/status</th></tr></thead>'
                     '<tbody>'+''.join(cells)+'</tbody></table>'+preview_html+'</html>')
-        atomic_text(self.root/'FULL_STUDY_PROGRESS.html', document)
+        atomic_text(self.root/'reports/FULL_STUDY_PROGRESS.html', document)
 
     def verify_jobs(self, jobs):
         self.study_module._COMPLETE_CACHE.clear()
@@ -573,7 +573,7 @@ class Finisher:
         missing = {job['id'] for job in self.jobs}-self.verified
         if missing:
             raise PipelineError('Final artifact verification failed: '+', '.join(sorted(missing)))
-        report = read_json(self.root/'FULL_STUDY_RESULTS.json', {})
+        report = read_json(self.root/'validation/FULL_STUDY_RESULTS.json', {})
         if (report.get('status') != 'complete' or report.get('partial_requested')
                 or set(report.get('completed_jobs', [])) != self.verified
                 or report.get('pending_jobs') or report.get('pending_references') or report.get('skipped_figures')):
@@ -584,13 +584,13 @@ class Finisher:
         for figure in report.get('figures', []):
             if not (self.root/figure['png']).is_file():
                 raise PipelineError('Missing final figure: '+figure['png'])
-        for name in ('FULL_PROJECT_REPORT_KO.pdf', 'FULL_PROJECT_REPORT_KO.md',
-                     'Full_Paper_Reproduction_KO.html', 'README_FULL_STUDY_KO.md',
-                     'PAPER_EXPERIMENT_INVENTORY.json', 'FULL_STUDY_PROTOCOL.json'):
+        for name in ('reports/FULL_PROJECT_REPORT_KO.pdf', 'reports/FULL_PROJECT_REPORT_KO.md',
+                     'notebooks/Full_Paper_Reproduction_KO.html', 'docs/README_FULL_STUDY_KO.md',
+                     'docs/PAPER_EXPERIMENT_INVENTORY.json', 'docs/FULL_STUDY_PROTOCOL.json'):
             path = self.root/name
             if not path.is_file() or path.stat().st_size == 0:
                 raise PipelineError('Missing final deliverable: '+name)
-        pdf = self.root/'FULL_PROJECT_REPORT_KO.pdf'
+        pdf = self.root/'reports/FULL_PROJECT_REPORT_KO.pdf'
         with pdf.open('rb') as stream:
             header = stream.read(5)
             stream.seek(max(0, pdf.stat().st_size-1024))
@@ -599,7 +599,7 @@ class Finisher:
             raise PipelineError('Final report is not a complete PDF')
         return {'verified_jobs': len(self.verified), 'catalogue': self.jobs,
                 'fem_references': verify_references(self.root), 'source_hashes': verify_sources(self.root),
-                'notebook': validate_notebook(self.root/'Full_Paper_Reproduction_KO.ipynb'),
+                'notebook': validate_notebook(self.root/'notebooks/Full_Paper_Reproduction_KO.ipynb'),
                 'figure_count': len(report.get('figures', [])), 'strict_figure_status': report['status'],
                 'report_layout_qa': verify_report_qa(self.root),
                 'report_pdf_check': 'XeLaTeX compilation and automatic all-page layout/render checks succeeded. No new manual visual-review claim is implied.'}
@@ -619,7 +619,7 @@ class Finisher:
             if len(self.verified) != len(self.jobs):
                 raise PipelineError('Timing finished without all 52 jobs verified')
             self.command('figures', [sys.executable, '-m', 'harandi.full_figures', '--root', self.root])
-            notebook = self.root/'Full_Paper_Reproduction_KO.ipynb'
+            notebook = self.root/'notebooks/Full_Paper_Reproduction_KO.ipynb'
             validate_notebook_defaults(notebook)
             self.command('notebook', [sys.executable, '-m', 'nbconvert', '--execute', '--to', 'notebook',
                 '--inplace', '--ExecutePreprocessor.kernel_name=harandi',
@@ -628,7 +628,7 @@ class Finisher:
             self.phase = 'notebook_html'
             self.detail = 'Exporting executed notebook with a portable light theme'
             self.progress()
-            export_notebook_html(notebook, self.root/'Full_Paper_Reproduction_KO.html')
+            export_notebook_html(notebook, self.root/'notebooks/Full_Paper_Reproduction_KO.html')
             self.command('report', [self.document_python, self.root/'scripts/build_full_korean_report.py',
                          '--root', self.root, '--pinn-python', sys.executable])
             self.command('report_layout_qa', [self.document_python, self.root/'scripts/check_full_report_layout.py',

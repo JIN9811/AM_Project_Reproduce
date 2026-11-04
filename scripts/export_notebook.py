@@ -4,7 +4,7 @@ from nbconvert import HTMLExporter
 import nbformat
 
 root = Path(__file__).resolve().parents[1]
-notebook = nbformat.read(root / 'Full_Paper_Reproduction_KO.ipynb', as_version=4)
+notebook = nbformat.read(root / 'notebooks/Full_Paper_Reproduction_KO.ipynb', as_version=4)
 body, _ = HTMLExporter(template_name='lab', theme='light').from_notebook_node(notebook)
 # Local Jupyter installations can inject a custom CSS theme. Keep the portable
 # preview readable independently of those machine-specific settings.
@@ -21,6 +21,6 @@ css = '''<style id="portable-light-code">
 .jp-InputPrompt, .jp-OutputPrompt {color: #57606a !important;}
 </style>'''
 body = body.replace('</head>', css + '\n</head>').replace('<html lang="en">', '<html lang="ko">')
-target = root / 'Full_Paper_Reproduction_KO.html'
+target = root / 'notebooks/Full_Paper_Reproduction_KO.html'
 target.write_text(body, encoding='utf-8')
 print(target)

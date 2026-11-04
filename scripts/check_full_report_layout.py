@@ -322,8 +322,8 @@ def audit(root, pdf, workdir, output, dpi=110, tolerance=0.5, renderer_name='aut
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root',type=Path,default=ROOT)
-    parser.add_argument('--pdf',type=Path,help='Default: ROOT/FULL_PROJECT_REPORT_KO.pdf')
-    parser.add_argument('--output',type=Path,help='Default: ROOT/FULL_REPORT_LAYOUT_QA.json')
+    parser.add_argument('--pdf',type=Path,help='Default: ROOT/reports/FULL_PROJECT_REPORT_KO.pdf')
+    parser.add_argument('--output',type=Path,help='Default: ROOT/validation/FULL_REPORT_LAYOUT_QA.json')
     parser.add_argument('--workdir',type=Path,help='Scratch output for every page PNG and contact sheet; keep outside archive')
     parser.add_argument('--dpi',type=int,default=110)
     parser.add_argument('--tolerance',type=float,default=.5,help='Allowed physical page-boundary rounding in points')
@@ -334,9 +334,9 @@ def main():
     if not 72 <= args.dpi <= 300 or not 0 <= args.tolerance <= 2:
         parser.error('dpi must be 72..300 and tolerance must be 0..2 points')
     root=args.root.resolve()
-    report=audit(root, args.pdf or root/'FULL_PROJECT_REPORT_KO.pdf',
+    report=audit(root, args.pdf or root/'reports/FULL_PROJECT_REPORT_KO.pdf',
         args.workdir or root.parents[1]/'work/full_study/report_layout_qa',
-        args.output or root/'FULL_REPORT_LAYOUT_QA.json',args.dpi,args.tolerance,args.renderer,
+        args.output or root/'validation/FULL_REPORT_LAYOUT_QA.json',args.dpi,args.tolerance,args.renderer,
         args.font,args.bold_font)
     return 0 if report['automatic_checks_passed'] else 1
 

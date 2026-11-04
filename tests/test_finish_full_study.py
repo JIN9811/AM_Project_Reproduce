@@ -8,6 +8,12 @@ import numpy as np
 import pytest
 
 
+@pytest.fixture(autouse=True)
+def document_folders(tmp_path):
+    for name in ('reports', 'notebooks', 'docs', 'validation'):
+        (tmp_path/name).mkdir(exist_ok=True)
+
+
 def test_neural_gate_never_trusts_queue_completion_without_verified_jobs():
     from scripts.finish_full_study import neural_gate, PipelineError
     queue = {'status': 'complete', 'running': [], 'pending': [], 'failed': {}}
@@ -35,9 +41,9 @@ def test_archive_excludes_optimizer_states_but_keeps_models_results_and_code(tmp
              'results/full_study/job/checkpoint.pt', 'results/full_study/job/checkpoints/ratio_1.pt',
              'results/full_study/job/progress.pt', '.notebook_work/scratch.py',
              '.venv/python.exe', 'harandi/__pycache__/train.pyc', 'any.tmp', 'old.zip',
-             'FULL_STUDY_PROGRESS.html', 'full_pipeline_status.json',
-             'results/full_study/.queue.lock', 'FULL_STUDY_TRAINING_PREVIEW.png',
-             'FULL_STUDY_TRAINING_PREVIEW.json']
+             'reports/FULL_STUDY_PROGRESS.html', 'validation/full_pipeline_status.json',
+             'results/full_study/.queue.lock', 'reports/FULL_STUDY_TRAINING_PREVIEW.png',
+             'validation/FULL_STUDY_TRAINING_PREVIEW.json']
     for name in names:
         path = tmp_path/name
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -77,7 +83,7 @@ def test_source_hash_mismatch_fails_instead_of_refreshing_provenance(tmp_path):
     (data/'source.csv').write_bytes(b'original data')
     provenance = {'paper': {'path': str(paper), 'sha256': hashlib.sha256(paper.read_bytes()).hexdigest()},
                   'included_data': {'source.csv': hashlib.sha256(b'original data').hexdigest()}}
-    path = tmp_path/'SOURCE_PROVENANCE.json'
+    path = tmp_path/'docs/SOURCE_PROVENANCE.json'
     path.write_text(json.dumps(provenance))
     assert len(verify_sources(tmp_path)) == 2
     (data/'source.csv').write_bytes(b'modified data')
@@ -118,7 +124,7 @@ def test_public_source_audit_reports_unbundled_paper_and_checks_included_data(tm
                   'distribution': {'mode': 'public', 'external_paper_and_crops_included': False},
                   'included_data': {'source.csv': hashlib.sha256(b'licensed data').hexdigest()},
                   'paper_visual_style': {'original_comparison_crops': {'original.png': '0'*64}}}
-    (tmp_path/'SOURCE_PROVENANCE.json').write_text(json.dumps(provenance))
+    (tmp_path/'docs/SOURCE_PROVENANCE.json').write_text(json.dumps(provenance))
     records = verify_sources(tmp_path)
     assert sum(r.get('status') == 'not_distributed_not_verified' for r in records) == 2
     assert any(r.get('status') == 'verified' and r['path'].endswith('source.csv') for r in records)
@@ -133,7 +139,7 @@ def test_public_source_audit_rejects_wrong_external_paper_when_present(tmp_path)
     (external/'paper.pdf').write_bytes(b'wrong paper')
     provenance={'paper': {'path':'external/paper.pdf', 'sha256': hashlib.sha256(b'correct').hexdigest()},
                 'distribution': {'mode':'public', 'external_paper_and_crops_included':False}}
-    (tmp_path/'SOURCE_PROVENANCE.json').write_text(json.dumps(provenance))
+    (tmp_path/'docs/SOURCE_PROVENANCE.json').write_text(json.dumps(provenance))
     with pytest.raises(PipelineError, match='hash'):
         verify_sources(tmp_path)
 
@@ -146,14 +152,14 @@ def test_bundle_contains_manifest_and_file_hashes_preserves_previous_archive(tmp
     previous = tmp_path/'harandi_reproduction.zip'; previous.write_bytes(b'preserve me')
     target = tmp_path/'harandi_full_study.zip'
     result = write_bundle(root, target, {'verified_jobs': 52})
-    manifest = json.loads((root/'FULL_STUDY_MANIFEST.json').read_text())
+    manifest = json.loads((root/'validation/FULL_STUDY_MANIFEST.json').read_text())
     assert manifest['status'] == 'complete'
     assert manifest['files']['model.pt']['sha256'] == hashlib.sha256(b'compact model').hexdigest()
     assert result['sha256'] == hashlib.sha256(target.read_bytes()).hexdigest()
     with zipfile.ZipFile(target) as archive:
         assert set(archive.namelist()) == {'harandi_reproduction/model.pt',
-                                          'harandi_reproduction/FULL_STUDY_MANIFEST.json'}
-        assert json.loads(archive.read('harandi_reproduction/FULL_STUDY_MANIFEST.json')) == manifest
+                                          'harandi_reproduction/validation/FULL_STUDY_MANIFEST.json'}
+        assert json.loads(archive.read('harandi_reproduction/validation/FULL_STUDY_MANIFEST.json')) == manifest
     assert previous.read_bytes() == b'preserve me'
 
 
@@ -164,11 +170,11 @@ def test_failed_queue_marks_pipeline_failed_without_starting_other_stages(tmp_pa
         'running': [], 'pending': [], 'failed': {'mixed_circle_coupled': 1}}))
     finisher = Finisher(tmp_path)
     assert finisher.run() == 1
-    state = json.loads((tmp_path/'full_pipeline_status.json').read_text())
+    state = json.loads((tmp_path/'validation/full_pipeline_status.json').read_text())
     assert state['status'] == 'failed'
     assert 'Neural queue failed' in state['detail']
     assert not (study/'pipeline_logs').exists()
-    assert not (tmp_path/'FULL_STUDY_MANIFEST.json').exists()
+    assert not (tmp_path/'validation/FULL_STUDY_MANIFEST.json').exists()
     assert not (tmp_path/'.full_pipeline.lock').exists()
 
 
@@ -179,7 +185,7 @@ def test_archive_publish_failure_never_creates_complete_manifest(tmp_path):
     destination = tmp_path/'blocked.zip'; destination.mkdir()
     with pytest.raises(OSError):
         write_bundle(root, destination, {'verified_jobs': 52})
-    assert not (root/'FULL_STUDY_MANIFEST.json').exists()
+    assert not (root/'validation/FULL_STUDY_MANIFEST.json').exists()
     assert not (tmp_path/'blocked.zip.tmp').exists()
 
 
@@ -205,13 +211,14 @@ def test_archive_heartbeats_update_progress_without_archiving_live_snapshot(tmp_
     clock = itertools.count(0, 31)
     monkeypatch.setattr(finish.time, 'monotonic', lambda: next(clock))
     def heartbeat():
-        path = root/'full_pipeline_status.json'
+        path = root/'validation/full_pipeline_status.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
         previous = json.loads(path.read_text()) if path.exists() else {'heartbeats': 0}
         path.write_text(json.dumps({'heartbeats': previous['heartbeats']+1, 'status': 'running'}))
     finish.write_bundle(root, tmp_path/'full.zip', {'verified_jobs': 52}, heartbeat=heartbeat)
-    assert json.loads((root/'full_pipeline_status.json').read_text())['heartbeats'] >= 2
+    assert json.loads((root/'validation/full_pipeline_status.json').read_text())['heartbeats'] >= 2
     with zipfile.ZipFile(tmp_path/'full.zip') as archive:
-        assert not any(name.endswith('full_pipeline_status.json') for name in archive.namelist())
+        assert not any(name.endswith('validation/full_pipeline_status.json') for name in archive.namelist())
 
 
 @pytest.mark.skipif(__import__('os').name != 'nt', reason='Windows execution-state contract')
@@ -243,11 +250,11 @@ def test_keep_awake_failure_is_recorded_without_claiming_protection(monkeypatch)
 
 def test_pdf_qa_must_cover_every_page_and_match_the_current_report(tmp_path):
     from scripts.finish_full_study import verify_report_qa, PipelineError
-    report = tmp_path/'FULL_PROJECT_REPORT_KO.pdf'; report.write_bytes(b'new PDF')
+    report = tmp_path/'reports/FULL_PROJECT_REPORT_KO.pdf'; report.write_bytes(b'new PDF')
     record = {'status': 'pass', 'automatic_checks_passed': True, 'pdf_sha256': 'stale',
               'page_count': 2, 'rendered_page_count': 2,
               'manual_visual_review': {'performed': False}}
-    qa = tmp_path/'FULL_REPORT_LAYOUT_QA.json'
+    qa = tmp_path/'validation/FULL_REPORT_LAYOUT_QA.json'
     qa.write_text(json.dumps(record))
     with pytest.raises(PipelineError, match='hash'):
         verify_report_qa(tmp_path)
@@ -273,7 +280,7 @@ def ready_pipeline(tmp_path, monkeypatch, failing_phase=None):
     notebook = nbformat.v4.new_notebook(cells=[nbformat.v4.new_code_cell(
         'RUN_FULL_STUDY=False\nRUN_SMOKE=False\nBUILD_FIGURE_PACK=False\nRESUME_JOB_ID=None',
         execution_count=1)])
-    nbformat.write(notebook, tmp_path/'Full_Paper_Reproduction_KO.ipynb')
+    nbformat.write(notebook, tmp_path/'notebooks/Full_Paper_Reproduction_KO.ipynb')
     finalizer = finish.Finisher(tmp_path, archive=tmp_path/'full.zip')
     events = []
     def verify_jobs(jobs):
@@ -305,8 +312,8 @@ def test_pipeline_runs_strict_stages_in_order_before_real_archive(tmp_path, monk
     assert events == ['neural_gate', 'timing', 'figures', 'notebook', 'report',
                       'report_layout_qa', 'validation']
     assert (tmp_path/'full.zip').exists()
-    assert (tmp_path/'Full_Paper_Reproduction_KO.html').exists()
-    assert json.loads((tmp_path/'full_pipeline_status.json').read_text())['status'] == 'complete'
+    assert (tmp_path/'notebooks/Full_Paper_Reproduction_KO.html').exists()
+    assert json.loads((tmp_path/'validation/full_pipeline_status.json').read_text())['status'] == 'complete'
 
 
 @pytest.mark.parametrize('phase', ['timing', 'figures', 'notebook', 'report', 'report_layout_qa'])
@@ -315,8 +322,8 @@ def test_failed_stage_prevents_final_validation_and_archive(tmp_path, monkeypatc
     assert finalizer.run() == 1
     assert 'validation' not in events
     assert not (tmp_path/'full.zip').exists()
-    assert not (tmp_path/'FULL_STUDY_MANIFEST.json').exists()
-    state = json.loads((tmp_path/'full_pipeline_status.json').read_text())
+    assert not (tmp_path/'validation/FULL_STUDY_MANIFEST.json').exists()
+    state = json.loads((tmp_path/'validation/full_pipeline_status.json').read_text())
     assert state['status'] == 'failed'
     assert phase+' simulated command failure' in state['detail']
 
@@ -329,13 +336,13 @@ def test_final_validation_failure_prevents_archive(tmp_path, monkeypatch):
     monkeypatch.setattr(finalizer, 'verify_deliverables', reject)
     assert finalizer.run() == 1
     assert not (tmp_path/'full.zip').exists()
-    assert not (tmp_path/'FULL_STUDY_MANIFEST.json').exists()
+    assert not (tmp_path/'validation/FULL_STUDY_MANIFEST.json').exists()
 
 
 def test_restart_rejects_live_stage_even_if_old_finalizer_removed_its_lock(tmp_path, monkeypatch):
     from scripts import finish_full_study as finish
     finalizer = finish.Finisher(tmp_path)
-    (tmp_path/'full_pipeline_status.json').write_text(json.dumps({'child_pid': 4321}))
+    (tmp_path/'validation/full_pipeline_status.json').write_text(json.dumps({'child_pid': 4321}))
     monkeypatch.setattr(finish, 'pid_alive', lambda pid: pid == 4321)
     with pytest.raises(finish.PipelineError, match='still running'):
         finalizer.acquire()

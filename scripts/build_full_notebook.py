@@ -14,7 +14,7 @@ Harandi et al., *Mixed formulation of physics-informed neural networks for therm
 
 **기본값 `RUN_FULL_STUDY=False`는 완료를 검증한 결과만 읽는다.** 누락·진행 중 실행은 대기 표에 남긴다. 오차는 예측·FEM NPZ 배열에서 다시 계산하며 보고서의 정적 숫자를 가져오지 않는다. 전체를 실행하려면 `RUN_FULL_STUDY=True`로 바꾸고 **Run All Cells**를 실행한다. 체크포인트부터 이어서 계산하고 완료된 작업은 재사용한다. 실행 시간은 장비에 따라 길어질 수 있다.
 
-최신 재현 노트북은 이 파일이다. [전체 보고서](FULL_PROJECT_REPORT_KO.pdf)와 [FEM 보고서](FEM_REPORT_KO.pdf)를 함께 참고한다. 자세한 실행법은 `README_FULL_STUDY_KO.md`에 있다.''')
+최신 재현 노트북은 이 파일이다. [전체 보고서](../reports/FULL_PROJECT_REPORT_KO.pdf)와 [FEM 보고서](../reports/FEM_REPORT_KO.pdf)를 함께 참고한다. 자세한 실행법은 [전체 실행 안내](../docs/README_FULL_STUDY_KO.md)에 있다.''')
 md('''## 1. 환경과 실행 설정
 
 프로젝트 전체를 유지하고 이 폴더에서 노트북을 연다. Windows에서는 `start_notebook.ps1`로 JupyterLab을 시작하여 **Harandi CUDA Python 3.11** 커널을 고른다. FEniCS는 WSL Ubuntu의 Python, 신경망은 현재 커널 Python을 사용한다. Linux에서는 `FENICS_PYTHON`으로 DOLFIN 환경을 지정한다.
@@ -103,15 +103,15 @@ for ax,geometry in zip(axes,('circle','rectangles')):
     ax.set(title=geometry,xlabel='x / L',ylabel='y / L')
     fig.colorbar(im,ax=ax,label='E [benchmark units]')
 show_figure(fig)
-inventory = read_json(ROOT/'PAPER_EXPERIMENT_INVENTORY.json')
+inventory = read_json(ROOT/'docs/PAPER_EXPERIMENT_INVENTORY.json')
 if inventory:
     table([{'기록':s.get('id',''),'내용':s.get('title',s.get('name','')),
             '출처':'; '.join(source.get('locator','') for source in s.get('sources',[]))} for s in inventory.get('studies',[])])
     table([{'ID':s['id'],'주제':s['topic'],'재현 처리':s['reproduction_implication']}
            for s in inventory.get('source_issues',[])])
 else:
-    display(Markdown('**실험 감사 목록 대기:** PAPER_EXPERIMENT_INVENTORY.json이 아직 없습니다. 실제 실행 목록은 아래 catalogue를 사용합니다.'))
-print('Protocol:', 'available' if (ROOT/'FULL_STUDY_PROTOCOL.json').exists() else 'not yet supplied')''')
+    display(Markdown('**실험 감사 목록 대기:** docs/PAPER_EXPERIMENT_INVENTORY.json이 아직 없습니다. 실제 실행 목록은 아래 catalogue를 사용합니다.'))
+print('Protocol:', 'available' if (ROOT/'docs/FULL_STUDY_PROTOCOL.json').exists() else 'not yet supplied')''')
 md('''## 3. 완료·대기 상태와 실제 예산
 
 `job_complete`는 설정·실제 업데이트·최종 상태·예측 파일을 확인한다. 체크포인트가 있어도 완료 기준을 충족하지 않으면 진행/재시작 가능으로 표시한다. 이전의 짧은 학습을 전체 실험 완료로 세지 않는다.''')
@@ -283,7 +283,7 @@ md('''## 7. 혼합·표준 PINN·DEM, 동시·순차 학습
 
 원형의 세 방법 × 두 학습 방식과 사각형 혼합 PINN 두 방식을 비교한다. 표준 PINN의 2차 미분·절점 재료장 정규화, DEM의 변분 에너지·자연 경계 처리도 결과에 영향을 준다. 선택은 실행별 `experiment.json`에 공개한다. 큰 오차나 실패를 숨기지 않는다.
 
-**동시 DEM의 역학 에너지는 T를 처방값으로 취급하여 온도망으로 가는 기울기를 차단한다.** 동시 표준·혼합 PINN에서는 역학 손실의 기울기가 온도망으로 전달된다. DEM의 이 선택은 단방향 열탄성 물리를 위한 변분 재구성이며, 원문 식 14의 u,T 공동 최소화를 문자 그대로 구현한 것은 아니다. 방법 비교에는 이 최적화 경로 차이가 포함되므로 원문의 방법 이름만으로 완전히 동일한 비교라고 단정하지 않는다. 선택은 `FULL_STUDY_PROTOCOL.json`에도 기록된다.''')
+**동시 DEM의 역학 에너지는 T를 처방값으로 취급하여 온도망으로 가는 기울기를 차단한다.** 동시 표준·혼합 PINN에서는 역학 손실의 기울기가 온도망으로 전달된다. DEM의 이 선택은 단방향 열탄성 물리를 위한 변분 재구성이며, 원문 식 14의 u,T 공동 최소화를 문자 그대로 구현한 것은 아니다. 방법 비교에는 이 최적화 경로 차이가 포함되므로 원문의 방법 이름만으로 완전히 동일한 비교라고 단정하지 않는다. 선택은 `docs/FULL_STUDY_PROTOCOL.json`에도 기록된다.''')
 code(r'''circle_ids=['mixed_circle_coupled','mixed_circle_sequential','baseline_circle_standard_coupled',
             'baseline_circle_standard_sequential','baseline_circle_dem_coupled','baseline_circle_dem_sequential']
 rectangle_ids=['mixed_rectangles_coupled','mixed_rectangles_sequential']
@@ -432,12 +432,12 @@ code(r'''if (RUN_FULL_STUDY or BUILD_FIGURE_PACK) and (ROOT/'harandi/full_figure
     command=[sys.executable,'-m','harandi.full_figures','--root',str(ROOT)]
     if len(completed_ids)!=len(JOBS): command.append('--partial')
     subprocess.run(command,cwd=ROOT,check=True)
-report=read_json(ROOT/'FULL_STUDY_RESULTS.json')
+report=read_json(ROOT/'validation/FULL_STUDY_RESULTS.json')
 if report:
     print('Figure status:',report.get('status'),'| pending jobs:',report.get('pending_jobs',[]))
     print('Pending references:',report.get('pending_references',[]))
     table([{'ID':f.get('id'),'내용':f.get('title'),'원문':f.get('source_figure'),'PNG':f.get('png')} for f in report.get('figures',[])])
-    display(Markdown('[그림 PDF](FULL_STUDY_FIGURES.pdf) · [HTML 갤러리](FULL_STUDY_GALLERY_KO.html)'))
+    display(Markdown('[그림 PDF](../reports/FULL_STUDY_FIGURES.pdf) · [HTML 갤러리](../reports/FULL_STUDY_GALLERY_KO.html)'))
 else:
     display(Markdown('**그림집 대기.** BUILD_FIGURE_PACK=True로 완료된 결과를 묶을 수 있다. 위 계산은 NPZ를 직접 읽는다.'))
 STATUS=status_rows(); completed=sum(r['완료'] for r in STATUS)
@@ -465,6 +465,7 @@ notebook.metadata.update({'kernelspec':{'display_name':'Harandi CUDA Python 3.11
 nbf.validate(notebook)
 for index,cell in enumerate(notebook.cells):
     if cell.cell_type=='code': compile(cell.source,f'Full_Paper_Reproduction_KO:cell_{index}','exec')
-target=ROOT/'Full_Paper_Reproduction_KO.ipynb'
+target=ROOT/'notebooks/Full_Paper_Reproduction_KO.ipynb'
+target.parent.mkdir(parents=True,exist_ok=True)
 nbf.write(notebook,target)
 print(f'{target}: {len(cells)} cells; all code cells compile; notebook schema valid')

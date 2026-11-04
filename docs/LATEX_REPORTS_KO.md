@@ -4,8 +4,8 @@
 
 | 보고서 | PDF | 편집 원본 | 생성기 |
 |---|---|---|---|
-| 전체 FEM/PINN 연구 | [PDF](../FULL_PROJECT_REPORT_KO.pdf) | [LaTeX](../FULL_PROJECT_REPORT_KO.tex), [Markdown](../FULL_PROJECT_REPORT_KO.md) | `scripts/build_full_korean_report.py` |
-| FEM 정식화 및 검증 | [PDF](../FEM_REPORT_KO.pdf) | [LaTeX](../FEM_REPORT_KO.tex), [Markdown](../FEM_REPORT_KO.md) | `scripts/build_fem_report.py` |
+| 전체 FEM/PINN 연구 | [PDF](../reports/FULL_PROJECT_REPORT_KO.pdf) | [LaTeX](../reports/FULL_PROJECT_REPORT_KO.tex), [Markdown](../reports/FULL_PROJECT_REPORT_KO.md) | `scripts/build_full_korean_report.py` |
+| FEM 정식화 및 검증 | [PDF](../reports/FEM_REPORT_KO.pdf) | [LaTeX](../reports/FEM_REPORT_KO.tex), [Markdown](../reports/FEM_REPORT_KO.md) | `scripts/build_fem_report.py` |
 
 FEM 보고서의 완료는 신경망 전체 학습의 완료를 뜻하지 않습니다. 전체 보고서는 검증된 실행만 수록하며, `--partial`로 생성하면 표지와 꼬리말에 진행 상태를 표시합니다.
 
@@ -50,7 +50,7 @@ python3 -m pytest tests/test_fem.py tests/test_author_reference.py -q
 
 ```powershell
 python scripts/build_fem_report.py
-python scripts/check_full_report_layout.py --pdf FEM_REPORT_KO.pdf --output FEM_REPORT_LAYOUT_QA.json
+python scripts/check_full_report_layout.py --pdf reports/FEM_REPORT_KO.pdf --output validation/FEM_REPORT_LAYOUT_QA.json
 ```
 
 보고서 생성기는 `results/fem_report_verification.json`에 기록된 NPZ 해시와 현재 파일이 다르면 중단합니다. 표·그림은 저장된 배열에서 계산합니다. 신경망 라이브러리나 학습 완료 결과는 필요하지 않습니다.
@@ -60,12 +60,13 @@ python scripts/check_full_report_layout.py --pdf FEM_REPORT_KO.pdf --output FEM_
 생성된 `.tex`를 직접 편집할 수 있습니다. 이후 Python 생성기를 실행하면 편집 내용은 생성기 내용으로 덮어써지므로, 지속적으로 유지할 본문 변경은 해당 Python 파일에 반영합니다. 프로젝트 루트에서 다음처럼 직접 조판할 수도 있습니다.
 
 ```bash
+cd reports
 xelatex -interaction=nonstopmode -halt-on-error FEM_REPORT_KO.tex
 xelatex -interaction=nonstopmode -halt-on-error FEM_REPORT_KO.tex
 xelatex -interaction=nonstopmode -halt-on-error FEM_REPORT_KO.tex
 ```
 
-그림의 상대 경로를 보존해야 합니다. 전체 보고서는 같은 명령의 파일명을 `FULL_PROJECT_REPORT_KO.tex`로 바꿉니다. 일반 생성기는 중간 파일을 `tmp/latex/`에 두고 검증된 PDF만 루트에 복사합니다. Python 생성기는 누락 글리프를 발견하면 실패로 처리하고, 조판 경고와 원본·PDF 해시를 `*_TEX_BUILD.json`에 저장합니다.
+`reports/`에서 컴파일하면 `../figures/`의 그림을 읽습니다. 전체 보고서는 같은 명령의 파일명을 `FULL_PROJECT_REPORT_KO.tex`로 바꿉니다. Python 생성기는 중간 파일을 프로젝트의 `tmp/latex/`에 두고 PDF·LaTeX·Markdown을 `reports/`에 저장합니다. 누락 글리프를 발견하면 실패로 처리하고, 조판 경고와 원본·PDF 해시는 `validation/*_TEX_BUILD.json`에 기록합니다.
 
 ## 5. 검증 범위
 
@@ -84,6 +85,6 @@ python -m pytest tests/test_latex_report.py -q
 python scripts/check_report_markdown.py
 ```
 
-두 번째 명령은 인증된 `gh` CLI로 GitHub의 상태를 변경하지 않는 Markdown 변환 API를 호출합니다. 모든 수식의 변환 전후 내용을 비교하고 `REPORT_MATH_QA.json`에 기록합니다. 브라우저 화면의 시각 검토와는 다른 검사이며, 수식 입력의 보존 여부를 확인합니다. 공식 근거: [GitHub 수식 작성 안내](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
+두 번째 명령은 인증된 `gh` CLI로 GitHub의 상태를 변경하지 않는 Markdown 변환 API를 호출합니다. 모든 수식의 변환 전후 내용을 비교하고 `validation/REPORT_MATH_QA.json`에 기록합니다. 브라우저 화면의 시각 검토와는 다른 검사이며, 수식 입력의 보존 여부를 확인합니다. 공식 근거: [GitHub 수식 작성 안내](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
 
 현재 보고서는 전체 보고서와 FEM 보고서 두 종류이며, PDF·TeX·Markdown은 각각 동일한 원고의 출력 형식입니다. 구버전 보고서·그림집·노트북·배포 압축본은 작업 폴더에서 제거하고 같은 이름의 최신 파일을 갱신합니다. 이전 커밋은 Git 이력에 남습니다. `scripts/build_korean_report.py`와 `scripts/build_notebook.py`는 최신 생성기로 연결되는 호환 명령입니다.

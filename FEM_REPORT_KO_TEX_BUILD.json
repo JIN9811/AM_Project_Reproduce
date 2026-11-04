@@ -1,8 +1,0 @@
-{
-  "engine": "XeLaTeX",
-  "passes": 3,
-  "missing_characters": [],
-  "warnings": [],
-  "tex_sha256": "c276355897b07fadf05ee9ac8de6b1ca0d2e3547b0a64fc3d3158393b004424e",
-  "pdf_sha256": "fa45d2f93056bd79a22386a9d5bbbca0b099f98377a3a9c6bc921f62b5b58a52"
-}

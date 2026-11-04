@@ -1,0 +1,11 @@
+{
+  "engine": "XeLaTeX",
+  "passes": 3,
+  "missing_characters": [],
+  "warnings": [],
+  "tex_sha256": "5e081ad97d1771085898355d78eca6549940aa3e75e00bf5f3125a5790f9d2b3",
+  "pdf_sha256": "00634906b87bc71d10dc3886086ea6d4c12721dec3eb16173ae929b02f6059f4",
+  "compiled_pdf_sha256": "1602575409d576b2ea1f68298028459a313f222ecc938049a0752447e13d3eb8",
+  "verification_mode": "Relocated TeX compiled in scratch; all page text matches; original PDF bytes retained.",
+  "relocation_record": "validation/DOCUMENT_TEX_RELOCATION.json"
+}

@@ -1,6 +1,6 @@
 {
   "purpose": "Execute all identifiable manuscript experimental families and disclose every source gap; not assert universal agreement with the paper.",
-  "source": "PAPER_EXPERIMENT_INVENTORY.json",
+  "source": "docs/PAPER_EXPERIMENT_INVENTORY.json",
   "precision": "float64 throughout FEM/PINN studies",
   "seed": 42,
   "new_results_root": "results/full_study",
