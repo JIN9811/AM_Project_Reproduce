@@ -11,10 +11,11 @@ FEniCS 유한요소해와 PyTorch 기반 혼합 물리정보 신경망을 이용
 
 ## 연구 자료
 
-최신 보고서는 아래 **전체 보고서**와 **FEM 보고서** 두 종류입니다. PDF는 완성된 조판본이며, Markdown도 GitHub 수식 표시를 검증했습니다. 같은 이름의 파일을 갱신하며 이전 내용은 Git 이력에서 확인합니다.
+최신 보고서는 **전체 보고서**, **FEM 보고서**, **간결한 비교 보고서**입니다. Word 비교 보고서는 조건표와 데이터 그림별 관측·의견을 중심으로 구성했습니다. 같은 이름의 파일을 갱신하며 이전 내용은 Git 이력에서 확인합니다.
 
 | 자료 | 내용 |
 |---|---|
+| [간결한 비교 보고서 · Word](reports/CONCISE_COMPARISON_KO.docx) | FEM·PINN 전체 조건표, 논문 데이터 그림 23개에 대한 자체 계산 결과·비교·의견, 악화 사례 |
 | [한국어 연구 보고서 · PDF](reports/FULL_PROJECT_REPORT_KO.pdf) | 국·영문 초록, 정식화, 방법, 결과 및 고찰, 결론, 상세 부록 |
 | [전체 보고서 · LaTeX 원본](reports/FULL_PROJECT_REPORT_KO.tex) | 번호가 부여된 수식과 학술 문서 조판 원본 |
 | [독립 FEM 보고서 · PDF](reports/FEM_REPORT_KO.pdf) | 약형 유도, 19개 기준해, 균질 해석해 검증, 격자 수렴, 저자 FEAP 자료 비교 |
@@ -64,7 +65,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1 -Task full
 ## 디렉터리 구성
 
 ```text
-reports/                 전체·FEM 보고서(PDF·Markdown·LaTeX), 그림집과 갤러리
+reports/                 전체·FEM 보고서, 간결한 Word 비교 보고서, 그림집과 갤러리
 notebooks/               실행 가능한 Jupyter 노트북과 HTML 미리보기
 docs/                    재현 안내, 실험 명세, 프로토콜 및 출처
 validation/              수식·레이아웃·빌드 검사, 결과 명세와 공개본 상태

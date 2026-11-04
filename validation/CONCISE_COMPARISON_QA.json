@@ -1,0 +1,411 @@
+{
+  "result_snapshot_sha256": "cc157686fd24daace0ee667bf871d1637e1eb45ea0e43baa685faf2baa663aa7",
+  "completed_jobs": [
+    "mixed_rectangles_coupled",
+    "mixed_rectangles_sequential",
+    "mixed_circle_coupled",
+    "mixed_circle_sequential",
+    "baseline_circle_standard_coupled",
+    "baseline_circle_standard_sequential",
+    "baseline_circle_dem_coupled",
+    "baseline_circle_dem_sequential",
+    "sensitivity_circle_dem_hard_coupled",
+    "sensitivity_circle_dem_hard_sequential",
+    "refine_rectangles_left1000",
+    "ablation_circle_noenergy",
+    "hard_rectangles_adam10k",
+    "arch_l1_w40",
+    "arch_l2_w40",
+    "arch_l4_w40",
+    "arch_l5_w5",
+    "arch_l5_w10",
+    "arch_l5_w20",
+    "arch_l5_w40",
+    "arch_l5_w60",
+    "arch_l6_w40",
+    "transfer_w0",
+    "transfer_w0.1",
+    "transfer_w0.5",
+    "transfer_w1"
+  ],
+  "figures": [
+    {
+      "paper_figure": "5",
+      "paper_page": 13,
+      "path": "figures/full_study/fig05_circle_points_mesh.png",
+      "sha256": "318b924b43ffd89a97a1a09aa119cbe45a6c3afc2605bfe9633df8d5be8e2dd8",
+      "embedded_width_cm": 14.1
+    },
+    {
+      "paper_figure": "7",
+      "paper_page": 15,
+      "path": "figures/full_study/fig07_circle_deformation.png",
+      "sha256": "26e8a56058ad8856998b4e2d18cfa2dd0dc53f43c2c5dc4af9a0de50f85a3d9b",
+      "embedded_width_cm": 14.1
+    },
+    {
+      "paper_figure": "12",
+      "paper_page": 20,
+      "path": "figures/full_study/fig12_rectangles_points_mesh.png",
+      "sha256": "75bd56a31feed20133f797fc529c049072da15eee3b7a8c77b84a1a5d1832997",
+      "embedded_width_cm": 14.1
+    },
+    {
+      "paper_figure": "6",
+      "paper_page": 14,
+      "path": "figures/full_study/fig06_circle_coupled_losses.png",
+      "sha256": "67aa57fc428532777b01e07cd382b0b053da288aa1bcd0cf4da4a4ddafcce3ea",
+      "embedded_width_cm": 11.4
+    },
+    {
+      "paper_figure": "10",
+      "paper_page": 18,
+      "path": "figures/full_study/fig10_circle_sequential_losses.png",
+      "sha256": "78aead053d7151aa2569c69664ec143d8b802143a2df7612693f118c3fa951ed",
+      "embedded_width_cm": 11.4
+    },
+    {
+      "paper_figure": "8",
+      "paper_page": 16,
+      "path": "figures/full_study/fig08_circle_coupled_mechanical.png",
+      "sha256": "a279ba2d24fc4aba2bdeca6ebf77253ef4936e3f0ede2f1168bec32184dfd101",
+      "embedded_width_cm": 14.4
+    },
+    {
+      "paper_figure": "9",
+      "paper_page": 17,
+      "path": "figures/full_study/fig09_circle_coupled_thermal.png",
+      "sha256": "ddc5591c9771a573bfd1106f821bbc104c2ee64c476844a5cf7bf2e9e0ee0995",
+      "embedded_width_cm": 16
+    },
+    {
+      "paper_figure": "11",
+      "paper_page": 19,
+      "path": "figures/full_study/fig11_circle_methods.png",
+      "sha256": "b215c4a6494534306afca2c267a8fe7022c17741d686a2e6605ea0721ac2ba33",
+      "embedded_width_cm": 17.4
+    },
+    {
+      "paper_figure": "13",
+      "paper_page": 21,
+      "path": "figures/full_study/fig13_rectangles_coupled_mechanical.png",
+      "sha256": "b96f4376885b131af6e37b76847c97a3655c726fe6052c08354b2e18ce34e4a0",
+      "embedded_width_cm": 14.4
+    },
+    {
+      "paper_figure": "14",
+      "paper_page": 22,
+      "path": "figures/full_study/fig14_rectangles_coupled_thermal.png",
+      "sha256": "6efc92b15cc20457f0f8bd3ae965f615d7dbbfeb42bbda2fa220503927794851",
+      "embedded_width_cm": 16
+    },
+    {
+      "paper_figure": "15",
+      "paper_page": 23,
+      "path": "figures/full_study/fig15_left_refinement.png",
+      "sha256": "3a77fd3d1b7fb2d82a1d8edf9a8108457c5208ecca60f58662f5da0f606a3d07",
+      "embedded_width_cm": 14.5
+    },
+    {
+      "paper_figure": "16",
+      "paper_page": 23,
+      "path": "figures/full_study/fig16_rectangles_sections.png",
+      "sha256": "02ad1fd3a2c8c990271339068fd535ed34c7a81a79ec53b9dc503c86feada2ec",
+      "embedded_width_cm": 14.5
+    },
+    {
+      "paper_figure": "17",
+      "paper_page": 24,
+      "path": "figures/full_study/fig17_boundary_optimizer.png",
+      "sha256": "b0e7969cbb16ab99d56ca237bd1b4ec5dcc52859a17310bce0e010a9dcdf562e",
+      "embedded_width_cm": 16.2
+    },
+    {
+      "paper_figure": "18",
+      "paper_page": 24,
+      "path": "figures/full_study/fig18_hard_objective.png",
+      "sha256": "2f43048ce0e516adab64d6fffe60c05ad7a9098daa110a58c76bec0dccee4ccf",
+      "embedded_width_cm": 16.2
+    },
+    {
+      "paper_figure": "19",
+      "paper_page": 25,
+      "path": "figures/full_study/fig19_architectures.png",
+      "sha256": "d379a64c8d48debc1163b2475eebf08fd32b3bfcbe681e2052b86c539502df98",
+      "embedded_width_cm": 16
+    },
+    {
+      "paper_figure": "20",
+      "paper_page": 26,
+      "path": "figures/full_study/fig20_depth_derived.png",
+      "sha256": "85b3ba62f3e0f74df003b88d16bfde9914f759503289f2ab59af46b344b4f021",
+      "embedded_width_cm": 17
+    },
+    {
+      "paper_figure": "21",
+      "paper_page": 27,
+      "path": "figures/full_study/fig21_width_derived.png",
+      "sha256": "ab060ace6c38e9b5e6c983cdfb5b1eab4f80672a4af7969c016db2efc8498e4d",
+      "embedded_width_cm": 16.2
+    },
+    {
+      "paper_figure": "23",
+      "paper_page": 28,
+      "path": "figures/full_study/fig23_transfer.png",
+      "sha256": "95e401b9493357bf39aa319fb31f404affc9552475ebe9d523566e5991cdea46",
+      "embedded_width_cm": 16.8
+    },
+    {
+      "paper_figure": "24",
+      "paper_page": 29,
+      "path": "figures/full_study/fig24_transfer.png",
+      "sha256": "9b2b13db65998d231fdef0cb5d66960cd49a7837529115286da91598e0db7d60",
+      "embedded_width_cm": 16.8
+    },
+    {
+      "paper_figure": "25",
+      "paper_page": 30,
+      "path": "figures/full_study/fig25_transfer_sections.png",
+      "sha256": "8846422fe86b917e9dcd5e34f4e91285da20f8498c8584713a59481406d7d60e",
+      "embedded_width_cm": 16.5
+    },
+    {
+      "paper_figure": "A1",
+      "paper_page": 35,
+      "path": "figures/full_study/figA1_mesh_convergence.png",
+      "sha256": "6f63196af6d3578b7c79080fc3ec5e95db87b7be90dc91891a2615a84c0787a1",
+      "embedded_width_cm": 16.5
+    },
+    {
+      "paper_figure": "B1",
+      "paper_page": 36,
+      "path": "figures/full_study/figB1_hard_fullfields.png",
+      "sha256": "7556b527ee87158e653dc7e2791bdd4e67cb9a8b6a7bad7ea3347101cc25fd0c",
+      "embedded_width_cm": 14.4
+    },
+    {
+      "paper_figure": "B2",
+      "paper_page": 37,
+      "path": "figures/full_study/figB2_hard_fullfields.png",
+      "sha256": "9ee418037d1fcb7516b91ed0670c8af3d2ac4c29f6b7fd997e16f0b1fa649d53",
+      "embedded_width_cm": 16
+    }
+  ],
+  "metrics_verified": [
+    {
+      "job": "mixed_rectangles_coupled",
+      "prediction_sha256": "5d196c780b7325ad9c17faff4b4e86b1a8ca8622da37a38833339f60d24b3175",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "mixed_rectangles_sequential",
+      "prediction_sha256": "fe908c0bec8691a6398cd9c371ea9fd0473d26f0b78950c9efb749051426afcf",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "mixed_circle_coupled",
+      "prediction_sha256": "49af3cc7d3e4c416171a5249030d0b037e196dd7b638e44f6beba1b78ffd0c27",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "mixed_circle_sequential",
+      "prediction_sha256": "0fa4a4f4084dcf86c2654a360e26a2171d9052e968569327562d4bf5b039e945",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "baseline_circle_standard_coupled",
+      "prediction_sha256": "792d3dd1d6c44a016bd39c0709c3a7ba0367c7e55c23cf571251c82cff4fad86",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "baseline_circle_standard_sequential",
+      "prediction_sha256": "bf98e27d723ff7ecc82e1808b8595f9df04c918c31a16f0d6ba44b44185ac78a",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "baseline_circle_dem_coupled",
+      "prediction_sha256": "4b0a06e0c598cea97e3eb2ce3bf9a968c2591ee419e7f69bc02720557093bb80",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "baseline_circle_dem_sequential",
+      "prediction_sha256": "f157ccd2a31a917460d37cebe93971c1a6877ed4da99515f16c0ddc478ba6cb6",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "sensitivity_circle_dem_hard_coupled",
+      "prediction_sha256": "c592e7f4b6d3cc4660cfeae788896b6ed6a1e857636e21bdd00c97a0967678b3",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "sensitivity_circle_dem_hard_sequential",
+      "prediction_sha256": "eb2da9e6fa2bc6a8b0c6efbee245c0baf91edc3a430a454056d495d094d54d24",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "refine_rectangles_left1000",
+      "prediction_sha256": "704638945474ed6bfe43c64368474862ff1d7dd46cbeadf6b6c796864e510847",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "ablation_circle_noenergy",
+      "prediction_sha256": "a8745561107c4329c139c8e0263e3a247c2632cf3a86a79a8e6249679bdad40f",
+      "reference_sha256": "5faccda2b50f0fcedd80fc22a3d4eaad3bd7e8defe48716c3a4631afdeee2cfb",
+      "checks": 32
+    },
+    {
+      "job": "hard_rectangles_adam10k",
+      "prediction_sha256": "1684373fc3ea6a95f2b1cbd63431af4bee1aa80851491c74ef91e864d33adae2",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l1_w40",
+      "prediction_sha256": "f9e83b0da51bfdc92cbaeac40545d376320cfb712a7bf8688d085ff34d6a4fca",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l2_w40",
+      "prediction_sha256": "ea5e4c9fcaed8d0b9077858f8954aebd356abbf123982b7a3ba8f18f496de9af",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l4_w40",
+      "prediction_sha256": "8ee8becc1310f401cd1c05b86dca62336170933de1a0cc59b4cdb0368b2527fd",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l5_w5",
+      "prediction_sha256": "c9c15560e727cb819199767d6f984227263679047d270c4a7c3f133750f72b7b",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l5_w10",
+      "prediction_sha256": "78908a46f9eb8dba1b3eec267e29cd6e1231f6726ce5c830cc1ddcab8bdffea0",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l5_w20",
+      "prediction_sha256": "4ef45cdb983ed3a682c106aedc0850062386ca1d0ef546b8d016fdf7f48cf5f5",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l5_w40",
+      "prediction_sha256": "fd244b5bd20ebf61cc06ea841abc933f60e210ddd3af70a166c2dc125fb7f964",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l5_w60",
+      "prediction_sha256": "811355669f1e6d8acf72d64f686392e507142fcfdbd7148983bb8442ded0b23d",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "arch_l6_w40",
+      "prediction_sha256": "78d916b82687aa50fd2b1edae98c2cff49ce9469335d09a54b9227a63e082950",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
+    },
+    {
+      "job": "transfer_w0",
+      "prediction_sha256": "fd321f643170facf5816573a0c89289a8e82d226502c3a03f47c6692270f5f22",
+      "reference_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
+      "checks": 32
+    },
+    {
+      "job": "transfer_w0.1",
+      "prediction_sha256": "877097c8895a7f864bad072e165c4c3933cb61503bb517362ba0ea50c5092259",
+      "reference_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
+      "checks": 32
+    },
+    {
+      "job": "transfer_w0.5",
+      "prediction_sha256": "f5e6e2c0efdd999a9b5f478d2116ff3844f2c9b66d8d61b6cfc9f394310f94fe",
+      "reference_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
+      "checks": 32
+    },
+    {
+      "job": "transfer_w1",
+      "prediction_sha256": "12de1f9673273f9422d7fa3483b6a7b5e8b1da53109ebe21d3cd69255ea608ac",
+      "reference_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
+      "checks": 32
+    }
+  ],
+  "excluded_conceptual_figures": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "22"
+  ],
+  "source_data_cutoff_kst": "2026-11-05 03:13 KST",
+  "comparison_reference": "FEM50; mesh convergence uses FEM200",
+  "prediction_representation": "constitutive stress and Fourier flux derived from u,T",
+  "docx_sha256": "1fab8bca286df41b9ae2179a18b7c335997aa8c34e46e9b92fec3225d95d7796",
+  "table_count": 9,
+  "embedded_figure_count": 23,
+  "status": "pass",
+  "rendered_pages": 21,
+  "rendered_pdf_sha256": "90fa8588c7695d94a6e5bf23707ee857628c03f8cb8fbf0d8ddbb24050458599",
+  "render_method": "packaged render_docx.py with task-local official signed LibreOffice 26.2.6 administrative extraction; Windows bundled LibreOffice unavailable",
+  "native_word_render_attempt": "Office automation remained busy; failed empty automation processes closed; not used for validation",
+  "visual_review": {
+    "pages_reviewed_at_original_resolution": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "findings": "No clipped text, split tables, missing figures, detached captions or visibly missing glyphs."
+  },
+  "text_bounds_violations": [],
+  "text_replacement_characters": 0,
+  "image_bytes_match_source_figures": true,
+  "all_tables_have_repeat_header": true,
+  "a11y": {
+    "file": "outputs/AM_Project_Reproduce/reports/CONCISE_COMPARISON_KO.docx",
+    "counts": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "findings": []
+  },
+  "source_paper_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
+  "checks_do_not_cover": "No new training, no isolated runtime benchmarking, no independent replication of the original authors unpublished runs."
+}

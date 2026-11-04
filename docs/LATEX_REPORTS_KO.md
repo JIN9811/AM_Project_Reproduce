@@ -87,4 +87,16 @@ python scripts/check_report_markdown.py
 
 두 번째 명령은 인증된 `gh` CLI로 GitHub의 상태를 변경하지 않는 Markdown 변환 API를 호출합니다. 모든 수식의 변환 전후 내용을 비교하고 `validation/REPORT_MATH_QA.json`에 기록합니다. 브라우저 화면의 시각 검토와는 다른 검사이며, 수식 입력의 보존 여부를 확인합니다. 공식 근거: [GitHub 수식 작성 안내](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
 
-현재 보고서는 전체 보고서와 FEM 보고서 두 종류이며, PDF·TeX·Markdown은 각각 동일한 원고의 출력 형식입니다. 구버전 보고서·그림집·노트북·배포 압축본은 작업 폴더에서 제거하고 같은 이름의 최신 파일을 갱신합니다. 이전 커밋은 Git 이력에 남습니다. `scripts/build_korean_report.py`와 `scripts/build_notebook.py`는 최신 생성기로 연결되는 호환 명령입니다.
+전체 보고서와 FEM 보고서의 PDF·TeX·Markdown은 각각 동일한 원고의 출력 형식입니다. 별도의 Word 비교 보고서는 조건표와 데이터 그림별 비교를 중심으로 구성합니다. 구버전 보고서·그림집·노트북·배포 압축본은 작업 폴더에서 제거하고 같은 이름의 최신 파일을 갱신합니다. 이전 커밋은 Git 이력에 남습니다. `scripts/build_korean_report.py`와 `scripts/build_notebook.py`는 최신 생성기로 연결되는 호환 명령입니다.
+
+## 7. 간결한 Word 비교 보고서
+
+`reports/CONCISE_COMPARISON_KO.docx`는 원문 조건과 본 실험 조건을 비교한 표, 데이터 그림 23개, 그림별 관측과 짧은 의견을 담습니다. 개념도는 제외하며 모든 삽입 그림은 자체 계산 결과입니다. 기존 전체 보고서의 이론·수식 전개를 반복하지 않습니다.
+
+```powershell
+python scripts/build_concise_comparison_docx.py
+```
+
+`requirements-documents.txt`의 `python-docx`가 필요합니다. 생성기는 저장된 26개 완료 예측과 FEM50 배열에서 비교 수치 832개를 독립 재계산하고, 출처 해시와 그림 23개의 대응을 `validation/CONCISE_COMPARISON_QA.json`에 기록합니다. 현재 원고는 2026-11-05 03:13 KST의 26개 완료 실험에 맞춰 작성되어 있으므로, 완료 집합이 바뀌면 조건·해석도 함께 검토해야 합니다. 새로 생성한 파일은 시각 검토 전 상태로 표시됩니다.
+
+배포 전에는 DOCX를 페이지 이미지로 렌더링하여 표 분할, 그림과 캡션의 분리, 글리프 누락을 확인합니다. 렌더링 PDF와 PNG는 작업용 검수 자료이며 Word 결과물과 구분합니다.
