@@ -869,7 +869,7 @@
   "source_data_cutoff_kst": "2026-11-05 03:13 KST",
   "comparison_reference": "FEM50; mesh convergence uses FEM200",
   "prediction_representation": "constitutive stress and Fourier flux derived from u,T",
-  "docx_sha256": "d446581205d0fb465d062dbba4fc4f921476fe05c91a2e212af8b8557afa3d82",
+  "docx_sha256": "5346b958a1eb15f2e2bef99097b53af073bd6d60d18703c883ea783e1f8ad500",
   "source_paper_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
   "original_figure_license": "CC BY-NC-ND 4.0",
   "table_count": 9,
@@ -878,7 +878,7 @@
   "table_style": "White background, black text and horizontal top/header/bottom rules; no shading or vertical rules.",
   "status": "pass",
   "rendered_pages": 50,
-  "rendered_pdf_sha256": "1a979a881bb4a0757ce7af6af4dcfa50e5646c2d1488d5292bf99ae7f5d90318",
+  "rendered_pdf_sha256": "a5772b3a2bdabc188147a36e723e66f54a936ba5b052e053f67f6e4a9fe741c0",
   "render_method": "packaged render_docx.py with task-local official LibreOffice 26.2.6 administrative extraction",
   "visual_review": {
     "pages_reviewed_at_original_resolution": [
@@ -947,27 +947,24 @@
       19,
       21,
       23,
-      24,
       25,
       27,
+      28,
       29,
       31,
       32,
       33,
-      34,
       35,
-      36,
       37,
       39,
       41,
-      42,
       43,
       45,
       47,
       49,
       50
     ],
-    "baseline_review": "Previous paired edition 48a682b; unchanged pages match its reviewed PNGs exactly.",
+    "baseline_review": "Previous edition 8887602; unchanged pages match its reviewed PNGs exactly.",
     "unchanged_final_pages_match_reviewed_pngs": true,
     "findings": "All 23 original/computed pairs occupy two consecutive pages. Original panels, axes, legends and colour bars are complete. No clipped text, split tables, detached captions or visibly missing glyphs. All nine tables have white backgrounds, black rules and no vertical lines."
   },
@@ -988,7 +985,7 @@
     "findings": []
   },
   "editorial_corrections": [
-    "Rewrote body and condition tables in connected academic Korean, replacing progress counters, repeated file paths and execution-log phrasing.",
+    "Removed report/research framing, self-referential narration, prescriptions and generalised interpretation; retained conditions, values, observed differences and explicit unavailable results.",
     "Preserved all 46 image source hashes and sizes, all numerical result tables, all 832 metric checks and the dataset cutoff.",
     "Fig 10: horizontal axis is the global 200000-update schedule; only active training intervals are plotted.",
     "Fig 16: quoted average errors use the full evaluation grid, not the x=0.5 cross-section."
