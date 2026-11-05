@@ -1,5 +1,7 @@
 # 재현 절차
 
+2026-11-05 공개 자료는 신경망 실험 27개와 단독 시간 측정 25개를 모두 완료한 스냅샷이다. FEM 기준해 19개는 기존 배열의 해시를 재검증했다. 결과를 읽을 때 재학습할 필요는 없으며, 등록 작업 완료와 논문 수치의 동일 재현은 구분한다. 정확한 자료 확정 시점은 `validation/PUBLIC_SNAPSHOT.json`을 따른다.
+
 ## 1. 계산 환경
 
 현재 검증 환경은 Windows Python 3.11, PyTorch 2.11 및 NVIDIA RTX 3090이며, 유한요소 해석에는 WSL Ubuntu의 DOLFIN 2019.2 계열을 사용하였다. 설치 버전은 요구사항 파일과 작업별 `environment.json`에 기록되어 있다. 신경망의 기본 정밀도는 float64이고, 전체 실험 명세는 CUDA 그래프를 사용한다. CPU 환경에서 결과를 읽을 수 있으나 전체 학습에는 별도 CPU 설정이 필요하다.
@@ -36,12 +38,12 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\start_notebook.ps1
 ## 4. 그림과 보고서만 재생성
 
 ```powershell
-.\.venv\Scripts\python.exe -m harandi.full_figures --partial
-.\.venv\Scripts\python.exe scripts/build_full_korean_report.py --partial --pinn-python .\.venv\Scripts\python.exe
+.\.venv\Scripts\python.exe -m harandi.full_figures
+.\.venv\Scripts\python.exe scripts/build_full_korean_report.py --pinn-python .\.venv\Scripts\python.exe
 .\.venv\Scripts\python.exe scripts/check_full_report_layout.py
 ```
 
-`--partial`은 검증된 일부 결과로 진행 보고서를 생성한다. 모든 실험이 끝난 뒤 이 옵션을 생략하면 전체 완료와 자료의 일치 여부를 검사한다. PDF 검사는 모든 페이지를 렌더링하여 누락 글리프·경계 초과 등을 검사하며, 문서의 시각적 검토는 별도 단계이다.
+현재 공개본은 전체 완료를 요구하는 기본 모드로 재생성한다. 계산이 덜 끝난 별도 환경에서는 그림·전체 보고서 명령에 `--partial`을 붙여 검증된 일부 결과만 진행 보고서로 만든다. PDF 검사는 모든 페이지를 렌더링하여 누락 글리프·경계 초과 등을 검사하며, 문서의 시각적 검토는 별도 단계이다. 문서용 의존성은 `requirements-documents.txt`에 있다.
 
 ## 5. 결과 해석
 

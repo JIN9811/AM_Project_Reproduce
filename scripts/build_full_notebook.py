@@ -354,7 +354,15 @@ else: plt.close(fig); print('Pending hard-optimizer histories.')
 remark_ids=[j['id'] for j in JOBS if 'remark' in j['id']]
 if remark_ids:
     display(Markdown('**Remark 7의 별도 100만 회 주장:** 아래 실행은 Table 1의 주 실행과 분리해 확인한다. 학습을 이어 확장했다면 실제 체크포인트·설정이 그 계보를 기록한다.'))
-    metric_table(remark_ids)''')
+    metric_table(['mixed_rectangles_coupled']+remark_ids)
+    if 'remark_rectangles_adam1m' in EVALUATIONS:
+        base=EVALUATIONS['mixed_rectangles_coupled']['errors'][OUTPUT_KIND]
+        final=EVALUATIONS['remark_rectangles_adam1m']['errors'][OUTPUT_KIND]
+        table([{'성분':f,'100k 상대 L2 (%)':100*base[f]['relative_L2'],
+                '1M 상대 L2 (%)':100*final[f]['relative_L2'],
+                '변화 (pp)':100*(final[f]['relative_L2']-base[f]['relative_L2'])} for f in FIELDS])
+        better=[f for f in FIELDS if final[f]['relative_L2']<base[f]['relative_L2']]
+        print('1M에서 상대 L2가 감소한 성분:',better,'; 단일 연속 궤적이며 시드 반복은 아님.')''')
 md('''## 10. 깊이·너비 정확도와 25개 독립 시간 측정
 
 평균/최대 오차를 함께 보고 성분별 예외와 비단조성을 남긴다. 시간은 별도 실행의 경과시간/실제 업데이트 수이며 기록 오버헤드를 포함할 수 있다. 로컬 측정과 원문 Apple M2 Pro 결과의 장비·소프트웨어 조건은 다르다.''')
@@ -378,8 +386,10 @@ for layers in (1,2,4,5,6):
     for width in (5,10,20,40,60):
         name=f'timing_l{layers}_w{width}'
         if name not in completed_ids: row[f'{width} 뉴런 s/update']='대기'; continue
-        ck=torch.load(STUDY/name/'model.pt',map_location='cpu',weights_only=False)
-        row[f'{width} 뉴런 s/update']=ck['elapsed_seconds']/sum(ck['completed'].values())
+        with (STUDY/name/'history.csv').open(newline='') as stream:
+            history=list(csv.DictReader(stream))
+        measured=next(r for r in history if r.get('optimizer')=='lbfgs' and int(r['step'])==100)
+        row[f'{width} 뉴런 s/update']=float(measured['elapsed_seconds'])/100
     timing.append(row)
 table(timing)
 print('Timing requires verified completion; missing cells are not zero.')''')

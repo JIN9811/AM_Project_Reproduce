@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import numpy as np
@@ -23,6 +24,9 @@ OUT = ROOT / 'reports/CONCISE_COMPARISON_KO.docx'
 FIELDS = ('ux', 'uy', 'sxx', 'syy', 'sxy', 'T', 'qx', 'qy')
 LABEL = ('uₓ', 'uᵧ', 'σₓₓ', 'σᵧᵧ', 'σₓᵧ', 'T', 'qₓ', 'qᵧ')
 SNAP = json.loads((ROOT / 'validation/FULL_STUDY_RESULTS.json').read_text('utf-8'))
+SNAPSHOT = json.loads((ROOT / 'validation/PUBLIC_SNAPSHOT.json').read_text('utf-8'))
+CUTOFF = datetime.fromisoformat(SNAPSHOT['source_cutoff_utc']).astimezone(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M KST')
+NEURAL = [name for name in SNAP['completed_jobs'] if SNAP['jobs'][name]['kind'] != 'timing']
 LIMITS = json.loads((ROOT / 'data/paper_color_limits.json').read_text('utf-8'))
 PAPER = json.loads((ROOT / 'figures/paper_reference/provenance.json').read_text('utf-8'))
 ORIGINALS = {x['paper_figure']: x for x in PAPER['figures']}
@@ -31,7 +35,7 @@ FEM_CHECK = json.loads((ROOT / 'results/fem_report_verification.json').read_text
 EVIDENCE = {'result_snapshot_sha256': hashlib.sha256((ROOT / 'validation/FULL_STUDY_RESULTS.json').read_bytes()).hexdigest(),
             'completed_jobs': SNAP['completed_jobs'], 'figures': [], 'original_figures': [], 'figure_pairs': [], 'metrics_verified': [],
             'excluded_conceptual_figures': ['1', '2', '3', '4', '22'],
-            'source_data_cutoff_kst': '2026-11-05 03:13 KST',
+            'source_data_cutoff_kst': CUTOFF,
             'comparison_reference': 'FEM50; mesh convergence uses FEM200',
             'prediction_representation': 'constitutive stress and Fourier flux derived from u,T'}
 
@@ -88,8 +92,8 @@ def verify_conditions():
 
 def verify_data():
     """Independently recompute reported FEM50 metrics from saved NPZ arrays."""
-    assert len(SNAP['completed_jobs']) == 26, 'Review the prose and budgets before using another snapshot.'
-    for name in SNAP['completed_jobs']:
+    assert SNAP['status'] == 'complete' and len(SNAP['completed_jobs']) == 52 and len(NEURAL) == 27
+    for name in NEURAL:
         job = SNAP['jobs'][name]
         pred_path = ROOT / 'results/full_study' / name / 'prediction.npz'
         assert digest(pred_path) == job['prediction_sha256'], name
@@ -287,7 +291,7 @@ def main():
     DOC.add_paragraph('요약', 'Heading 2')
     p('원형 개재물의 x=0.5 단면에서 혼합 PINN은 표준 PINN과 DEM보다 FEM50에 가까웠다. 왼쪽 경계점 보강은 변위 최대오차를 줄였지만 온도 최대오차는 늘렸다. hard 조건에서는 Adam의 최종 손실이 L-BFGS보다 작아 논문과 순서가 달랐다.', size=10)
     p('논문 원본 [1]과 재현 결과 [3]를 그림별로 연속된 두 쪽에 배치하였다. 데이터 그림은 23쌍이다.', size=9.4)
-    p('계산값은 2026년 11월 5일 03:13 KST까지 학습을 마친 26개 모델의 출력이다. Adam 100만 회 결과와 25개 구조의 독립 시간 측정값은 포함하지 않았다.', size=8.7)
+    p(f'자료 확정 시점은 {CUTOFF}이다. 신경망 실험 27개와 독립 시간 측정 25개를 완료하였다. Adam 100만 회의 연속 학습 결과와 시간 측정표는 마지막 비교 그림 뒤에 제시하였다.', size=8.7)
     DOC.add_paragraph('1 공통 물리 조건', 'Heading 1')
     table(['항목', '논문 및 저자 자료', '재현 FEM과 PINN'], [
         ['해석 영역과 연성', '정상 소변형 평면변형률 열탄성, [0,1]²', '동일 영역. 온도가 역학에 영향을 주는 단방향 연성'],
@@ -380,8 +384,8 @@ def main():
         ['hard L-BFGS 구조', '너비 40에서 깊이 1,2,4,5,6; 5층에서 너비 5,10,20,40,60', '서로 다른 9개 구조를 각 1만 회 학습. 5×40 결과는 Fig. 17–18과 B1–B2에도 사용'],
         ['전이학습 4종', '재료비 1–10에서 각 1만 회, 시험 재료비 15. w=0,0.1 명시, 상한 1', 'w=0,0.1,0.5,1에서 각각 Adam 총 10만 회. w=0.5는 추가 비교 조건'],
         ['추가 DEM hard', '논문에 별도 결과 없음', '원형에서 동시 10만 회와 순차 20만 회 비교'],
-        ['장기 학습', 'Remark 7의 사각형 Adam 100만 회. 기본 학습과의 관계는 불명확', 'soft 10만 회 모델에 90만 회를 추가하는 조건. 분석 기준 시점에는 학습이 끝나지 않아 제외'],
-        ['계산시간 비교', 'Table 4의 깊이 5종과 너비 5종. 각 100회 L-BFGS 평균 시간', '25개 구조의 독립 시간 측정을 수행하지 않아 비교에서 제외'],
+        ['장기 학습', 'Remark 7의 사각형 Adam 100만 회. 기본 학습과의 관계는 불명확', 'soft 10만 회 모델에 90만 회를 추가하여 완료. 선행 10만 회 결과를 보존하고 최종 100만 회와 비교'],
+        ['계산시간 비교', 'Table 4의 깊이 5종과 너비 5종. 각 100회 L-BFGS 평균 시간', '25개 구조를 단독 실행하여 완료. 각각 최초 100회 이력의 누적 시간/100 사용'],
         ['FEM 기준해', '격자 수렴 및 전이학습용 FEM 자료', '기본 6개, 절점 재료 민감도 2개, 전이 재료비 11개의 총 19개'],
     ], [3,7,7.7], 9)
     DOC.add_paragraph('전이학습의 추가 조건', 'Heading 2')
@@ -457,7 +461,7 @@ def main():
 
     pair(21, 'fig21_width_derived.png', '은닉층 너비에 따른 평균 및 최대 절대오차',
          f"5층에서 너비 5·10·20·40·60을 비교하였다. uₓ 평균오차는 너비 20에서 {m('arch_l5_w20','ux'):.2f}%, 40에서 {m('arch_l5_w40','ux'):.2f}%, 60에서 {m('arch_l5_w60','ux'):.2f}%이다. 너비 40에서 60으로 늘리면 오차가 증가하였다. 논문에서도 너비 증가에 따라 오차가 계속 감소하지는 않았다.", own_height=18)
-    p('Table 4의 25개 구조에 대한 독립 시간 측정은 수행하지 않았다. Remark 7의 Adam 100만 회 결과는 2026년 11월 5일 03:13 KST에 학습이 끝나지 않아 포함하지 않았다.', size=9)
+    p('Table 4의 25개 구조에 대한 독립 시간 측정과 Remark 7의 Adam 100만 회 연속 실행을 완료하였다. 마지막 비교 그림 뒤의 추가 결과에서 수치와 조건을 확인할 수 있다.', size=9)
 
     pair(23, 'fig23_transfer.png', '미학습 재료비 15에서 물리와 데이터 결합 모델',
          f"재료비 15에서 w=0.1의 평균오차는 uₓ {m('transfer_w0.1','ux'):.2f}%, σₓₓ {m('transfer_w0.1','sxx'):.2f}%, T {m('transfer_w0.1','T'):.2f}%, qₓ {m('transfer_w0.1','qx'):.2f}%이다. 이 네 성분 중 σₓₓ의 오차가 가장 컸다. 재료비 15는 학습과 모델 선택에 사용하지 않았다.", own_height=19)
@@ -486,6 +490,30 @@ def main():
     pair('B2', 'figB2_hard_fullfields.png', '강제 경계조건과 L BFGS의 열장',
          f"T 평균오차는 {m('arch_l5_w40','T'):.2f}%, qₓ 평균오차는 {m('arch_l5_w40','qx'):.2f}%이다. Dirichlet 경계조건은 출력 변환으로 만족시키며, 내부 열유속에는 오차가 남았다. 부록 B의 재현 그림은 계산값에 따라 색 범위를 정하였으므로 원본과 색 막대 범위가 다르다.", own_height=18.7)
 
+    page('추가 결과 Adam 100만 회 연속 학습')
+    p('사각형 소프트 경계의 Adam 100,000회 체크포인트에서 같은 최적화 궤적을 900,000회 더 진행하였다. 기존 100,000회 결과는 보존하였다. 원문의 Remark 7은 경계 부과 방식과 실행의 동일성을 명확히 밝히지 않아, 이 결과는 명시적인 재구성 조건에 해당한다.', size=10)
+    table(['성분', '100k L² %', '1M L² %', '100k 최대오차', '1M 최대오차'],
+          [[LABEL[i], f"{100*m('mixed_rectangles_coupled',f,'relative_l2'):.3f}",
+            f"{100*m('remark_rectangles_adam1m',f,'relative_l2'):.3f}",
+            val(peak('mixed_rectangles_coupled',f)), val(peak('remark_rectangles_adam1m',f))]
+           for i,f in enumerate(FIELDS)], [2.1,3.9,3.9,3.9,3.9], 9)
+    improved=[LABEL[i] for i,f in enumerate(FIELDS) if m('remark_rectangles_adam1m',f,'relative_l2') < m('mixed_rectangles_coupled',f,'relative_l2')]
+    p(f'FEM50 대비 상대 L² 오차가 감소한 성분은 {len(improved)}/8개이다: '+', '.join(improved)+'. 최종 모델을 사용하였으며 중간 이력에서 오차가 가장 작은 체크포인트를 선택하지 않았다.', size=9.4)
+    runtime=ROOT/'figures/full_study/remark07_runtime.png'
+    image_block(runtime,17.7,8.0,'100k 및 1M Adam, 10k 하드 L-BFGS의 누적 학습시간')
+    EVIDENCE['supplementary_figures']=[{'path':runtime.relative_to(ROOT).as_posix(),'sha256':digest(runtime)}]
+    p('위 시간은 원본 학습 이력의 누적 벽시계 시간이다. 1M에는 선행 100k가 포함되므로 두 값을 더하지 않는다. 하드 L-BFGS와는 경계조건과 최적화기가 달라 시간만으로 방법의 우열을 판단하지 않는다. 출처: 자체 실행 이력 [3]; 비교 동기: 문헌 [1], Remark 7.', size=9)
+
+    page('추가 결과 신경망 구조별 실행시간')
+    p('Table 4에 대응하여 25개 구조를 하나씩 실행하였다. 각 값은 최초 100회 L-BFGS 업데이트의 history.csv 누적 시간/100이다. 시간 측정 중 다른 신경망 학습은 실행하지 않았으며, 일반 데스크톱 및 문서 작업은 계속되었다. 단일 측정값이므로 반복 측정의 분산이나 통계적 속도 우세를 나타내지 않는다.', size=10)
+    timing_rows=[]
+    for layer in (1,2,4,5,6):
+        timing_rows.append([layer]+[f"{SNAP['jobs'][f'timing_l{layer}_w{width}']['timing']['seconds_per_iteration_first_100']:.4f}" for width in (5,10,20,40,60)])
+    table(['층 / 너비','5','10','20','40','60'],timing_rows,[2.7,3,3,3,3,3],9.5)
+    p('단위: s/update. 내부 closure 평가와 학습 준비·기록 비용을 포함하며 순수 GPU 커널 시간과는 다르다. 장치는 NVIDIA GeForce RTX 3090이며, 원문의 Apple M2 Pro와 동일한 하드웨어 비교가 아니다.', size=9.4)
+    p('100회 시간 측정은 신경망 구조의 수렴 정확도를 검증하는 10,000회 학습과 구분한다. 원형·사각형 기본 그림은 원래 100,000회 실행을 유지하였다. 모든 설정·원본 CSV·최종 모델은 results/full_study/timing_*와 validation/FULL_STUDY_RESULTS.json에서 추적할 수 있다.', size=9.4)
+    EVIDENCE['timing_measurements']={name:SNAP['jobs'][name]['timing'] for name in SNAP['completed_jobs'] if SNAP['jobs'][name]['kind']=='timing'}
+
     page('참고문헌 및 자료 출처')
     p('[1] Harandi, A., Moeineddin, A., Kaliske, M., Reese, S., and Rezaei, S. Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. International Journal for Numerical Methods in Engineering, 125(4), e7388, 2024 (온라인 게재 2023). https://doi.org/10.1002/nme.7388', size=10)
     p('[2] phyml4e/PINNs. Thermomechanic. 저자 공개 코드, 버전 5b426dc8eb2255b1bb3b8630619228b36cdb464e. https://github.com/phyml4e/PINNs/tree/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic', size=9.5)
@@ -495,12 +523,12 @@ def main():
     p('재현 그림은 직접 학습한 PINN과 FEniCS 계산값으로 작성하였다. 논문 그림에서 수치를 추출하거나 저자의 학습 가중치를 사용하지 않았다. 원본 그림의 추출 위치와 자체 계산 결과의 수치 검증 자료는 저장소 [3]에 함께 수록하였으며, 원본 그림에는 프로젝트 코드와 별도의 이용조건이 적용된다.', size=10)
     DOC.add_paragraph('포함된 계산값', 'Heading 2')
     p('비교에는 Fig. 5–21, 23–25, A1, B1, B2의 데이터 그림 23쌍을 포함하였다. 개념도 Fig. 1–4와 22는 제외하였으며, 원문에 별도 그림이 없는 에너지 항 제외 결과는 그림 19에 이어 제시하였다.', size=10)
-    p('계산값은 2026년 11월 5일 03:13 KST까지 학습을 마친 26개 모델의 출력이다. Adam 100만 회 결과와 25개 구조의 독립 시간 측정값은 포함하지 않았다. 난수 시드는 42로 고정하였으며, 다른 시드의 반복 결과나 통계 검정값은 없다.', size=10)
+    p(f'자료 확정 시점 {CUTOFF}의 신경망 실험 27개와 독립 시간 측정 25개를 수록하였다. 난수 시드는 42로 고정하였으며, 다른 시드의 반복 결과나 통계 검정값은 없다. 등록된 재구성 작업의 완료는 원논문과의 수치 일치 또는 모든 반례의 동일한 재현을 뜻하지 않는다.', size=10)
 
     expected = [str(i) for i in range(5,22)] + ['23','24','25','A1','B1','B2']
     assert [x['paper_figure'] for x in EVIDENCE['figures']] == expected
     assert [x['paper_figure'] for x in EVIDENCE['original_figures']] == expected
-    assert len(DOC.inline_shapes) == 46
+    assert len(DOC.inline_shapes) == 47
     OUT.parent.mkdir(exist_ok=True)
     DOC.save(OUT)
     EVIDENCE['docx_sha256'] = digest(OUT)
@@ -508,11 +536,11 @@ def main():
     EVIDENCE['original_figure_license'] = PAPER['license']
     EVIDENCE['table_count'] = len(DOC.tables)
     EVIDENCE['embedded_figure_count'] = len(DOC.inline_shapes)
-    EVIDENCE['expected_pages'] = FRONT_PAGES + 2 * len(expected) + 1
+    EVIDENCE['expected_pages'] = FRONT_PAGES + 2 * len(expected) + 3
     EVIDENCE['table_style'] = 'White background, black text and horizontal top/header/bottom rules; no shading or vertical rules.'
     EVIDENCE['status'] = 'authored; rendering and visual review required'
     (ROOT/'validation/CONCISE_COMPARISON_QA.json').write_text(json.dumps(EVIDENCE, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-    print(json.dumps({'output':str(OUT), 'figure_pairs':23, 'embedded_figures':len(DOC.inline_shapes), 'tables':len(DOC.tables), 'verified_metric_values':26*32}, ensure_ascii=False))
+    print(json.dumps({'output':str(OUT), 'figure_pairs':23, 'embedded_figures':len(DOC.inline_shapes), 'tables':len(DOC.tables), 'verified_metric_values':len(NEURAL)*32}, ensure_ascii=False))
 
 
 if __name__ == '__main__':

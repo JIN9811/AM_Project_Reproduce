@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="324pt" viewBox="0 0 864 324" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-05T12:53:12.831537</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 324 
+L 864 324 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="table_1">
+    <g id="patch_2">
+     <path d="M 34.56 126.66 
+L 336.6144 126.66 
+L 336.6144 102.66 
+L 34.56 102.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_1">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="185.5872" y="116.738125" transform="rotate(-0 185.5872 116.738125)">Case</text>
+    </g>
+    <g id="patch_3">
+     <path d="M 336.6144 126.66 
+L 432 126.66 
+L 432 102.66 
+L 336.6144 102.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_2">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="384.3072" y="116.738438" transform="rotate(-0 384.3072 116.738438)">Updates</text>
+    </g>
+    <g id="patch_4">
+     <path d="M 432 126.66 
+L 543.2832 126.66 
+L 543.2832 102.66 
+L 432 102.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="487.6416" y="116.738438" transform="rotate(-0 487.6416 116.738438)">Wall seconds</text>
+    </g>
+    <g id="patch_5">
+     <path d="M 543.2832 126.66 
+L 829.44 126.66 
+L 829.44 102.66 
+L 543.2832 102.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="686.3616" y="116.738438" transform="rotate(-0 686.3616 116.738438)">Device</text>
+    </g>
+    <g id="patch_6">
+     <path d="M 34.56 150.66 
+L 336.6144 150.66 
+L 336.6144 126.66 
+L 34.56 126.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="64.76544" y="140.738438" transform="rotate(-0 64.76544 140.738438)">mixed_rectangles_coupled</text>
+    </g>
+    <g id="patch_7">
+     <path d="M 336.6144 150.66 
+L 432 150.66 
+L 432 126.66 
+L 336.6144 126.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="346.15296" y="140.738125" transform="rotate(-0 346.15296 140.738125)">100,000</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 432 150.66 
+L 543.2832 150.66 
+L 543.2832 126.66 
+L 432 126.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="443.12832" y="140.738125" transform="rotate(-0 443.12832 140.738125)">2780</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 543.2832 150.66 
+L 829.44 150.66 
+L 829.44 126.66 
+L 543.2832 126.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="571.89888" y="140.738125" transform="rotate(-0 571.89888 140.738125)">NVIDIA GeForce RTX 3090</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 34.56 174.66 
+L 336.6144 174.66 
+L 336.6144 150.66 
+L 34.56 150.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="64.76544" y="164.738438" transform="rotate(-0 64.76544 164.738438)">remark_rectangles_adam1m</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 336.6144 174.66 
+L 432 174.66 
+L 432 150.66 
+L 336.6144 150.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="346.15296" y="164.738125" transform="rotate(-0 346.15296 164.738125)">1,000,000</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 432 174.66 
+L 543.2832 174.66 
+L 543.2832 150.66 
+L 432 150.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="443.12832" y="164.738125" transform="rotate(-0 443.12832 164.738125)">2.539e+04</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 543.2832 174.66 
+L 829.44 174.66 
+L 829.44 150.66 
+L 543.2832 150.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="571.89888" y="164.738125" transform="rotate(-0 571.89888 164.738125)">NVIDIA GeForce RTX 3090</text>
+    </g>
+    <g id="patch_14">
+     <path d="M 34.56 198.66 
+L 336.6144 198.66 
+L 336.6144 174.66 
+L 34.56 174.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="64.76544" y="188.738438" transform="rotate(-0 64.76544 188.738438)">arch_l5_w40</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 336.6144 198.66 
+L 432 198.66 
+L 432 174.66 
+L 336.6144 174.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="346.15296" y="188.738125" transform="rotate(-0 346.15296 188.738125)">10,000</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 432 198.66 
+L 543.2832 198.66 
+L 543.2832 174.66 
+L 432 174.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="443.12832" y="188.738125" transform="rotate(-0 443.12832 188.738125)">3586</text>
+    </g>
+    <g id="patch_17">
+     <path d="M 543.2832 198.66 
+L 829.44 198.66 
+L 829.44 174.66 
+L 543.2832 174.66 
+z
+" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="571.89888" y="188.738125" transform="rotate(-0 571.89888 188.738125)">NVIDIA GeForce RTX 3090</text>
+    </g>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10.8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="432" y="36.32" transform="rotate(-0 432 36.32)">Remark7: separately measured100k /1M Adam and10k hard L-BFGS</text>
+   </g>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="47.52" y="316.486359" transform="rotate(-0 47.52 316.486359)">FULL CATALOGUE: verified completed jobs | 1M continues the100k checkpoint; original100k remains unchanged. Different hardware from paper; wall-time overhead included.</text>
+  </g>
+ </g>
+</svg>

@@ -31,11 +31,12 @@ python -m pip install -r requirements-documents.txt
 프로젝트 루트에서 문서용 Python을 실행합니다. `--pinn-python`에는 PyTorch가 설치된 프로젝트 Python의 실제 경로를 넣습니다. Python 환경을 하나로 구성했다면 같은 실행파일을 지정해도 됩니다.
 
 ```powershell
-python scripts/build_full_korean_report.py --partial --pinn-python .venv/Scripts/python.exe
+.\.venv\Scripts\python.exe -m harandi.full_figures
+python scripts/build_full_korean_report.py --pinn-python .venv/Scripts/python.exe
 python scripts/check_full_report_layout.py
 ```
 
-전체 등록 작업과 그림 생성이 모두 끝난 경우에만 `--partial`을 제거합니다. 생성기는 완료 판정을 독립적으로 확인하고 예측 NPZ에서 오차를 다시 계산합니다. 이 명령은 신경망을 학습시키지 않습니다. 최종 학습 파이프라인도 같은 생성기를 사용하므로 이후 보고서 역시 LaTeX로 작성됩니다.
+현재 공개본은 등록 작업 52개가 모두 완료되어 엄격한 기본 모드로 재생성합니다. 계산이 덜 끝난 별도 환경에서는 그림과 보고서 명령에 각각 `--partial`을 붙여 진행 보고서로 생성합니다. 생성기는 완료 판정을 독립적으로 확인하고 예측 NPZ에서 오차를 다시 계산합니다. 이 명령은 신경망을 학습시키지 않습니다. 최종 학습 파이프라인도 같은 생성기를 사용하므로 이후 보고서 역시 LaTeX로 작성됩니다.
 
 ## 3. 독립 FEM 보고서
 
@@ -91,13 +92,13 @@ python scripts/check_report_markdown.py
 
 ## 7. 간결한 Word 비교 보고서
 
-`reports/CONCISE_COMPARISON_KO.docx`는 전체 조건표 3쪽, 데이터 그림 비교 46쪽, 참고문헌 1쪽으로 구성합니다. Fig. 5–21, 23–25, A1, B1, B2의 각 그림을 **논문 원본 한 쪽 → 자체 계산 그림 한 쪽** 순서로 배치합니다. 총 23쌍이며 개념도는 제외합니다. 표는 흰 배경, 검은 글자와 상단·표제 아래·하단의 가로선만 사용합니다. 본문은 그림별 수치와 짧은 비교 의견으로 작성하며 기존 전체 보고서의 이론·수식 전개를 반복하지 않습니다.
+`reports/CONCISE_COMPARISON_KO.docx`는 전체 조건표 5쪽, 데이터 그림 비교 46쪽, 추가 결과 2쪽, 참고문헌 1쪽으로 구성합니다. Fig. 5–21, 23–25, A1, B1, B2의 각 그림을 **논문 원본 한 쪽 → 자체 계산 그림 한 쪽** 순서로 배치합니다. 총 23쌍이며 개념도는 제외합니다. 표는 흰 배경, 검은 글자와 상단·표제 아래·하단의 가로선만 사용합니다. 본문은 그림별 수치와 짧은 비교 의견으로 작성하며 기존 전체 보고서의 이론·수식 전개를 반복하지 않습니다.
 
 ```powershell
 python scripts/build_concise_comparison_docx.py
 ```
 
-`requirements-documents.txt`의 `python-docx`가 필요합니다. 생성기는 저장된 26개 완료 예측과 FEM50 배열에서 비교 수치 832개를 독립 재계산하고, 원본·자체 그림의 해시와 23쌍의 페이지 대응을 `validation/CONCISE_COMPARISON_QA.json`에 기록합니다. 현재 원고는 2026-11-05 03:13 KST의 26개 완료 실험에 맞춰 작성되어 있으므로, 완료 집합이 바뀌면 조건·해석도 함께 검토해야 합니다. 새로 생성한 파일은 시각 검토 전 상태로 표시됩니다.
+`requirements-documents.txt`의 `python-docx`가 필요합니다. 생성기는 완료 예측 27개와 FEM50 배열에서 비교 수치 864개를 독립 재계산하고, 원본·자체 그림의 해시와 23쌍의 페이지 대응을 `validation/CONCISE_COMPARISON_QA.json`에 기록합니다. 마지막 비교 그림 뒤에는 100만 회 연속 학습과 독립 시간 측정 25건을 추가했습니다. 수치 자료 확정 시점은 `validation/PUBLIC_SNAPSHOT.json`에서 읽습니다. 현재 원고는 등록된 52개 작업 완료를 요구하며, 새로운 실험으로 목록을 바꾸면 조건·해석도 검토해야 합니다. 새로 생성한 파일은 시각 검토 전 상태로 표시됩니다.
 
 원본 그림은 `figures/paper_reference`에 수록했습니다. `provenance.json`에는 원문 PDF의 해시, 쪽수, 추출 좌표 및 그림 해시가 있습니다. 원문 그림은 CC BY-NC-ND 4.0 자료이며 프로젝트의 MIT 코드 라이선스와 구분됩니다. 축·범례·색 막대는 그대로 보존했습니다. 원본 그림을 다시 추출하려면 동일한 37쪽 PDF를 지정합니다.
 

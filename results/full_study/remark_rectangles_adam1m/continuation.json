@@ -1,0 +1,6 @@
+{
+  "source": "mixed_rectangles_coupled",
+  "source_checkpoint_sha256": "95f77613fa48168f0ad68d1d551207154d73f3fb13026a54b4e95cd410c14531",
+  "reused_updates": 100000,
+  "additional_requested_updates": 900000
+}

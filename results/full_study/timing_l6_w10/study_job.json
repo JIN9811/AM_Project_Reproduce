@@ -1,0 +1,21 @@
+{
+  "id": "timing_l6_w10",
+  "kind": "timing",
+  "config": {
+    "geometry": "rectangles",
+    "mode": "coupled",
+    "n": 51,
+    "width": 10,
+    "layers": 6,
+    "hard": true,
+    "energy": "authors",
+    "adam_steps": 0,
+    "lbfgs_steps": 100,
+    "switch": 20000,
+    "log_every": 100,
+    "checkpoint_every": 1000,
+    "fast_adam": false,
+    "dtype": "float64",
+    "left_refine": 0
+  }
+}

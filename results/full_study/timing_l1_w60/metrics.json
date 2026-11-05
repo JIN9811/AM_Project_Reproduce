@@ -1,0 +1,440 @@
+{
+  "problem": {
+    "geometry": "rectangles",
+    "nu": 0.3,
+    "alpha": 1.0,
+    "T0": 0.0,
+    "ratio": null,
+    "circle_x": 0.6,
+    "circle_y": 0.35,
+    "circle_radius": 0.15,
+    "material_grid": 50
+  },
+  "diagnostics_independent_grid": {
+    "M_connection": 0.1630596782026679,
+    "M_equilibrium": 0.003814927469031848,
+    "M_dirichlet": 0.0,
+    "M_neumann": 0.0001008202342210528,
+    "M_energy": -0.0,
+    "T_connection": 0.07459734703773269,
+    "T_equilibrium": 0.0011395372605636862,
+    "T_dirichlet": 0.0,
+    "T_neumann": 0.00017297448567632365,
+    "T_energy": -0.0,
+    "mechanical": 0.1669754259059208,
+    "thermal": 0.0759098587839727,
+    "total": 0.2428852846898935,
+    "max_normal_displacement_error": 0.0,
+    "max_temperature_boundary_error": 0.0
+  },
+  "comparisons": {
+    "FEM_n50": {
+      "direct_mixed_outputs": {
+        "ux": {
+          "relative_L2": 0.10610200453371446,
+          "MAE": 0.01446423369410656,
+          "mean_error_over_peak": 0.0480618421917441,
+          "max_error_over_peak": 0.22200988509820954
+        },
+        "uy": {
+          "relative_L2": 0.9896467765002589,
+          "MAE": 0.014643190259758868,
+          "mean_error_over_peak": 0.24003467288399954,
+          "max_error_over_peak": 1.3214283096115051
+        },
+        "sxx": {
+          "relative_L2": 0.16953953787520792,
+          "MAE": 0.14219281102748665,
+          "mean_error_over_peak": 0.11078349197485823,
+          "max_error_over_peak": 0.2763589538786357
+        },
+        "syy": {
+          "relative_L2": 0.16346102027860282,
+          "MAE": 0.12953439618693113,
+          "mean_error_over_peak": 0.0636927430259564,
+          "max_error_over_peak": 0.21805075373213104
+        },
+        "sxy": {
+          "relative_L2": 0.9984670594707913,
+          "MAE": 0.02458252547810789,
+          "mean_error_over_peak": 0.12748822474239443,
+          "max_error_over_peak": 1.0025818573653265
+        },
+        "T": {
+          "relative_L2": 0.05242444029997298,
+          "MAE": 0.026509348237104456,
+          "mean_error_over_peak": 0.026509348237104456,
+          "max_error_over_peak": 0.06393600331080607
+        },
+        "qx": {
+          "relative_L2": 0.24437051544731128,
+          "MAE": 0.17083326430053813,
+          "mean_error_over_peak": 0.14976026857932145,
+          "max_error_over_peak": 0.3790886304069438
+        },
+        "qy": {
+          "relative_L2": 0.9606195994194252,
+          "MAE": 0.029851547287214286,
+          "mean_error_over_peak": 0.11353566625842168,
+          "max_error_over_peak": 0.9572011388037766
+        }
+      },
+      "constitutive_outputs": {
+        "ux": {
+          "relative_L2": 0.10610200453371446,
+          "MAE": 0.01446423369410656,
+          "mean_error_over_peak": 0.0480618421917441,
+          "max_error_over_peak": 0.22200988509820954
+        },
+        "uy": {
+          "relative_L2": 0.9896467765002589,
+          "MAE": 0.014643190259758868,
+          "mean_error_over_peak": 0.24003467288399954,
+          "max_error_over_peak": 1.3214283096115051
+        },
+        "sxx": {
+          "relative_L2": 0.23086232535562723,
+          "MAE": 0.16192704923531887,
+          "mean_error_over_peak": 0.1261585858655382,
+          "max_error_over_peak": 0.5321656832339907
+        },
+        "syy": {
+          "relative_L2": 0.24106817103032616,
+          "MAE": 0.18592249878671888,
+          "mean_error_over_peak": 0.09141906927081442,
+          "max_error_over_peak": 0.40859737626575465
+        },
+        "sxy": {
+          "relative_L2": 0.9584217499248365,
+          "MAE": 0.024139601738207568,
+          "mean_error_over_peak": 0.12519116371233704,
+          "max_error_over_peak": 1.0095294493800637
+        },
+        "T": {
+          "relative_L2": 0.05242444029997298,
+          "MAE": 0.026509348237104456,
+          "mean_error_over_peak": 0.026509348237104456,
+          "max_error_over_peak": 0.06393600331080607
+        },
+        "qx": {
+          "relative_L2": 0.2668512600317832,
+          "MAE": 0.1503578602718772,
+          "mean_error_over_peak": 0.13181059104340656,
+          "max_error_over_peak": 0.5545337343381136
+        },
+        "qy": {
+          "relative_L2": 0.9266584551086899,
+          "MAE": 0.03154414144196116,
+          "mean_error_over_peak": 0.11997318198299535,
+          "max_error_over_peak": 0.8582459796024601
+        }
+      }
+    },
+    "FEM_n100": {
+      "direct_mixed_outputs": {
+        "ux": {
+          "relative_L2": 0.10600714707412495,
+          "MAE": 0.014451296061232452,
+          "mean_error_over_peak": 0.04802643893557888,
+          "max_error_over_peak": 0.22196003181192195
+        },
+        "uy": {
+          "relative_L2": 0.9896494605716053,
+          "MAE": 0.014647625545913824,
+          "mean_error_over_peak": 0.24016976175103413,
+          "max_error_over_peak": 1.3228182620000546
+        },
+        "sxx": {
+          "relative_L2": 0.17555899231549976,
+          "MAE": 0.14829120448750718,
+          "mean_error_over_peak": 0.1153711465595399,
+          "max_error_over_peak": 0.27554489540528837
+        },
+        "syy": {
+          "relative_L2": 0.16978385010807506,
+          "MAE": 0.13483876229868932,
+          "mean_error_over_peak": 0.06624846574269815,
+          "max_error_over_peak": 0.22329763055895477
+        },
+        "sxy": {
+          "relative_L2": 0.9985285139417074,
+          "MAE": 0.024802310926597904,
+          "mean_error_over_peak": 0.09908028655194329,
+          "max_error_over_peak": 1.0079145574615291
+        },
+        "T": {
+          "relative_L2": 0.05242495621777646,
+          "MAE": 0.026508443299382744,
+          "mean_error_over_peak": 0.026508443299382744,
+          "max_error_over_peak": 0.06391372646832583
+        },
+        "qx": {
+          "relative_L2": 0.25378175899507116,
+          "MAE": 0.1786657451479353,
+          "mean_error_over_peak": 0.15655362184296273,
+          "max_error_over_peak": 0.378746102948698
+        },
+        "qy": {
+          "relative_L2": 0.9637190508199523,
+          "MAE": 0.03020028993688573,
+          "mean_error_over_peak": 0.09071944555978324,
+          "max_error_over_peak": 0.965967430702431
+        }
+      },
+      "constitutive_outputs": {
+        "ux": {
+          "relative_L2": 0.10600714707412495,
+          "MAE": 0.014451296061232452,
+          "mean_error_over_peak": 0.04802643893557888,
+          "max_error_over_peak": 0.22196003181192195
+        },
+        "uy": {
+          "relative_L2": 0.9896494605716053,
+          "MAE": 0.014647625545913824,
+          "mean_error_over_peak": 0.24016976175103413,
+          "max_error_over_peak": 1.3228182620000546
+        },
+        "sxx": {
+          "relative_L2": 0.23068983164512993,
+          "MAE": 0.16219908208123152,
+          "mean_error_over_peak": 0.12619153061227642,
+          "max_error_over_peak": 0.5313433538405917
+        },
+        "syy": {
+          "relative_L2": 0.2414762394991788,
+          "MAE": 0.18634696865468184,
+          "mean_error_over_peak": 0.09155528097943194,
+          "max_error_over_peak": 0.40844645299571364
+        },
+        "sxy": {
+          "relative_L2": 0.9616249341606894,
+          "MAE": 0.024425625660928745,
+          "mean_error_over_peak": 0.09757550402692579,
+          "max_error_over_peak": 1.0132661844836819
+        },
+        "T": {
+          "relative_L2": 0.05242495621777646,
+          "MAE": 0.026508443299382744,
+          "mean_error_over_peak": 0.026508443299382744,
+          "max_error_over_peak": 0.06391372646832583
+        },
+        "qx": {
+          "relative_L2": 0.26934248992791665,
+          "MAE": 0.15283328797996218,
+          "mean_error_over_peak": 0.13391825473663338,
+          "max_error_over_peak": 0.5541659284181544
+        },
+        "qy": {
+          "relative_L2": 0.9318185891056903,
+          "MAE": 0.03186562146117288,
+          "mean_error_over_peak": 0.09572197874314971,
+          "max_error_over_peak": 0.8691649330858191
+        }
+      }
+    },
+    "FEM_n200": {
+      "direct_mixed_outputs": {
+        "ux": {
+          "relative_L2": 0.10600215264374696,
+          "MAE": 0.014450176476915511,
+          "mean_error_over_peak": 0.0480248986582961,
+          "max_error_over_peak": 0.2219551355136346
+        },
+        "uy": {
+          "relative_L2": 0.9896548109460732,
+          "MAE": 0.014647698862497949,
+          "mean_error_over_peak": 0.24018453932389455,
+          "max_error_over_peak": 1.3227595496456694
+        },
+        "sxx": {
+          "relative_L2": 0.17558552676734038,
+          "MAE": 0.14839536095485137,
+          "mean_error_over_peak": 0.11546364526952976,
+          "max_error_over_peak": 0.27545108681552555
+        },
+        "syy": {
+          "relative_L2": 0.16978588625582008,
+          "MAE": 0.1349067571604692,
+          "mean_error_over_peak": 0.06624092544382666,
+          "max_error_over_peak": 0.2231540888979149
+        },
+        "sxy": {
+          "relative_L2": 0.9985312321355103,
+          "MAE": 0.02481944827133514,
+          "mean_error_over_peak": 0.08025678690323447,
+          "max_error_over_peak": 1.0108935512701773
+        },
+        "T": {
+          "relative_L2": 0.0524251641801022,
+          "MAE": 0.026508194092298196,
+          "mean_error_over_peak": 0.026508194092298196,
+          "max_error_over_peak": 0.06390893874227233
+        },
+        "qx": {
+          "relative_L2": 0.2537871627047733,
+          "MAE": 0.17872050755394178,
+          "mean_error_over_peak": 0.15661001931178414,
+          "max_error_over_peak": 0.3787013779311079
+        },
+        "qy": {
+          "relative_L2": 0.9643405598526715,
+          "MAE": 0.030254171050382864,
+          "mean_error_over_peak": 0.07881665940247522,
+          "max_error_over_peak": 0.9703225113824409
+        }
+      },
+      "constitutive_outputs": {
+        "ux": {
+          "relative_L2": 0.10600215264374696,
+          "MAE": 0.014450176476915511,
+          "mean_error_over_peak": 0.0480248986582961,
+          "max_error_over_peak": 0.2219551355136346
+        },
+        "uy": {
+          "relative_L2": 0.9896548109460732,
+          "MAE": 0.014647698862497949,
+          "mean_error_over_peak": 0.24018453932389455,
+          "max_error_over_peak": 1.3227595496456694
+        },
+        "sxx": {
+          "relative_L2": 0.23075130158837226,
+          "MAE": 0.16223247676923602,
+          "mean_error_over_peak": 0.12623004538921812,
+          "max_error_over_peak": 0.5313101098846396
+        },
+        "syy": {
+          "relative_L2": 0.24159602666195742,
+          "MAE": 0.18641338328132334,
+          "mean_error_over_peak": 0.09153133085084583,
+          "max_error_over_peak": 0.40823448207179636
+        },
+        "sxy": {
+          "relative_L2": 0.962366870091237,
+          "MAE": 0.024470367570311326,
+          "mean_error_over_peak": 0.07912799084266867,
+          "max_error_over_peak": 1.0152254707673756
+        },
+        "T": {
+          "relative_L2": 0.0524251641801022,
+          "MAE": 0.026508194092298196,
+          "mean_error_over_peak": 0.026508194092298196,
+          "max_error_over_peak": 0.06390893874227233
+        },
+        "qx": {
+          "relative_L2": 0.2693828048790774,
+          "MAE": 0.15283495470687236,
+          "mean_error_over_peak": 0.1339269093164067,
+          "max_error_over_peak": 0.5541690849874439
+        },
+        "qy": {
+          "relative_L2": 0.9329854938457847,
+          "MAE": 0.03189502550262297,
+          "mean_error_over_peak": 0.08309133168736027,
+          "max_error_over_peak": 0.9235396191529763
+        }
+      }
+    },
+    "FEM_n100_nodal": {
+      "direct_mixed_outputs": {
+        "ux": {
+          "relative_L2": 0.10448591109031072,
+          "MAE": 0.014392635461386185,
+          "mean_error_over_peak": 0.04757172030265331,
+          "max_error_over_peak": 0.20659408687318814
+        },
+        "uy": {
+          "relative_L2": 0.9915643749575938,
+          "MAE": 0.01451975605878505,
+          "mean_error_over_peak": 0.2609190038175119,
+          "max_error_over_peak": 1.361614393888104
+        },
+        "sxx": {
+          "relative_L2": 0.16067518077142656,
+          "MAE": 0.13576427562229582,
+          "mean_error_over_peak": 0.10513452596968281,
+          "max_error_over_peak": 0.28189390271568127
+        },
+        "syy": {
+          "relative_L2": 0.15346383749646125,
+          "MAE": 0.12255855547073082,
+          "mean_error_over_peak": 0.060046674584546246,
+          "max_error_over_peak": 0.20619341066343733
+        },
+        "sxy": {
+          "relative_L2": 0.9980300137779008,
+          "MAE": 0.025286914974409595,
+          "mean_error_over_peak": 0.13628157404569743,
+          "max_error_over_peak": 1.000239320575648
+        },
+        "T": {
+          "relative_L2": 0.05238950553366821,
+          "MAE": 0.026525758882512265,
+          "mean_error_over_peak": 0.026525758882512265,
+          "max_error_over_peak": 0.06319121468391131
+        },
+        "qx": {
+          "relative_L2": 0.23702902803200887,
+          "MAE": 0.16559139040265883,
+          "mean_error_over_peak": 0.14462169971360625,
+          "max_error_over_peak": 0.38191873878039995
+        },
+        "qy": {
+          "relative_L2": 0.9619570821426395,
+          "MAE": 0.03044701473597436,
+          "mean_error_over_peak": 0.1208227033960677,
+          "max_error_over_peak": 0.9550417607671915
+        }
+      },
+      "constitutive_outputs": {
+        "ux": {
+          "relative_L2": 0.10448591109031072,
+          "MAE": 0.014392635461386185,
+          "mean_error_over_peak": 0.04757172030265331,
+          "max_error_over_peak": 0.20659408687318814
+        },
+        "uy": {
+          "relative_L2": 0.9915643749575938,
+          "MAE": 0.01451975605878505,
+          "mean_error_over_peak": 0.2609190038175119,
+          "max_error_over_peak": 1.361614393888104
+        },
+        "sxx": {
+          "relative_L2": 0.2274790252678325,
+          "MAE": 0.16411575673798315,
+          "mean_error_over_peak": 0.12708963539720805,
+          "max_error_over_peak": 0.5171818658439246
+        },
+        "syy": {
+          "relative_L2": 0.23674138915544501,
+          "MAE": 0.18721486792551129,
+          "mean_error_over_peak": 0.09172456552326683,
+          "max_error_over_peak": 0.3977986636666049
+        },
+        "sxy": {
+          "relative_L2": 0.9595478947689232,
+          "MAE": 0.024881012379101862,
+          "mean_error_over_peak": 0.1340939981925832,
+          "max_error_over_peak": 1.0041552713933029
+        },
+        "T": {
+          "relative_L2": 0.05238950553366821,
+          "MAE": 0.026525758882512265,
+          "mean_error_over_peak": 0.026525758882512265,
+          "max_error_over_peak": 0.06319121468391131
+        },
+        "qx": {
+          "relative_L2": 0.2652402528373518,
+          "MAE": 0.15067860783912734,
+          "mean_error_over_peak": 0.13159739961833555,
+          "max_error_over_peak": 0.5453344805361979
+        },
+        "qy": {
+          "relative_L2": 0.9298219296816919,
+          "MAE": 0.03204768272561592,
+          "mean_error_over_peak": 0.12717462444399677,
+          "max_error_over_peak": 0.8612313450734939
+        }
+      }
+    }
+  }
+}

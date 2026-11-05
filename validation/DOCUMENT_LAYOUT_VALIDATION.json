@@ -1,17 +1,62 @@
 {
   "status": "pass",
-  "created_utc": "2026-11-04T18:23:11.756013+00:00",
-  "scope": "Current report, gallery and notebook links after 26-run refresh",
-  "checked_local_links": 189,
+  "created_utc": "2026-11-05T04:01:17.221298+00:00",
+  "scope": "Current reports, gallery, notebook and documentation after all 52 registered jobs completed",
+  "checked_local_links": 224,
   "broken_links": [],
   "files": {
-    "reports/FULL_PROJECT_REPORT_KO.pdf": "1a1782b7f4775d1ea69e72d4464de8c6a05466c69d6e1d4dc7196de61afab44f",
-    "reports/FULL_PROJECT_REPORT_KO.tex": "014ea972c9d5f74a2cd1bf2595c75cbbfa72868f077cee2f35bdfad62f2c274c",
-    "reports/FEM_REPORT_KO.pdf": "40bca486e9708bd68ffd7107c2fe1a1d520f204f6565541d604c463144d9dd9c",
-    "reports/FEM_REPORT_KO.tex": "54c6cfae61f7f2343000c9374f4a6b4980317da799a52cdc099155d0df20524e",
-    "reports/FULL_STUDY_FIGURES.pdf": "f16af014fc79cd32d837c3e8ad118f9a9965fdeab90552c21f8548540cd8eec2",
-    "notebooks/Full_Paper_Reproduction_KO.ipynb": "084386e51f6c6e694479226a7f83b7fe535b57e3bad25e39239c31086eb534d3",
-    "notebooks/Full_Paper_Reproduction_KO.html": "4483d67eaf39bf2f592e06e0e0550344081ea84a8818cb2b987beeb14d8a3123"
+    "README.md": {
+      "sha256": "ddd12e02aff542b5520e38e77fd320e40f298b7dfcf20860602d8f0873bd5799",
+      "bytes": 9560
+    },
+    "docs/VALIDATION_KO.md": {
+      "sha256": "615d21e12bf0b84fbe89040563307a2574491b463112104c10b289b7ef3be24b",
+      "bytes": 6102
+    },
+    "reports/FULL_PROJECT_REPORT_KO.pdf": {
+      "sha256": "0d019659cc8c02a3b0683077c07aee6c1d08fdce6217bbac3295c72cb80f42e3",
+      "bytes": 5024790
+    },
+    "reports/FULL_PROJECT_REPORT_KO.md": {
+      "sha256": "0efc564ede50164a55a5f6afb893d5d4fe146fbc07ab77904ec2f44dfb71282b",
+      "bytes": 89981
+    },
+    "reports/FULL_PROJECT_REPORT_KO.tex": {
+      "sha256": "116b5861ee0d97ca1edbb9244dfcbbf99a53c031ca13081e4c3bd2540f4008c2",
+      "bytes": 131352
+    },
+    "reports/FEM_REPORT_KO.pdf": {
+      "sha256": "cdd16ce958d634b5bb996654da8d98c21f42cc26b08d6d9ba2a8a1e2fc06602e",
+      "bytes": 1156950
+    },
+    "reports/FEM_REPORT_KO.md": {
+      "sha256": "77c509a7f73861467b2438ff8786b123f6c2814480b0bbe09ed7f24c74ea36fc",
+      "bytes": 28580
+    },
+    "reports/FEM_REPORT_KO.tex": {
+      "sha256": "af3dd7dbdc558ba30ffb7e572f1ac630f27f5855148254570963d5fff800ad11",
+      "bytes": 42907
+    },
+    "reports/CONCISE_COMPARISON_KO.docx": {
+      "sha256": "54e79a5d3dba950c06df68f1dc890448f27d06c3e762eb5b9eabae9d26213149",
+      "bytes": 22141999
+    },
+    "reports/FULL_STUDY_FIGURES.pdf": {
+      "sha256": "fcbdaafe7437c8829b3bc89cb4812158efb80168b15be310178bf361533fc490",
+      "bytes": 2847099
+    },
+    "reports/FULL_STUDY_GALLERY_KO.html": {
+      "sha256": "5ab791013d3689d28602be675768507414bc46585870d6e305933082d2b99c9f",
+      "bytes": 25770
+    },
+    "notebooks/Full_Paper_Reproduction_KO.ipynb": {
+      "sha256": "6da45b56540961640f1b6434187ec8c02a6c25c6d0662c41edf6dea7c94c6531",
+      "bytes": 2096886
+    },
+    "notebooks/Full_Paper_Reproduction_KO.html": {
+      "sha256": "6c3881226d94c972063729112eda7e7c7dd304eece1d27f6e3fd3f5dd866e841",
+      "bytes": 2512123
+    }
   },
   "notebook": {
     "code_cells": 15,
@@ -33,6 +78,6 @@
       15
     ],
     "error_outputs": 0,
-    "sha256": "084386e51f6c6e694479226a7f83b7fe535b57e3bad25e39239c31086eb534d3"
+    "sha256": "6da45b56540961640f1b6434187ec8c02a6c25c6d0662c41edf6dea7c94c6531"
   }
 }

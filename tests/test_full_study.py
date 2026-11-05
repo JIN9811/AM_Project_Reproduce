@@ -1,5 +1,40 @@
 import json
+from pathlib import Path
+import pytest
 from harandi.full_study import catalogue,job_complete
+
+
+def test_atomic_status_retries_reader_lock_without_exposing_partial_json(tmp_path, monkeypatch):
+    from harandi import full_study
+    target = tmp_path/'queue_status.json'
+    target.write_text('{"status":"running"}')
+    replace = Path.replace
+    attempts = []
+    def locked_once(source, destination):
+        attempts.append(source)
+        if len(attempts) == 1:
+            assert json.loads(target.read_text()) == {'status':'running'}
+            raise PermissionError('temporary Windows reader lock')
+        return replace(source, destination)
+    monkeypatch.setattr(Path, 'replace', locked_once)
+    monkeypatch.setattr(full_study.time, 'sleep', lambda seconds: None)
+    full_study.atomic_json(target, {'status':'complete'})
+    assert len(attempts) == 2
+    assert json.loads(target.read_text()) == {'status':'complete'}
+    assert not target.with_suffix('.tmp').exists()
+
+
+def test_atomic_status_permanent_permission_error_preserves_previous_state(tmp_path, monkeypatch):
+    from harandi import full_study
+    target = tmp_path/'queue_status.json'
+    target.write_text('{"status":"running"}')
+    def locked(source, destination):
+        raise PermissionError('permanent lock')
+    monkeypatch.setattr(Path, 'replace', locked)
+    monkeypatch.setattr(full_study.time, 'sleep', lambda seconds: None)
+    with pytest.raises(PermissionError):
+        full_study.atomic_json(target, {'status':'complete'})
+    assert json.loads(target.read_text()) == {'status':'running'}
 
 
 def test_catalogue_has_full_budgets_and_paired_transfer_ratios():

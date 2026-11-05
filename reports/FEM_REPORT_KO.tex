@@ -62,7 +62,7 @@
 
 이 문서의 FEM 검증은 완료되었다. 전체 PINN·전이학습 연구의 완료 여부는 별도의 전체 보고서에 표시한다. 저장된 선형 시스템 잔차는 이산 방정식의 해법 정확도이며, 연속체 문제에 대한 총 오차가 아니다.\par
 
-{\small\color{muted} 이번 자료 갱신에서는 동일한 19개 FEM 기준해의 배열 해시를 다시 확인하고, 완료된 26개 신경망 실험과 연결하였다. 일반 기하의 본문 수치 표는 FEM200, 재료비 15의 전이학습 평가는 별도의 FEM50을 사용한다. 추가 PINN 학습 결과가 FEM 기준해 자체의 신규 계산을 의미하지는 않는다.\par}
+{\small\color{muted} 이번 자료 갱신에서는 동일한 19개 FEM 기준해의 배열 해시를 다시 확인하고, 완료된 27개 신경망 실험과 연결하였다. 일반 기하의 본문 수치 표는 FEM200, 재료비 15의 전이학습 평가는 별도의 FEM50을 사용한다. 추가 PINN 학습 결과가 FEM 기준해 자체의 신규 계산을 의미하지는 않는다.\par}
 
 \clearpage
 
@@ -138,7 +138,7 @@ node.txt 및 \nolinkurl{rectan_inclus.csv} & 사각형 재료 분포와 외부 F
 
 \begin{equation}\sigma_{zz}=\lambda(u_{x,x}+u_{y,y})-\beta(T-T_0),\qquad\sigma_{xy}=\mu(u_{x,y}+u_{y,x})=2\mu\varepsilon_{xy}\end{equation}
 
-저자 공개 파일의 \nolinkurl{strain_xy}는 텐서 전단변형률이지만 \nolinkurl{sigma_xy}의 계수는 위 표준 구성식의 절반에 해당한다. 본 FEM과 PINN은 위 식을 공통으로 적용한다. 이 선택은 결과 차이의 가능한 원인이지만, 공개 FEAP 자료의 0.98배 변위 관계를 이 차이만으로 설명할 근거는 없다.\par
+저자 공개 파일의 \nolinkurl{strain_xy}는 텐서 전단변형률이며, \nolinkurl{sigma_xy}의 계수를 약분하면 $E/(1+\nu)=2\mu$이다. 따라서 저자 코드와 본 FEM·PINN은 같은 표준 전단 구성식을 사용한다. 이전 문서에서 공개 코드의 계수가 절반이라고 설명한 부분은 정정한다. 원문의 인쇄 식 49와는 구분하며, 공개 FEAP 자료의 0.98배 변위 관계를 전단 계수 차이로 설명할 근거는 없다. 계산된 해는 수정하지 않았다.\par
 
 \clearpage
 
@@ -450,9 +450,9 @@ rectangles & 0.5798 & 4.952 & 3.026 & 3.136 & 11.99 & 0.1442 & 4.385 & 13.58\\\a
 
 \par\begin{minipage}{\linewidth}\captionof{table}{논문과 그림이 다른 이유의 구분}\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.16\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.42\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.42\linewidth-2\tabcolsep\relax}}
 
-\rowcolor{tint} \textbf{원인} & \textbf{현재 확인한 사실} & \textbf{단정할 수 없는 점}\\\midrule
+\rowcolor{tint} \textbf{항목} & \textbf{현재 확인한 사실} & \textbf{단정할 수 없는 점}\\\midrule
 
-구성식 & 저자 공개 코드 전단 계수와 표준식 사이의 차이 & FEAP 변위 진폭 차이의 단일 원인\\\addlinespace[2pt]
+구성식 & 저자 공개 코드와 본 구현의 전단 계수는 모두 2$\mu$; 원문 인쇄 식 49와 구분 & FEAP 변위 진폭 차이의 단일 원인\\\addlinespace[2pt]
 
 재료 표현 & \nolinkurl{sharp/nodal} 기준해 사이의 실제 수치 차이 & PINN 총 오차 중 각 원인의 정확한 기여율\\\addlinespace[2pt]
 
@@ -538,7 +538,7 @@ python scripts/build_fem_report.py
 
 {\small\color{muted} Harandi, A., Moeineddin, A., Kaliske, M., Reese, S., Rezaei, S. (2024). Mixed formulation of physics-informed neural networks for thermo-mechanically coupled systems and heterogeneous domains. International Journal for Numerical Methods in Engineering, 125(4), e7388. \href{https://doi.org/10.1002/nme.7388}{DOI \nolinkurl{10.1002/nme.7388}}. 온라인 선게재 2023.\par}
 
-{\small\color{muted} \nolinkurl{phyml4e/PINNs.} \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py}{\nolinkurl{Thermo_mechanic.py}} 및 같은 폴더의 FEAP·재료 자료. 확인일 2026-11-04. 저자 코드 표기와 수치 자료를 참고하였으며 FEniCS 구현은 본 프로젝트에서 작성하였다.\par}
+{\small\color{muted} \nolinkurl{phyml4e/PINNs.} \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py}{\nolinkurl{Thermo_mechanic.py}} 및 같은 폴더의 FEAP·재료 자료. 확인일 2026-11-05. 저자 코드 표기와 수치 자료를 참고하였으며 FEniCS 구현은 본 프로젝트에서 작성하였다.\par}
 
 {\small\color{muted} 국문 편집 형식은 한국전산구조공학회의 \href{https://www.jcoseik.or.kr/journal-information/instructions-for-authors/}{논문 작성 지침} 및 \nolinkurl{docs/EDITORIAL_REFERENCES_KO.md}에 기록한 국내 논문의 서술 방식을 참고하였다. 참고한 국문 논문의 계산 결과를 본 FEM 검증 자료로 사용하지 않았다.\par}
 

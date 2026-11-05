@@ -1,7 +1,7 @@
 {
-  "status": "partial_reproduction_snapshot",
-  "created_utc": "2026-11-04T18:13:46.791469+00:00",
-  "neural_completed": 26,
+  "status": "complete_registered_protocol_snapshot",
+  "created_utc": "2026-11-05T03:48:13.534593+00:00",
+  "neural_completed": 27,
   "neural_registered": 27,
   "timing_registered": 25,
   "completed_jobs": [
@@ -30,9 +30,7 @@
     "transfer_w0",
     "transfer_w0.1",
     "transfer_w0.5",
-    "transfer_w1"
-  ],
-  "not_included_jobs": [
+    "transfer_w1",
     "timing_l1_w5",
     "timing_l1_w10",
     "timing_l1_w20",
@@ -60,14 +58,16 @@
     "timing_l6_w60",
     "remark_rectangles_adam1m"
   ],
+  "not_included_jobs": [],
   "original_paper_and_crops_distributed": false,
   "source_repository": "https://github.com/phyml4e/PINNs",
   "source_commit": "5b426dc8eb2255b1bb3b8630619228b36cdb464e",
   "automatic_upload_of_future_runs": false,
-  "document_revision": "Refresh figures, analysis and notebook from 26 verified completed neural experiments",
-  "source_cutoff_utc": "2026-11-04T18:13:46.791469+00:00",
-  "observed_running_jobs": [
-    "remark_rectangles_adam1m"
-  ],
-  "progress_observed_utc": "2026-11-04T18:19:32.938955+00:00"
+  "document_revision": "All 27 neural studies and 25 serial timing measurements; final 1M continuation; corrected author-code shear description",
+  "source_cutoff_utc": "2026-11-05T03:48:13.534593+00:00",
+  "observed_running_jobs": [],
+  "progress_observed_utc": "2026-11-05T03:48:13.534593+00:00",
+  "timing_completed": 25,
+  "paper_pdf_distributed": false,
+  "paper_comparison_figures_distributed": true
 }

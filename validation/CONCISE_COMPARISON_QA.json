@@ -1,5 +1,5 @@
 {
-  "result_snapshot_sha256": "cc157686fd24daace0ee667bf871d1637e1eb45ea0e43baa685faf2baa663aa7",
+  "result_snapshot_sha256": "5961aa218d307cf484352f6771846ae54420b8d495ab99e2648868e0ef145241",
   "completed_jobs": [
     "mixed_rectangles_coupled",
     "mixed_rectangles_sequential",
@@ -26,168 +26,194 @@
     "transfer_w0",
     "transfer_w0.1",
     "transfer_w0.5",
-    "transfer_w1"
+    "transfer_w1",
+    "timing_l1_w5",
+    "timing_l1_w10",
+    "timing_l1_w20",
+    "timing_l1_w40",
+    "timing_l1_w60",
+    "timing_l2_w5",
+    "timing_l2_w10",
+    "timing_l2_w20",
+    "timing_l2_w40",
+    "timing_l2_w60",
+    "timing_l4_w5",
+    "timing_l4_w10",
+    "timing_l4_w20",
+    "timing_l4_w40",
+    "timing_l4_w60",
+    "timing_l5_w5",
+    "timing_l5_w10",
+    "timing_l5_w20",
+    "timing_l5_w40",
+    "timing_l5_w60",
+    "timing_l6_w5",
+    "timing_l6_w10",
+    "timing_l6_w20",
+    "timing_l6_w40",
+    "timing_l6_w60",
+    "remark_rectangles_adam1m"
   ],
   "figures": [
     {
       "paper_figure": "5",
       "paper_page": 13,
       "path": "figures/full_study/fig05_circle_points_mesh.png",
-      "sha256": "318b924b43ffd89a97a1a09aa119cbe45a6c3afc2605bfe9633df8d5be8e2dd8",
+      "sha256": "2cf1949a9e1ae407a69d5e2917afbae6a9f15d5be3d980c5ce06599e913f9ff0",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "6",
       "paper_page": 14,
       "path": "figures/full_study/fig06_circle_coupled_losses.png",
-      "sha256": "67aa57fc428532777b01e07cd382b0b053da288aa1bcd0cf4da4a4ddafcce3ea",
+      "sha256": "0fd2cdbe155de91bbe89a813fbfcf0df0e5b607a723e096dae259339e9d386c0",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "7",
       "paper_page": 15,
       "path": "figures/full_study/fig07_circle_deformation.png",
-      "sha256": "26e8a56058ad8856998b4e2d18cfa2dd0dc53f43c2c5dc4af9a0de50f85a3d9b",
+      "sha256": "beda7b2aab94adcc05be04720916bf66c8bbad69914a399553b0b95176c50ae6",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "8",
       "paper_page": 16,
       "path": "figures/full_study/fig08_circle_coupled_mechanical.png",
-      "sha256": "a279ba2d24fc4aba2bdeca6ebf77253ef4936e3f0ede2f1168bec32184dfd101",
+      "sha256": "f57f66d53d83dff80f35c2d8af94f736fb841777b3fa3e3f7fc5664c15c3f5b5",
       "embedded_width_cm": 13.856342333163525
     },
     {
       "paper_figure": "9",
       "paper_page": 17,
       "path": "figures/full_study/fig09_circle_coupled_thermal.png",
-      "sha256": "ddc5591c9771a573bfd1106f821bbc104c2ee64c476844a5cf7bf2e9e0ee0995",
+      "sha256": "4f2bbaf72ebad056e53ee09d1e083c4321167d77e5a36962ee2d3cc8759f3c04",
       "embedded_width_cm": 15.803600654664484
     },
     {
       "paper_figure": "10",
       "paper_page": 18,
       "path": "figures/full_study/fig10_circle_sequential_losses.png",
-      "sha256": "78aead053d7151aa2569c69664ec143d8b802143a2df7612693f118c3fa951ed",
+      "sha256": "537b0ec8a57a66bcba2a5b70d508e0f4058aba6f73488710e96a66a80380e13a",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "11",
       "paper_page": 19,
       "path": "figures/full_study/fig11_circle_methods.png",
-      "sha256": "b215c4a6494534306afca2c267a8fe7022c17741d686a2e6605ea0721ac2ba33",
+      "sha256": "8ebbdbd508467f170ee21ec2ab9e517ba5730883fc70ec4d3a1577d05550d8a6",
       "embedded_width_cm": 16.328571428571426
     },
     {
       "paper_figure": "12",
       "paper_page": 20,
       "path": "figures/full_study/fig12_rectangles_points_mesh.png",
-      "sha256": "75bd56a31feed20133f797fc529c049072da15eee3b7a8c77b84a1a5d1832997",
+      "sha256": "13b3b68023642f2c171e647c281e3adf43a4c70a5f952e71b60a9155d4101783",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "13",
       "paper_page": 21,
       "path": "figures/full_study/fig13_rectangles_coupled_mechanical.png",
-      "sha256": "b96f4376885b131af6e37b76847c97a3655c726fe6052c08354b2e18ce34e4a0",
+      "sha256": "f84517fc248a26322df6b5be75f1fc2cb46bb3d12158bd4c20d5387dc29ec793",
       "embedded_width_cm": 13.856342333163525
     },
     {
       "paper_figure": "14",
       "paper_page": 22,
       "path": "figures/full_study/fig14_rectangles_coupled_thermal.png",
-      "sha256": "6efc92b15cc20457f0f8bd3ae965f615d7dbbfeb42bbda2fa220503927794851",
+      "sha256": "7ebb6f7af2be5e2c37ee8841f84f0db788195a062777ccfea962b70c3de781bb",
       "embedded_width_cm": 15.803600654664484
     },
     {
       "paper_figure": "15",
       "paper_page": 23,
       "path": "figures/full_study/fig15_left_refinement.png",
-      "sha256": "3a77fd3d1b7fb2d82a1d8edf9a8108457c5208ecca60f58662f5da0f606a3d07",
+      "sha256": "ed779cbc00f53022b6c8cad9c0ff3bc3a03aea6d56f050a9fba07ac86878f865",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "16",
       "paper_page": 23,
       "path": "figures/full_study/fig16_rectangles_sections.png",
-      "sha256": "02ad1fd3a2c8c990271339068fd535ed34c7a81a79ec53b9dc503c86feada2ec",
+      "sha256": "be43d48902dbae5b366df40ad724371189be1ed4e0be88075619f37df901a380",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "17",
       "paper_page": 24,
       "path": "figures/full_study/fig17_boundary_optimizer.png",
-      "sha256": "b0e7969cbb16ab99d56ca237bd1b4ec5dcc52859a17310bce0e010a9dcdf562e",
+      "sha256": "e0c689fe1f2c93c7da3908d10777d5151f28d20e9d74c731abb813d6a3d3ce70",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "18",
       "paper_page": 24,
       "path": "figures/full_study/fig18_hard_objective.png",
-      "sha256": "2f43048ce0e516adab64d6fffe60c05ad7a9098daa110a58c76bec0dccee4ccf",
+      "sha256": "fca9e6f18bb5a1d5b3926a2c213736b4c7c3eb7b53b314ef0865fd1c5313fc9e",
       "embedded_width_cm": 17.7
     },
     {
       "paper_figure": "19",
       "paper_page": 25,
       "path": "figures/full_study/fig19_architectures.png",
-      "sha256": "d379a64c8d48debc1163b2475eebf08fd32b3bfcbe681e2052b86c539502df98",
+      "sha256": "291888d5a5a10611b0e716797e92d756efb1f9f78d563f1285de8b482bc07552",
       "embedded_width_cm": 15.679166666666665
     },
     {
       "paper_figure": "20",
       "paper_page": 26,
       "path": "figures/full_study/fig20_depth_derived.png",
-      "sha256": "85b3ba62f3e0f74df003b88d16bfde9914f759503289f2ab59af46b344b4f021",
+      "sha256": "765c0a0c1e5377ac43b41fbfab2ac12d90f579475a235685942b902a975ef065",
       "embedded_width_cm": 17.18181818181818
     },
     {
       "paper_figure": "21",
       "paper_page": 27,
       "path": "figures/full_study/fig21_width_derived.png",
-      "sha256": "ab060ace6c38e9b5e6c983cdfb5b1eab4f80672a4af7969c016db2efc8498e4d",
+      "sha256": "b35b4f95d23fdc81708626e74034076d09d43ccbd35b107a7b04c3533675a1a4",
       "embedded_width_cm": 16.363636363636363
     },
     {
       "paper_figure": "23",
       "paper_page": 28,
       "path": "figures/full_study/fig23_transfer.png",
-      "sha256": "95e401b9493357bf39aa319fb31f404affc9552475ebe9d523566e5991cdea46",
+      "sha256": "dd37b14f81cf466575002439a138700916922d9094d1b6606665025d2d4494d9",
       "embedded_width_cm": 16.231155778894472
     },
     {
       "paper_figure": "24",
       "paper_page": 29,
       "path": "figures/full_study/fig24_transfer.png",
-      "sha256": "9b2b13db65998d231fdef0cb5d66960cd49a7837529115286da91598e0db7d60",
+      "sha256": "2ecb4c3cdb82179c96c4554000a52c1f7498737feb61018f487db8ef521162bb",
       "embedded_width_cm": 15.974874371859295
     },
     {
       "paper_figure": "25",
       "paper_page": 30,
       "path": "figures/full_study/fig25_transfer_sections.png",
-      "sha256": "8846422fe86b917e9dcd5e34f4e91285da20f8498c8584713a59481406d7d60e",
+      "sha256": "d04c22ac16ac963ab60cf8af237e450d628746a1bd38f7c5e640d7d0e01e6bc0",
       "embedded_width_cm": 15.171428571428573
     },
     {
       "paper_figure": "A1",
       "paper_page": 35,
       "path": "figures/full_study/figA1_mesh_convergence.png",
-      "sha256": "6f63196af6d3578b7c79080fc3ec5e95db87b7be90dc91891a2615a84c0787a1",
+      "sha256": "989731a50e1badd9dbfd87bff01415c2dbaabc3168275f6a162792e5a95fc786",
       "embedded_width_cm": 15.814285714285715
     },
     {
       "paper_figure": "B1",
       "paper_page": 36,
       "path": "figures/full_study/figB1_hard_fullfields.png",
-      "sha256": "7556b527ee87158e653dc7e2791bdd4e67cb9a8b6a7bad7ea3347101cc25fd0c",
+      "sha256": "fd2d4ebe231d523aea22da2fc3e7a24a6a1b7afc36399b50e62028bc4ebd9fad",
       "embedded_width_cm": 13.856342333163525
     },
     {
       "paper_figure": "B2",
       "paper_page": 37,
       "path": "figures/full_study/figB2_hard_fullfields.png",
-      "sha256": "9ee418037d1fcb7516b91ed0670c8af3d2ac4c29f6b7fd997e16f0b1fa649d53",
+      "sha256": "5649db456e8fa1cd2aed4241916567eb2abc75e045b27a57f5b1e0b4fd6c3cd6",
       "embedded_width_cm": 17.7
     }
   ],
@@ -857,6 +883,12 @@
       "prediction_sha256": "12de1f9673273f9422d7fa3483b6a7b5e8b1da53109ebe21d3cd69255ea608ac",
       "reference_sha256": "be83aa831c36f1589655c9a02f7019f694d8763caac2a6f7bae86b7573d5a6ba",
       "checks": 32
+    },
+    {
+      "job": "remark_rectangles_adam1m",
+      "prediction_sha256": "c723e2745b3aee3efe1c7d8112fd997c695ff9ddd94e75e93bd03e30806b09bf",
+      "reference_sha256": "854cf5c5f07ed8b84d95b6948465a325eebeb0fd8a956b0c19d14cb63be17323",
+      "checks": 32
     }
   ],
   "excluded_conceptual_figures": [
@@ -866,7 +898,7 @@
     "4",
     "22"
   ],
-  "source_data_cutoff_kst": "2026-11-05 03:13 KST",
+  "source_data_cutoff_kst": "2026-11-05 12:48 KST",
   "comparison_reference": "FEM50; mesh convergence uses FEM200",
   "prediction_representation": "constitutive stress and Fourier flux derived from u,T",
   "condition_audit": {
@@ -893,11 +925,11 @@
       },
       {
         "path": "harandi/transfer.py",
-        "sha256": "34c48bf942b7e089b96043956db927245f524a0cb1472311dca355588104ebb3"
+        "sha256": "70f11d00af4d077b409a2e846bac1ae517bf4e9d4220fc696d5b042cb676eb12"
       },
       {
         "path": "harandi/full_study.py",
-        "sha256": "a737e881cabfe07d082ca55760b6aa0eb3571f34558d6f4329ddcbbc7e7c5134"
+        "sha256": "1edbe90678a7d9a8bc2392fac311fa915f2fb0059e191def2dce4ac19fee09d6"
       },
       {
         "path": "results/fem_report_verification.json",
@@ -905,7 +937,7 @@
       },
       {
         "path": "docs/SOURCE_PROVENANCE.json",
-        "sha256": "95f90793c380b5b95e8a920c3eca80a35147704f9d5b4cef438112d80bbe76ee"
+        "sha256": "c0341205320e24049834656892dcc924b28c3eebd72185aea5db3c54aabd2b8b"
       }
     ],
     "saved_configs": [
@@ -1038,6 +1070,136 @@
         "job": "transfer_w1",
         "path": "results/full_study/transfer_w1/config.json",
         "sha256": "8f4c2206beba25c5a0492eaca9966c2d1795726b891dc9f9e781fb33747c22a2"
+      },
+      {
+        "job": "timing_l1_w5",
+        "path": "results/full_study/timing_l1_w5/config.json",
+        "sha256": "e24588bf38a0a56636c773f1c3960d8967ac7c56e39091547c56bf6743d57939"
+      },
+      {
+        "job": "timing_l1_w10",
+        "path": "results/full_study/timing_l1_w10/config.json",
+        "sha256": "a118c9e286ab103af962aa20f770ae198065b0fb7e3d3f7c1abaf72c40e07c0f"
+      },
+      {
+        "job": "timing_l1_w20",
+        "path": "results/full_study/timing_l1_w20/config.json",
+        "sha256": "90048a7469404a611abd34e2fa3aa0d2278928b0cb60e79ab2ddc4a50bf48a7c"
+      },
+      {
+        "job": "timing_l1_w40",
+        "path": "results/full_study/timing_l1_w40/config.json",
+        "sha256": "d7093665fa47c3aad9a50af0c5bd4a3271d85bca3057170ab3f21bd6c01dc874"
+      },
+      {
+        "job": "timing_l1_w60",
+        "path": "results/full_study/timing_l1_w60/config.json",
+        "sha256": "6be7377d46250689eb7b9602bfb8e37eab8de09ffcbcd0b66486fcf42fb008bd"
+      },
+      {
+        "job": "timing_l2_w5",
+        "path": "results/full_study/timing_l2_w5/config.json",
+        "sha256": "60a66ae8ca8bead17c11f4df88f2751c1896cb99db7678356836e84d0284beaf"
+      },
+      {
+        "job": "timing_l2_w10",
+        "path": "results/full_study/timing_l2_w10/config.json",
+        "sha256": "c223be6d39051f66dbaddc2ffe8ae7528d652c8a008e207e88a04a9bcd27acaf"
+      },
+      {
+        "job": "timing_l2_w20",
+        "path": "results/full_study/timing_l2_w20/config.json",
+        "sha256": "42590f7457afe89d6b214aac966ed33730d97e15779d14665fce450f70761ea8"
+      },
+      {
+        "job": "timing_l2_w40",
+        "path": "results/full_study/timing_l2_w40/config.json",
+        "sha256": "6389058403d950eddeb58e327e36f4880f61aefa9ea7e41d3070715cfef62812"
+      },
+      {
+        "job": "timing_l2_w60",
+        "path": "results/full_study/timing_l2_w60/config.json",
+        "sha256": "56e971733e534c4b3cd9d62eea0d063caa8f000b9403f85587acf5868fffa549"
+      },
+      {
+        "job": "timing_l4_w5",
+        "path": "results/full_study/timing_l4_w5/config.json",
+        "sha256": "a02e102a917d9f50d5cb4b4ef7e06f5d3c5fe16061187f52db52c3cd8a3ac835"
+      },
+      {
+        "job": "timing_l4_w10",
+        "path": "results/full_study/timing_l4_w10/config.json",
+        "sha256": "f19099ba2bbbcb3540ba5df821b56e2c5826580b78a9491e93b3ba258d08ae2e"
+      },
+      {
+        "job": "timing_l4_w20",
+        "path": "results/full_study/timing_l4_w20/config.json",
+        "sha256": "524710eef93401ae24c434fc11c6c46b911c849acad9821e7bdd11ec61af2b4c"
+      },
+      {
+        "job": "timing_l4_w40",
+        "path": "results/full_study/timing_l4_w40/config.json",
+        "sha256": "7d14a9f0e2254dc0f46545294e06153771d1946757431627de5f5e0222ed5484"
+      },
+      {
+        "job": "timing_l4_w60",
+        "path": "results/full_study/timing_l4_w60/config.json",
+        "sha256": "9862ed88bc32bf20edddda88ba5430edf86635776a2a497a270ed412cd442a9b"
+      },
+      {
+        "job": "timing_l5_w5",
+        "path": "results/full_study/timing_l5_w5/config.json",
+        "sha256": "7b9fa6c351c927c1ff0c8ffc2fc705b3429cb7431188ac11d5dbb4a20c7a8137"
+      },
+      {
+        "job": "timing_l5_w10",
+        "path": "results/full_study/timing_l5_w10/config.json",
+        "sha256": "788640c10175468f785b7f69c3715281a9767a054f9d27c25447f6af846059e8"
+      },
+      {
+        "job": "timing_l5_w20",
+        "path": "results/full_study/timing_l5_w20/config.json",
+        "sha256": "50fff42ad6585f4e5ace278a9a09228495efab543477ea5ec6ae239a0d8d6b3a"
+      },
+      {
+        "job": "timing_l5_w40",
+        "path": "results/full_study/timing_l5_w40/config.json",
+        "sha256": "464c2733bcd6418a8d95f58af23b1b25ec38a2d12c641c823c692c15dab64654"
+      },
+      {
+        "job": "timing_l5_w60",
+        "path": "results/full_study/timing_l5_w60/config.json",
+        "sha256": "d8bc2ca5e22460dbdfeed3a6965166ed635005cd6354b0aba6ebb26a835fc8fa"
+      },
+      {
+        "job": "timing_l6_w5",
+        "path": "results/full_study/timing_l6_w5/config.json",
+        "sha256": "cf980034c34ae2be7df72e1a8d1e3e2b46f00c9f56971f38dfad3b4f01d98126"
+      },
+      {
+        "job": "timing_l6_w10",
+        "path": "results/full_study/timing_l6_w10/config.json",
+        "sha256": "09a663a7f11ffd90b1c248308914d87b960ba6a0b24fdd985169c8403eec7bce"
+      },
+      {
+        "job": "timing_l6_w20",
+        "path": "results/full_study/timing_l6_w20/config.json",
+        "sha256": "77b9e94fdc9ec9ec5894afc0c9736b41ca230a654e20569a9d799f33814df5a3"
+      },
+      {
+        "job": "timing_l6_w40",
+        "path": "results/full_study/timing_l6_w40/config.json",
+        "sha256": "c9e10279d734138e232c95311c6cbeb8fec8e08a2be2cda0c76c6db5f6cc2240"
+      },
+      {
+        "job": "timing_l6_w60",
+        "path": "results/full_study/timing_l6_w60/config.json",
+        "sha256": "d0b49960d80b209f8c31bb736565ced57cd627c33ef3776f12ed0ecd03cbdeff"
+      },
+      {
+        "job": "remark_rectangles_adam1m",
+        "path": "results/full_study/remark_rectangles_adam1m/config.json",
+        "sha256": "ccabad052a983df85be2cc1df82db9c90a595b511b8951bcd10f050a0024bbf7"
       }
     ],
     "fem_references_checked": 19,
@@ -1072,18 +1234,346 @@
     "max_dirichlet_error": 0.0,
     "source_code_review": "FEM assembly/recovery, PINN objectives/batches/optimizers, author code at 5b426dc8eb2255b1bb3b8630619228b36cdb464e and paper Eqs.40,49,62-65 reviewed."
   },
-  "docx_sha256": "8835101c9d8c8b919de661d658414ee8d4b16bf9c6804ea6ff0565396e2148c0",
+  "supplementary_figures": [
+    {
+      "path": "figures/full_study/remark07_runtime.png",
+      "sha256": "9382b33dfa49ae3b3b8c1187db0deac80ec6fad48ac666c4ef39a368d194c3aa"
+    }
+  ],
+  "timing_measurements": {
+    "timing_l1_w5": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 6.349422600003891,
+      "seconds_per_iteration_first_100": 0.0634942260000389,
+      "closure_evaluations_first_100": 228.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l1_w10": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 6.2654714999953285,
+      "seconds_per_iteration_first_100": 0.06265471499995329,
+      "closure_evaluations_first_100": 216.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l1_w20": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 6.81981889999588,
+      "seconds_per_iteration_first_100": 0.0681981889999588,
+      "closure_evaluations_first_100": 223.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l1_w40": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 29.67665050001233,
+      "seconds_per_iteration_first_100": 0.2967665050001233,
+      "closure_evaluations_first_100": 1134.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l1_w60": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 25.93495520000579,
+      "seconds_per_iteration_first_100": 0.2593495520000579,
+      "closure_evaluations_first_100": 972.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l2_w5": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 30.75449849999859,
+      "seconds_per_iteration_first_100": 0.3075449849999859,
+      "closure_evaluations_first_100": 1035.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l2_w10": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 8.059235599997919,
+      "seconds_per_iteration_first_100": 0.08059235599997919,
+      "closure_evaluations_first_100": 243.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l2_w20": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 9.073119600012433,
+      "seconds_per_iteration_first_100": 0.09073119600012433,
+      "closure_evaluations_first_100": 257.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l2_w40": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 8.040018400002737,
+      "seconds_per_iteration_first_100": 0.08040018400002737,
+      "closure_evaluations_first_100": 222.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l2_w60": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 9.025307000003522,
+      "seconds_per_iteration_first_100": 0.09025307000003523,
+      "closure_evaluations_first_100": 246.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l4_w5": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 10.22855040000286,
+      "seconds_per_iteration_first_100": 0.1022855040000286,
+      "closure_evaluations_first_100": 228.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l4_w10": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 8.93591609998839,
+      "seconds_per_iteration_first_100": 0.08935916099988389,
+      "closure_evaluations_first_100": 217.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l4_w20": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 11.619415000022855,
+      "seconds_per_iteration_first_100": 0.11619415000022855,
+      "closure_evaluations_first_100": 285.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l4_w40": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 9.752885000023525,
+      "seconds_per_iteration_first_100": 0.09752885000023526,
+      "closure_evaluations_first_100": 234.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l4_w60": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 9.879923400003463,
+      "seconds_per_iteration_first_100": 0.09879923400003462,
+      "closure_evaluations_first_100": 230.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l5_w5": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 29.339464500022586,
+      "seconds_per_iteration_first_100": 0.2933946450002259,
+      "closure_evaluations_first_100": 722.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l5_w10": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 34.49504860001616,
+      "seconds_per_iteration_first_100": 0.3449504860001616,
+      "closure_evaluations_first_100": 850.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l5_w20": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 46.89704750000965,
+      "seconds_per_iteration_first_100": 0.4689704750000965,
+      "closure_evaluations_first_100": 1156.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l5_w40": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 12.040277699998114,
+      "seconds_per_iteration_first_100": 0.12040277699998114,
+      "closure_evaluations_first_100": 234.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l5_w60": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 11.384880300000077,
+      "seconds_per_iteration_first_100": 0.11384880300000078,
+      "closure_evaluations_first_100": 224.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l6_w5": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 52.04504880000604,
+      "seconds_per_iteration_first_100": 0.5204504880000604,
+      "closure_evaluations_first_100": 1106.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l6_w10": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 11.953916700003901,
+      "seconds_per_iteration_first_100": 0.11953916700003901,
+      "closure_evaluations_first_100": 252.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l6_w20": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 54.18436089999159,
+      "seconds_per_iteration_first_100": 0.5418436089999159,
+      "closure_evaluations_first_100": 1114.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l6_w40": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 62.18431800001417,
+      "seconds_per_iteration_first_100": 0.6218431800001417,
+      "closure_evaluations_first_100": 1270.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    },
+    "timing_l6_w60": {
+      "iterations": 100,
+      "elapsed_seconds_first_100": 52.71393040000112,
+      "seconds_per_iteration_first_100": 0.5271393040000112,
+      "closure_evaluations_first_100": 1053.0,
+      "device": "cuda",
+      "GPU": "NVIDIA GeForce RTX 3090",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "measurement_kind": "Cumulative wall time through update100 /100; includes setup, closures, logging and checkpoint overhead; not isolated GPU kernel time.",
+      "available": true,
+      "status": "measured"
+    }
+  },
+  "docx_sha256": "54e79a5d3dba950c06df68f1dc890448f27d06c3e762eb5b9eabae9d26213149",
   "source_paper_sha256": "d9ca696ba326d0b503e8f7c1bc2d83aa8cd095269f688db3821b8eb4d630dc9a",
   "original_figure_license": "CC BY-NC-ND 4.0",
-  "table_count": 12,
-  "embedded_figure_count": 46,
-  "expected_pages": 52,
+  "table_count": 14,
+  "embedded_figure_count": 47,
+  "expected_pages": 54,
   "table_style": "White background, black text and horizontal top/header/bottom rules; no shading or vertical rules.",
   "status": "pass",
-  "rendered_pages": 52,
-  "rendered_pdf_sha256": "5cae3221a694a323f47a9b7cd9b02db0b916d595c4f25c43412d3f8741814c69",
-  "render_method": "packaged render_docx.py with task-local official LibreOffice 26.2.6 administrative extraction",
+  "rendered_pages": 54,
+  "rendered_pdf_sha256": "0bde5883581e6ff06defc91c22b76b81270b45a3c2ad63f0696a664aa1228556",
+  "render_method": "packaged render_docx.py with task-local LibreOffice",
+  "text_bounds_violations": [],
+  "text_replacement_characters": 0,
+  "image_bytes_match_source_figures": true,
+  "all_tables_have_repeat_header": true,
+  "all_tables_have_no_shading": true,
+  "all_table_rules_black": true,
+  "all_pairs_have_one_image_per_page": true,
+  "contacts": [
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-1.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-2.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-3.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-4.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-5.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-6.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-7.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-8.png",
+    "C:\\Users\\user\\Documents\\Codex\\2026-11-03\\x20\\work\\concise_word\\complete_refresh_final\\contact-9.png"
+  ],
   "visual_review": {
+    "performed": true,
+    "reviewer": "independent review_complete_refresh agent",
     "pages_reviewed_at_original_resolution": [
       1,
       2,
@@ -1136,33 +1626,19 @@
       49,
       50,
       51,
-      52
+      52,
+      53,
+      54
     ],
-    "findings": "All 52 pages reviewed. Five condition pages fit without split tables. All 23 original/computed pairs retain consecutive pages, complete panels and captions. Twelve unshaded tables use black horizontal rules. No clipped text or missing glyphs."
+    "findings": "All54 original-resolution page PNGs individually reviewed; no clipping, overlap, missing glyphs or damaged figure pairs. Final54 page rasters are pixel-identical to that reviewed render."
   },
-  "text_bounds_violations": [],
-  "text_replacement_characters": 0,
-  "image_bytes_match_source_figures": true,
-  "all_tables_have_repeat_header": true,
-  "all_tables_have_no_shading": true,
-  "all_table_rules_black": true,
-  "all_pairs_have_one_image_per_page": true,
-  "a11y": {
-    "file": "outputs/AM_Project_Reproduce/reports/CONCISE_COMPARISON_KO.docx",
-    "counts": {
-      "high": 0,
-      "medium": 0,
-      "low": 0
-    },
-    "findings": []
-  },
-  "editorial_corrections": [
-    "Added explicit summary heading and expanded FEM and PINN condition comparisons against source code and saved configurations.",
-    "Added FEM element spaces, integration, direct solver, material representation, recovery, mesh DOFs and saved validation values.",
-    "Added PINN initialization, coordinate mapping, point masks, optimizer defaults, objective/boundary distinctions and transfer input difference.",
-    "Corrected hard transformation sign to actual x(1-x) implementation.",
-    "Corrected author-code shear coefficient: E/((1+nu)*(1-2*nu))*(1-2*nu)=2mu; the discrepancy is with printed Eq.49, not released code.",
-    "Preserved all 46 image hashes and dimensions, all six result tables, all 832 saved prediction metric checks and the dataset cutoff."
-  ],
-  "checks_do_not_cover": "No new training or FEM solve. Existing 19 FEM references and 26 saved training configurations verified; unpublished author FEM settings are not inferred."
+  "checks_do_not_cover": "No new FEM solve or additional neural training in the refresh. One serial timing measurement per architecture; no seed-repeat statistical validation.",
+  "source_line_ending_normalization": [
+    {
+      "path": "harandi/transfer.py",
+      "previous_sha256": "34c48bf942b7e089b96043956db927245f524a0cb1472311dca355588104ebb3",
+      "published_sha256": "70f11d00af4d077b409a2e846bac1ae517bf4e9d4220fc696d5b042cb676eb12",
+      "verification": "Source identical after CRLF-to-LF normalization; no semantic or document-content change."
+    }
+  ]
 }

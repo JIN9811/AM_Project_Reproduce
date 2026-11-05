@@ -1,0 +1,23 @@
+{
+  "id": "remark_rectangles_adam1m",
+  "kind": "mixed",
+  "config": {
+    "geometry": "rectangles",
+    "mode": "coupled",
+    "n": 51,
+    "width": 40,
+    "layers": 5,
+    "hard": false,
+    "energy": "authors",
+    "adam_steps": 1000000,
+    "lbfgs_steps": 0,
+    "switch": 20000,
+    "log_every": 1000,
+    "checkpoint_every": 1000,
+    "fast_adam": true,
+    "dtype": "float64",
+    "left_refine": 0
+  },
+  "continue_from": "mixed_rectangles_coupled",
+  "purpose": "Remark7 text-only1M Adam claim; explicit soft-BC reconstruction choice, same trajectory extended from100k."
+}

@@ -430,8 +430,8 @@ def _setup_figures(writer):
     ax.text(.05,.83,'Mechanical: ux=0 at x=0,1; uy=0 at y=0,1',fontsize=12)
     ax.text(.05,.68,'Thermal: T=1 left, T=0 right; qy=0 top and bottom',fontsize=12)
     ax.text(.05,.50,'Soft baseline: boundary penalties in the loss',fontsize=12)
-    ax.text(.05,.35,r'Hard cases: $\hat u_x=x(x-1)u_x$, $\hat u_y=y(y-1)u_y$',fontsize=12)
-    ax.text(.05,.20,r'$\hat T=x(x-1)T+1-x$',fontsize=12)
+    ax.text(.05,.35,r'Hard cases: $u_x=x(1-x)N_{u_x}$, $u_y=y(1-y)N_{u_y}$',fontsize=12)
+    ax.text(.05,.20,r'$T=1-x+x(1-x)N_T$',fontsize=12)
     writer.save(fig,'fig03_boundary_conditions','Figure3: boundary conditions',
                 'Baseline comparator penalty choices and printed mechanical-Neumann inconsistencies are documented in the protocol.',3)
     fig,axes=plt.subplots(1,3,figsize=(11,4.7));fig.subplots_adjust(left=.03,right=.98,top=.87,bottom=.18,wspace=.23)

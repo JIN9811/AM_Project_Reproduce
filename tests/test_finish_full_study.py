@@ -133,6 +133,27 @@ def test_public_source_audit_reports_unbundled_paper_and_checks_included_data(tm
         verify_sources(tmp_path)
 
 
+@pytest.mark.parametrize('damage', ['missing', 'modified'])
+def test_public_source_audit_checks_bundled_figure_even_when_pdf_is_unbundled(tmp_path, damage):
+    from scripts.finish_full_study import verify_sources, PipelineError
+    image = tmp_path/'figures/paper_reference/paper_fig5.png'
+    image.parent.mkdir(parents=True)
+    image.write_bytes(b'licensed original figure')
+    provenance = {
+        'paper': {'path': 'external/paper.pdf', 'sha256': hashlib.sha256(b'paper').hexdigest()},
+        'distribution': {'mode': 'public', 'external_paper_and_crops_included': False},
+        'bundled_artifacts': {'figures/paper_reference/paper_fig5.png': hashlib.sha256(image.read_bytes()).hexdigest()}}
+    (tmp_path/'docs/SOURCE_PROVENANCE.json').write_text(json.dumps(provenance))
+    records = verify_sources(tmp_path)
+    assert any(r['path'] == str(image) and r['status'] == 'verified' for r in records)
+    if damage == 'missing':
+        image.unlink()
+    else:
+        image.write_bytes(b'changed image')
+    with pytest.raises(PipelineError, match='Source hash verification failed'):
+        verify_sources(tmp_path)
+
+
 def test_public_source_audit_rejects_wrong_external_paper_when_present(tmp_path):
     from scripts.finish_full_study import verify_sources, PipelineError
     external=tmp_path/'external'; external.mkdir()

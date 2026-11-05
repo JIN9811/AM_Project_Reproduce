@@ -61,7 +61,18 @@ def catalogue():
 
 def atomic_json(path,payload):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
-    temp=path.with_suffix('.tmp');temp.write_text(json.dumps(payload,indent=2,ensure_ascii=False),encoding='utf-8');temp.replace(path)
+    temp=path.with_suffix('.tmp')
+    temp.write_text(json.dumps(payload,indent=2,ensure_ascii=False),encoding='utf-8')
+    # Windows readers may briefly deny deletion while a dashboard reads JSON.
+    # Keep the previous complete document visible until replacement succeeds.
+    for attempt in range(6):
+        try:
+            temp.replace(path)
+            return
+        except PermissionError:
+            if attempt == 5:
+                raise
+            time.sleep(.02 * 2**attempt)
 
 
 def job_complete(job,out=OUT):

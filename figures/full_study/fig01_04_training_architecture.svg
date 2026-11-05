@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-05T03:13:51.788976</dc:date>
+    <dc:date>2026-11-05T12:52:53.096628</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -107,7 +107,7 @@ z
    </g>
   </g>
   <g id="text_7">
-   <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="43.56" y="330.627159" transform="rotate(-0 43.56 330.627159)">PARTIAL PROGRESS: completed jobs only | New schematic. Baseline soft BCs and authors-energy variant; hard/L-BFGS and transfer cases have separate configurations.</text>
+   <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start" x="43.56" y="330.627159" transform="rotate(-0 43.56 330.627159)">FULL CATALOGUE: verified completed jobs | New schematic. Baseline soft BCs and authors-energy variant; hard/L-BFGS and transfer cases have separate configurations.</text>
   </g>
  </g>
 </svg>

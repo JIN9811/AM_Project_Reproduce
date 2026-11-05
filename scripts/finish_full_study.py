@@ -273,6 +273,7 @@ def verify_sources(root):
         paper = root/paper
     expected = [(paper, provenance['paper']['sha256'], public)]
     expected += [(root/'data'/name, digest, False) for name, digest in provenance.get('included_data', {}).items()]
+    expected += [(root/name, digest, False) for name, digest in provenance.get('bundled_artifacts', {}).items()]
     style = provenance.get('paper_visual_style', {})
     for key in ('palette', 'ranges'):
         if key in style:

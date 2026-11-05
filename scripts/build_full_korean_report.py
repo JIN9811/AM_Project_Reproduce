@@ -266,7 +266,7 @@ def create_report(root,partial,pinn_python):
         ['EQ1_m-EQ3_m; EQ1_t-EQ2_t',r'$\mathcal L_{\mathrm{link},\sigma},\mathcal L_{\mathrm{link},q}$','독립 출력과 유도 출력의 연결 조건'],
         ['PDE1_m, PDE2_m; PDE1_t',r'$\nabla\cdot\widehat{\boldsymbol\sigma},\nabla\cdot\widehat{\boldsymbol q}$','독립 출력의 1차 미분 잔차']],[.32,.32,.36],caption='원저자 코드와 본 보고서의 표기 대응')
     r.equation(r'\begin{aligned}\boldsymbol r_{\sigma}&=\widehat{\boldsymbol\sigma}-\boldsymbol\sigma(\boldsymbol u,T),&\quad\boldsymbol r_q&=\widehat{\boldsymbol q}+k\nabla T,\\\boldsymbol r_{\mathrm M}&=\nabla\!\cdot\widehat{\boldsymbol\sigma},&r_{\mathrm T}&=\nabla\!\cdot\widehat{\boldsymbol q}.\end{aligned}')
-    r.p(r'저자 파일의 strain_xy는 텐서 전단변형률 $\varepsilon_{xy}=(u_{x,y}+u_{y,x})/2$이며, sigma_xy에 곱하는 계수는 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.')
+    r.p(r'저자 파일의 strain_xy는 텐서 전단변형률 $\varepsilon_{xy}=(u_{x,y}+u_{y,x})/2$이다. sigma_xy의 계수는 $E/[(1+\nu)(1-2\nu)]\times(1-2\nu)=2\mu$이므로, 공개 코드와 본 프로젝트 모두 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$를 사용한다. 원문의 식 40과 인쇄 식 49를 함께 읽었을 때의 계수 차이는 공개 코드와 구분한다. 이전 보고서의 “저자 공개 코드와 2배 차이”라는 설명은 정정했으며, 계산식과 기존 결과 배열은 변경하지 않았다.')
     r.p('출처: <link href="https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55">저자 코드의 출력·구성식 정의</link>; <link href="https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278">일·연결·평형 손실</link>. 고정 커밋: 5b426dc8eb2255b1bb3b8630619228b36cdb464e.','small')
     r.fig('fig01_04_training_architecture','그림 2. 동시·순차 학습과 혼합 네트워크의 구현 절차. 독립 신경망과 장 동결을 구분한다.',manifest,110*mm)
     r.p('동시 학습은 두 장의 손실을 함께 최소화한다. 순차 학습은 한 장의 파라미터만 갱신하고 다른 장을 고정한다. 순차의 역학 블록에서 온도는 처방된 입력이므로 기계 에너지의 온도 방향 기울기를 차단한다. 본 구현은 열 블록 이후 새 역학 블록에서 Adam 상태를 재설정한다. 이 정책은 원문에 명시되지 않은 선택이다.')
@@ -378,6 +378,14 @@ def create_report(root,partial,pinn_python):
     focus(['mixed_rectangles_coupled','remark_rectangles_adam1m'])
     delta('remark_rectangles_adam1m','mixed_rectangles_coupled')
     r.fig('remark07_runtime','그림 6. 100k와 1M의 기록된 누적 시간·업데이트 비교. 연속 실행의 재사용 예산을 이중 계산하지 않는다.',manifest,90*mm)
+    if 'remark_rectangles_adam1m' in results and 'mixed_rectangles_coupled' in results:
+        short=results['mixed_rectangles_coupled']['derived']
+        long=results['remark_rectangles_adam1m']['derived']
+        improved=[f for f in FIELDS if long[f]['relative_l2']<short[f]['relative_l2']]
+        r.p(f'FEM200 대비 상대 L2 오차가 감소한 성분은 {len(improved)}/8개({", ".join(improved)})이다. '
+            f'온도는 {100*short["T"]["relative_l2"]:.2f}%에서 {100*long["T"]["relative_l2"]:.2f}%, '
+            f'수평 정상응력은 {100*short["sxx"]["relative_l2"]:.2f}%에서 {100*long["sxx"]["relative_l2"]:.2f}%로 증가하였다. '
+            '같은 궤적의 학습 예산을 10배로 늘려도 모든 장의 정확도가 개선되지는 않았다. 최종 1,000,000회 가중치를 평가했으며 중간 체크포인트에서 가장 좋은 결과를 선택하지 않았다.')
 
     r.page(); r.h('10. 신경망 구조의 정확도')
     r.p('깊이 연구는 너비 40을 고정한 1,2,4,5,6층이며, 너비 연구는 5층에서 5,10,20,40,60 뉴런이다. 모두 하드 경계의 동시 L-BFGS 10k이다. 겹치는 5×40은 동일 실행을 재사용한다. 3층은 원문의 실험값이 아니므로 임의로 추가하지 않는다.')
@@ -411,7 +419,7 @@ def create_report(root,partial,pinn_python):
             row.append(number(timing.get('seconds_per_iteration_first_100')))
         time_rows.append(row)
     r.table(['층 / 뉴런','5','10','20','40','60'],time_rows,[.20,.16,.16,.16,.16,.16])
-    r.p('단위는 s/update이다. 빈칸(-)은 검증 완료의 정확한 100회 측정값이 아직 없다는 뜻이며 0초가 아니다.','small')
+    r.p('단위는 s/update이다. 빈칸(-)은 검증 완료의 정확한 100회 측정값이 아직 없다는 뜻이며 0초가 아니다. 다른 신경망 학습을 병행하지 않은 단일 측정이며, 일반 데스크톱·문서 작업은 계속되었다. 반복 측정의 분산은 구하지 않았다.','small')
     environments=[]
     for job in specs:
         path=root/'results/full_study'/job['id']/'environment.json'
@@ -503,6 +511,8 @@ def create_report(root,partial,pinn_python):
             r.p('위 결과는 순차 학습의 효과가 기하와 평가 성분에 의존함을 보여준다. 따라서 학습 방법의 선택에는 전체 목적함수의 감소뿐 아니라 변위·응력·온도·열유속의 오차와 경계조건의 만족도를 함께 고려해야 한다. 연성 경계조건의 에너지 최소화에서는 페널티 자체가 유발하는 편향도 별도로 평가할 필요가 있다.')
         if 'transfer_w0.1' in results and 'transfer_w0' in results:
             r.p('확장된 구조 연구와 전이학습에서도 개선은 성분별로 달랐다. 네트워크 깊이·너비의 증가가 단조 개선을 보장하지 않았고, 물리·데이터 결합은 일부 변위·응력·열유속을 개선하면서 온도 및 수직 열유속을 악화시켰다. 따라서 원문의 특정 최적 구조나 예외 성분을 이 구현에 그대로 일반화할 수 없다.')
+        if 'remark_rectangles_adam1m' in results:
+            r.p('100만 회 연속 Adam에서는 수평·수직 변위와 수직 열유속의 상대 L2 오차가 감소했지만 나머지 다섯 성분은 증가하였다. 최적화 예산의 증가만으로 FEM 오차가 단조 감소하지 않는다는 관측이며, 원인을 일반적인 과적합이나 특정 손실 항 하나로 확정하지 않는다.')
     r.h('15.1 적용 범위와 후속 검증',2)
     r.p('첫째, 단일 시드와 지정 기하·하중·재료비에 대한 결과이므로 표본 변동이나 다른 문제에 대한 일반화를 확정하지 않는다. 둘째, 소프트 페널티·에너지·재료 미분·학습 배치·옵티마이저 상태 정책은 비교의 의미를 바꾼다. 셋째, 원문의 미기재 설정과 도해/본문 충돌 때문에 완전한 동일 실험의 유일한 해석은 존재하지 않는다.')
     r.p('넷째, 비율 15의 성공은 새로운 미세구조·다른 경계조건·독립 두 재료비의 일반화를 입증하지 않는다. 다섯째, 원문 시각 형식과 색 범위를 맞춘 것은 수치해를 맞춘 것과 다르다. 포화 색 영역은 감사표로 드러내고 예측 배열은 그대로 둔다. 여섯째, 장기 궤적과 실제 장비 시간이 원문과 다른 것은 소프트웨어·장비·재구성 차이를 함께 검토해야 한다.')

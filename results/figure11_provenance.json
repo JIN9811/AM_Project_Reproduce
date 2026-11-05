@@ -1,6 +1,6 @@
 {
   "figure": "figures/full_study/fig11_circle_methods.png",
-  "figure_sha256": "b215c4a6494534306afca2c267a8fe7022c17741d686a2e6605ea0721ac2ba33",
+  "figure_sha256": "8ebbdbd508467f170ee21ec2ab9e517ba5730883fc70ec4d3a1577d05550d8a6",
   "data_origin": "Project-trained models and independently computed FEniCS reference",
   "paper_role": "Benchmark and comparison layout, Figure 11; no digitized curves or copied pixels",
   "paper_doi": "10.1002/nme.7388",

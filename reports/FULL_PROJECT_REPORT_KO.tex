@@ -42,7 +42,7 @@
 \renewcommand{\arraystretch}{1.25}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\footnotesize\sffamily\color{muted} AM PROJECT / 열탄성 혼합 물리정보 신경망의 수치 재현}
-\fancyfoot[L]{\scriptsize\sffamily\color{muted} 진행 보고서 | 검증 완료 \nolinkurl{26/52}}
+\fancyfoot[L]{\scriptsize\sffamily\color{muted} 등록 실험 완료 보고서 | 검증 완료 \nolinkurl{52/52}}
 \fancyfoot[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.3pt}
 \begin{document}
@@ -52,19 +52,19 @@ AM PROJECT  |  수치 재현 연구\par
 
 {\small\color{muted} Numerical Reproduction of Mixed Physics-Informed Neural Networks\newline for Thermoelastic Analysis of Heterogeneous Materials\par}
 
-{\small\color{muted} Harandi et al. (2024), DOI \nolinkurl{10.1002/nme.7388}\newline 진행 보고서 · 2026-11-05 03:19 KST\par}
+{\small\color{muted} Harandi et al. (2024), DOI \nolinkurl{10.1002/nme.7388}\newline 등록된 전체 실험 완료 보고서 · 2026-11-05 12:53 KST\par}
 
 \subsection{국문초록}
 
-본 연구는 이질 재료의 정상 열탄성 문제를 대상으로 혼합 물리정보 신경망의 수치 재현성과 적용 한계를 검토한다. 원형 및 사각형 개재물에 대해 FEniCS 기준해를 구성하고, 혼합·표준 신경망과 심층 에너지법의 예측을 동일 좌표에서 평가하였다. 경계조건 부과 방식, 학습 순서 및 에너지 항의 영향을 성분별 오차로 분석하였다. 원형 문제의 수평변위 상대 $L^2$ 오차는 동시 학습 2.86\%, 순차 학습 4.78\%로, 학습 방식의 우열이 일률적이지 않음을 확인하였다. 본 보고서는 검증된 26개 신경망 실험을 수록하며, 미완료 실험과 원문의 미기재 조건은 별도로 제시한다.\par
+본 연구는 이질 재료의 정상 열탄성 문제를 대상으로 혼합 물리정보 신경망의 수치 재현성과 적용 한계를 검토한다. 원형 및 사각형 개재물에 대해 FEniCS 기준해를 구성하고, 혼합·표준 신경망과 심층 에너지법의 예측을 동일 좌표에서 평가하였다. 경계조건 부과 방식, 학습 순서 및 에너지 항의 영향을 성분별 오차로 분석하였다. 원형 문제의 수평변위 상대 $L^2$ 오차는 동시 학습 2.86\%, 순차 학습 4.78\%로, 학습 방식의 우열이 일률적이지 않음을 확인하였다. 본 보고서는 검증된 27개 신경망 실험을 수록하며, 미완료 실험과 원문의 미기재 조건은 별도로 제시한다.\par
 
 {\small\color{muted} 핵심용어: 열탄성, 이질 재료, 물리정보 신경망, 혼합 정식화, 유한요소법, 수치 재현성\par}
 
-\textbf{작성 시점의 검증 완료 작업은 \nolinkurl{26/52}개이다.} 미완료 26개 작업은 결과 비교에 넣지 않았다. 이 문서는 전체 학습 완료나 방법의 우세를 주장하지 않는 진행 보고서이다.\par
+\textbf{작성 시점의 검증 완료 작업은 \nolinkurl{52/52}개이다.} 등록된 작업의 완료 기준을 충족했으나, 원문의 미기재 설정을 포함한 비트 단위 동일 재현을 뜻하지는 않는다.\par
 
-{\small\color{muted} 정확도 평가용 신경망 실험은 \nolinkurl{26/27}개, 독립 시간 측정은 \nolinkurl{0/25}개 완료되었다. 두 집계를 구분하며, 진행 중인 추가 학습의 중간 체크포인트를 최종 결과 표에 넣지 않는다.\par}
+{\small\color{muted} 정확도 평가용 신경망 실험은 \nolinkurl{27/27}개, 독립 시간 측정은 \nolinkurl{25/25}개 완료되었다. 두 집계를 구분하며, 진행 중인 추가 학습의 중간 체크포인트를 최종 결과 표에 넣지 않는다.\par}
 
-{\small\color{muted} 수치 자료 확정 시점: 2026-11-05 03:13 KST. 문서 생성 시각과 별도로 기록한다.\par}
+{\small\color{muted} 수치 자료 확정 시점: 2026-11-05 12:48 KST. 문서 생성 시각과 별도로 기록한다.\par}
 
 \begingroup\small
 
@@ -72,13 +72,13 @@ AM PROJECT  |  수치 재현 연구\par
 
 \rowcolor{tint} \textbf{구분} & \textbf{등록} & \textbf{검증 완료}\\\midrule
 
-혼합 PINN·구조·추가 예산 & 17 & 16\\\addlinespace[2pt]
+혼합 PINN·구조·추가 예산 & 17 & 17\\\addlinespace[2pt]
 
 표준 PINN·DEM 및 민감도 & 6 & 6\\\addlinespace[2pt]
 
 전이학습 & 4 & 4\\\addlinespace[2pt]
 
-독립 시간 측정 & 25 & 0\\\addlinespace[2pt]
+독립 시간 측정 & 25 & 25\\\addlinespace[2pt]
 
 \bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
 
@@ -86,7 +86,7 @@ AM PROJECT  |  수치 재현 연구\par
 
 \subsection{Abstract}
 
-This study examines the numerical reproducibility and limitations of mixed physics-informed neural networks for steady-state thermoelastic problems in heterogeneous materials. FEniCS reference solutions are constructed for circular and rectangular inclusions, and mixed and standard neural networks and the deep energy method are evaluated at identical spatial points. Component-wise errors are used to assess boundary enforcement, training order, and energy terms. For the circular inclusion, the relative $L^2$ errors in horizontal displacement are 2.86\% for coupled training and 4.78\% for sequential training, indicating that neither training strategy is uniformly superior. This report includes 26 verified neural-network experiments and separately identifies unfinished experiments and settings that are unspecified in the source paper.\par
+This study examines the numerical reproducibility and limitations of mixed physics-informed neural networks for steady-state thermoelastic problems in heterogeneous materials. FEniCS reference solutions are constructed for circular and rectangular inclusions, and mixed and standard neural networks and the deep energy method are evaluated at identical spatial points. Component-wise errors are used to assess boundary enforcement, training order, and energy terms. For the circular inclusion, the relative $L^2$ errors in horizontal displacement are 2.86\% for coupled training and 4.78\% for sequential training, indicating that neither training strategy is uniformly superior. This report includes 27 verified neural-network experiments and separately identifies unfinished experiments and settings that are unspecified in the source paper.\par
 
 {\small\color{muted} Keywords: thermoelasticity, heterogeneous materials, physics-informed neural networks, mixed formulation, finite element method, numerical reproducibility\par}
 
@@ -264,7 +264,7 @@ rectangles & 200 & 1.686e-15 & 1.481e-13 & -2.269e-13\\\addlinespace[2pt]
 
 \begin{equation}\begin{aligned}\boldsymbol r_{\sigma}&=\widehat{\boldsymbol\sigma}-\boldsymbol\sigma(\boldsymbol u,T),&\quad\boldsymbol r_q&=\widehat{\boldsymbol q}+k\nabla T,\\\boldsymbol r_{\mathrm M}&=\nabla\!\cdot\widehat{\boldsymbol\sigma},&r_{\mathrm T}&=\nabla\!\cdot\widehat{\boldsymbol q}.\end{aligned}\end{equation}
 
-저자 파일의 \nolinkurl{strain_xy}는 텐서 전단변형률 $\varepsilon_{xy}=(u_{x,y}+u_{y,x})/2$이며, \nolinkurl{sigma_xy}에 곱하는 계수는 통상적인 평면변형률 구성식과 2배 차이를 보인다. 본 구현은 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$로 통일하였다. 이는 원저자 파일의 문자 단위 복제가 아니라, 명시된 등방성 열탄성 모델에 대한 수정이다. 원문·공개 코드·재구성의 차이를 지운 채 동일 재현으로 서술하지 않는다.\par
+저자 파일의 \nolinkurl{strain_xy}는 텐서 전단변형률 $\varepsilon_{xy}=(u_{x,y}+u_{y,x})/2$이다. \nolinkurl{sigma_xy}의 계수는 $E/[(1+\nu)(1-2\nu)]\times(1-2\nu)=2\mu$이므로, 공개 코드와 본 프로젝트 모두 $\sigma_{xy}=2\mu\varepsilon_{xy}=\mu(u_{x,y}+u_{y,x})$를 사용한다. 원문의 식 40과 인쇄 식 49를 함께 읽었을 때의 계수 차이는 공개 코드와 구분한다. 이전 보고서의 “저자 공개 코드와 2배 차이”라는 설명은 정정했으며, 계산식과 기존 결과 배열은 변경하지 않았다.\par
 
 {\small\color{muted} 출처: \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L17-L55}{저자 코드의 출력·구성식 정의}; \href{https://github.com/phyml4e/PINNs/blob/5b426dc8eb2255b1bb3b8630619228b36cdb464e/Thermomechanic/Thermo_mechanic.py#L175-L278}{일·연결·평형 손실}. 고정 커밋: \nolinkurl{5b426dc8eb2255b1bb3b8630619228b36cdb464e}.\par}
 
@@ -696,13 +696,43 @@ Table 1의 100k와 Remark 7의 1M이 충돌하므로 사각형 100k 체크포인
 
 J01 & 4.325 & 2.202 & 0.8511 & 3.684\\\addlinespace[2pt]
 
+J52 & 3.468 & 3.763 & 1.819 & 5.157\\\addlinespace[2pt]
+
 \bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
 
 {\small\color{muted} 표의 값은 평균 절대오차/기준해 최대 절댓값(\%)이다. 일반 실행 FEM200, 비율 15는 별도 FEM50을 기준으로 하며, 구성식/Fourier 출력을 사용한다. 전체 8성분·직접 출력은 부록 B에 있다.\par}
 
-{\small\color{muted} 비교 대기: J52 대 J01. 두 실행이 모두 완료·평가되기 전에는 개선 여부를 결론내리지 않는다.\par}
+\begingroup\small
 
-{\small\color{muted} 그림 대기: 그림 6. 100k와 1M의 기록된 누적 시간·업데이트 비교. 연속 실행의 재사용 예산을 이중 계산하지 않는다. 완료 실행과 기준해가 준비되면 추가된다.\par}
+\par\begin{minipage}{\linewidth}\captionof{table}{Remark 7의 1M 문구}\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.18\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.44\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.38\linewidth-2\tabcolsep\relax}}
+
+\rowcolor{tint} \textbf{성분} & \textbf{J52 - J01 평균(pp)} & \textbf{최대(pp)}\\\midrule
+
+$u_x$ & -0.8569 & 0.1069\\\addlinespace[2pt]
+
+$u_y$ & -0.8081 & -4.492\\\addlinespace[2pt]
+
+$\sigma_{xx}$ & 1.561 & 68.59\\\addlinespace[2pt]
+
+$\sigma_{yy}$ & 0.6446 & 8.748\\\addlinespace[2pt]
+
+$\sigma_{xy}$ & 0.6858 & 112.8\\\addlinespace[2pt]
+
+T & 0.9682 & 1.73\\\addlinespace[2pt]
+
+$q_x$ & 1.473 & 10.16\\\addlinespace[2pt]
+
+$q_y$ & -1.22 & 2.479\\\addlinespace[2pt]
+
+\bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
+
+{\small\color{muted} 왼쪽 실행의 평균오차가 작은 성분은 \nolinkurl{3/8}개, 최대오차가 작은 성분은 \nolinkurl{1/8}개이다. 양의 변화는 악화, 음의 변화는 개선이다. 단일 시드 결과이며 통계적 우세나 모든 상황의 순위로 확대하지 않는다.\par}
+
+\par\begin{minipage}{\linewidth}\centering
+\includegraphics[width=\linewidth,height=90.0mm,keepaspectratio]{\detokenize{../figures/full_study/remark07_runtime.png}}
+\captionof{figure}{100k와 1M의 기록된 누적 시간·업데이트 비교. 연속 실행의 재사용 예산을 이중 계산하지 않는다.}\end{minipage}\par
+
+FEM200 대비 상대 $L^2$ 오차가 감소한 성분은 \nolinkurl{3/8}개($u_x$, $u_y$, $q_y$)이다. 온도는 1.58\%에서 3.52\%, 수평 정상응력은 4.60\%에서 8.70\%로 증가하였다. 같은 궤적의 학습 예산을 10배로 늘려도 모든 장의 정확도가 개선되지는 않았다. 최종 1,000,000회 가중치를 평가했으며 중간 체크포인트에서 가장 좋은 결과를 선택하지 않았다.\par
 
 \clearpage
 
@@ -790,19 +820,19 @@ $q_y$ & 0.1932 & -1.891\\\addlinespace[2pt]
 
 \rowcolor{tint} \textbf{층 / 뉴런} & \textbf{5} & \textbf{10} & \textbf{20} & \textbf{40} & \textbf{60}\\\midrule
 
-1 & - & - & - & - & -\\\addlinespace[2pt]
+1 & 0.06349 & 0.06265 & 0.0682 & 0.2968 & 0.2593\\\addlinespace[2pt]
 
-2 & - & - & - & - & -\\\addlinespace[2pt]
+2 & 0.3075 & 0.08059 & 0.09073 & 0.0804 & 0.09025\\\addlinespace[2pt]
 
-4 & - & - & - & - & -\\\addlinespace[2pt]
+4 & 0.1023 & 0.08936 & 0.1162 & 0.09753 & 0.0988\\\addlinespace[2pt]
 
-5 & - & - & - & - & -\\\addlinespace[2pt]
+5 & 0.2934 & 0.345 & 0.469 & 0.1204 & 0.1138\\\addlinespace[2pt]
 
-6 & - & - & - & - & -\\\addlinespace[2pt]
+6 & 0.5205 & 0.1195 & 0.5418 & 0.6218 & 0.5271\\\addlinespace[2pt]
 
 \bottomrule\end{tabular}\end{minipage}\par\vspace{5pt}\endgroup
 
-{\small\color{muted} 단위는 \nolinkurl{s/update}이다. 빈칸(-)은 검증 완료의 정확한 100회 측정값이 아직 없다는 뜻이며 0초가 아니다.\par}
+{\small\color{muted} 단위는 \nolinkurl{s/update}이다. 빈칸(-)은 검증 완료의 정확한 100회 측정값이 아직 없다는 뜻이며 0초가 아니다. 다른 신경망 학습을 병행하지 않은 단일 측정이며, 일반 데스크톱·문서 작업은 계속되었다. 반복 측정의 분산은 구하지 않았다.\par}
 
 \begingroup\small
 
@@ -980,7 +1010,7 @@ rectangles 100 & 0.00662 & 0.0614 & 0.156 & 0.169 & 5.2 & 0.00122 & 0.128 & 4.82
 
 \section{15. 결론}
 
-현재 26개 신경망 실행의 예측 배열과 기준해를 정렬하여 오차를 다시 계산했다. 각 절의 표와 변화량은 실제 완료 결과에 한정된다. 개선 성분과 악화 성분을 모두 남기며, 아래 제한 없이 보편적인 방법 순위로 확대하지 않는다.\par
+현재 27개 신경망 실행의 예측 배열과 기준해를 정렬하여 오차를 다시 계산했다. 각 절의 표와 변화량은 실제 완료 결과에 한정된다. 개선 성분과 악화 성분을 모두 남기며, 아래 제한 없이 보편적인 방법 순위로 확대하지 않는다.\par
 
 \begingroup\small
 
@@ -1001,6 +1031,8 @@ rectangles 100 & 0.00662 & 0.0614 & 0.156 & 0.169 & 5.2 & 0.00122 & 0.128 & 4.82
 위 결과는 순차 학습의 효과가 기하와 평가 성분에 의존함을 보여준다. 따라서 학습 방법의 선택에는 전체 목적함수의 감소뿐 아니라 변위·응력·온도·열유속의 오차와 경계조건의 만족도를 함께 고려해야 한다. 연성 경계조건의 에너지 최소화에서는 페널티 자체가 유발하는 편향도 별도로 평가할 필요가 있다.\par
 
 확장된 구조 연구와 전이학습에서도 개선은 성분별로 달랐다. 네트워크 깊이·너비의 증가가 단조 개선을 보장하지 않았고, 물리·데이터 결합은 일부 변위·응력·열유속을 개선하면서 온도 및 수직 열유속을 악화시켰다. 따라서 원문의 특정 최적 구조나 예외 성분을 이 구현에 그대로 일반화할 수 없다.\par
+
+100만 회 연속 Adam에서는 수평·수직 변위와 수직 열유속의 상대 $L^2$ 오차가 감소했지만 나머지 다섯 성분은 증가하였다. 최적화 예산의 증가만으로 FEM 오차가 단조 감소하지 않는다는 관측이며, 원인을 일반적인 과적합이나 특정 손실 항 하나로 확정하지 않는다.\par
 
 \subsection{15.1 적용 범위와 후속 검증}
 
@@ -1104,61 +1136,59 @@ J25 & \nolinkurl{transfer_w0}.5 & 5$\times$40 / soft / Adam & 100000 / 100,000 &
 
 J26 & \nolinkurl{transfer_w1} & 5$\times$40 / soft / Adam & 100000 / 100,000 & 검증 완료\\\addlinespace[1pt]
 
-J27 & \nolinkurl{timing_l1_w5} & 1$\times$5 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J27 & \nolinkurl{timing_l1_w5} & 1$\times$5 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J28 & \nolinkurl{timing_l1_w10} & 1$\times$10 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J28 & \nolinkurl{timing_l1_w10} & 1$\times$10 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J29 & \nolinkurl{timing_l1_w20} & 1$\times$20 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J29 & \nolinkurl{timing_l1_w20} & 1$\times$20 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J30 & \nolinkurl{timing_l1_w40} & 1$\times$40 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J30 & \nolinkurl{timing_l1_w40} & 1$\times$40 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J31 & \nolinkurl{timing_l1_w60} & 1$\times$60 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J31 & \nolinkurl{timing_l1_w60} & 1$\times$60 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J32 & \nolinkurl{timing_l2_w5} & 2$\times$5 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J32 & \nolinkurl{timing_l2_w5} & 2$\times$5 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J33 & \nolinkurl{timing_l2_w10} & 2$\times$10 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J33 & \nolinkurl{timing_l2_w10} & 2$\times$10 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J34 & \nolinkurl{timing_l2_w20} & 2$\times$20 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J34 & \nolinkurl{timing_l2_w20} & 2$\times$20 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J35 & \nolinkurl{timing_l2_w40} & 2$\times$40 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J35 & \nolinkurl{timing_l2_w40} & 2$\times$40 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J36 & \nolinkurl{timing_l2_w60} & 2$\times$60 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J36 & \nolinkurl{timing_l2_w60} & 2$\times$60 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J37 & \nolinkurl{timing_l4_w5} & 4$\times$5 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J37 & \nolinkurl{timing_l4_w5} & 4$\times$5 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J38 & \nolinkurl{timing_l4_w10} & 4$\times$10 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J38 & \nolinkurl{timing_l4_w10} & 4$\times$10 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J39 & \nolinkurl{timing_l4_w20} & 4$\times$20 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J39 & \nolinkurl{timing_l4_w20} & 4$\times$20 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J40 & \nolinkurl{timing_l4_w40} & 4$\times$40 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J40 & \nolinkurl{timing_l4_w40} & 4$\times$40 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J41 & \nolinkurl{timing_l4_w60} & 4$\times$60 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J41 & \nolinkurl{timing_l4_w60} & 4$\times$60 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J42 & \nolinkurl{timing_l5_w5} & 5$\times$5 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J42 & \nolinkurl{timing_l5_w5} & 5$\times$5 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J43 & \nolinkurl{timing_l5_w10} & 5$\times$10 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J43 & \nolinkurl{timing_l5_w10} & 5$\times$10 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J44 & \nolinkurl{timing_l5_w20} & 5$\times$20 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J44 & \nolinkurl{timing_l5_w20} & 5$\times$20 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J45 & \nolinkurl{timing_l5_w40} & 5$\times$40 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J45 & \nolinkurl{timing_l5_w40} & 5$\times$40 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J46 & \nolinkurl{timing_l5_w60} & 5$\times$60 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J46 & \nolinkurl{timing_l5_w60} & 5$\times$60 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J47 & \nolinkurl{timing_l6_w5} & 6$\times$5 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J47 & \nolinkurl{timing_l6_w5} & 6$\times$5 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J48 & \nolinkurl{timing_l6_w10} & 6$\times$10 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J48 & \nolinkurl{timing_l6_w10} & 6$\times$10 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J49 & \nolinkurl{timing_l6_w20} & 6$\times$20 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J49 & \nolinkurl{timing_l6_w20} & 6$\times$20 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J50 & \nolinkurl{timing_l6_w40} & 6$\times$40 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J50 & \nolinkurl{timing_l6_w40} & 6$\times$40 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J51 & \nolinkurl{timing_l6_w60} & 6$\times$60 / hard / L-BFGS & - / 100 & 대기\\\addlinespace[1pt]
+J51 & \nolinkurl{timing_l6_w60} & 6$\times$60 / hard / L-BFGS & 100 / 100 & 검증 완료\\\addlinespace[1pt]
 
-J52 & \nolinkurl{remark_rectangles_adam1m} & 5$\times$40 / soft / Adam & - / 1,000,000 & 로컬 학습 중\\\addlinespace[1pt]
+J52 & \nolinkurl{remark_rectangles_adam1m} & 5$\times$40 / soft / Adam & 1000000 / 1,000,000 & 검증 완료\\\addlinespace[1pt]
 
 \end{longtable}\endgroup
-
-{\small\color{muted} 로컬 학습 중 표시는 공개 자료 갱신 때 관측한 상태이다. 공개본에는 해당 실행의 중간 모델을 포함하지 않아 실제 횟수는 빈값으로 남긴다. 최종 결과 표는 검증 완료 실행만 사용한다.\par}
 
 \clearpage
 
@@ -1232,6 +1262,8 @@ J25 & 9.97 & 29.7 & 36.7 & 50.3 & 68.8 & 3.01 & 41.3 & 54.9\\\addlinespace[1pt]
 
 J26 & 11.5 & 34.2 & 40 & 49.9 & 79.8 & 3.21 & 37.8 & 56.1\\\addlinespace[1pt]
 
+J52 & 6.6 & 18.8 & 5.57 & 4.72 & 30.8 & 3.52 & 9.22 & 71.3\\\addlinespace[1pt]
+
 \end{longtable}\endgroup
 
 {\small\color{muted} 빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 \nolinkurl{validation/FULL_STUDY_RESULTS.json}에 있다.\par}
@@ -1303,6 +1335,8 @@ J24 & 0.02212 & 0.01242 & 0.1235 & 0.1602 & 0.0326 & 0.01342 & 0.1333 & 0.0375\\
 J25 & 0.01647 & 0.01378 & 0.1215 & 0.1615 & 0.02764 & 0.01435 & 0.1238 & 0.03476\\\addlinespace[1pt]
 
 J26 & 0.01956 & 0.01609 & 0.1377 & 0.1646 & 0.03221 & 0.01483 & 0.1162 & 0.03868\\\addlinespace[1pt]
+
+J52 & 0.01043 & 0.003138 & 0.04126 & 0.04061 & 0.008262 & 0.01819 & 0.04595 & 0.02549\\\addlinespace[1pt]
 
 \end{longtable}\endgroup
 
@@ -1376,6 +1410,8 @@ J25 & 0.06295 & 0.08476 & 1.081 & 1.956 & 0.3645 & 0.08298 & 1.21 & 0.4094\\\add
 
 J26 & 0.08191 & 0.09607 & 1.067 & 1.961 & 0.3983 & 0.08165 & 1.211 & 0.4247\\\addlinespace[1pt]
 
+J52 & 0.02894 & 0.0102 & 0.2317 & 0.2541 & 0.1698 & 0.04881 & 0.5027 & 0.2424\\\addlinespace[1pt]
+
 \end{longtable}\endgroup
 
 {\small\color{muted} 빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 \nolinkurl{validation/FULL_STUDY_RESULTS.json}에 있다.\par}
@@ -1447,6 +1483,8 @@ J24 & 12.7 & 26.1 & 69.6 & 61.4 & 112 & 3.02 & 13.8 & 56\\\addlinespace[1pt]
 J25 & 9.97 & 29.7 & 71.6 & 64.6 & 110 & 3.01 & 14.3 & 52.4\\\addlinespace[1pt]
 
 J26 & 11.5 & 34.2 & 70 & 76.5 & 112 & 3.21 & 16.8 & 60.5\\\addlinespace[1pt]
+
+J52 & 6.6 & 18.8 & 8.7 & 6.11 & 51.5 & 3.52 & 11.7 & 58.5\\\addlinespace[1pt]
 
 \end{longtable}\endgroup
 
@@ -1520,6 +1558,8 @@ J25 & 0.01647 & 0.01378 & 0.1928 & 0.1927 & 0.04061 & 0.01435 & 0.05086 & 0.0352
 
 J26 & 0.01956 & 0.01609 & 0.1905 & 0.2143 & 0.03866 & 0.01483 & 0.06274 & 0.04181\\\addlinespace[1pt]
 
+J52 & 0.01043 & 0.003138 & 0.04836 & 0.045 & 0.01059 & 0.01819 & 0.05885 & 0.02155\\\addlinespace[1pt]
+
 \end{longtable}\endgroup
 
 {\small\color{muted} 빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 \nolinkurl{validation/FULL_STUDY_RESULTS.json}에 있다.\par}
@@ -1592,6 +1632,8 @@ J25 & 0.06295 & 0.08476 & 2.321 & 2.668 & 0.7281 & 0.08298 & 0.5249 & 0.3999\\\a
 
 J26 & 0.08191 & 0.09607 & 2.089 & 4.365 & 0.9385 & 0.08165 & 0.5091 & 0.3651\\\addlinespace[1pt]
 
+J52 & 0.02894 & 0.0102 & 1.087 & 0.4547 & 0.4664 & 0.04881 & 0.487 & 0.2772\\\addlinespace[1pt]
+
 \end{longtable}\endgroup
 
 {\small\color{muted} 빈값(-)은 정의할 수 없는 분모를 뜻한다. 작업 ID 및 경계·구조·예산은 부록 A, 평균/최대 정규화의 원시 자료는 \nolinkurl{validation/FULL_STUDY_RESULTS.json}에 있다.\par}
@@ -1661,6 +1703,8 @@ J24 & \nolinkurl{results/full_study/parametric_fem/ratio_15/solution.npz} & 8770
 J25 & \nolinkurl{results/full_study/parametric_fem/ratio_15/solution.npz} & f5e6e2c0efdd\\\addlinespace[1pt]
 
 J26 & \nolinkurl{results/full_study/parametric_fem/ratio_15/solution.npz} & 12de1f967327\\\addlinespace[1pt]
+
+J52 & \nolinkurl{results/fem_rectangles_n200/solution.npz} & c723e2745b3a\\\addlinespace[1pt]
 
 \end{longtable}\endgroup
 
@@ -1858,7 +1902,7 @@ C22 & 34,35 & 정성적 FEM 수렴 & 100에서 거의 수렴이라는 말에 허
 
 {\small\color{muted} \nolinkurl{docs/FULL_STUDY_PROTOCOL.json}\newline \nolinkurl{70e9fd313200254d329a20552be5f5e9ee9e92d046c027baa29a149963a110d2}\par}
 
-{\small\color{muted} \nolinkurl{validation/FULL_STUDY_RESULTS.json}\newline \nolinkurl{cc157686fd24daace0ee667bf871d1637e1eb45ea0e43baa685faf2baa663aa7}\par}
+{\small\color{muted} \nolinkurl{validation/FULL_STUDY_RESULTS.json}\newline \nolinkurl{5961aa218d307cf484352f6771846ae54420b8d495ab99e2648868e0ef145241}\par}
 
 재생성 명령은 문서용 Python으로 \nolinkurl{scripts/build_full_korean_report.py}를 실행하고 --pinn-python에 torch가 있는 프로젝트 Python을 지정하는 것이다. 엄격한 기본값은 전체 작업 및 최신 그림집의 완료를 요구한다. --partial만 진행 보고서를 허용하며 표지와 모든 페이지의 꼬리말에 이를 표시한다. 보고서 생성 과정은 신경망 학습을 수행하지 않는다. LaTeX 원본과 Markdown 및 PDF를 함께 갱신한다. XeLaTeX 설치와 재생성 명령은 \nolinkurl{docs/LATEX_REPORTS_KO.md}에 정리하였다.\par
 
